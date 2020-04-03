@@ -1,0 +1,29 @@
+program qqq;
+
+var
+    a, c: Cardinal;
+    b: Integer;
+    f: Integer;
+    q, w: array[1..3] of Integer;
+
+function qqq: Integer;
+    begin
+        variable := 5 + 3;
+    end.
+
+function qqq: Integer;
+    begin
+        variable := 5 + 3;
+    end.
+
+function qqq: Cardinal;
+    begin
+        variable := 5 + 3;
+    end.
+
+begin
+	addition := 1 + 2;
+	multiplication := 1 * 2;
+	relation := 4 < 5;
+	read(a, b);
+end.

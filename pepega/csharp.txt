@@ -1,0 +1,15 @@
+program MainProgram
+{
+	public static void Main(string[] params)
+	{
+
+	}
+}
+
+class Class1
+{
+    public int qwerty()
+    {
+        int a = 5;
+    }
+}

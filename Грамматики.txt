@@ -1,0 +1,36 @@
+() [] -> служебные скобки. Если скобки является частью языка, то они в одинарных кавычках. 
+В [] заключаются необязательные конструкции, 
+например, \([parameters]\) - означает, что может быть и \(\), и \(parameters\).
+ 
+<main> => (<function> <main>) | "{" <main> "}" | <action_chain> | empty
+<function> => <type> <identifier> "(" <parameters> ")" "{" <main> "}"
+<action_chain> => (<condition> <main>) | (<cycle> <main>) | (<switch> <main>) | <special_action> | <return> | empty
+<condition> => "if" "(" <expr> ")" (";" | <expr>";" | "{" <main> "}") "else" (";" | <expr>";" | "{" <main> "}" | <condition>)
+<cycle> => <for> | <while>
+<switch> => "switch" "(" <expr> ")" "{" <case> [<case> [...]] "}"
+<special_action> => "continue;" | "break;"
+<return> => "return" <expr>
+<for> => "for" "(" <declaration> ";" <expr> ";" <expr> ")" (";" | <expr>";" | "{" <main "}")
+<while> => "while" "(" <expr> ")" (";" | <expr>";" | "{" <main> "}")
+<case> => "case" <expr> ":" <main>
+<parameters> => <parameter> ("," <parameter>)*
+<parameter> => <type> <identifier> [ = <expr>]
+<expr> => <term> | <term> (, <term>)*
+<term> => <equated_expr> | <equated_expr> == <term> | <equated_expr> != <term> || <equated_expr> is (<type> | "null")
+<equated_expr> => <compared_expr> | <compared_expr> > <equated_expr> | <compared_expr> < <equated_expr> | <compared_expr> >= <equated_expr> | <compared_expr> <= <equated_expr>
+<compared_expr> => <assigned_expr> | <assigned_expr> += <compared_expr> | <assigned_expr> -= <compared_expr> | <assigned_expr> *= <compared_expr> | <assigned_expr> /= <compared_expr>
+<assigned_expr> => <pm_expr> | <pm_expr> + <assigned_expr> | <pm_expr> - <assigned_expr>
+<pm_expr> => <muldiv_expr> | <muldiv_expr> * <pm_expr> | <muldiv_expr> / <pm_expr>
+<muldiv_expr> => <unary_expr>
+<unary_expr> => <postfix_expr> | <unary_expr>++ || <unary_expr>--
+<postfix_expr> => <prefix_expr> | ++<postfix_expr> || --<postfix_expr>
+<prefix_expr> => <basic_expr>
+<basic_expr> => <integer> | <float> | <double> | <char> | <string> | "(" <expr> ")"
+<type> => "int" | "float" | "double" | "char" | "string" | "bool" | "void"
+
+<integer> => 
+<float> => 
+<double> => 
+<char> => 
+<string> => 
+
