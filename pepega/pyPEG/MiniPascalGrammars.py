@@ -19,6 +19,9 @@ class FunctionDeclarations(List):
 class FunctionDeclaration(List):
     pass
 
+class FunctionHeader(List):
+    pass
+
 class FunctionParameters(List):
     pass
 
@@ -47,9 +50,6 @@ class SimpleStatement(List):
     pass
 
 class AssignmentStatement(List):
-    pass
-
-class ProcedureStatement(List):
     pass
 
 class ReadStatement(List):
@@ -124,7 +124,7 @@ class IntegerConstant(List):
 
 
 Program.grammar = "program", attr("program_name", Identifier), ";", Block, "."
-Block.grammar = optional(VariableDeclarations), CompoundStatement
+Block.grammar = optional(VariableDeclarations), optional(FunctionDeclarations), CompoundStatement
 
 VariableDeclarations.grammar = "var", some(VariableDeclaration, ";")
 VariableDeclaration.grammar = csl(Identifier), ":", Type
@@ -134,7 +134,8 @@ IndexRange.grammar = IntegerConstant, "..", IntegerConstant
 SimpleType.grammar = Enum(K("Byte"), K("Integer"), K("Cardinal"), K("Shortint"), K("Smallint"), K("Longint"), K("Int64"), K("Word"), K("Longword"))
 
 FunctionDeclarations.grammar = some(FunctionDeclaration)
-FunctionDeclaration.grammar = "function", Identifier, FunctionParameters, ":", Type, ";", optional(VariableDeclarations), CompoundStatement, ";"
+FunctionDeclaration.grammar = FunctionHeader, optional(VariableDeclarations), optional(CompoundStatement, ".")
+FunctionHeader.grammar = "function", Identifier, FunctionParameters, ":", Type, ";"
 FunctionParameters.grammar = "(", csl(Identifier), ":", Type, ")"
 
 CompoundStatement.grammar = "begin", maybe_some(Statement, ";"), "end"
@@ -147,7 +148,7 @@ OutputExpression.grammar = Expression
 ReadStatement.grammar = "read", "(", csl(InputVariable), ")"
 InputVariable.grammar = Variable
 
-FunctionStatement.grammar = Identifier, "(", attr("params", csl(Identifier)), ")"
+FunctionStatement.grammar = Identifier, optional("(", attr("params", csl(Identifier)), ")")
 
 StructuredStatement.grammar = [IfStatement, WhileStatement]
 IfStatement.grammar = "if", attr("condition", Expression), "then", attr("then_body", Statement), optional("else", attr("else_body", Statement))

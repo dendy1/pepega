@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a909d17e-b6c2-449d-b0a3-2a872754bb4b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/C_AST/Parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/C_AST/AST.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/C_AST/ASTNode.py" beforeDir="false" afterPath="$PROJECT_DIR$/C_AST/ASTNode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csharp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/debug.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/minipascal.txt" beforeDir="false" afterPath="$PROJECT_DIR$/minipascal.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyPEG/CSharpGrammars.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyPEG/Helpers.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pyPEG/MiniPascalGrammars.py" beforeDir="false" afterPath="$PROJECT_DIR$/pyPEG/MiniPascalGrammars.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyPEG/oldMiniPascalGrammars.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Грамматики v2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Грамматики v3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Грамматики.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Примеры/Program.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +124,7 @@
       <workItem from="1585997419235" duration="15187000" />
       <workItem from="1586081152000" duration="19665000" />
       <workItem from="1586185502699" duration="2607000" />
+      <workItem from="1586202697019" duration="1292000" />
     </task>
     <servers />
   </component>
@@ -163,45 +150,45 @@
     </state>
     <state x="613" y="243" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1585425911803" />
     <state x="876" y="352" key="FileChooserDialogImpl/0.0.2194.1194@0.0.2194.1194" timestamp="1585926699819" />
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1586201209562">
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom" timestamp="1586203898149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586201209562" />
+    <state width="1493" height="168" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586203898149" />
     <state width="2151" height="409" key="GridCell.Tab.0.bottom/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1586201209562">
+    <state width="1493" height="168" key="GridCell.Tab.0.center" timestamp="1586203898149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586201209562" />
+    <state width="1493" height="168" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1586203898149" />
     <state width="2151" height="409" key="GridCell.Tab.0.center/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1586201209562">
+    <state width="1493" height="168" key="GridCell.Tab.0.left" timestamp="1586203898149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586201209562" />
+    <state width="1493" height="168" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1586203898149" />
     <state width="2151" height="409" key="GridCell.Tab.0.left/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1586201209562">
+    <state width="1493" height="168" key="GridCell.Tab.0.right" timestamp="1586203898149">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586201209562" />
+    <state width="1493" height="168" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1586203898149" />
     <state width="2151" height="409" key="GridCell.Tab.0.right/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1586017148720">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1586203571868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586017148720" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1586203571868" />
     <state width="2151" height="409" key="GridCell.Tab.1.bottom/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1586017148719">
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1586203571868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586017148719" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1586203571868" />
     <state width="2151" height="409" key="GridCell.Tab.1.center/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1586017148719">
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1586203571868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586017148719" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1586203571868" />
     <state width="2151" height="409" key="GridCell.Tab.1.left/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1586017148719">
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1586203571868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586017148719" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1586203571868" />
     <state width="2151" height="409" key="GridCell.Tab.1.right/0.0.2194.1194@0.0.2194.1194" timestamp="1585955301553" />
     <state x="606" y="240" key="SettingsEditor" timestamp="1584811712949">
       <screen x="0" y="0" width="2194" height="1194" />
@@ -233,6 +220,6 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/pepega$main.coverage" NAME="main Coverage Results" MODIFIED="1586186969614" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pepega$main.coverage" NAME="main Coverage Results" MODIFIED="1586203898139" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
