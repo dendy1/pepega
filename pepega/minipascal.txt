@@ -6,24 +6,11 @@ var
     f: Integer;
     q, w: array[1..3] of Integer;
 
-function qqq: Integer;
+function www(f, c: Integer) of Indeger;
     begin
-        variable := 5 + 3;
-    end.
-
-function qqq: Integer;
-    begin
-        variable := 5 + 3;
-    end.
-
-function qqq: Cardinal;
-    begin
-        variable := 5 + 3;
-    end.
+    end;
 
 begin
-	addition := 1 + 2;
-	multiplication := 1 * 2;
-	relation := 4 < 5;
+    a := 1 + 3;
 	read(a, b);
 end.

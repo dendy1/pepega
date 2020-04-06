@@ -1,13 +1,13 @@
 from pyPEG.MiniPascalGrammars import *
 from pypeg2 import *
-from C_AST.AST import AST
+from C_AST.Parser import Parser
 
 def main():
-    filename = "debug.txt"
+    filename = "minipascal.txt"
     file = open(filename, "r")
     if file.mode == 'r':
         program_lines = file.read()
-        program = parse(program_lines, StatementPart, filename)
+        program = parse(program_lines, Program, filename)
 
         print("\n== SOURCE LINES ==\n")
         print(program_lines)
@@ -15,10 +15,15 @@ def main():
         print("\n== pyPEG ==\n")
         print(program)
 
+        parser = Parser(program)
+
+        print("\n== CONTEXT SYNTAX TREE ==\n")
+        parser.printCST()
+
         print("\n== ABSTRACT SYNTAX TREE ==\n")
-        ast = AST()
-        ast.parse(program)
-        ast.printCST()
+        parser.printAST()
+
+        #parser.printScope()
 
 if __name__ == "__main__":
     main()
