@@ -1,125 +1,128 @@
-from pypeg2 import *
+from pyPEG.pyPEG import *
 import re
 
-class Program(List):
+class Program(CustomList):
     pass
 
-class Block(List):
+class Block(CustomList):
     pass
 
-class VariableDeclarations(List):
+class VariableDeclarations(CustomList):
     pass
 
-class VariableDeclaration(List):
+class VariableDeclaration(CustomList):
     pass
 
-class FunctionDeclarations(List):
+class FunctionDeclarations(CustomList):
     pass
 
-class FunctionDeclaration(List):
+class FunctionDeclaration(CustomList):
     pass
 
-class FunctionHeader(List):
+class FunctionHeader(CustomList):
     pass
 
-class FunctionParameters(List):
+class FunctionParameters(CustomList):
     pass
 
-class FunctionStatement(List):
+class FunctionStatement(CustomList):
     pass
 
-class Type(List):
+class Type(CustomList):
     pass
 
-class ArrayType(List):
+class ArrayType(CustomList):
     pass
 
-class SimpleType(Keyword):
+class SimpleType(CustomKeyword):
     pass
 
-class IndexRange(List):
+class IndexRange(CustomList):
     pass
 
-class CompoundStatement(List):
+class CompoundStatement(CustomList):
     pass
 
-class Statement(List):
+class Statement(CustomList):
     pass
 
-class SimpleStatement(List):
+class SimpleStatement(CustomList):
     pass
 
-class AssignmentStatement(List):
+class AssignmentStatement(CustomList):
     pass
 
-class ReadStatement(List):
+class ReadStatement(CustomList):
     pass
 
-class InputVariable(List):
+class InputVariable(CustomList):
     pass
 
-class WriteStatement(List):
+class WriteStatement(CustomList):
     pass
 
-class OutputExpression(List):
+class OutputExpression(CustomList):
     pass
 
-class StructuredStatement(List):
+class StructuredStatement(CustomList):
     pass
 
-class IfStatement(List):
+class IfStatement(CustomList):
     pass
 
-class WhileStatement(List):
+class WhileStatement(CustomList):
     pass
 
-class Expression(List):
+class Expression(CustomList):
     pass
 
-class RelationalExpression(List):
+class RelationalExpression(CustomList):
     pass
 
-class AdditiveExpression(List):
+class AdditiveExpression(CustomList):
     pass
 
-class MultiplicativeExpression(List):
+class MultiplicativeExpression(CustomList):
     pass
 
-class SignedFactor(List):
+class SignedFactor(CustomList):
     pass
 
-class Factor(List):
+class Factor(CustomList):
     pass
 
-class RelationalOperator(Keyword):
-    grammar = Enum(K("="), K("<>"), K("<"), K("<="), K(">="), K(">"))
-    regex = re.compile('.*')
+class Primary(CustomList):
+    pass
 
-class AdditiveOperator(Keyword):
+class RelationalOperator(CustomKeyword):
+    grammar = Enum(K("!="), K("=="), K("<"), K("<="), K(">="), K(">"))
+    regex = re.compile('[<>=!]=?')
+
+class AdditiveOperator(CustomKeyword):
     grammar = Enum(K("+"), K("-"))
     regex = re.compile('[+-]')
 
-class MultiplicativeOperator(Keyword):
-    grammar = Enum(K("*"), K("div"), K("and"))
-    regex = re.compile('.*')
+class MultiplicativeOperator(CustomKeyword):
+    grammar = Enum(K("*"), K("/"), K("%"))
+    regex = re.compile('[*/%]')
 
-class Sign(Keyword):
+class Sign(CustomKeyword):
     grammar = Enum(K("+"), K("-"))
     regex = re.compile('[+-]')
 
-class Variable(List):
+class Variable(CustomList):
     pass
 
-class IndexedVariable(List):
+class IndexedVariable(CustomList):
     pass
 
-class EntireVariable(List):
+class EntireVariable(CustomList):
     pass
 
-class Identifier(List):
+class Identifier(CustomList):
     pass
 
-class IntegerConstant(List):
+class IntegerConstant(CustomList):
     pass
 
 
@@ -133,13 +136,13 @@ ArrayType.grammar = "array", "[", optional(IndexRange), "]", "of", SimpleType
 IndexRange.grammar = IntegerConstant, "..", IntegerConstant
 SimpleType.grammar = Enum(K("Byte"), K("Integer"), K("Cardinal"), K("Shortint"), K("Smallint"), K("Longint"), K("Int64"), K("Word"), K("Longword"))
 
-FunctionDeclarations.grammar = some(FunctionDeclaration)
-FunctionDeclaration.grammar = FunctionHeader, optional(VariableDeclarations), optional(CompoundStatement, ".")
+FunctionDeclarations.grammar = some(FunctionDeclaration, ";")
+FunctionDeclaration.grammar = FunctionHeader, optional(VariableDeclarations), CompoundStatement
 FunctionHeader.grammar = "function", Identifier, FunctionParameters, ":", Type, ";"
 FunctionParameters.grammar = "(", csl(Identifier), ":", Type, ")"
 
-CompoundStatement.grammar = "begin", maybe_some(Statement, ";"), "end"
-Statement.grammar = [SimpleStatement, StructuredStatement]
+CompoundStatement.grammar = "begin", maybe_some(Statement), "end"
+Statement.grammar = [(SimpleStatement, ";"), StructuredStatement]
 
 SimpleStatement.grammar = [AssignmentStatement, WriteStatement, ReadStatement, FunctionStatement]
 AssignmentStatement.grammar = Identifier, ":=", Expression
@@ -148,16 +151,16 @@ OutputExpression.grammar = Expression
 ReadStatement.grammar = "read", "(", csl(InputVariable), ")"
 InputVariable.grammar = Variable
 
-FunctionStatement.grammar = Identifier, optional("(", attr("params", csl(Identifier)), ")")
+FunctionStatement.grammar = Identifier, "(", optional(csl(Identifier)), ")"
 
 StructuredStatement.grammar = [IfStatement, WhileStatement]
-IfStatement.grammar = "if", attr("condition", Expression), "then", attr("then_body", Statement), optional("else", attr("else_body", Statement))
-WhileStatement.grammar = "while", attr("condition", Expression), "do", attr("do_body", Statement)
+IfStatement.grammar = "if", Expression, "then", some(Statement), optional("else", some(Statement))
+WhileStatement.grammar = "while", Expression, "do", Statement
 
 Expression.grammar = RelationalExpression
 RelationalExpression.grammar = AdditiveExpression, optional(RelationalOperator, AdditiveExpression)
-AdditiveExpression.grammar = MultiplicativeExpression, optional(AdditiveOperator, MultiplicativeExpression)
-MultiplicativeExpression.grammar = Factor, optional(AdditiveOperator, Factor)
+AdditiveExpression.grammar = MultiplicativeExpression, maybe_some(AdditiveOperator, MultiplicativeExpression)
+MultiplicativeExpression.grammar = SignedFactor, maybe_some(MultiplicativeOperator, SignedFactor)
 SignedFactor.grammar = optional(Sign), Factor
 Factor.grammar = [Literal, Variable, ("(", Expression, ")"), ("not", Factor)]
 

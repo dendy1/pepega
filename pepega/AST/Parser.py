@@ -1,6 +1,4 @@
-import json
-
-from C_AST.ASTNode import ASTNode
+from AST.ASTNode import ASTNode
 import os
 
 class Parser:
@@ -14,7 +12,7 @@ class Parser:
         self.ASTroot.parse(raw)
         self.ASTroot.rename()
         self.ASTroot.fold()
-        self.ASTroot.generateBytecode(None)
+        self.ASTroot.generateBytecode()
 
     def printCST(self, with_context = False):
         print(*self.CSTroot.tree(with_context), sep=os.linesep)
@@ -28,5 +26,5 @@ class Parser:
             for y in self.ASTroot.scope[x]:
                 print(y, ':', self.ASTroot.scope[x][y])
 
-    def generateCode(self, builder):
-        self.ASTroot.generateBytecode(builder)
+    def generateCode(self):
+        self.ASTroot.generateBytecode()

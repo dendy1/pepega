@@ -1,166 +1,157 @@
-from abc import ABC, abstractmethod
-from enum import Enum
-from typing import Callable, Tuple, Optional
+from pyPEG.MiniPascalGrammars import *
 
-class ASTNode(ABC):
-    def __init__(self, row = None, line = None, **props):
-        super().__init__(row, line, props)
-        self.row = row
-        self.line = line
-        for k, v in props.items():
-            setattr(self, k, v)
+class ASTNode:
+    renames = {
+        "SimpleStatement" : 'Statement',
+        "StructuredStatement": "Statement",
 
-    @abstractmethod
-    def __str__(self) -> str:
-        pass
+        "SimpleExpression" : "Expression",
+        "RelationalExpression": "Expression",
+        "AdditiveExpression": "Expression",
+        "MultiplicativeExpression": "Expression",
+        "SignedFactor": "Expression",
 
-    def __getitem__(self, index):
-        return self.childs[index] if index < len(self.childs) else None
+        "IndexedVariable" : "Variable",
+        "EntireVariable" : "Variable",
 
-    @property
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return ()
+        "OutputExpression" : "Expression",
+        "InputVariable" : "Variable"
+    }
 
-    @property
-    def tree(self) -> [str, ...]:
+    folds = {
+        "Factor" : ["Expression", "Factor"],
+        "Expression" : ["Expression", "Factor"],
+        "Variable" : ["Variable"],
+        "Statement" : ["Statement", "ReadStatement", "WriteStatement", "AssignmentStatement", "FunctionStatement"],
+        "Type" : ["ArrayType", "SimpleType"]
+    }
+
+    def __init__(self, parent, token):
+        self.nodes = []
+        self.parent = parent
+        self.token = token
+        self.value = self.type_name = type(token).__name__
+        self.scope = None
+
+    def parse(self, raw):
+        if isinstance(raw, Literal):
+            self.value = raw.value
+            self.type_name = "Literal"
+            return
+
+        if isinstance(raw, str):
+            self.value = raw
+            return
+
+        for e in raw:
+            child = ASTNode(self, e)
+            self.nodes += [child]
+            child.parse(e)
+
+    def print(self, content = False, i = 0):
+        c = ""
+        if self.token and content:
+            c = " '%s'" % self.token
+
+        print("\t" * i + self.value + c)
+        for sub in self.nodes:
+            sub.print(content, i + 1)
+
+    def tree(self, content) -> str:
         res = [str(self)]
-        childs_temp = self.childs
-        for i, child in enumerate(childs_temp):
+        nodes = self.nodes
+        for i, child in enumerate(nodes):
+            cont = " '%s'" % self.token if self.token and content else ""
             ch0, ch = '├', '│'
-            if i == len(childs_temp) - 1:
+            if i == len(nodes) - 1:
                 ch0, ch = '└', ' '
-            res.extend(((ch0 if j == 0 else ch) + ' ' + s for j, s in enumerate(child.tree)))
+            res.extend(((ch0 if j == 0 else ch) + ' ' + s + cont for j, s in enumerate(child.tree(content))))
         return res
 
-    def visit(self, func: Callable[['ASTNode'], None]) -> None:
-        func(self)
-        map(func, self.childs)
+    def rename(self):
+        if self.type_name in self.renames:
+            self.value = self.renames[self.type_name]
 
-class ExpressionNode(ASTNode):
-    pass
+        for n in self.nodes:
+            n.rename()
 
-class LiteralNode(ExpressionNode):
-    def __init__(self, literal,
-                 row = None, line = None, **props):
-        super().__init__(row, line, **props)
-        self.literal = literal
-        self.value = eval(literal)
+    def fold(self):
+        for folds in self.folds:
+            if len(self.nodes) == 1 and self.value in folds and self.nodes[0].value in self.folds[self.value]:
+                for i in range(len(self.parent.nodes)):
+                    if self.parent.nodes[i] == self:
+                        self.parent.nodes[i] = self.nodes[0]
+                        self.nodes[0].parent = self.parent
+                        break
 
-    def __str__(self):
-        return '{0} ({1})'.format(self.literal, type(self.value).__name__)
+        for node in self.nodes:
+            node.fold()
 
-class IdentificatorNode(ExpressionNode):
-    def __init__(self, name,
-                 row = None, line = None, **props):
-        super().__init__(row, line, **props)
-        self.name = name
+    def generateBytecode(self):
+        if self.type_name == "Program":
+            self.scope = {}
+            for n in self.nodes:
+                n.generateBytecode()
 
-    def __str__(self):
-        return self.name
+        elif self.type_name == "VariableDeclarations":
+            for node in self.nodes:
+                node.generateBytecode()
 
-class BinOp(Enum):
-    ADD = '+'
-    SUB = '-'
-    MUL = '*'
-    DIV = '/'
-    GE = '>='
-    LE = '<='
-    NEQUALS = '<>'
-    EQUALS = '='
-    GT = '>'
-    LT = '<'
+        elif self.type_name == "VariableDeclaration":
+            length = len(self.nodes)
+            var_type = self.nodes[length - 1]
+            for index in range(length):
+                var_value = None
+                var_name = self.nodes[index][0]
+                self.assignVariable(var_name, var_value, var_type)
 
-class BinOpNode(ExpressionNode):
-    def __init__(self, left, op, right,
-                 row = None, line = None, **props):
-        super().__init__(row, line, **props)
-        self.left = left
-        self.op = op
-        self.right = right
+        elif self.type_name == "FunctionDeclarations":
+            for node in self.nodes:
+                node.generateBytecode()
 
-    def __str__(self):
-        return self.op.value
+        elif self.type_name == "FunctionDeclaration":
+            self.scope = {}
+            header = self.nodes[0]
+            compound_statement = self.nodes[1]
 
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return self.left, self.right
+        elif self.type_name == "AssignmentStatement":
+            name = self.nodes[0][0]
+            expr = self.nodes[1].generateBytecode()
+            var = self.findVariable(name)
 
-class StatementNode(ExpressionNode):
-    pass
+    def assignVariable(self, name, value, type):
+        if self.scope != None:
+            self.scope[name] = {"value" : value, "type" : type}
+        elif self.parent:
+            self.parent.assignVariable(name, value, type)
+        else:
+            raise Exception("no scope for '%s'" % name)
 
-class VarDeclNode(StatementNode):
-    def __init__(self, vars_list, vars_type,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.vars_list = vars_list
-        self.vars_type = vars_type
+    def findVariable(self, name):
+        if self.scope != None:
+            if name in self.scope:
+                return self.scope[name]
+        if self.parent:
+            return self.parent.findVariable(name)
+        raise Exception("unknown symbol '%s'" % name)
 
-    def __str__(self):
-        return "var"
+    def __str__(self) -> str:
+        return self.type_name
 
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return (self.vars_type, ) + self.vars_list
+    def __repr__(self) -> str:
+        return self.__str__()
 
-class CallNode(StatementNode):
-    def __init__(self, function, *params,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.function = function
-        self.params = params
+    def __getitem__(self, item):
+        if isinstance(item, str):
+            for node in self.nodes:
+                if node.value == item:
+                    return node
+            raise Exception("Can't find node with name '%s'" % item)
 
-    def __str__(self):
-        return "call"
+        if isinstance(item, int):
+            if item < 0 or item > len(self.nodes) - 1:
+                raise Exception("Index out of range [%d, %d]", 0, len(self.nodes) - 1)
+            return self.nodes[item]
 
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return (self.function, ) + self.params
-
-class AssingNode(StatementNode):
-    def __init__(self, variable, value,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.variable = variable
-        self.value = value
-
-    def __str__(self):
-        return "="
-
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return self.variable, self.value
-
-class IfNode(StatementNode):
-    def __init__(self, condition, then_body, else_body = None,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.condition = condition
-        self.then_body = then_body
-        self.else_body = else_body
-
-    def __str__(self):
-        return "if"
-
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return self.condition, self.then_body, self.else_body if self.else_body else tuple()
-
-class WhileNode(StatementNode):
-    def __init__(self, condition, do_body,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.condition = condition
-        self.do_body = do_body
-
-    def __str__(self):
-        return "while"
-
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return self.condition, self.do_body
-
-class StatementListNode(StatementNode):
-    def __init__(self, *statements,
-                 row=None, line=None, **props):
-        super().__init__(row, line, **props)
-        self.statements = statements
-
-    def __str__(self):
-        return "..."
-
-    def childs(self) -> Tuple['ASTNode', ...]:
-        return self.statements
+    def execute(self):
+        pass

@@ -1,6 +1,6 @@
 from pyPEG.MiniPascalGrammars import *
 from pypeg2 import *
-from C_AST.Parser import Parser
+from AST.Parser import Parser
 
 def main():
     filename = "minipascal.txt"

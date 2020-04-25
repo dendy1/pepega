@@ -1,0 +1,46 @@
+<program> => "program" <identifier> ";" <block> "."
+<block> => <variable declarations>? <function declarations>? <compound statement>
+
+<variable declarations> => var (<variable declaration> ";")+
+<variable declaration> => <identifier> ("," <identifier>)* ":" <type>
+<type> => <array type> | <simple type>
+<array type> =>	"array" "[" <index range>+ "]" "of" <simple type>
+<index range> => <integer constant> ".." <integer constant>
+<simple type> => K("Byte"), K("Integer"), K("Cardinal"), K("Shortint"), K("Smallint"), K("Longint"), K("Int64"), K("Word"), K("Longword")
+
+<function declarations> => (<function declaration> ".")+
+<function declaration> => <fuction header> <variable declarations>? <compound statement>
+<function header> => "function" <identifier> <function parameters> ":" <type> ";"
+<function parameters> => "(" <identifier> ("," <identifier>)* ":" <type> ")"
+
+<compound statement> => "begin" (<statement> ";")* "end"
+<statement> => <simple statement> | <structured statement>
+
+<simple statement> => <assignment statement> | <read statement> | <write statement> | <function statement>
+<assignment statement> => <variable> ":=" <expression>
+<write statement> => "write" "(" <output value> ("," <output expression>)* ")"
+<output expression> => <expression>
+<read statement> => "read" "(" <input variable> ("," <input variable>)* ")"
+<input variable> => <variable>
+
+<function statement> => <identifier> "(" (<identifier> ("," <identifier>)*)? ")"
+
+<structured statement> => <if statement> | <while statement>
+<if statement> => "if" <expression> "then" <statement> ("else" <statement>)?
+<while statement> => "while" <expression> "do" <statement>
+
+<expression> => <relational expression>
+<relational expression> => <additive expression> (<relational operator> <additive expression>)?
+<additive expression> => <multiplicative expression> (<additive operator> <multiplicative expression>)*
+<multiplicative expression> => <singed factor> (<multiplicative operator> <signed factor>)*
+<signed factor> => <sign>? <factor>
+<factor> => <literal> | <variable> | "(" <expression> ")" | "not" <factor>
+
+<variable> => <indexed variable> | <entire variable>
+<entire variable> => <identifier>
+<indexed variable> => <identifier>, "[", <expression>, "]"
+
+<relational operator> => "==" | "!=" | "<" | "<=" | ">=" | ">"
+<sign> => "+" | "-"
+<adding operator> => "+" | "-"
+<multiplying operator> => "*" | "/" | "%"
