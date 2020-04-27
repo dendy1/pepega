@@ -1,0 +1,15 @@
+program foo;
+
+var
+    a, b, c, d: integer;
+
+function addition(a, b: integer) : integer;
+    var c: integer;
+    begin
+        a := 2
+    end;
+
+begin
+    a := addition(1, 2);
+    putchar(a)
+end.

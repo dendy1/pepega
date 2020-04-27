@@ -12,7 +12,6 @@ class Parser:
         self.ASTroot.parse(raw)
         self.ASTroot.rename()
         self.ASTroot.fold()
-        self.ASTroot.generateBytecode()
 
     def printCST(self, with_context = False):
         print(*self.CSTroot.tree(with_context), sep=os.linesep)
@@ -25,6 +24,3 @@ class Parser:
             print(x)
             for y in self.ASTroot.scope[x]:
                 print(y, ':', self.ASTroot.scope[x][y])
-
-    def generateCode(self):
-        self.ASTroot.generateBytecode()

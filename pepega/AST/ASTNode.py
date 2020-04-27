@@ -5,25 +5,34 @@ class ASTNode:
         "SimpleStatement" : 'Statement',
         "StructuredStatement": "Statement",
 
+        "ReadStatement": "Statement",
+        "WriteStatement": "Statement",
+        "AssignmentStatement": "Statement",
+        "FunctionStatement": "Statement",
+
         "SimpleExpression" : "Expression",
         "RelationalExpression": "Expression",
         "AdditiveExpression": "Expression",
         "MultiplicativeExpression": "Expression",
-        "SignedFactor": "Expression",
+
+        "SignedFactor": "Factor",
+
+        "IntegerConstant" : "Variable",
+        "FloatConstant" : "Variable",
+        "BooleanConstant" : "Variable",
+        "StringConstant" : "Variable",
 
         "IndexedVariable" : "Variable",
-        "EntireVariable" : "Variable",
-
-        "OutputExpression" : "Expression",
-        "InputVariable" : "Variable"
+        "EntireVariable" : "Variable"
     }
 
     folds = {
-        "Factor" : ["Expression", "Factor"],
+        "ExpressionList" : ["Expression"],
         "Expression" : ["Expression", "Factor"],
-        "Variable" : ["Variable"],
-        "Statement" : ["Statement", "ReadStatement", "WriteStatement", "AssignmentStatement", "FunctionStatement"],
-        "Type" : ["ArrayType", "SimpleType"]
+        "Factor": ["Factor", "Variable"],
+        "Variable": ["Variable", "Identifier"],
+        "StatementList": ["Statement"],
+        "Statement" : ["Statement"]
     }
 
     def __init__(self, parent, token):
@@ -36,11 +45,12 @@ class ASTNode:
     def parse(self, raw):
         if isinstance(raw, Literal):
             self.value = raw.value
-            self.type_name = "Literal"
+            self.type_name = raw.__class__.__name__
             return
 
         if isinstance(raw, str):
             self.value = raw
+            self.type_name = "str"
             return
 
         for e in raw:
@@ -57,7 +67,7 @@ class ASTNode:
         for sub in self.nodes:
             sub.print(content, i + 1)
 
-    def tree(self, content) -> str:
+    def tree(self, content = False) -> str:
         res = [str(self)]
         nodes = self.nodes
         for i, child in enumerate(nodes):
@@ -70,14 +80,19 @@ class ASTNode:
 
     def rename(self):
         if self.type_name in self.renames:
-            self.value = self.renames[self.type_name]
+            self.type_name = self.renames[self.type_name]
 
         for n in self.nodes:
             n.rename()
 
     def fold(self):
+        if self.parent is None:
+            for node in self.nodes:
+                node.fold()
+            return
+
         for folds in self.folds:
-            if len(self.nodes) == 1 and self.value in folds and self.nodes[0].value in self.folds[self.value]:
+            if len(self.nodes) == 1 and self.type_name in folds and self.nodes[0].type_name in self.folds[self.type_name]:
                 for i in range(len(self.parent.nodes)):
                     if self.parent.nodes[i] == self:
                         self.parent.nodes[i] = self.nodes[0]
@@ -86,38 +101,6 @@ class ASTNode:
 
         for node in self.nodes:
             node.fold()
-
-    def generateBytecode(self):
-        if self.type_name == "Program":
-            self.scope = {}
-            for n in self.nodes:
-                n.generateBytecode()
-
-        elif self.type_name == "VariableDeclarations":
-            for node in self.nodes:
-                node.generateBytecode()
-
-        elif self.type_name == "VariableDeclaration":
-            length = len(self.nodes)
-            var_type = self.nodes[length - 1]
-            for index in range(length):
-                var_value = None
-                var_name = self.nodes[index][0]
-                self.assignVariable(var_name, var_value, var_type)
-
-        elif self.type_name == "FunctionDeclarations":
-            for node in self.nodes:
-                node.generateBytecode()
-
-        elif self.type_name == "FunctionDeclaration":
-            self.scope = {}
-            header = self.nodes[0]
-            compound_statement = self.nodes[1]
-
-        elif self.type_name == "AssignmentStatement":
-            name = self.nodes[0][0]
-            expr = self.nodes[1].generateBytecode()
-            var = self.findVariable(name)
 
     def assignVariable(self, name, value, type):
         if self.scope != None:
@@ -136,7 +119,10 @@ class ASTNode:
         raise Exception("unknown symbol '%s'" % name)
 
     def __str__(self) -> str:
-        return self.type_name
+        if len(self.nodes) < 1:
+            return str(self.value) + " (" + type(self.token).__name__ + ")"
+
+        return str(self.value)
 
     def __repr__(self) -> str:
         return self.__str__()

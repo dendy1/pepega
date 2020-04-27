@@ -1,0 +1,45 @@
+<program> => "program" <identifier> ("(" <identifier> ("," <identifier>)* ")")? ";" <block> "."
+<block> => <variable declarations>* <function declarations>? <compound statement>
+
+<variable declarations> => var (<variable declaration> ";")+
+<variable declaration> => <identifier> ("," <identifier>)* ":" <type>
+<type> => <array type> | <simple type>
+<array type> =>	"array" "[" <index range>+ "]" "of" <type>
+<index range> => <integer constant> ".." <integer constant>
+<simple type> => <boolean> | <string> | <integer> | <float>
+
+<function declarations> => (<function declaration> ";")+
+<function declaration> => <fuction header> <variable declarations>* <compound statement>
+<function header> => "function" <identifier> <function parameters> ":" <type> ";"
+<function parameters> => "(" <identifier> ("," <identifier>)* ":" <type> ")"
+
+<compound statement> => "begin" <statement list>? "end"
+<statement list> => <statement> (";" <statement>)*
+<statement> => <compound statement> | <assignment statement> | <if statement> | <while statement> | <function statement>
+
+<assignment statement> => <variable> ":=" <expression>
+<function statement> => <identifier> ("(" <expression list> ")")?
+<if statement> => "if" <expression> "then" <statement> ("else" <statement>)?
+<while statement> => "while" <expression> "do" <statement>
+
+<expression list> => <expression> ("," <expression>)*
+<expression> => <relational expression>
+<relational expression> => <additive expression> (<relational operator> <additive expression>)?
+<additive expression> => <multiplicative expression> (<additive operator> <multiplicative expression>)*
+<multiplicative expression> => <singed factor> (<multiplicative operator> <signed factor>)*
+<signed factor> => <sign>? <factor>
+<factor> => <identifier> "(" <expression list> ")" | "(" <expression> ")" | <variable> | "not" <factor> | <signed factor>
+
+<variable> => <indexed variable> | <entire variable>
+<entire variable> => <float constant> | <integer constant> | <boolean constant> | <string constant> 
+<indexed variable> => <identifier>, ("[", <expression>, "]")+
+
+<float constant> => FLOAT
+<integer constant> => INTEGER
+<boolean constant> => BOOLEAN
+<string constant> => "\"" STR "\"" | "\'" STR "\'"
+
+<relational operator> => "==" | "!=" | "<" | "<=" | ">=" | ">"
+<sign> => "+" | "-"
+<adding operator> => "+" | "-"
+<multiplying operator> => "*" | "/" | "%"
