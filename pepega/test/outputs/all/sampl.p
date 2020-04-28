@@ -1,22 +1,65 @@
-
-
-
-
-
-program foo(boo);
-
-    // global variable declarations
-    var a, b, c, d: integer;
-
-    // function declarations
-    function addition(a, b: integer) : integer;
-        var c: integer;
-        begin
-            return a + b
-        end;
-
-    // compound statements: "main"
-    begin
-        a := addition(1, 2);
-        putchar(a)
-    end.
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ boo
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   └ Type
+  │     └ integer
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ addition
+  │   │ ├ Arguments
+  │   │ │ ├ Identifier
+  │   │ │ │ └ a
+  │   │ │ ├ Identifier
+  │   │ │ │ └ b
+  │   │ │ └ Type
+  │   │ │   └ integer
+  │   │ └ Type
+  │   │   └ integer
+  │   ├ VariableDeclarations
+  │   │ └ VariableDeclaration
+  │   │   ├ Identifier
+  │   │   │ └ c
+  │   │   └ Type
+  │   │     └ integer
+  │   └ StatementList
+  │     └ AssignmentStatement
+  │       ├ Identifier
+  │       │ └ addition
+  │       └ AdditiveExpression
+  │         ├ Identifier
+  │         │ └ a
+  │         ├ +
+  │         └ Identifier
+  │           └ b
+  └ StatementList
+    ├ AssignmentStatement
+    │ ├ Identifier
+    │ │ └ a
+    │ └ Factor
+    │   ├ Identifier
+    │   │ └ addition
+    │   └ ExpressionList
+    │     ├ IntegerConstant
+    │     │ └ 1
+    │     └ IntegerConstant
+    │       └ 2
+    └ ProcedureStatement
+      ├ Identifier
+      │ └ putchar
+      └ Identifier
+        └ a

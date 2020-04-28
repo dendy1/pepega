@@ -1,119 +1,119 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ x (str)
+  │   │ └ x
   │   ├ Identifier
-  │   │ └ y (str)
+  │   │ └ y
   │   ├ Identifier
-  │   │ └ z (str)
+  │   │ └ z
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ SubprogramDeclarations
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
-  │ │ │ │ └ add (str)
+  │ │ │ │ └ add
   │ │ │ ├ Arguments
   │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ a (str)
+  │ │ │ │ │ └ a
   │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ b (str)
+  │ │ │ │ │ └ b
   │ │ │ │ └ Type
-  │ │ │ │   └ integer (SimpleType)
+  │ │ │ │   └ integer
   │ │ │ └ Type
-  │ │ │   └ integer (SimpleType)
+  │ │ │   └ integer
   │ │ └ StatementList
   │ │   └ AssignmentStatement
   │ │     ├ Identifier
-  │ │     │ └ add (str)
+  │ │     │ └ add
   │ │     └ AdditiveExpression
   │ │       ├ Identifier
-  │ │       │ └ a (str)
-  │ │       ├ + (AdditiveOperator)
+  │ │       │ └ a
+  │ │       ├ +
   │ │       └ Identifier
-  │ │         └ b (str)
+  │ │         └ b
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ mul (str)
+  │   │ │ └ mul
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ a (str)
+  │   │ │ │ └ a
   │   │ │ ├ Identifier
-  │   │ │ │ └ b (str)
+  │   │ │ │ └ b
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ mul (str)
+  │       │ └ mul
   │       └ MultiplicativeExpression
   │         ├ Identifier
-  │         │ └ a (str)
-  │         ├ * (MultiplicativeOperator)
+  │         │ └ a
+  │         ├ *
   │         └ Identifier
-  │           └ b (str)
+  │           └ b
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ x (str)
+    │ │ └ x
     │ └ Factor
     │   ├ Identifier
-    │   │ └ add (str)
+    │   │ └ add
     │   └ ExpressionList
     │     ├ IntegerConstant
-    │     │ └ 3 (Integer)
+    │     │ └ 3
     │     └ IntegerConstant
-    │       └ 4 (Integer)
+    │       └ 4
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ y (str)
+    │ │ └ y
     │ └ Factor
     │   ├ Identifier
-    │   │ └ mul (str)
+    │   │ └ mul
     │   └ ExpressionList
     │     ├ Identifier
-    │     │ └ x (str)
+    │     │ └ x
     │     └ Identifier
-    │       └ x (str)
+    │       └ x
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ z (str)
+    │ │ └ z
     │ └ Factor
     │   ├ Identifier
-    │   │ └ add (str)
+    │   │ └ add
     │   └ ExpressionList
     │     ├ Identifier
-    │     │ └ y (str)
+    │     │ └ y
     │     └ Factor
     │       ├ Identifier
-    │       │ └ mul (str)
+    │       │ └ mul
     │       └ ExpressionList
     │         ├ Identifier
-    │         │ └ x (str)
+    │         │ └ x
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     └ ProcedureStatement
       ├ Identifier
-      │ └ printint (str)
+      │ └ printint
       └ AdditiveExpression
         ├ Identifier
-        │ └ x (str)
-        ├ + (AdditiveOperator)
+        │ └ x
+        ├ +
         ├ Identifier
-        │ └ y (str)
-        ├ + (AdditiveOperator)
+        │ └ y
+        ├ +
         └ Identifier
-          └ z (str)
+          └ z

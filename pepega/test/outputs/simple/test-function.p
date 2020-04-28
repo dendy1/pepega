@@ -1,77 +1,77 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ simplesum (str)
+  │   │ │ └ simplesum
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ a (str)
+  │   │ │ │ └ a
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ simplesum (str)
+  │       │ └ simplesum
   │       └ MultiplicativeExpression
   │         ├ Identifier
-  │         │ └ a (str)
-  │         ├ * (MultiplicativeOperator)
+  │         │ └ a
+  │         ├ *
   │         └ Identifier
-  │           └ b (str)
+  │           └ b
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 7 (Integer)
+    │   └ 7
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ IntegerConstant
-    │   └ 13 (Integer)
+    │   └ 13
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 3
+    │   ├ +
     │   └ Factor
     │     ├ Identifier
-    │     │ └ simplesum (str)
+    │     │ └ simplesum
     │     └ IntegerConstant
-    │       └ 10 (Integer)
+    │       └ 10
     └ AssignmentStatement
       ├ Identifier
-      │ └ b (str)
+      │ └ b
       └ MultiplicativeExpression
         ├ IntegerConstant
-        │ └ 1 (Integer)
-        ├ * (MultiplicativeOperator)
+        │ └ 1
+        ├ *
         └ Factor
           ├ Identifier
-          │ └ simplesum (str)
+          │ └ simplesum
           └ SignedFactor
-            ├ - (Sign)
+            ├ -
             └ IntegerConstant
-              └ 10 (Integer)
+              └ 10

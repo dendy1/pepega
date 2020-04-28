@@ -1,287 +1,287 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   ├ Identifier
-  │   │ └ e (str)
+  │   │ └ e
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (Integer)
+  │       │   └ 10
   │       └ Type
-  │         └ integer (SimpleType)
+  │         └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ AdditiveExpression
     │   ├ Identifier
-    │   │ └ a (str)
-    │   ├ + (AdditiveOperator)
+    │   │ └ a
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 93 (Integer)
+    │     └ 93
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ AdditiveExpression
     │   ├ Identifier
-    │   │ └ a (str)
-    │   ├ - (AdditiveOperator)
+    │   │ └ a
+    │   ├ -
     │   └ IntegerConstant
-    │     └ 93 (Integer)
+    │     └ 93
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ MultiplicativeExpression
     │   ├ Identifier
-    │   │ └ a (str)
-    │   ├ * (MultiplicativeOperator)
+    │   │ └ a
+    │   ├ *
     │   └ IntegerConstant
-    │     └ 93 (Integer)
+    │     └ 93
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ MultiplicativeExpression
     │   ├ Identifier
-    │   │ └ a (str)
-    │   ├ / (MultiplicativeOperator)
+    │   │ └ a
+    │   ├ /
     │   └ IntegerConstant
-    │     └ 93 (Integer)
+    │     └ 93
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 3
+    │   ├ +
     │   ├ MultiplicativeExpression
     │   │ ├ IntegerConstant
-    │   │ │ └ 93 (Integer)
-    │   │ ├ * (MultiplicativeOperator)
+    │   │ │ └ 93
+    │   │ ├ *
     │   │ └ IntegerConstant
-    │   │   └ 5 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │   └ 5
+    │   ├ +
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ b (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ b
+    │     ├ *
     │     └ Factor
     │       └ AdditiveExpression
     │         ├ IntegerConstant
-    │         │ └ 23 (Integer)
-    │         ├ - (AdditiveOperator)
+    │         │ └ 23
+    │         ├ -
     │         └ MultiplicativeExpression
     │           ├ IntegerConstant
-    │           │ └ 15 (Integer)
-    │           ├ * (MultiplicativeOperator)
+    │           │ └ 15
+    │           ├ *
     │           ├ IntegerConstant
-    │           │ └ 6 (Integer)
-    │           ├ / (MultiplicativeOperator)
+    │           │ └ 6
+    │           ├ /
     │           └ IntegerConstant
-    │             └ 9 (Integer)
+    │             └ 9
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 1 (Integer)
+    │   └ 1
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ > (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ >
     │ │ └ Identifier
-    │ │   └ a (str)
+    │ │   └ a
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 2 (Integer)
+    │ │     └ 2
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 3 (Integer)
+    │       └ 3
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ < (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ <
     │ │ └ Identifier
-    │ │   └ a (str)
+    │ │   └ a
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 5 (Integer)
+    │ │     └ 5
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 7 (Integer)
+    │       └ 7
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ == (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ ==
     │ │ └ Identifier
-    │ │   └ a (str)
+    │ │   └ a
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 11 (Integer)
+    │ │     └ 11
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 13 (Integer)
+    │       └ 13
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ >= (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ >=
     │ │ └ Identifier
-    │ │   └ a (str)
+    │ │   └ a
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 17 (Integer)
+    │ │     └ 17
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 19 (Integer)
+    │       └ 19
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ <= (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ <=
     │ │ └ Identifier
-    │ │   └ a (str)
+    │ │   └ a
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 23 (Integer)
+    │ │     └ 23
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 29 (Integer)
+    │       └ 29
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ b (str)
-    │ │ ├ != (RelationalOperator)
+    │ │ │ └ b
+    │ │ ├ !=
     │ │ └ IntegerConstant
-    │ │   └ 0 (Integer)
+    │ │   └ 0
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ a (str)
+    │ │ │ └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ * (MultiplicativeOperator)
+    │ │   │ └ a
+    │ │   ├ *
     │ │   └ IntegerConstant
-    │ │     └ 31 (Integer)
+    │ │     └ 31
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ a (str)
+    │   │ └ a
     │   └ MultiplicativeExpression
     │     ├ Identifier
-    │     │ └ a (str)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ a
+    │     ├ *
     │     └ IntegerConstant
-    │       └ 37 (Integer)
+    │       └ 37
     └ IfStatement
       ├ Factor
       │ ├ Identifier
-      │ │ └ not (str)
+      │ │ └ not
       │ └ RelationalExpression
       │   ├ Identifier
-      │   │ └ b (str)
-      │   ├ > (RelationalOperator)
+      │   │ └ b
+      │   ├ >
       │   └ Identifier
-      │     └ a (str)
+      │     └ a
       ├ AssignmentStatement
       │ ├ Identifier
-      │ │ └ a (str)
+      │ │ └ a
       │ └ MultiplicativeExpression
       │   ├ Identifier
-      │   │ └ a (str)
-      │   ├ * (MultiplicativeOperator)
+      │   │ └ a
+      │   ├ *
       │   └ IntegerConstant
-      │     └ 41 (Integer)
+      │     └ 41
       └ AssignmentStatement
         ├ Identifier
-        │ └ a (str)
+        │ └ a
         └ MultiplicativeExpression
           ├ Identifier
-          │ └ a (str)
-          ├ * (MultiplicativeOperator)
+          │ └ a
+          ├ *
           └ IntegerConstant
-            └ 43 (Integer)
+            └ 43

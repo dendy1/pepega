@@ -1,40 +1,40 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ crr (str)
+  │   │ └ crr
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 9 (Integer)
+  │       │   └ 9
   │       └ Type
-  │         └ string (SimpleType)
+  │         └ string
   └ StatementList
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ crr (str)
+    │ │ │ └ crr
     │ │ └ IntegerConstant
-    │ │   └ 1 (Integer)
+    │ │   └ 1
     │ └ StringConstant
-    │   └ hello (str)
+    │   └ hello
     └ ProcedureStatement
       ├ Identifier
-      │ └ printstring (str)
+      │ └ printstring
       └ IndexedVariable
         ├ Identifier
-        │ └ crr (str)
+        │ └ crr
         └ IntegerConstant
-          └ 1 (Integer)
+          └ 1

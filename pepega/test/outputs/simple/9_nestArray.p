@@ -1,106 +1,106 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ arr (str)
+  │   │ └ arr
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 9 (Integer)
+  │       │   └ 9
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 1 (Integer)
+  │           │ │ └ 1
   │           │ └ IntegerConstant
-  │           │   └ 9 (Integer)
+  │           │   └ 9
   │           └ Type
-  │             └ integer (SimpleType)
+  │             └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ arr (str)
+    │ │ │ └ arr
     │ │ ├ IntegerConstant
-    │ │ │ └ 1 (Integer)
+    │ │ │ └ 1
     │ │ └ IntegerConstant
-    │ │   └ 1 (Integer)
+    │ │   └ 1
     │ └ IntegerConstant
-    │   └ 1234 (Integer)
+    │   └ 1234
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ arr (str)
+    │ │ │ └ arr
     │ │ ├ IntegerConstant
-    │ │ │ └ 1 (Integer)
+    │ │ │ └ 1
     │ │ └ IntegerConstant
-    │ │   └ 2 (Integer)
+    │ │   └ 2
     │ └ IntegerConstant
-    │   └ 5678 (Integer)
+    │   └ 5678
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ arr (str)
+    │ │ │ └ arr
     │ │ ├ IntegerConstant
-    │ │ │ └ 2 (Integer)
+    │ │ │ └ 2
     │ │ └ IntegerConstant
-    │ │   └ 1 (Integer)
+    │ │   └ 1
     │ └ IntegerConstant
-    │   └ 1324 (Integer)
+    │   └ 1324
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ arr (str)
+    │ │ │ └ arr
     │ │ ├ IntegerConstant
-    │ │ │ └ 2 (Integer)
+    │ │ │ └ 2
     │ │ └ IntegerConstant
-    │ │   └ 2 (Integer)
+    │ │   └ 2
     │ └ IntegerConstant
-    │   └ 5768 (Integer)
+    │   └ 5768
     └ ProcedureStatement
       ├ Identifier
-      │ └ printint (str)
+      │ └ printint
       └ AdditiveExpression
         ├ IndexedVariable
         │ ├ Identifier
-        │ │ └ arr (str)
+        │ │ └ arr
         │ ├ IntegerConstant
-        │ │ └ 1 (Integer)
+        │ │ └ 1
         │ └ IntegerConstant
-        │   └ 1 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 1
+        ├ +
         ├ IndexedVariable
         │ ├ Identifier
-        │ │ └ arr (str)
+        │ │ └ arr
         │ ├ IntegerConstant
-        │ │ └ 1 (Integer)
+        │ │ └ 1
         │ └ IntegerConstant
-        │   └ 2 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 2
+        ├ +
         ├ IndexedVariable
         │ ├ Identifier
-        │ │ └ arr (str)
+        │ │ └ arr
         │ ├ IntegerConstant
-        │ │ └ 2 (Integer)
+        │ │ └ 2
         │ └ IntegerConstant
-        │   └ 1 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 1
+        ├ +
         └ IndexedVariable
           ├ Identifier
-          │ └ arr (str)
+          │ └ arr
           ├ IntegerConstant
-          │ └ 2 (Integer)
+          │ └ 2
           └ IntegerConstant
-            └ 2 (Integer)
+            └ 2

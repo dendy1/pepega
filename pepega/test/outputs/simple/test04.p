@@ -1,172 +1,172 @@
 Program
 ├ Identifier
-│ └ helloworld (str)
+│ └ helloworld
 ├ Identifier
-│ └ output (str)
+│ └ output
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   └ Type
-  │     └ real (SimpleType)
+  │     └ real
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (Integer)
+  │       │   └ 10
   │       └ Type
-  │         └ integer (SimpleType)
+  │         └ integer
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ add (str)
+  │   │ │ └ add
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ a (str)
+  │   │ │ │ └ a
   │   │ │ ├ Identifier
-  │   │ │ │ └ b (str)
+  │   │ │ │ └ b
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ add (str)
+  │       │ └ add
   │       └ AdditiveExpression
   │         ├ Identifier
-  │         │ └ a (str)
-  │         ├ + (AdditiveOperator)
+  │         │ └ a
+  │         ├ +
   │         └ Identifier
-  │           └ b (str)
+  │           └ b
   └ StatementList
     ├ ProcedureStatement
     │ ├ Identifier
-    │ │ └ writeln (str)
+    │ │ └ writeln
     │ └ StringConstant
-    │   └ hello (str)
+    │   └ hello
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ d (str)
+    │ │ │ └ d
     │ │ └ IntegerConstant
-    │ │   └ 3 (Integer)
+    │ │   └ 3
     │ └ IntegerConstant
-    │   └ 5 (Integer)
+    │   └ 5
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ d (str)
+    │ │ │ └ d
     │ │ └ IntegerConstant
-    │ │   └ 4 (Integer)
+    │ │   └ 4
     │ └ IntegerConstant
-    │   └ 6 (Integer)
+    │   └ 6
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 3 (Integer)
+    │   └ 3
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ c (str)
+    │ │ └ c
     │ └ IndexedVariable
     │   ├ Identifier
-    │   │ └ d (str)
+    │   │ └ d
     │   └ IntegerConstant
-    │     └ 3 (Integer)
+    │     └ 3
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ c (str)
+    │ │ └ c
     │ └ AdditiveExpression
     │   ├ IndexedVariable
     │   │ ├ Identifier
-    │   │ │ └ d (str)
+    │   │ │ └ d
     │   │ └ IntegerConstant
-    │   │   └ 4 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │   └ 4
+    │   ├ +
     │   └ IndexedVariable
     │     ├ Identifier
-    │     │ └ d (str)
+    │     │ └ d
     │     └ IntegerConstant
-    │       └ 3 (Integer)
+    │       └ 3
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ AdditiveExpression
     │   ├ Identifier
-    │   │ └ c (str)
-    │   ├ + (AdditiveOperator)
+    │   │ └ c
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 1 (Integer)
+    │     └ 1
     ├ ProcedureStatement
     │ └ Identifier
-    │   └ heloo (str)
+    │   └ heloo
     ├ ProcedureStatement
     │ ├ Identifier
-    │ │ └ heloo (str)
+    │ │ └ heloo
     │ └ ExpressionList
     │   ├ IntegerConstant
-    │   │ └ 2 (Integer)
+    │   │ └ 2
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
+    │   │ └ 3
     │   ├ IntegerConstant
-    │   │ └ 4 (Integer)
+    │   │ └ 4
     │   ├ IntegerConstant
-    │   │ └ 2 (Integer)
+    │   │ └ 2
     │   ├ IntegerConstant
-    │   │ └ 4 (Integer)
+    │   │ └ 4
     │   └ IntegerConstant
-    │     └ 2 (Integer)
+    │     └ 2
     └ IfStatement
       ├ Identifier
-      │ └ a (str)
+      │ └ a
       └ Statement
         └ StatementList
           ├ ProcedureStatement
           │ └ Identifier
-          │   └ a (str)
+          │   └ a
           ├ AssignmentStatement
           │ ├ Identifier
-          │ │ └ c (str)
+          │ │ └ c
           │ └ Identifier
-          │   └ a (str)
+          │   └ a
           ├ ProcedureStatement
           │ └ Identifier
-          │   └ b (str)
+          │   └ b
           ├ ProcedureStatement
           │ └ Identifier
-          │   └ c (str)
+          │   └ c
           ├ ProcedureStatement
           │ └ Identifier
-          │   └ e (str)
+          │   └ e
           └ WhileStatement
             ├ IntegerConstant
-            │ └ 124 (Integer)
+            │ └ 124
             └ ProcedureStatement
               ├ Identifier
-              │ └ v (str)
+              │ └ v
               └ ExpressionList
                 ├ IntegerConstant
-                │ └ 2 (Integer)
+                │ └ 2
                 ├ IntegerConstant
-                │ └ 5 (Integer)
+                │ └ 5
                 ├ Identifier
-                │ └ b (str)
+                │ └ b
                 └ Identifier
-                  └ d (str)
+                  └ d

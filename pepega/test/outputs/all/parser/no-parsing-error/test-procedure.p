@@ -1,78 +1,78 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ g (str)
+  │   │ └ g
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ sum (str)
+  │   │ │ └ sum
   │   │ └ Arguments
   │   │   ├ Identifier
-  │   │   │ └ a (str)
+  │   │   │ └ a
   │   │   ├ Identifier
-  │   │   │ └ b (str)
+  │   │   │ └ b
   │   │   └ Type
-  │   │     └ integer (SimpleType)
+  │   │     └ integer
   │   └ StatementList
   │     └ IfStatement
   │       ├ RelationalExpression
   │       │ ├ Identifier
-  │       │ │ └ a (str)
-  │       │ ├ <= (RelationalOperator)
+  │       │ │ └ a
+  │       │ ├ <=
   │       │ └ IntegerConstant
-  │       │   └ 0 (Integer)
+  │       │   └ 0
   │       ├ AssignmentStatement
   │       │ ├ Identifier
-  │       │ │ └ g (str)
+  │       │ │ └ g
   │       │ └ AdditiveExpression
   │       │   ├ Identifier
-  │       │   │ └ b (str)
-  │       │   ├ + (AdditiveOperator)
+  │       │   │ └ b
+  │       │   ├ +
   │       │   └ IntegerConstant
-  │       │     └ 9 (Integer)
+  │       │     └ 9
   │       └ AssignmentStatement
   │         ├ Identifier
-  │         │ └ g (str)
+  │         │ └ g
   │         └ MultiplicativeExpression
   │           ├ Identifier
-  │           │ └ b (str)
-  │           ├ * (MultiplicativeOperator)
+  │           │ └ b
+  │           ├ *
   │           └ IntegerConstant
-  │             └ 3 (Integer)
+  │             └ 3
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ g (str)
+    │ │ └ g
     │ └ IntegerConstant
-    │   └ 7 (Integer)
+    │   └ 7
     ├ ProcedureStatement
     │ ├ Identifier
-    │ │ └ sum (str)
+    │ │ └ sum
     │ └ ExpressionList
     │   ├ IntegerConstant
-    │   │ └ 10 (Integer)
+    │   │ └ 10
     │   └ IntegerConstant
-    │     └ 32 (Integer)
+    │     └ 32
     └ ProcedureStatement
       ├ Identifier
-      │ └ sum (str)
+      │ └ sum
       └ ExpressionList
         ├ SignedFactor
-        │ ├ - (Sign)
+        │ ├ -
         │ └ IntegerConstant
-        │   └ 10 (Integer)
+        │   └ 10
         └ IntegerConstant
-          └ 21 (Integer)
+          └ 21

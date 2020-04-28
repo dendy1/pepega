@@ -1,93 +1,93 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ c (str)
+    │ │ └ c
     │ └ IntegerConstant
-    │   └ 0 (Integer)
+    │   └ 0
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 2 (Integer)
+    │   └ 2
     ├ WhileStatement
     │ ├ Factor
     │ │ └ RelationalExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ <= (RelationalOperator)
+    │ │   │ └ a
+    │ │   ├ <=
     │ │   └ IntegerConstant
-    │ │     └ 9 (Integer)
+    │ │     └ 9
     │ └ Statement
     │   └ StatementList
     │     ├ AssignmentStatement
     │     │ ├ Identifier
-    │     │ │ └ b (str)
+    │     │ │ └ b
     │     │ └ IntegerConstant
-    │     │   └ 1 (Integer)
+    │     │   └ 1
     │     ├ WhileStatement
     │     │ ├ Factor
     │     │ │ └ RelationalExpression
     │     │ │   ├ Identifier
-    │     │ │   │ └ b (str)
-    │     │ │   ├ <= (RelationalOperator)
+    │     │ │   │ └ b
+    │     │ │   ├ <=
     │     │ │   └ IntegerConstant
-    │     │ │     └ 9 (Integer)
+    │     │ │     └ 9
     │     │ └ Statement
     │     │   └ StatementList
     │     │     ├ AssignmentStatement
     │     │     │ ├ Identifier
-    │     │     │ │ └ c (str)
+    │     │     │ │ └ c
     │     │     │ └ AdditiveExpression
     │     │     │   ├ Identifier
-    │     │     │   │ └ c (str)
-    │     │     │   ├ + (AdditiveOperator)
+    │     │     │   │ └ c
+    │     │     │   ├ +
     │     │     │   └ Factor
     │     │     │     └ MultiplicativeExpression
     │     │     │       ├ Identifier
-    │     │     │       │ └ a (str)
-    │     │     │       ├ * (MultiplicativeOperator)
+    │     │     │       │ └ a
+    │     │     │       ├ *
     │     │     │       └ Identifier
-    │     │     │         └ b (str)
+    │     │     │         └ b
     │     │     └ AssignmentStatement
     │     │       ├ Identifier
-    │     │       │ └ b (str)
+    │     │       │ └ b
     │     │       └ AdditiveExpression
     │     │         ├ Identifier
-    │     │         │ └ b (str)
-    │     │         ├ + (AdditiveOperator)
+    │     │         │ └ b
+    │     │         ├ +
     │     │         └ IntegerConstant
-    │     │           └ 1 (Integer)
+    │     │           └ 1
     │     └ AssignmentStatement
     │       ├ Identifier
-    │       │ └ a (str)
+    │       │ └ a
     │       └ AdditiveExpression
     │         ├ Identifier
-    │         │ └ a (str)
-    │         ├ + (AdditiveOperator)
+    │         │ └ a
+    │         ├ +
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     └ ProcedureStatement
       ├ Identifier
-      │ └ printint (str)
+      │ └ printint
       └ Identifier
-        └ c (str)
+        └ c

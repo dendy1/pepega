@@ -1,27 +1,27 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   └ Type
-  │     └ string (SimpleType)
+  │     └ string
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ StringConstant
-    │   └ hello (str)
+    │   └ hello
     └ ProcedureStatement
       ├ Identifier
-      │ └ printstring (str)
+      │ └ printstring
       └ Identifier
-        └ a (str)
+        └ a

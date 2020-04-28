@@ -1,31 +1,31 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   └ StatementList
     └ ProcedureStatement
       ├ Identifier
-      │ └ printint (str)
+      │ └ printint
       └ AdditiveExpression
         ├ MultiplicativeExpression
         │ ├ IntegerConstant
-        │ │ └ 3 (Integer)
-        │ ├ * (MultiplicativeOperator)
+        │ │ └ 3
+        │ ├ *
         │ └ IntegerConstant
-        │   └ 4 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 4
+        ├ +
         ├ MultiplicativeExpression
         │ ├ IntegerConstant
-        │ │ └ 5 (Integer)
-        │ ├ / (MultiplicativeOperator)
+        │ │ └ 5
+        │ ├ /
         │ └ IntegerConstant
-        │   └ 6 (Integer)
-        ├ - (AdditiveOperator)
+        │   └ 6
+        ├ -
         └ IntegerConstant
-          └ 7 (Integer)
+          └ 7

@@ -1,74 +1,74 @@
 Program
 ├ Identifier
-│ └ ab (str)
+│ └ ab
 ├ Identifier
-│ └ cd (str)
+│ └ cd
 ├ Identifier
-│ └ ef (str)
+│ └ ef
 ├ Identifier
-│ └ gh (str)
+│ └ gh
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ ij (str)
+  │   │ └ ij
   │   ├ Identifier
-  │   │ └ op (str)
+  │   │ └ op
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ kl (str)
+  │   │ │ └ kl
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ mn (str)
+  │   │ │ │ └ mn
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ op (str)
+  │       │ └ op
   │       └ AdditiveExpression
   │         ├ Identifier
-  │         │ └ ij (str)
-  │         ├ + (AdditiveOperator)
+  │         │ └ ij
+  │         ├ +
   │         ├ Identifier
-  │         │ └ mn (str)
-  │         ├ + (AdditiveOperator)
+  │         │ └ mn
+  │         ├ +
   │         └ Identifier
-  │           └ op (str)
+  │           └ op
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ ij (str)
+    │ │ └ ij
     │ └ IntegerConstant
-    │   └ 45 (Integer)
+    │   └ 45
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
-    │ │ │ └ ij (str)
-    │ │ ├ > (RelationalOperator)
+    │ │ │ └ ij
+    │ │ ├ >
     │ │ └ IntegerConstant
-    │ │   └ 1 (Integer)
+    │ │   └ 1
     │ ├ AssignmentStatement
     │ │ ├ Identifier
-    │ │ │ └ op (str)
+    │ │ │ └ op
     │ │ └ IntegerConstant
-    │ │   └ 1 (Integer)
+    │ │   └ 1
     │ └ AssignmentStatement
     │   ├ Identifier
-    │   │ └ op (str)
+    │   │ └ op
     │   └ IntegerConstant
-    │     └ 2 (Integer)
+    │     └ 2
     └ AssignmentStatement
       ├ Identifier
-      │ └ qr (str)
+      │ └ qr
       └ Factor
         ├ Identifier
-        │ └ kl (str)
+        │ └ kl
         └ IntegerConstant
-          └ 55 (Integer)
+          └ 55

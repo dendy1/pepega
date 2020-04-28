@@ -27,7 +27,7 @@ class SubprogramHeader(CustomList):
 #
 # class FunctionHeader(CustomList):
 #     pass
-# 
+#
 # class ProcedureDeclaration(CustomList):
 #     pass
 #

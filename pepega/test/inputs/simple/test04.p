@@ -3,13 +3,10 @@ var a,c : integer;
 var b : real;
 var d : array [1..10] of integer;
 
-
 function add(a, b : integer) : integer;
 begin
-    add := a+b
+    add := a + b
 end;
-
-
 
 begin
     writeln("Hello");

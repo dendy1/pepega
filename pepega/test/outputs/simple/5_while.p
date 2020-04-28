@@ -1,117 +1,117 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   ├ Identifier
-  │   │ └ e (str)
+  │   │ └ e
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 3 (Integer)
+    │   └ 3
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ IntegerConstant
-    │   └ 5 (Integer)
+    │   └ 5
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ c (str)
+    │ │ └ c
     │ └ IntegerConstant
-    │   └ 7 (Integer)
+    │   └ 7
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ d (str)
+    │ │ └ d
     │ └ IntegerConstant
-    │   └ 100 (Integer)
+    │   └ 100
     ├ WhileStatement
     │ ├ Factor
     │ │ └ RelationalExpression
     │ │   ├ Identifier
-    │ │   │ └ b (str)
-    │ │   ├ > (RelationalOperator)
+    │ │   │ └ b
+    │ │   ├ >
     │ │   └ Identifier
-    │ │     └ a (str)
+    │ │     └ a
     │ └ Statement
     │   └ StatementList
     │     └ AssignmentStatement
     │       ├ Identifier
-    │       │ └ b (str)
+    │       │ └ b
     │       └ AdditiveExpression
     │         ├ Identifier
-    │         │ └ b (str)
-    │         ├ - (AdditiveOperator)
+    │         │ └ b
+    │         ├ -
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     ├ WhileStatement
     │ ├ Factor
     │ │ └ RelationalExpression
     │ │   ├ Identifier
-    │ │   │ └ c (str)
-    │ │   ├ > (RelationalOperator)
+    │ │   │ └ c
+    │ │   ├ >
     │ │   └ Identifier
-    │ │     └ b (str)
+    │ │     └ b
     │ └ Statement
     │   └ StatementList
     │     └ AssignmentStatement
     │       ├ Identifier
-    │       │ └ c (str)
+    │       │ └ c
     │       └ AdditiveExpression
     │         ├ Identifier
-    │         │ └ c (str)
-    │         ├ - (AdditiveOperator)
+    │         │ └ c
+    │         ├ -
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     ├ WhileStatement
     │ ├ Factor
     │ │ └ RelationalExpression
     │ │   ├ Identifier
-    │ │   │ └ d (str)
-    │ │   ├ > (RelationalOperator)
+    │ │   │ └ d
+    │ │   ├ >
     │ │   └ Identifier
-    │ │     └ c (str)
+    │ │     └ c
     │ └ Statement
     │   └ StatementList
     │     └ AssignmentStatement
     │       ├ Identifier
-    │       │ └ d (str)
+    │       │ └ d
     │       └ AdditiveExpression
     │         ├ Identifier
-    │         │ └ d (str)
-    │         ├ - (AdditiveOperator)
+    │         │ └ d
+    │         ├ -
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     └ ProcedureStatement
       ├ Identifier
-      │ └ printint (str)
+      │ └ printint
       └ AdditiveExpression
         ├ Identifier
-        │ └ a (str)
-        ├ + (AdditiveOperator)
+        │ └ a
+        ├ +
         ├ Identifier
-        │ └ b (str)
-        ├ + (AdditiveOperator)
+        │ └ b
+        ├ +
         ├ Identifier
-        │ └ c (str)
-        ├ + (AdditiveOperator)
+        │ └ c
+        ├ +
         └ Identifier
-          └ d (str)
+          └ d

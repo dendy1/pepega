@@ -1,133 +1,133 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   ├ Identifier
-  │   │ └ e (str)
+  │   │ └ e
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (Integer)
+  │       │   └ 10
   │       └ Type
-  │         └ integer (SimpleType)
+  │         └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ g (str)
+  │   │ └ g
   │   ├ Identifier
-  │   │ └ h (str)
+  │   │ └ h
   │   └ Type
-  │     └ real (SimpleType)
+  │     └ real
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ g (str)
+  │   │ └ g
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23 (Integer)
+  │       │ │ └ 23
   │       │ └ IntegerConstant
-  │       │   └ 57 (Integer)
+  │       │   └ 57
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23 (Integer)
+  │           │ │ └ 23
   │           │ └ IntegerConstant
-  │           │   └ 57 (Integer)
+  │           │   └ 57
   │           └ Type
   │             └ ArrayType
   │               ├ IndexRange
   │               │ ├ IntegerConstant
-  │               │ │ └ 23 (Integer)
+  │               │ │ └ 23
   │               │ └ IntegerConstant
-  │               │   └ 57 (Integer)
+  │               │   └ 57
   │               └ Type
   │                 └ ArrayType
   │                   ├ IndexRange
   │                   │ ├ IntegerConstant
-  │                   │ │ └ 23 (Integer)
+  │                   │ │ └ 23
   │                   │ └ IntegerConstant
-  │                   │   └ 57 (Integer)
+  │                   │   └ 57
   │                   └ Type
   │                     └ ArrayType
   │                       ├ IndexRange
   │                       │ ├ IntegerConstant
-  │                       │ │ └ 23 (Integer)
+  │                       │ │ └ 23
   │                       │ └ IntegerConstant
-  │                       │   └ 57 (Integer)
+  │                       │   └ 57
   │                       └ Type
-  │                         └ real (SimpleType)
+  │                         └ real
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ k (str)
+  │   │ └ k
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23 (Integer)
+  │       │ │ └ 23
   │       │ └ IntegerConstant
-  │       │   └ 57 (Integer)
+  │       │   └ 57
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23 (Integer)
+  │           │ │ └ 23
   │           │ └ IntegerConstant
-  │           │   └ 57 (Integer)
+  │           │   └ 57
   │           └ Type
-  │             └ real (SimpleType)
+  │             └ real
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ AdditiveExpression
     │   ├ Identifier
-    │   │ └ a (str)
-    │   ├ + (AdditiveOperator)
+    │   │ └ a
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 1 (Integer)
+    │     └ 1
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
-      │ │ └ k (str)
+      │ │ └ k
       │ ├ IntegerConstant
-      │ │ └ 25 (Integer)
+      │ │ └ 25
       │ └ IntegerConstant
-      │   └ 20 (Integer)
+      │   └ 20
       └ AdditiveExpression
         ├ IndexedVariable
         │ ├ Identifier
-        │ │ └ k (str)
+        │ │ └ k
         │ ├ IntegerConstant
-        │ │ └ 25 (Integer)
+        │ │ └ 25
         │ └ IntegerConstant
-        │   └ 20 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 20
+        ├ +
         └ FloatConstant
-          └ 3.14 (Float)
+          └ 3.14

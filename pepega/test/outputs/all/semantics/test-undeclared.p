@@ -1,30 +1,30 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   └ StatementList
     └ AssignmentStatement
       ├ Identifier
-      │ └ d (str)
+      │ └ d
       └ MultiplicativeExpression
         ├ Identifier
-        │ └ a (str)
-        ├ * (MultiplicativeOperator)
+        │ └ a
+        ├ *
         └ IntegerConstant
-          └ 15 (Integer)
+          └ 15

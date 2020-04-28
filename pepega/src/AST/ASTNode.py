@@ -119,8 +119,8 @@ class ASTNode:
         raise Exception("unknown symbol '%s'" % name)
 
     def __str__(self) -> str:
-        if len(self.nodes) < 1:
-            return str(self.value) + " (" + type(self.token).__name__ + ")"
+        # if len(self.nodes) < 1:
+        #     return str(self.value) + " (" + type(self.token).__name__ + ")"
 
         return str(self.value)
 

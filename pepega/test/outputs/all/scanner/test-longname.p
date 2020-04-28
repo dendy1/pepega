@@ -1,35 +1,35 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789 (str)
+  │   │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789 (str)
+    │ │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 3
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 9 (Integer)
+    │     └ 9
     └ AssignmentStatement
       ├ Identifier
-      │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789 (str)
+      │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
       └ AdditiveExpression
         ├ Identifier
-        │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789 (str)
-        ├ + (AdditiveOperator)
+        │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
+        ├ +
         └ IntegerConstant
-          └ 9 (Integer)
+          └ 9

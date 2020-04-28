@@ -1,64 +1,64 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ abc (str)
+  │   │ └ abc
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ abc (str)
+  │   │ └ abc
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23 (Integer)
+  │       │ │ └ 23
   │       │ └ IntegerConstant
-  │       │   └ 57 (Integer)
+  │       │   └ 57
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23 (Integer)
+  │           │ │ └ 23
   │           │ └ IntegerConstant
-  │           │   └ 57 (Integer)
+  │           │   └ 57
   │           └ Type
-  │             └ real (SimpleType)
+  │             └ real
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ abc (str)
+  │   │ │ └ abc
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ x (str)
+  │   │ │ │ └ x
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ x (str)
+  │       │ └ x
   │       └ AdditiveExpression
   │         ├ Identifier
-  │         │ └ x (str)
-  │         ├ + (AdditiveOperator)
+  │         │ └ x
+  │         ├ +
   │         └ IntegerConstant
-  │           └ 1 (Integer)
+  │           └ 1
   └ StatementList
     └ AssignmentStatement
       ├ Identifier
-      │ └ abc (str)
+      │ └ abc
       └ IntegerConstant
-        └ 1 (Integer)
+        └ 1

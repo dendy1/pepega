@@ -1,223 +1,223 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   ├ Identifier
-  │   │ └ sum (str)
+  │   │ └ sum
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   ├ Identifier
-  │   │ └ e (str)
+  │   │ └ e
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (Integer)
+  │       │   └ 10
   │       └ Type
-  │         └ integer (SimpleType)
+  │         └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ g (str)
+  │   │ └ g
   │   ├ Identifier
-  │   │ └ h (str)
+  │   │ └ h
   │   └ Type
-  │     └ real (SimpleType)
+  │     └ real
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ k (str)
+  │   │ └ k
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23 (Integer)
+  │       │ │ └ 23
   │       │ └ IntegerConstant
-  │       │   └ 57 (Integer)
+  │       │   └ 57
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23 (Integer)
+  │           │ │ └ 23
   │           │ └ IntegerConstant
-  │           │   └ 57 (Integer)
+  │           │   └ 57
   │           └ Type
-  │             └ real (SimpleType)
+  │             └ real
   ├ SubprogramDeclarations
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ addition (str)
+  │   │ │ └ addition
   │   │ ├ Arguments
   │   │ │ ├ Identifier
-  │   │ │ │ └ a (str)
+  │   │ │ │ └ a
   │   │ │ ├ Identifier
-  │   │ │ │ └ b (str)
+  │   │ │ │ └ b
   │   │ │ └ Type
-  │   │ │   └ integer (SimpleType)
+  │   │ │   └ integer
   │   │ └ Type
-  │   │   └ integer (SimpleType)
+  │   │   └ integer
   │   ├ VariableDeclarations
   │   │ └ VariableDeclaration
   │   │   ├ Identifier
-  │   │   │ └ c (str)
+  │   │   │ └ c
   │   │   └ Type
-  │   │     └ integer (SimpleType)
+  │   │     └ integer
   │   └ StatementList
   │     └ AssignmentStatement
   │       ├ Identifier
-  │       │ └ addition (str)
+  │       │ └ addition
   │       └ AdditiveExpression
   │         ├ Identifier
-  │         │ └ a (str)
-  │         ├ + (AdditiveOperator)
+  │         │ └ a
+  │         ├ +
   │         └ Identifier
-  │           └ b (str)
+  │           └ b
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ IntegerConstant
-    │   └ 1 (Integer)
+    │   └ 1
     ├ WhileStatement
     │ ├ Factor
     │ │ └ RelationalExpression
     │ │   ├ Identifier
-    │ │   │ └ a (str)
-    │ │   ├ < (RelationalOperator)
+    │ │   │ └ a
+    │ │   ├ <
     │ │   └ IntegerConstant
-    │ │     └ 10 (Integer)
+    │ │     └ 10
     │ └ Statement
     │   └ StatementList
     │     ├ AssignmentStatement
     │     │ ├ Identifier
-    │     │ │ └ sum (str)
+    │     │ │ └ sum
     │     │ └ AdditiveExpression
     │     │   ├ IntegerConstant
-    │     │   │ └ 10 (Integer)
-    │     │   ├ + (AdditiveOperator)
+    │     │   │ └ 10
+    │     │   ├ +
     │     │   └ Identifier
-    │     │     └ a (str)
+    │     │     └ a
     │     └ AssignmentStatement
     │       ├ Identifier
-    │       │ └ a (str)
+    │       │ └ a
     │       └ AdditiveExpression
     │         ├ Identifier
-    │         │ └ a (str)
-    │         ├ + (AdditiveOperator)
+    │         │ └ a
+    │         ├ +
     │         └ IntegerConstant
-    │           └ 1 (Integer)
+    │           └ 1
     ├ Statement
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ Identifier
-    │   │ │ └ b (str)
+    │   │ │ └ b
     │   │ └ IntegerConstant
-    │   │   └ 1 (Integer)
+    │   │   └ 1
     │   └ WhileStatement
     │     ├ Factor
     │     │ └ RelationalExpression
     │     │   ├ Identifier
-    │     │   │ └ b (str)
-    │     │   ├ < (RelationalOperator)
+    │     │   │ └ b
+    │     │   ├ <
     │     │   └ IntegerConstant
-    │     │     └ 11 (Integer)
+    │     │     └ 11
     │     └ Statement
     │       └ StatementList
     │         ├ AssignmentStatement
     │         │ ├ IndexedVariable
     │         │ │ ├ Identifier
-    │         │ │ │ └ d (str)
+    │         │ │ │ └ d
     │         │ │ └ Identifier
-    │         │ │   └ b (str)
+    │         │ │   └ b
     │         │ └ AdditiveExpression
     │         │   ├ Identifier
-    │         │   │ └ b (str)
-    │         │   ├ + (AdditiveOperator)
+    │         │   │ └ b
+    │         │   ├ +
     │         │   └ MultiplicativeExpression
     │         │     ├ Identifier
-    │         │     │ └ b (str)
-    │         │     ├ * (MultiplicativeOperator)
+    │         │     │ └ b
+    │         │     ├ *
     │         │     └ Factor
     │         │       └ AdditiveExpression
     │         │         ├ Identifier
-    │         │         │ └ b (str)
-    │         │         ├ - (AdditiveOperator)
+    │         │         │ └ b
+    │         │         ├ -
     │         │         └ IntegerConstant
-    │         │           └ 1 (Integer)
+    │         │           └ 1
     │         └ AssignmentStatement
     │           ├ Identifier
-    │           │ └ b (str)
+    │           │ └ b
     │           └ AdditiveExpression
     │             ├ Identifier
-    │             │ └ b (str)
-    │             ├ + (AdditiveOperator)
+    │             │ └ b
+    │             ├ +
     │             └ IntegerConstant
-    │               └ 1 (Integer)
+    │               └ 1
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ k (str)
+    │ │ │ └ k
     │ │ ├ IntegerConstant
-    │ │ │ └ 25 (Integer)
+    │ │ │ └ 25
     │ │ └ IntegerConstant
-    │ │   └ 26 (Integer)
+    │ │   └ 26
     │ └ IntegerConstant
-    │   └ 3 (Integer)
+    │   └ 3
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ k (str)
+    │ │ │ └ k
     │ │ ├ IntegerConstant
-    │ │ │ └ 25 (Integer)
+    │ │ │ └ 25
     │ │ └ IntegerConstant
-    │ │   └ 26 (Integer)
+    │ │   └ 26
     │ └ AdditiveExpression
     │   ├ IndexedVariable
     │   │ ├ Identifier
-    │   │ │ └ k (str)
+    │   │ │ └ k
     │   │ ├ IntegerConstant
-    │   │ │ └ 25 (Integer)
+    │   │ │ └ 25
     │   │ └ IntegerConstant
-    │   │   └ 26 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │   └ 26
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 3 (Integer)
+    │     └ 3
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
-      │ │ └ k (str)
+      │ │ └ k
       │ ├ AdditiveExpression
       │ │ ├ Identifier
-      │ │ │ └ a (str)
-      │ │ ├ + (AdditiveOperator)
+      │ │ │ └ a
+      │ │ ├ +
       │ │ └ IntegerConstant
-      │ │   └ 35 (Integer)
+      │ │   └ 35
       │ └ AdditiveExpression
       │   ├ Identifier
-      │   │ └ a (str)
-      │   ├ + (AdditiveOperator)
+      │   │ └ a
+      │   ├ +
       │   └ IntegerConstant
-      │     └ 30 (Integer)
+      │     └ 30
       └ IntegerConstant
-        └ 3 (Integer)
+        └ 3

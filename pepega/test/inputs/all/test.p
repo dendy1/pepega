@@ -36,8 +36,6 @@ program foo(boo);
         newline();
 
 
-
-
         if a < 5 then
             putint(0)
         else

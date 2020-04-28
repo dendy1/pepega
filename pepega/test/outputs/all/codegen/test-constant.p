@@ -1,166 +1,166 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ d (str)
+  │   │ └ d
   │   ├ Identifier
-  │   │ └ e (str)
+  │   │ └ e
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (Integer)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (Integer)
+  │       │   └ 10
   │       └ Type
-  │         └ integer (SimpleType)
+  │         └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 2 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 2
+    │   ├ +
     │   └ IntegerConstant
-    │     └ 99 (Integer)
+    │     └ 99
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ b (str)
+    │ │ └ b
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 3
+    │   ├ +
     │   ├ MultiplicativeExpression
     │   │ ├ IntegerConstant
-    │   │ │ └ 93 (Integer)
-    │   │ ├ * (MultiplicativeOperator)
+    │   │ │ └ 93
+    │   │ ├ *
     │   │ └ IntegerConstant
-    │   │   └ 5 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │   └ 5
+    │   ├ +
     │   └ MultiplicativeExpression
     │     ├ IntegerConstant
-    │     │ └ 87 (Integer)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ 87
+    │     ├ *
     │     └ Factor
     │       └ AdditiveExpression
     │         ├ IntegerConstant
-    │         │ └ 23 (Integer)
-    │         ├ + (AdditiveOperator)
+    │         │ └ 23
+    │         ├ +
     │         └ MultiplicativeExpression
     │           ├ IntegerConstant
-    │           │ └ 15 (Integer)
-    │           ├ * (MultiplicativeOperator)
+    │           │ └ 15
+    │           ├ *
     │           └ IntegerConstant
-    │             └ 6 (Integer)
+    │             └ 6
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
-    │ │ │ └ c (str)
+    │ │ │ └ c
     │ │ └ AdditiveExpression
     │ │   ├ IntegerConstant
-    │ │   │ └ 4 (Integer)
-    │ │   ├ + (AdditiveOperator)
+    │ │   │ └ 4
+    │ │   ├ +
     │ │   └ IntegerConstant
-    │ │     └ 2 (Integer)
+    │ │     └ 2
     │ └ AdditiveExpression
     │   ├ IntegerConstant
-    │   │ └ 3 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │ └ 3
+    │   ├ +
     │   ├ MultiplicativeExpression
     │   │ ├ IntegerConstant
-    │   │ │ └ 9 (Integer)
-    │   │ ├ * (MultiplicativeOperator)
+    │   │ │ └ 9
+    │   │ ├ *
     │   │ └ IntegerConstant
-    │   │   └ 5 (Integer)
-    │   ├ + (AdditiveOperator)
+    │   │   └ 5
+    │   ├ +
     │   └ MultiplicativeExpression
     │     ├ IntegerConstant
-    │     │ └ 87 (Integer)
-    │     ├ * (MultiplicativeOperator)
+    │     │ └ 87
+    │     ├ *
     │     └ Factor
     │       └ AdditiveExpression
     │         ├ IntegerConstant
-    │         │ └ 2 (Integer)
-    │         ├ + (AdditiveOperator)
+    │         │ └ 2
+    │         ├ +
     │         └ MultiplicativeExpression
     │           ├ IntegerConstant
-    │           │ └ 15 (Integer)
-    │           ├ * (MultiplicativeOperator)
+    │           │ └ 15
+    │           ├ *
     │           └ IntegerConstant
-    │             └ 6 (Integer)
+    │             └ 6
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
-      │ │ └ c (str)
+      │ │ └ c
       │ └ AdditiveExpression
       │   ├ IntegerConstant
-      │   │ └ 3 (Integer)
-      │   ├ + (AdditiveOperator)
+      │   │ └ 3
+      │   ├ +
       │   ├ MultiplicativeExpression
       │   │ ├ IntegerConstant
-      │   │ │ └ 9 (Integer)
-      │   │ ├ * (MultiplicativeOperator)
+      │   │ │ └ 9
+      │   │ ├ *
       │   │ └ IntegerConstant
-      │   │   └ 5 (Integer)
-      │   ├ + (AdditiveOperator)
+      │   │   └ 5
+      │   ├ +
       │   └ MultiplicativeExpression
       │     ├ IntegerConstant
-      │     │ └ 87 (Integer)
-      │     ├ * (MultiplicativeOperator)
+      │     │ └ 87
+      │     ├ *
       │     └ Factor
       │       └ AdditiveExpression
       │         ├ IntegerConstant
-      │         │ └ 2 (Integer)
-      │         ├ + (AdditiveOperator)
+      │         │ └ 2
+      │         ├ +
       │         └ MultiplicativeExpression
       │           ├ IntegerConstant
-      │           │ └ 15 (Integer)
-      │           ├ * (MultiplicativeOperator)
+      │           │ └ 15
+      │           ├ *
       │           └ IntegerConstant
-      │             └ 6 (Integer)
+      │             └ 6
       └ AdditiveExpression
         ├ IntegerConstant
-        │ └ 3 (Integer)
-        ├ + (AdditiveOperator)
+        │ └ 3
+        ├ +
         ├ MultiplicativeExpression
         │ ├ IntegerConstant
-        │ │ └ 9 (Integer)
-        │ ├ * (MultiplicativeOperator)
+        │ │ └ 9
+        │ ├ *
         │ └ IntegerConstant
-        │   └ 5 (Integer)
-        ├ + (AdditiveOperator)
+        │   └ 5
+        ├ +
         └ MultiplicativeExpression
           ├ IntegerConstant
-          │ └ 8 (Integer)
-          ├ * (MultiplicativeOperator)
+          │ └ 8
+          ├ *
           └ Factor
             └ AdditiveExpression
               ├ IntegerConstant
-              │ └ 2 (Integer)
-              ├ + (AdditiveOperator)
+              │ └ 2
+              ├ +
               └ MultiplicativeExpression
                 ├ IntegerConstant
-                │ └ 15 (Integer)
-                ├ * (MultiplicativeOperator)
+                │ └ 15
+                ├ *
                 └ IntegerConstant
-                  └ 6 (Integer)
+                  └ 6

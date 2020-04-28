@@ -1,31 +1,31 @@
 Program
 ├ Identifier
-│ └ test (str)
+│ └ test
 ├ Identifier
-│ └ in (str)
+│ └ in
 ├ Identifier
-│ └ out (str)
+│ └ out
 ├ Identifier
-│ └ err (str)
+│ └ err
 └ Block
   └ StatementList
     └ ProcedureStatement
       ├ Identifier
-      │ └ printreal (str)
+      │ └ printreal
       └ AdditiveExpression
         ├ MultiplicativeExpression
         │ ├ FloatConstant
-        │ │ └ 3.5 (Float)
-        │ ├ * (MultiplicativeOperator)
+        │ │ └ 3.5
+        │ ├ *
         │ └ FloatConstant
-        │   └ 4.7 (Float)
-        ├ + (AdditiveOperator)
+        │   └ 4.7
+        ├ +
         ├ MultiplicativeExpression
         │ ├ FloatConstant
-        │ │ └ 9.3 (Float)
-        │ ├ / (MultiplicativeOperator)
+        │ │ └ 9.3
+        │ ├ /
         │ └ FloatConstant
-        │   └ 3.1 (Float)
-        ├ - (AdditiveOperator)
+        │   └ 3.1
+        ├ -
         └ FloatConstant
-          └ 0.4 (Float)
+          └ 0.4

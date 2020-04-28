@@ -1,58 +1,58 @@
 Program
 ├ Identifier
-│ └ foo (str)
+│ └ foo
 ├ Identifier
-│ └ input (str)
+│ └ input
 ├ Identifier
-│ └ output (str)
+│ └ output
 ├ Identifier
-│ └ error (str)
+│ └ error
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a (str)
+  │   │ └ a
   │   ├ Identifier
-  │   │ └ c (str)
+  │   │ └ c
   │   └ Type
-  │     └ integer (SimpleType)
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ b (str)
+  │   │ └ b
   │   └ Type
-  │     └ real (SimpleType)
+  │     └ real
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ a (str)
+    │ │ └ a
     │ └ AdditiveExpression
     │   ├ SignedFactor
-    │   │ ├ - (Sign)
+    │   │ ├ -
     │   │ └ IntegerConstant
-    │   │   └ 3 (Integer)
-    │   ├ - (AdditiveOperator)
+    │   │   └ 3
+    │   ├ -
     │   └ IntegerConstant
-    │     └ 4 (Integer)
+    │     └ 4
     ├ AssignmentStatement
     │ ├ Identifier
-    │ │ └ c (str)
+    │ │ └ c
     │ └ SignedFactor
-    │   ├ - (Sign)
+    │   ├ -
     │   └ SignedFactor
-    │     ├ - (Sign)
+    │     ├ -
     │     └ SignedFactor
-    │       ├ - (Sign)
+    │       ├ -
     │       └ IntegerConstant
-    │         └ 5 (Integer)
+    │         └ 5
     └ AssignmentStatement
       ├ Identifier
-      │ └ b (str)
+      │ └ b
       └ AdditiveExpression
         ├ SignedFactor
-        │ ├ - (Sign)
+        │ ├ -
         │ └ IntegerConstant
-        │   └ 5 (Integer)
-        ├ - (AdditiveOperator)
+        │   └ 5
+        ├ -
         └ IntegerConstant
-          └ 6 (Integer)
+          └ 6
