@@ -1,6 +1,48 @@
 # pepega
 Компилятор языка Mini-Pascal на языке Python.  
 Для парсинга кода используется библиотека [pyPEG2](https://fdik.org/pyPEG/)
+## Структура проекта
+```
+pepega
+├ src
+│ ├ AST
+│ │ ├ ASTNode.py
+│ │ └ Parser.py
+│ ├ Visitor
+│ │ └ visitor.py
+│ └ pyPEG
+│ │ ├ MiniPascalGrammars.py
+│ │ └ pyPEG.py
+├ test
+│ └ ...
+├ main.py
+├ tests.py
+└ utils.py
+```
+### [main.py](https://github.com/dendy1/pepega/blob/master/pepega/main.py) 
+Главный исполнительный модуль программы. Сейчас в нём вызывается функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6) для парсинга тестовых файлов из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs)  
+
+### [tests.py](https://github.com/dendy1/pepega/blob/master/pepega/tests.py)
+Модуль, в котором расположена функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6). В функции считываются все файлы из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs), и для содержания каждого файла выполняется метод parse библиотеки pyPEG2, который осуществляет разбор кода. Получаемое AST записывается в файл с таким же названием в папку [test/outputs](https://github.com/dendy1/pepega/tree/master/pepega/test/outputs). Ошибки парсинга выводятся в консоль.    
+
+### [utils.py](https://github.com/dendy1/pepega/blob/master/pepega/utils.py)
+Модуль для дополнительных функций, таких как поиск всех файлов в директории и т.д.
+
+### [ASTNode.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/ASTNode.py)
+Модуль, в котором находится класс, описывающий узел синтаксического дерева. Более подробное описание методов и полей класса находится в самом модуле.
+
+### [Parser.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/Parser.py)
+Модуль, в котором находится класс парсера с доступом к узлам AST и CST и методами для их вывода в консоль.
+
+### [visitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/visitor.py)
+Модуль, в котором находится базовый класс для реализации паттерна посетитель. (Пока не используется)
+
+### [MiniPascalGrammars.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/MiniPascalGrammars.py)
+Модуль, в котором находятся классы для нетерминальных символов [грамматики](https://github.com/dendy1/pepega#peg-%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0) языка и описание самой грамматики.
+
+### [pyPEG.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/pyPEG.py)
+Модуль, в котором находятся унаследованные от базовых объектов библиотеки pyPEG классы с методом accept() для реализации паттерна посетитель.
+
 ## PEG-грамматика языка
 ```
 <program> => "program" <identifier> ("(" <identifier> ("," <identifier>)* ")")? ";" <block> "."
