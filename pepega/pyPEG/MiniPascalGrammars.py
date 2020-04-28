@@ -1,6 +1,112 @@
 from pyPEG.pyPEG import *
 import re
 
+class Program(CustomList):
+    pass
+
+class Block(CustomList):
+    pass
+
+class VariableDeclarations(CustomList):
+    pass
+
+class VariableDeclaration(CustomList):
+    pass
+
+class FunctionDeclarations(CustomList):
+    pass
+
+class FunctionDeclaration(CustomList):
+    pass
+
+class FunctionHeader(CustomList):
+    pass
+
+class FunctionParameters(CustomList):
+    pass
+
+class FunctionStatement(CustomList):
+    pass
+
+class Type(CustomList):
+    pass
+
+class ArrayType(CustomList):
+    pass
+
+class SimpleType(CustomKeyword):
+    pass
+
+class IndexRange(CustomList):
+    pass
+
+class CompoundStatement(CustomList):
+    pass
+
+class StatementList(CustomList):
+    pass
+
+class Statement(CustomList):
+    pass
+
+class SimpleStatement(CustomList):
+    pass
+
+class AssignmentStatement(CustomList):
+    pass
+
+class IfStatement(CustomList):
+    pass
+
+class WhileStatement(CustomList):
+    pass
+
+class ExpressionList(CustomList):
+    pass
+
+class Expression(CustomList):
+    pass
+
+class RelationalExpression(CustomList):
+    pass
+
+class AdditiveExpression(CustomList):
+    pass
+
+class MultiplicativeExpression(CustomList):
+    pass
+
+class SignedFactor(CustomList):
+    pass
+
+class Factor(CustomList):
+    pass
+
+class Variable(CustomList):
+    pass
+
+class IndexedVariable(CustomList):
+    pass
+
+class EntireVariable(CustomList):
+    pass
+
+class FloatConstant(CustomList):
+    pass
+
+class IntegerConstant(CustomList):
+    pass
+
+class BooleanConstant(CustomList):
+    pass
+
+class StringConstant(CustomList):
+    pass
+
+class Identifier(CustomList):
+    pass
+
+
 class Float(Literal):
     grammar = re.compile(r"[0-9]*\.[0-9]*")
 
@@ -48,98 +154,6 @@ class Boolean(Literal):
         else:
             self.value = bool(value)
 
-class Program(CustomList):
-    pass
-
-class Block(CustomList):
-    pass
-
-class VariableDeclarations(CustomList):
-    pass
-
-class VariableDeclaration(CustomList):
-    pass
-
-class FunctionDeclarations(CustomList):
-    pass
-
-class FunctionDeclaration(CustomList):
-    pass
-
-class FunctionHeader(CustomList):
-    pass
-
-class FunctionParameters(CustomList):
-    pass
-
-class FunctionStatement(CustomList):
-    pass
-
-class Type(CustomList):
-    pass
-
-class ArrayType(CustomList):
-    pass
-
-class SimpleType(CustomKeyword):
-    pass
-
-class IndexRange(CustomList):
-    pass
-
-class CompoundStatement(CustomList):
-    pass
-
-class Statement(CustomList):
-    pass
-
-class SimpleStatement(CustomList):
-    pass
-
-class AssignmentStatement(CustomList):
-    pass
-
-class ReadStatement(CustomList):
-    pass
-
-class InputVariable(CustomList):
-    pass
-
-class WriteStatement(CustomList):
-    pass
-
-class OutputExpression(CustomList):
-    pass
-
-class StructuredStatement(CustomList):
-    pass
-
-class IfStatement(CustomList):
-    pass
-
-class WhileStatement(CustomList):
-    pass
-
-class Expression(CustomList):
-    pass
-
-class RelationalExpression(CustomList):
-    pass
-
-class AdditiveExpression(CustomList):
-    pass
-
-class MultiplicativeExpression(CustomList):
-    pass
-
-class SignedFactor(CustomList):
-    pass
-
-class Factor(CustomList):
-    pass
-
-class Primary(CustomList):
-    pass
 
 class RelationalOperator(CustomKeyword):
     grammar = Enum(K("!="), K("=="), K("<"), K("<="), K(">="), K(">"))
@@ -156,36 +170,6 @@ class MultiplicativeOperator(CustomKeyword):
 class Sign(CustomKeyword):
     grammar = Enum(K("+"), K("-"))
     regex = re.compile('[+-]')
-
-class Variable(CustomList):
-    pass
-
-class IndexedVariable(CustomList):
-    pass
-
-class EntireVariable(CustomList):
-    pass
-
-class Identifier(CustomList):
-    pass
-
-class IntegerConstant(CustomList):
-    pass
-
-class FloatConstant(CustomList):
-    pass
-
-class BooleanConstant(CustomList):
-    pass
-
-class StringConstant(CustomList):
-    pass
-
-class StatementList(CustomList):
-    pass
-
-class ExpressionList(CustomList):
-    pass
 
 Program.grammar = "program", Identifier, optional('(', csl(Identifier), ')'), ";", Block, "."
 Block.grammar = maybe_some(VariableDeclarations), optional(FunctionDeclarations), CompoundStatement
@@ -227,5 +211,4 @@ IntegerConstant.grammar = Integer
 FloatConstant.grammar = Float
 BooleanConstant.grammar = Boolean
 StringConstant.grammar = [("\"", str, "\""), ("\'", str, "\'")]
-
 Identifier.grammar = str
