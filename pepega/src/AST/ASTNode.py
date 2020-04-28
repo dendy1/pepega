@@ -36,12 +36,20 @@ class ASTNode:
     }
 
     def __init__(self, parent, token):
+        # список дочерних узлов
         self.nodes = []
-        self.parent = parent
-        self.token = token
-        self.value = self.type_name = type(token).__name__
-        self.scope = None
 
+        # ссылка на родителя
+        self.parent = parent
+
+        # токен, возвращаемый pyPEG2
+        self.token = token
+
+        # значение токена (применимо к литералам) и его тип
+        # если токен не литерал, то value == type_name
+        self.value = self.type_name = type(token).__name__
+
+    # парсинг дерева, которое возвращаяет pyPEG2 в собственную структуру
     def parse(self, raw):
         if isinstance(raw, Literal):
             self.value = raw.value
@@ -58,15 +66,7 @@ class ASTNode:
             self.nodes += [child]
             child.parse(e)
 
-    def print(self, content = False, i = 0):
-        c = ""
-        if self.token and content:
-            c = " '%s'" % self.token
-
-        print("\t" * i + self.value + c)
-        for sub in self.nodes:
-            sub.print(content, i + 1)
-
+    # вывод дерева в строку
     def tree(self, content = False) -> str:
         res = [str(self)]
         nodes = self.nodes
@@ -78,6 +78,7 @@ class ASTNode:
             res.extend(((ch0 if j == 0 else ch) + ' ' + s + cont for j, s in enumerate(child.tree(content))))
         return res
 
+    # переименование некоторых узлов для последующего уменьшения дерева
     def rename(self):
         if self.type_name in self.renames:
             self.type_name = self.renames[self.type_name]
@@ -85,6 +86,7 @@ class ASTNode:
         for n in self.nodes:
             n.rename()
 
+    # удаление ненужных узлов, которые появляются в процессе парсинга
     def fold(self):
         if self.parent is None:
             for node in self.nodes:
@@ -102,22 +104,6 @@ class ASTNode:
         for node in self.nodes:
             node.fold()
 
-    def assignVariable(self, name, value, type):
-        if self.scope != None:
-            self.scope[name] = {"value" : value, "type" : type}
-        elif self.parent:
-            self.parent.assignVariable(name, value, type)
-        else:
-            raise Exception("no scope for '%s'" % name)
-
-    def findVariable(self, name):
-        if self.scope != None:
-            if name in self.scope:
-                return self.scope[name]
-        if self.parent:
-            return self.parent.findVariable(name)
-        raise Exception("unknown symbol '%s'" % name)
-
     def __str__(self) -> str:
         # if len(self.nodes) < 1:
         #     return str(self.value) + " (" + type(self.token).__name__ + ")"
@@ -126,18 +112,3 @@ class ASTNode:
 
     def __repr__(self) -> str:
         return self.__str__()
-
-    def __getitem__(self, item):
-        if isinstance(item, str):
-            for node in self.nodes:
-                if node.value == item:
-                    return node
-            raise Exception("Can't find node with name '%s'" % item)
-
-        if isinstance(item, int):
-            if item < 0 or item > len(self.nodes) - 1:
-                raise Exception("Index out of range [%d, %d]", 0, len(self.nodes) - 1)
-            return self.nodes[item]
-
-    def execute(self):
-        pass
