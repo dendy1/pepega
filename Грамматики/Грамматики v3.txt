@@ -8,10 +8,10 @@
 <index range> => <integer constant> ".." <integer constant>
 <simple type> => <boolean> | <string> | <integer> | <float>
 
-<function declarations> => (<function declaration> ";")+
-<function declaration> => <fuction header> <variable declarations>* <compound statement>
-<function header> => "function" <identifier> <function parameters> ":" <type> ";"
-<function parameters> => "(" <identifier> ("," <identifier>)* ":" <type> ")"
+<subprogram declarations> => (<subprogram declaration> ";")+
+<subprogram declaration> => <subprogram header> <variable declarations>* <compound statement>
+<subprogram header> => "function" <identifier> <arguments> ":" <type> ";" | "procedure" <arguments> <function parameters> ";"
+<arguments> => "(" <identifier> ("," <identifier>)* ":" <type> ")"
 
 <compound statement> => "begin" <statement list>? "end"
 <statement list> => <statement> (";" <statement>)*

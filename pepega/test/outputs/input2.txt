@@ -1,0 +1,59 @@
+Program
+├ Identifier
+│ └ foo (str)
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a (str)
+  │   ├ Identifier
+  │   │ └ b (str)
+  │   ├ Identifier
+  │   │ └ c (str)
+  │   ├ Identifier
+  │   │ └ d (str)
+  │   └ Type
+  │     └ integer (SimpleType)
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ addition (str)
+  │   │ ├ Arguments
+  │   │ │ ├ Identifier
+  │   │ │ │ └ a (str)
+  │   │ │ ├ Identifier
+  │   │ │ │ └ b (str)
+  │   │ │ └ Type
+  │   │ │   └ integer (SimpleType)
+  │   │ └ Type
+  │   │   └ integer (SimpleType)
+  │   ├ VariableDeclarations
+  │   │ └ VariableDeclaration
+  │   │   ├ Identifier
+  │   │   │ └ c (str)
+  │   │   └ Type
+  │   │     └ integer (SimpleType)
+  │   └ StatementList
+  │     └ AssignmentStatement
+  │       ├ Identifier
+  │       │ └ a (str)
+  │       └ IntegerConstant
+  │         └ 2 (Integer)
+  └ StatementList
+    ├ AssignmentStatement
+    │ ├ Identifier
+    │ │ └ a (str)
+    │ └ Factor
+    │   ├ Identifier
+    │   │ └ addition (str)
+    │   └ ExpressionList
+    │     ├ IntegerConstant
+    │     │ └ 1 (Integer)
+    │     └ IntegerConstant
+    │       └ 2 (Integer)
+    └ ProcedureStatement
+      ├ Identifier
+      │ └ putchar (str)
+      └ Identifier
+        └ a (str)
