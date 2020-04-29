@@ -1,5 +1,5 @@
 from src.pyPEG.MiniPascalGrammars import *
-from src.AST.Parser import Parser
+from src.newAST.NewParser import Parser
 from utils import get_list_of_files
 import io
 
@@ -23,5 +23,6 @@ def run_tests():
             print("Testing failed: " + e.__str__())
         else:
             f = io.open(output_filename, 'w+', encoding="utf-8")
-            print(*parser.ASTroot.tree(False), sep='\n', file=f)
+            #print(*parser.ASTroot.tree(False), sep='\n', file=f)
+            print(*parser.AST.tree(), sep='\n', file=f)
             f.close()

@@ -19,8 +19,3 @@ class Parser:
     def printAST(self, with_context = False):
         print(*self.ASTroot.tree(with_context), sep=os.linesep)
 
-    def printScope(self):
-        for x in self.ASTroot.scope:
-            print(x)
-            for y in self.ASTroot.scope[x]:
-                print(y, ':', self.ASTroot.scope[x][y])

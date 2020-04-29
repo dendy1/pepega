@@ -1,4 +1,4 @@
-from src.pyPEG.pyPEG import *
+from src.newAST.pyPEGElements import *
 import re
 
 class Program(CustomList):
@@ -119,7 +119,7 @@ class Identifier(CustomList):
     pass
 
 
-class Float(Literal):
+class Float(CustomLiteral):
     grammar = re.compile(r"[0-9]*\.[0-9]*")
 
     def __init__(self, value=.0, **kwargs):
@@ -135,7 +135,7 @@ class Float(Literal):
         else:
             self.value = float(value)
 
-class Integer(Literal):
+class Integer(CustomLiteral):
     grammar = re.compile(r"\d+")
 
     def __init__(self, value=.0, **kwargs):
@@ -151,7 +151,7 @@ class Integer(Literal):
         else:
             self.value = int(value)
 
-class Boolean(Literal):
+class Boolean(CustomLiteral):
     def __init__(self, value=.0, **kwargs):
         super().__init__(value, **kwargs)
         if isinstance(value, str):

@@ -86,8 +86,16 @@ Program
     │   └ ExpressionList
     │     ├ Identifier
     │     │ └ x
-    │     └ Identifier
-    │       └ x
+    │     └ Expression
+    │       └ RelationalExpression
+    │         └ AdditiveExpression
+    │           └ MultiplicativeExpression
+    │             └ SignedFactor
+    │               └ Factor
+    │                 └ Variable
+    │                   └ EntireVariable
+    │                     └ Identifier
+    │                       └ x
     ├ AssignmentStatement
     │ ├ Identifier
     │ │ └ z

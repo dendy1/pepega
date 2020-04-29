@@ -119,8 +119,12 @@ Program
     │     ├ IntegerConstant
     │     │ └ 11
     │     ├ *
-    │     └ Identifier
-    │       └ a
+    │     └ SignedFactor
+    │       └ Factor
+    │         └ Variable
+    │           └ EntireVariable
+    │             └ Identifier
+    │               └ a
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ Identifier
