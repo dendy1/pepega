@@ -27,14 +27,12 @@ class ASTNode:
         "IndexedVariable": "Variable",
         "EntireVariable": "Variable"
     }
-
     __folds = {
-        "ExpressionList": ["Expression"],
-        "Expression": ["Expression", "Factor"],
-        "Factor": ["Factor", "Variable"],
+        "Expression": ["Expression", "ExpressionList", "Factor"],
+        "Factor": ["Factor", "Variable", "Expression"],
         "Variable": ["Variable", "Identifier"],
-        "Statement": ["Statement", "StatementList"],
-        "CompoundStatement": ["Statement", "StatementList"]
+        "Statement": ["Statement", "CompoundStatement"],
+        "CompoundStatement": ["StatementList"],
     }
 
     def __renamed(self):
@@ -54,6 +52,7 @@ class ASTNode:
                 res.extend(((ch0 if j == 0 else ch) + ' ' + s for j, s in enumerate(child.tree())))
         return res
 
+    # рекурсивное назначение потомкам узла родителя для дальнейшего сокращения дерева
     def set_parent(self):
         for child in self:
             from pypeg2 import Literal
@@ -68,10 +67,6 @@ class ASTNode:
 
     # удаление ненужных узлов, которые появляются в процессе парсинга
     def fold(self):
-        from src.newAST.pyPEGElements import CustomLiteral
-        if isinstance(self, CustomLiteral) or isinstance(self, str):
-            return
-
         for folds in self.__folds:
             if isinstance(self[0], str):
                 continue
@@ -91,10 +86,9 @@ class ASTNode:
                     except AttributeError:
                         continue
 
-
-
         for child in self:
             from src.newAST.pyPEGElements import CustomLiteral
             if isinstance(child, CustomLiteral) or isinstance(child, str):
                 continue
+
             child.fold()
