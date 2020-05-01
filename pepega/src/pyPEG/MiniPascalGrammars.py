@@ -11,7 +11,16 @@ class VariableDeclarations(CustomList):
     pass
 
 class VariableDeclaration(CustomList):
-    pass
+    @property
+    def var_identifiers(self):
+        var_list = []
+        for i in range(len(self) - 1):
+            var_list.append(self[i][0])
+        return var_list
+
+    @property
+    def var_type(self):
+        return self[-1]
 
 class SubprogramDeclarations(CustomList):
     pass
@@ -41,10 +50,22 @@ class ProcedureStatement(CustomList):
     pass
 
 class Type(CustomList):
-    pass
+    @property
+    def signature(self):
+        if isinstance(self[0], ArrayType):
+            return self[0].signature_without_ranges
+        else:
+            return self[0]
+
 
 class ArrayType(CustomList):
-    pass
+    @property
+    def signature_without_ranges(self):
+        if isinstance(self[-1][0], ArrayType):
+            return 'array of ' + self[-1][0].signature_without_ranges
+
+        return self[-1][0]
+
 
 class SimpleType(CustomKeyword):
     pass
@@ -65,7 +86,13 @@ class SimpleStatement(CustomList):
     pass
 
 class AssignmentStatement(CustomList):
-    pass
+    @property
+    def left(self):
+        return self[0]
+
+    @property
+    def right(self):
+        return self[1]
 
 class IfStatement(CustomList):
     pass
@@ -85,7 +112,7 @@ class RelationalExpression(CustomList):
 class AdditiveExpression(CustomList):
     pass
 
-class MultiplicativeExpression(CustomList):
+class MultiplicativeExpression(CustomList, BinaryOp):
     pass
 
 class SignedFactor(CustomList):
@@ -101,9 +128,14 @@ class IndexedVariable(CustomList):
     pass
 
 class EntireVariable(CustomList):
+    @property
+    def var_name(self):
+        return self[0]
+
+class ConstantVariable(CustomList):
     pass
 
-class FloatConstant(CustomList):
+class RealConstant(CustomList):
     pass
 
 class IntegerConstant(CustomList):
@@ -118,14 +150,13 @@ class StringConstant(CustomList):
 class Identifier(CustomList):
     pass
 
-
-class Float(CustomLiteral):
+class Real(CustomLiteral):
     grammar = re.compile(r"[0-9]*\.[0-9]*")
 
     def __init__(self, value=.0, **kwargs):
         super().__init__(value, **kwargs)
         if isinstance(value, str):
-            m = Float.grammar.match(value)
+            m = Real.grammar.match(value)
             if m:
                 self.value = float(value)
             else:
@@ -183,7 +214,11 @@ class Sign(CustomKeyword):
     grammar = Enum(K("+"), K("-"))
     regex = re.compile('[+-]')
 
-Program.grammar = "program", Identifier, optional('(', csl(Identifier), ')'), ";", Block, "."
+class Not(CustomKeyword):
+    grammar = Enum(K("not"))
+
+
+Program.grammar = K("program"), Identifier, optional('(', csl(Identifier), ')'), ";", Block, "."
 Block.grammar = maybe_some(VariableDeclarations), optional(SubprogramDeclarations), CompoundStatement
 
 VariableDeclarations.grammar = "var", some(VariableDeclaration, ";")
@@ -191,7 +226,7 @@ VariableDeclaration.grammar = csl(Identifier), ":", Type
 Type.grammar = [ArrayType, SimpleType]
 ArrayType.grammar = "array", "[", optional(IndexRange), "]", "of", Type
 IndexRange.grammar = IntegerConstant, "..", IntegerConstant
-SimpleType.grammar = Enum(K('string'), K('integer'), K('boolean'), K('float'), K('real'), K('cardinal'))
+SimpleType.grammar = Enum(K('real'), K('integer'), K('boolean'), K('string'))
 
 SubprogramDeclarations.grammar = some(SubprogramDeclaration, ";")
 SubprogramDeclaration.grammar = SubprogramHeader, maybe_some(VariableDeclarations), CompoundStatement
@@ -207,24 +242,25 @@ StatementList.grammar = Statement, maybe_some(';', Statement)
 Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, WhileStatement, ProcedureStatement]
 
 AssignmentStatement.grammar = Variable, ":=", Expression
-ProcedureStatement.grammar = Identifier, optional("(", ExpressionList, ")")
+ProcedureStatement.grammar = Identifier, "(", optional(ExpressionList), ")"
 IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Statement)
 WhileStatement.grammar = "while", Expression, "do", Statement
 
-ExpressionList.grammar = Expression, maybe_some(',', Expression)
+ExpressionList.grammar = csl(Expression)
 Expression.grammar = RelationalExpression
 RelationalExpression.grammar = AdditiveExpression, optional(RelationalOperator, AdditiveExpression)
 AdditiveExpression.grammar = MultiplicativeExpression, maybe_some(AdditiveOperator, MultiplicativeExpression)
 MultiplicativeExpression.grammar = SignedFactor, maybe_some(MultiplicativeOperator, SignedFactor)
 SignedFactor.grammar = optional(Sign), Factor
-Factor.grammar = [(Identifier, "(", ExpressionList, ")"), ("(", Expression, ")"), Variable, ("not", Factor), SignedFactor]
+Factor.grammar = [(Not, Factor), ProcedureStatement, ("(", Expression, ")"), Variable, SignedFactor]
 
-Variable.grammar = [IndexedVariable, EntireVariable]
-EntireVariable.grammar = [FloatConstant, IntegerConstant, BooleanConstant, StringConstant, Identifier]
+Variable.grammar = [ConstantVariable, IndexedVariable, EntireVariable]
+EntireVariable.grammar = str
+ConstantVariable.grammar = [RealConstant, IntegerConstant, BooleanConstant, StringConstant]
 IndexedVariable.grammar = Identifier, some("[", Expression, "]")
 
 IntegerConstant.grammar = Integer
-FloatConstant.grammar = Float
+RealConstant.grammar = Real
 BooleanConstant.grammar = Boolean
 StringConstant.grammar = [("\"", str, "\""), ("\'", str, "\'")]
 Identifier.grammar = str

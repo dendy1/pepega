@@ -1,4 +1,4 @@
-program test(in, out, err);
+program arrays(in, out, err);
 //var arr : array [1..9] of real;
 var crr	: array [1..9] of string;
 begin

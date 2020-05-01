@@ -12,10 +12,10 @@ begin
 end;
 
 begin
+    rer(2,3 ,4);
     x := add(3, 4);
-    y := mul(x, x);
-    z := add(y, mul(x, 1));
-
+    y := mul(x, z);
+    z := add(y, 2);
     printInt(x+y+z)
 end.
 

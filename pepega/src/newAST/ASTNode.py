@@ -2,6 +2,7 @@ class ASTNode:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent = None
+        self.scope = None
 
     __renames = {
         "SimpleStatement": 'Statement',
@@ -25,12 +26,13 @@ class ASTNode:
         "StringConstant": "Variable",
 
         "IndexedVariable": "Variable",
+        "ConstantVariable": "Variable",
         "EntireVariable": "Variable"
     }
     __folds = {
         "Expression": ["Expression", "ExpressionList", "Factor"],
-        "Factor": ["Factor", "Variable", "Expression"],
-        "Variable": ["Variable", "Identifier"],
+        "Factor": ["Factor", "Variable", "Expression", "Statement"],
+        "Variable": ["Variable"],
         "Statement": ["Statement", "CompoundStatement"],
         "CompoundStatement": ["StatementList"],
     }
@@ -59,7 +61,8 @@ class ASTNode:
             if isinstance(child, Literal):
                 child.parent = self
                 continue
-            elif isinstance(child, str):
+
+            elif isinstance(child, str) or child is None:
                 continue
 
             child.parent = self
