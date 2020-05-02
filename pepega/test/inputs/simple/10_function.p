@@ -11,8 +11,12 @@ begin
     mul := a*b
 end;
 
+function div(a, b : integer; c : real) : integer;
 begin
-    rer(2,3 ,4);
+    div := a/b
+end;
+
+begin
     x := add(3, 4);
     y := mul(x, z);
     z := add(y, 2);

@@ -4,7 +4,7 @@ from utils import get_list_of_files
 import io, traceback
 
 def run_tests():
-    files = get_list_of_files('test\inputs\simple')
+    files = get_list_of_files('test\inputs\simple\debug')
     for filename in files:
         f = open(filename, 'r')
         program_lines = f.read().lower()
@@ -19,9 +19,9 @@ def run_tests():
             parser.fold()
             print(*parser.AST.tree(), sep='\n', file=f)
             parser.semantic_check()
-        except:
+        except Exception as e:
             track = traceback.format_exc()
-            print("Failed in " + filename)
+            print("Failed in " + filename + ": " + e.__str__())
             print(track, sep='\n', file=f)
         finally:
             f.close()

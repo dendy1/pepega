@@ -20,34 +20,60 @@ class VariableDeclaration(CustomList):
 
     @property
     def var_type(self):
-        return self[-1]
+        return self[-1].signature
 
 class SubprogramDeclarations(CustomList):
     pass
 
 class SubprogramDeclaration(CustomList):
-    pass
+    @property
+    def header(self):
+        return self[0]
 
 class SubprogramHeader(CustomList):
+    @property
+    def proc_name(self):
+        return self[0][0]
+
+    @property
+    def proc_params(self):
+        if len(self) < 3:
+            return None
+        return self[1]
+
+    @property
+    def proc_type(self):
+        if isinstance(self[-1], Type):
+            return self[-1].signature
+        else:
+            return None
+
+class ParametersList(CustomList):
     pass
 
-# class FunctionDeclaration(CustomList):
-#     pass
-#
-# class FunctionHeader(CustomList):
-#     pass
-#
-# class ProcedureDeclaration(CustomList):
-#     pass
-#
-# class ProcedureHeader(CustomList):
-#     pass
+class Parameters(CustomList):
+    @property
+    def params_identifiers(self):
+        params_list = []
+        for i in range(len(self) - 1):
+            params_list.append(self[i][0])
+        return params_list
 
-class Arguments(CustomList):
-    pass
+    @property
+    def params_type(self):
+        return self[-1].signature
 
 class ProcedureStatement(CustomList):
-    pass
+    @property
+    def proc_name(self):
+        return self[0][0]
+
+    @property
+    def args_count(self):
+        if isinstance(self[-1], Arguments):
+            return len(self[-1])
+        else:
+            return 0
 
 class Type(CustomList):
     @property
@@ -57,7 +83,6 @@ class Type(CustomList):
         else:
             return self[0]
 
-
 class ArrayType(CustomList):
     @property
     def signature_without_ranges(self):
@@ -65,7 +90,6 @@ class ArrayType(CustomList):
             return 'array of ' + self[-1][0].signature_without_ranges
 
         return self[-1][0]
-
 
 class SimpleType(CustomKeyword):
     pass
@@ -100,7 +124,7 @@ class IfStatement(CustomList):
 class WhileStatement(CustomList):
     pass
 
-class ExpressionList(CustomList):
+class Arguments(CustomList):
     pass
 
 class Expression(CustomList):
@@ -112,7 +136,7 @@ class RelationalExpression(CustomList):
 class AdditiveExpression(CustomList):
     pass
 
-class MultiplicativeExpression(CustomList, BinaryOp):
+class MultiplicativeExpression(CustomList):
     pass
 
 class SignedFactor(CustomList):
@@ -229,24 +253,21 @@ IndexRange.grammar = IntegerConstant, "..", IntegerConstant
 SimpleType.grammar = Enum(K('real'), K('integer'), K('boolean'), K('string'))
 
 SubprogramDeclarations.grammar = some(SubprogramDeclaration, ";")
-SubprogramDeclaration.grammar = SubprogramHeader, maybe_some(VariableDeclarations), CompoundStatement
-SubprogramHeader.grammar = [("function", Identifier, Arguments, ":", Type, ";"), ("procedure", Identifier, Arguments, ";")]
-# FunctionDeclaration.grammar = FunctionHeader, maybe_some(VariableDeclarations), CompoundStatement
-# FunctionHeader.grammar = "function", Identifier, Arguments, ":", Type, ";"
-# ProcedureDeclaration.grammar = ProcedureHeader, maybe_some(VariableDeclarations), CompoundStatement
-# ProcedureHeader.grammar = "procedure", Identifier, Arguments, ";"
-Arguments.grammar = "(", csl(Identifier), ":", Type, ")"
+SubprogramDeclaration.grammar = SubprogramHeader, Block
+SubprogramHeader.grammar = [("function", Identifier, "(", optional(ParametersList), ")", ":", Type, ";"), ("procedure", Identifier, "(", optional(ParametersList), ")", ";")]
+ParametersList.grammar = Parameters, maybe_some(";", Parameters)
+Parameters.grammar = csl(Identifier), ":", Type
 
 CompoundStatement.grammar = "begin", optional(StatementList), "end"
 StatementList.grammar = Statement, maybe_some(';', Statement)
 Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, WhileStatement, ProcedureStatement]
 
 AssignmentStatement.grammar = Variable, ":=", Expression
-ProcedureStatement.grammar = Identifier, "(", optional(ExpressionList), ")"
+ProcedureStatement.grammar = Identifier, "(", optional(Arguments), ")"
 IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Statement)
 WhileStatement.grammar = "while", Expression, "do", Statement
 
-ExpressionList.grammar = csl(Expression)
+Arguments.grammar = csl(Expression)
 Expression.grammar = RelationalExpression
 RelationalExpression.grammar = AdditiveExpression, optional(RelationalOperator, AdditiveExpression)
 AdditiveExpression.grammar = MultiplicativeExpression, maybe_some(AdditiveOperator, MultiplicativeExpression)

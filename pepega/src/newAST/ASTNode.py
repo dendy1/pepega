@@ -2,7 +2,6 @@ class ASTNode:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent = None
-        self.scope = None
 
     __renames = {
         "SimpleStatement": 'Statement',
