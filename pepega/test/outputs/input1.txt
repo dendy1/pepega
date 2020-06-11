@@ -61,8 +61,9 @@ Program
   │ │   └ ProcedureStatement
   │ │     ├ Identifier
   │ │     │ └ read
-  │ │     └ IntegerConstant
-  │ │       └ 123
+  │ │     └ ExpressionList
+  │ │       └ IntegerConstant
+  │ │         └ 123
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
@@ -179,54 +180,49 @@ Program
     │   └ IntegerConstant
     │     └ 2
     ├ IfStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
+    │ ├ RelationalExpression
+    │ │ ├ Identifier
+    │ │ │ └ a
+    │ │ ├ >
+    │ │ └ IntegerConstant
+    │ │   └ 5
+    │ ├ StatementList
+    │ │ └ AssignmentStatement
     │ │   ├ Identifier
-    │ │   │ └ a
-    │ │   ├ >
-    │ │   └ IntegerConstant
-    │ │     └ 5
-    │ ├ Statement
-    │ │ └ StatementList
-    │ │   └ AssignmentStatement
-    │ │     ├ Identifier
-    │ │     │ └ e
-    │ │     └ AdditiveExpression
-    │ │       ├ IntegerConstant
-    │ │       │ └ 3
-    │ │       ├ +
-    │ │       └ IntegerConstant
-    │ │         └ 1
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ e
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 2
-    │         ├ +
-    │         └ IntegerConstant
-    │           └ 1
+    │ │   │ └ e
+    │ │   └ AdditiveExpression
+    │ │     ├ IntegerConstant
+    │ │     │ └ 3
+    │ │     ├ +
+    │ │     └ IntegerConstant
+    │ │       └ 1
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ Identifier
+    │     │ └ e
+    │     └ AdditiveExpression
+    │       ├ IntegerConstant
+    │       │ └ 2
+    │       ├ +
+    │       └ IntegerConstant
+    │         └ 1
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ a
-    │ │   ├ >
-    │ │   └ IntegerConstant
-    │ │     └ 5
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ a
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 4
-    │         ├ +
-    │         └ IntegerConstant
-    │           └ 2
+    │ ├ RelationalExpression
+    │ │ ├ Identifier
+    │ │ │ └ a
+    │ │ ├ >
+    │ │ └ IntegerConstant
+    │ │   └ 5
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ Identifier
+    │     │ └ a
+    │     └ AdditiveExpression
+    │       ├ IntegerConstant
+    │       │ └ 4
+    │       ├ +
+    │       └ IntegerConstant
+    │         └ 2
     └ AssignmentStatement
       ├ Identifier
       │ └ a

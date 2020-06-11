@@ -6,7 +6,7 @@ program foo(input, output, error) ;
    var k: array [ 23 .. 57 ] of array [ 23 .. 57 ] of real; 
 
    function  addition(a, b: integer) : integer;
-      var c: integer;  // local declaration
+      var c: real;  // local declaration
       begin
          addition := a + b   // this is the return value
       end;

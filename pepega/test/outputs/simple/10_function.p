@@ -23,53 +23,87 @@ Program
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
   │ │ │ │ └ add
-  │ │ │ ├ Arguments
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ a
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ b
-  │ │ │ │ └ Type
-  │ │ │ │   └ integer
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
   │ │ │ └ Type
   │ │ │   └ integer
-  │ │ └ StatementList
-  │ │   └ AssignmentStatement
-  │ │     ├ Identifier
-  │ │     │ └ add
-  │ │     └ AdditiveExpression
-  │ │       ├ Identifier
-  │ │       │ └ a
-  │ │       ├ +
-  │ │       └ Identifier
-  │ │         └ b
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement
+  │ │       ├ EntireVariable
+  │ │       │ └ add
+  │ │       └ AdditiveExpression
+  │ │         ├ EntireVariable
+  │ │         │ └ a
+  │ │         ├ +
+  │ │         └ EntireVariable
+  │ │           └ b
+  │ ├ SubprogramDeclaration
+  │ │ ├ SubprogramHeader
+  │ │ │ ├ Identifier
+  │ │ │ │ └ mul
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
+  │ │ │ └ Type
+  │ │ │   └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement
+  │ │       ├ EntireVariable
+  │ │       │ └ mul
+  │ │       └ MultiplicativeExpression
+  │ │         ├ EntireVariable
+  │ │         │ └ a
+  │ │         ├ *
+  │ │         └ EntireVariable
+  │ │           └ b
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ mul
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ ├ Identifier
-  │   │ │ │ └ b
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ │ └ div
+  │   │ ├ ParametersList
+  │   │ │ ├ Parameters
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ a
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ b
+  │   │ │ │ └ Type
+  │   │ │ │   └ integer
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ c
+  │   │ │   └ Type
+  │   │ │     └ real
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ mul
-  │       └ MultiplicativeExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ *
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ div
+  │         └ MultiplicativeExpression
+  │           ├ EntireVariable
+  │           │ └ a
+  │           ├ /
+  │           └ EntireVariable
+  │             └ b
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ x
-    │ └ Factor
+    │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ add
     │   └ ExpressionList
@@ -78,50 +112,37 @@ Program
     │     └ IntegerConstant
     │       └ 4
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ y
-    │ └ Factor
+    │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ mul
     │   └ ExpressionList
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ x
-    │     └ Expression
-    │       └ RelationalExpression
-    │         └ AdditiveExpression
-    │           └ MultiplicativeExpression
-    │             └ SignedFactor
-    │               └ Factor
-    │                 └ Variable
-    │                   └ EntireVariable
-    │                     └ Identifier
-    │                       └ x
+    │     └ EntireVariable
+    │       └ z
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ z
-    │ └ Factor
+    │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ add
     │   └ ExpressionList
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ y
-    │     └ Factor
-    │       ├ Identifier
-    │       │ └ mul
-    │       └ ExpressionList
-    │         ├ Identifier
-    │         │ └ x
-    │         └ IntegerConstant
-    │           └ 1
+    │     └ IntegerConstant
+    │       └ 2
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ AdditiveExpression
-        ├ Identifier
-        │ └ x
-        ├ +
-        ├ Identifier
-        │ └ y
-        ├ +
-        └ Identifier
-          └ z
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ EntireVariable
+          │ └ x
+          ├ +
+          ├ EntireVariable
+          │ └ y
+          ├ +
+          └ EntireVariable
+            └ z

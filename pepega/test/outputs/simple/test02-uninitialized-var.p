@@ -44,7 +44,7 @@ Program
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ g
+  │   │ └ j
   │   └ Type
   │     └ ArrayType
   │       ├ IndexRange
@@ -104,10 +104,10 @@ Program
   │             └ real
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ AdditiveExpression
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ a
     │   ├ +
     │   └ IntegerConstant

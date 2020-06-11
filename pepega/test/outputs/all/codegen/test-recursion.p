@@ -51,12 +51,13 @@ Program
   │           └ Factor
   │             ├ Identifier
   │             │ └ sum
-  │             └ AdditiveExpression
-  │               ├ Identifier
-  │               │ └ a
-  │               ├ -
-  │               └ IntegerConstant
-  │                 └ 1
+  │             └ ExpressionList
+  │               └ AdditiveExpression
+  │                 ├ Identifier
+  │                 │ └ a
+  │                 ├ -
+  │                 └ IntegerConstant
+  │                   └ 1
   └ StatementList
     ├ AssignmentStatement
     │ ├ Identifier
@@ -64,15 +65,17 @@ Program
     │ └ Factor
     │   ├ Identifier
     │   │ └ sum
-    │   └ IntegerConstant
-    │     └ 10
+    │   └ ExpressionList
+    │     └ IntegerConstant
+    │       └ 10
     └ AssignmentStatement
       ├ Identifier
       │ └ b
       └ Factor
         ├ Identifier
         │ └ sum
-        └ SignedFactor
-          ├ -
-          └ IntegerConstant
-            └ 10
+        └ ExpressionList
+          └ SignedFactor
+            ├ -
+            └ IntegerConstant
+              └ 10

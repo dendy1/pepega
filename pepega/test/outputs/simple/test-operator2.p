@@ -35,85 +35,85 @@ Program
   │         └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ IntegerConstant
     │   └ 6
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ b
     │ └ MultiplicativeExpression
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ a
     │   ├ *
     │   └ IntegerConstant
     │     └ 15
     ├ IfStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ b
     │ │ ├ >
-    │ │ └ Identifier
+    │ │ └ EntireVariable
     │ │   └ a
     │ ├ AssignmentStatement
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ a
     │ │ └ MultiplicativeExpression
-    │ │   ├ Identifier
+    │ │   ├ EntireVariable
     │ │   │ └ a
     │ │   ├ *
     │ │   └ IntegerConstant
     │ │     └ 2
     │ └ AssignmentStatement
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ a
     │   └ MultiplicativeExpression
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ a
     │     ├ *
     │     └ IntegerConstant
     │       └ 3
     ├ IfStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ b
     │ │ ├ >
-    │ │ └ Identifier
+    │ │ └ EntireVariable
     │ │   └ a
     │ ├ IfStatement
     │ │ ├ RelationalExpression
-    │ │ │ ├ Identifier
+    │ │ │ ├ EntireVariable
     │ │ │ │ └ b
     │ │ │ ├ <
     │ │ │ └ AdditiveExpression
-    │ │ │   ├ Identifier
+    │ │ │   ├ EntireVariable
     │ │ │   │ └ a
     │ │ │   ├ -
     │ │ │   └ IntegerConstant
     │ │ │     └ 2
     │ │ ├ AssignmentStatement
-    │ │ │ ├ Identifier
+    │ │ │ ├ EntireVariable
     │ │ │ │ └ a
     │ │ │ └ MultiplicativeExpression
-    │ │ │   ├ Identifier
+    │ │ │   ├ EntireVariable
     │ │ │   │ └ a
     │ │ │   ├ *
     │ │ │   └ IntegerConstant
     │ │ │     └ 5
     │ │ └ AssignmentStatement
-    │ │   ├ Identifier
+    │ │   ├ EntireVariable
     │ │   │ └ a
     │ │   └ MultiplicativeExpression
-    │ │     ├ Identifier
+    │ │     ├ EntireVariable
     │ │     │ └ a
     │ │     ├ *
     │ │     └ IntegerConstant
     │ │       └ 7
     │ └ AssignmentStatement
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ a
     │   └ MultiplicativeExpression
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ a
     │     ├ /
     │     ├ IntegerConstant
@@ -123,131 +123,128 @@ Program
     │       └ Factor
     │         └ Variable
     │           └ EntireVariable
-    │             └ Identifier
-    │               └ a
+    │             └ a
     ├ IfStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ b
     │ │ ├ >
-    │ │ └ Identifier
+    │ │ └ EntireVariable
     │ │   └ a
     │ ├ AssignmentStatement
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ a
     │ │ └ MultiplicativeExpression
-    │ │   ├ Identifier
+    │ │   ├ EntireVariable
     │ │   │ └ a
     │ │   ├ *
     │ │   └ IntegerConstant
     │ │     └ 2
     │ └ IfStatement
     │   ├ RelationalExpression
-    │   │ ├ Identifier
+    │   │ ├ EntireVariable
     │   │ │ └ b
     │   │ ├ >
     │   │ └ AdditiveExpression
     │   │   ├ IntegerConstant
     │   │   │ └ 5
     │   │   ├ +
-    │   │   └ Identifier
+    │   │   └ EntireVariable
     │   │     └ a
     │   ├ AssignmentStatement
-    │   │ ├ Identifier
+    │   │ ├ EntireVariable
     │   │ │ └ a
     │   │ └ AdditiveExpression
     │   │   ├ IntegerConstant
     │   │   │ └ 23
     │   │   ├ -
-    │   │   └ Identifier
+    │   │   └ EntireVariable
     │   │     └ a
     │   └ AssignmentStatement
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ a
     │     └ MultiplicativeExpression
     │       ├ IntegerConstant
     │       │ └ 948
     │       ├ /
-    │       └ Identifier
+    │       └ EntireVariable
     │         └ b
     ├ WhileStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ b
     │ │ ├ >
-    │ │ └ Identifier
+    │ │ └ EntireVariable
     │ │   └ a
     │ └ AssignmentStatement
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ a
     │   └ MultiplicativeExpression
-    │     ├ Identifier
+    │     ├ EntireVariable
     │     │ └ a
     │     ├ *
     │     └ IntegerConstant
     │       └ 7
     ├ WhileStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ b
     │ │ ├ >
-    │ │ └ Identifier
+    │ │ └ EntireVariable
     │ │   └ a
-    │ └ Statement
-    │   └ StatementList
-    │     ├ AssignmentStatement
-    │     │ ├ Identifier
-    │     │ │ └ b
-    │     │ └ AdditiveExpression
-    │     │   ├ Identifier
-    │     │   │ └ b
-    │     │   ├ +
-    │     │   └ IntegerConstant
-    │     │     └ 3
-    │     └ AssignmentStatement
-    │       ├ Identifier
+    │ └ StatementList
+    │   ├ AssignmentStatement
+    │   │ ├ EntireVariable
+    │   │ │ └ b
+    │   │ └ AdditiveExpression
+    │   │   ├ EntireVariable
+    │   │   │ └ b
+    │   │   ├ +
+    │   │   └ IntegerConstant
+    │   │     └ 3
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ a
+    │     └ MultiplicativeExpression
+    │       ├ EntireVariable
     │       │ └ a
-    │       └ MultiplicativeExpression
-    │         ├ Identifier
-    │         │ └ a
-    │         ├ *
-    │         └ IntegerConstant
-    │           └ 7
+    │       ├ *
+    │       └ IntegerConstant
+    │         └ 7
     └ WhileStatement
       ├ RelationalExpression
-      │ ├ Identifier
+      │ ├ EntireVariable
       │ │ └ b
       │ ├ >
-      │ └ Identifier
+      │ └ EntireVariable
       │   └ a
       └ WhileStatement
         ├ RelationalExpression
-        │ ├ Identifier
+        │ ├ EntireVariable
         │ │ └ c
         │ ├ >
         │ └ AdditiveExpression
-        │   ├ Identifier
+        │   ├ EntireVariable
         │   │ └ a
         │   ├ +
-        │   └ Identifier
+        │   └ EntireVariable
         │     └ b
-        └ Statement
-          └ StatementList
-            ├ AssignmentStatement
-            │ ├ Identifier
-            │ │ └ b
-            │ └ AdditiveExpression
-            │   ├ Identifier
-            │   │ └ b
-            │   ├ +
-            │   └ IntegerConstant
-            │     └ 3
-            └ AssignmentStatement
-              ├ Identifier
+        └ StatementList
+          ├ AssignmentStatement
+          │ ├ EntireVariable
+          │ │ └ b
+          │ └ AdditiveExpression
+          │   ├ EntireVariable
+          │   │ └ b
+          │   ├ +
+          │   └ IntegerConstant
+          │     └ 3
+          └ AssignmentStatement
+            ├ EntireVariable
+            │ └ a
+            └ MultiplicativeExpression
+              ├ EntireVariable
               │ └ a
-              └ MultiplicativeExpression
-                ├ Identifier
-                │ └ a
-                ├ *
-                └ IntegerConstant
-                  └ 7
+              ├ *
+              └ IntegerConstant
+                └ 7

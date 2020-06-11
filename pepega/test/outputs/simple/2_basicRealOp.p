@@ -12,20 +12,32 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printreal
-      └ AdditiveExpression
-        ├ MultiplicativeExpression
-        │ ├ FloatConstant
-        │ │ └ 3.5
-        │ ├ *
-        │ └ FloatConstant
-        │   └ 4.7
-        ├ +
-        ├ MultiplicativeExpression
-        │ ├ FloatConstant
-        │ │ └ 9.3
-        │ ├ /
-        │ └ FloatConstant
-        │   └ 3.1
-        ├ -
-        └ FloatConstant
-          └ 0.4
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ MultiplicativeExpression
+          │ ├ ConstantVariable
+          │ │ └ RealConstant
+          │ │   └ 3.5
+          │ ├ *
+          │ ├ ConstantVariable
+          │ │ └ RealConstant
+          │ │   └ 4.7
+          │ ├ *
+          │ ├ IntegerConstant
+          │ │ └ 3
+          │ ├ *
+          │ └ IntegerConstant
+          │   └ 4
+          ├ +
+          ├ MultiplicativeExpression
+          │ ├ ConstantVariable
+          │ │ └ RealConstant
+          │ │   └ 9.3
+          │ ├ /
+          │ └ ConstantVariable
+          │   └ RealConstant
+          │     └ 3.1
+          ├ -
+          └ ConstantVariable
+            └ RealConstant
+              └ 0.4

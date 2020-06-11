@@ -61,5 +61,6 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ putchar
-      └ Identifier
-        └ a
+      └ ExpressionList
+        └ Identifier
+          └ a

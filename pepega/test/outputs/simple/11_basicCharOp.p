@@ -16,12 +16,13 @@ Program
   │     └ string
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ StringConstant
     │   └ hello
     └ ProcedureStatement
       ├ Identifier
       │ └ printstring
-      └ Identifier
-        └ a
+      └ ExpressionList
+        └ EntireVariable
+          └ a

@@ -25,7 +25,6 @@ class ASTNode:
         "IndexedVariable" : "Variable",
         "EntireVariable" : "Variable"
     }
-
     folds = {
         "ExpressionList" : ["Expression"],
         "Expression" : ["Expression", "Factor"],

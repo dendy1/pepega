@@ -61,17 +61,16 @@ Program
     │     ├ IntegerConstant
     │     │ └ 87
     │     ├ *
-    │     └ Factor
-    │       └ AdditiveExpression
+    │     └ AdditiveExpression
+    │       ├ IntegerConstant
+    │       │ └ 23
+    │       ├ +
+    │       └ MultiplicativeExpression
     │         ├ IntegerConstant
-    │         │ └ 23
-    │         ├ +
-    │         └ MultiplicativeExpression
-    │           ├ IntegerConstant
-    │           │ └ 15
-    │           ├ *
-    │           └ IntegerConstant
-    │             └ 6
+    │         │ └ 15
+    │         ├ *
+    │         └ IntegerConstant
+    │           └ 6
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
@@ -97,17 +96,16 @@ Program
     │     ├ IntegerConstant
     │     │ └ 87
     │     ├ *
-    │     └ Factor
-    │       └ AdditiveExpression
+    │     └ AdditiveExpression
+    │       ├ IntegerConstant
+    │       │ └ 2
+    │       ├ +
+    │       └ MultiplicativeExpression
     │         ├ IntegerConstant
-    │         │ └ 2
-    │         ├ +
-    │         └ MultiplicativeExpression
-    │           ├ IntegerConstant
-    │           │ └ 15
-    │           ├ *
-    │           └ IntegerConstant
-    │             └ 6
+    │         │ └ 15
+    │         ├ *
+    │         └ IntegerConstant
+    │           └ 6
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
@@ -127,17 +125,16 @@ Program
       │     ├ IntegerConstant
       │     │ └ 87
       │     ├ *
-      │     └ Factor
-      │       └ AdditiveExpression
+      │     └ AdditiveExpression
+      │       ├ IntegerConstant
+      │       │ └ 2
+      │       ├ +
+      │       └ MultiplicativeExpression
       │         ├ IntegerConstant
-      │         │ └ 2
-      │         ├ +
-      │         └ MultiplicativeExpression
-      │           ├ IntegerConstant
-      │           │ └ 15
-      │           ├ *
-      │           └ IntegerConstant
-      │             └ 6
+      │         │ └ 15
+      │         ├ *
+      │         └ IntegerConstant
+      │           └ 6
       └ AdditiveExpression
         ├ IntegerConstant
         │ └ 3
@@ -153,14 +150,13 @@ Program
           ├ IntegerConstant
           │ └ 8
           ├ *
-          └ Factor
-            └ AdditiveExpression
+          └ AdditiveExpression
+            ├ IntegerConstant
+            │ └ 2
+            ├ +
+            └ MultiplicativeExpression
               ├ IntegerConstant
-              │ └ 2
-              ├ +
-              └ MultiplicativeExpression
-                ├ IntegerConstant
-                │ └ 15
-                ├ *
-                └ IntegerConstant
-                  └ 6
+              │ └ 15
+              ├ *
+              └ IntegerConstant
+                └ 6

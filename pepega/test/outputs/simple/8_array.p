@@ -1,6 +1,6 @@
 Program
 ├ Identifier
-│ └ test
+│ └ arrays
 ├ Identifier
 │ └ in
 ├ Identifier
@@ -25,16 +25,51 @@ Program
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ └ IntegerConstant
+    │ │   └ 1
+    │ └ ConstantVariable
+    │   └ RealConstant
+    │     └ 12.34
+    ├ AssignmentStatement
+    │ ├ IndexedVariable
+    │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ └ IntegerConstant
+    │ │   └ 2
+    │ └ ConstantVariable
+    │   └ RealConstant
+    │     └ 56.78
+    ├ AssignmentStatement
+    │ ├ IndexedVariable
+    │ │ ├ Identifier
     │ │ │ └ crr
     │ │ └ IntegerConstant
     │ │   └ 1
     │ └ StringConstant
     │   └ hello
+    ├ ProcedureStatement
+    │ ├ Identifier
+    │ │ └ printstring
+    │ └ ExpressionList
+    │   └ IndexedVariable
+    │     ├ Identifier
+    │     │ └ crr
+    │     └ IntegerConstant
+    │       └ 1
     └ ProcedureStatement
       ├ Identifier
-      │ └ printstring
-      └ IndexedVariable
-        ├ Identifier
-        │ └ crr
-        └ IntegerConstant
-          └ 1
+      │ └ printreal
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ IndexedVariable
+          │ ├ Identifier
+          │ │ └ arr
+          │ └ IntegerConstant
+          │   └ 1
+          ├ +
+          └ IndexedVariable
+            ├ Identifier
+            │ └ arr
+            └ IntegerConstant
+              └ 2

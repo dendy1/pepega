@@ -68,112 +68,108 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ addition
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ ├ Identifier
-  │   │ │ │ └ b
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   ├ VariableDeclarations
-  │   │ └ VariableDeclaration
-  │   │   ├ Identifier
-  │   │   │ └ c
-  │   │   └ Type
-  │   │     └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ addition
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ +
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     ├ VariableDeclarations
+  │     │ └ VariableDeclaration
+  │     │   ├ Identifier
+  │     │   │ └ c
+  │     │   └ Type
+  │     │     └ real
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ addition
+  │         └ AdditiveExpression
+  │           ├ EntireVariable
+  │           │ └ a
+  │           ├ +
+  │           └ EntireVariable
+  │             └ b
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ IntegerConstant
     │   └ 1
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ a
-    │ │   ├ <
-    │ │   └ IntegerConstant
-    │ │     └ 10
-    │ └ Statement
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ a
+    │ │ ├ <
+    │ │ └ IntegerConstant
+    │ │   └ 10
+    │ └ StatementList
+    │   ├ AssignmentStatement
+    │   │ ├ EntireVariable
+    │   │ │ └ sum
+    │   │ └ AdditiveExpression
+    │   │   ├ IntegerConstant
+    │   │   │ └ 10
+    │   │   ├ +
+    │   │   └ EntireVariable
+    │   │     └ a
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ a
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
+    │       │ └ a
+    │       ├ +
+    │       └ IntegerConstant
+    │         └ 1
+    ├ StatementList
+    │ ├ AssignmentStatement
+    │ │ ├ EntireVariable
+    │ │ │ └ b
+    │ │ └ IntegerConstant
+    │ │   └ 1
+    │ └ WhileStatement
+    │   ├ RelationalExpression
+    │   │ ├ EntireVariable
+    │   │ │ └ b
+    │   │ ├ <
+    │   │ └ IntegerConstant
+    │   │   └ 11
     │   └ StatementList
     │     ├ AssignmentStatement
-    │     │ ├ Identifier
-    │     │ │ └ sum
+    │     │ ├ IndexedVariable
+    │     │ │ ├ Identifier
+    │     │ │ │ └ d
+    │     │ │ └ EntireVariable
+    │     │ │   └ b
     │     │ └ AdditiveExpression
-    │     │   ├ IntegerConstant
-    │     │   │ └ 10
+    │     │   ├ EntireVariable
+    │     │   │ └ b
     │     │   ├ +
-    │     │   └ Identifier
-    │     │     └ a
+    │     │   └ MultiplicativeExpression
+    │     │     ├ EntireVariable
+    │     │     │ └ b
+    │     │     ├ *
+    │     │     └ AdditiveExpression
+    │     │       ├ EntireVariable
+    │     │       │ └ b
+    │     │       ├ -
+    │     │       └ IntegerConstant
+    │     │         └ 1
     │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ a
+    │       ├ EntireVariable
+    │       │ └ b
     │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ a
+    │         ├ EntireVariable
+    │         │ └ b
     │         ├ +
     │         └ IntegerConstant
     │           └ 1
-    ├ Statement
-    │ └ StatementList
-    │   ├ AssignmentStatement
-    │   │ ├ Identifier
-    │   │ │ └ b
-    │   │ └ IntegerConstant
-    │   │   └ 1
-    │   └ WhileStatement
-    │     ├ Factor
-    │     │ └ RelationalExpression
-    │     │   ├ Identifier
-    │     │   │ └ b
-    │     │   ├ <
-    │     │   └ IntegerConstant
-    │     │     └ 11
-    │     └ Statement
-    │       └ StatementList
-    │         ├ AssignmentStatement
-    │         │ ├ IndexedVariable
-    │         │ │ ├ Identifier
-    │         │ │ │ └ d
-    │         │ │ └ Identifier
-    │         │ │   └ b
-    │         │ └ AdditiveExpression
-    │         │   ├ Identifier
-    │         │   │ └ b
-    │         │   ├ +
-    │         │   └ MultiplicativeExpression
-    │         │     ├ Identifier
-    │         │     │ └ b
-    │         │     ├ *
-    │         │     └ Factor
-    │         │       └ AdditiveExpression
-    │         │         ├ Identifier
-    │         │         │ └ b
-    │         │         ├ -
-    │         │         └ IntegerConstant
-    │         │           └ 1
-    │         └ AssignmentStatement
-    │           ├ Identifier
-    │           │ └ b
-    │           └ AdditiveExpression
-    │             ├ Identifier
-    │             │ └ b
-    │             ├ +
-    │             └ IntegerConstant
-    │               └ 1
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
@@ -208,13 +204,13 @@ Program
       │ ├ Identifier
       │ │ └ k
       │ ├ AdditiveExpression
-      │ │ ├ Identifier
+      │ │ ├ EntireVariable
       │ │ │ └ a
       │ │ ├ +
       │ │ └ IntegerConstant
       │ │   └ 35
       │ └ AdditiveExpression
-      │   ├ Identifier
+      │   ├ EntireVariable
       │   │ └ a
       │   ├ +
       │   └ IntegerConstant

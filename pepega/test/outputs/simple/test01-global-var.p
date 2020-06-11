@@ -21,59 +21,63 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ kl
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ mn
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ mn
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ kl
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ ij
-  │         ├ +
-  │         ├ Identifier
-  │         │ └ mn
-  │         ├ +
-  │         └ Identifier
-  │           └ op
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ kl
+  │         └ AdditiveExpression
+  │           ├ EntireVariable
+  │           │ └ ij
+  │           ├ +
+  │           ├ EntireVariable
+  │           │ └ mn
+  │           ├ +
+  │           └ EntireVariable
+  │             └ op
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ ij
     │ └ IntegerConstant
     │   └ 45
     ├ IfStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ ij
     │ │ ├ >
     │ │ └ IntegerConstant
     │ │   └ 1
     │ ├ AssignmentStatement
-    │ │ ├ Identifier
+    │ │ ├ EntireVariable
     │ │ │ └ op
     │ │ └ IntegerConstant
     │ │   └ 1
     │ └ AssignmentStatement
-    │   ├ Identifier
+    │   ├ EntireVariable
     │   │ └ op
     │   └ IntegerConstant
     │     └ 2
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ ij
-    │ └ Factor
+    │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ kl
-    │   └ IntegerConstant
-    │     └ 55
+    │   └ ExpressionList
+    │     └ IntegerConstant
+    │       └ 55
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ Identifier
-        └ ij
+      └ ExpressionList
+        └ EntireVariable
+          └ ij

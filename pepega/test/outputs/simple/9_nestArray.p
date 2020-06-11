@@ -72,35 +72,36 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ AdditiveExpression
-        ├ IndexedVariable
-        │ ├ Identifier
-        │ │ └ arr
-        │ ├ IntegerConstant
-        │ │ └ 1
-        │ └ IntegerConstant
-        │   └ 1
-        ├ +
-        ├ IndexedVariable
-        │ ├ Identifier
-        │ │ └ arr
-        │ ├ IntegerConstant
-        │ │ └ 1
-        │ └ IntegerConstant
-        │   └ 2
-        ├ +
-        ├ IndexedVariable
-        │ ├ Identifier
-        │ │ └ arr
-        │ ├ IntegerConstant
-        │ │ └ 2
-        │ └ IntegerConstant
-        │   └ 1
-        ├ +
-        └ IndexedVariable
-          ├ Identifier
-          │ └ arr
-          ├ IntegerConstant
-          │ └ 2
-          └ IntegerConstant
-            └ 2
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ IndexedVariable
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ IntegerConstant
+          │ │ └ 1
+          │ └ IntegerConstant
+          │   └ 1
+          ├ +
+          ├ IndexedVariable
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ IntegerConstant
+          │ │ └ 1
+          │ └ IntegerConstant
+          │   └ 2
+          ├ +
+          ├ IndexedVariable
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ IntegerConstant
+          │ │ └ 2
+          │ └ IntegerConstant
+          │   └ 1
+          ├ +
+          └ IndexedVariable
+            ├ Identifier
+            │ └ arr
+            ├ IntegerConstant
+            │ └ 2
+            └ IntegerConstant
+              └ 2

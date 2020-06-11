@@ -24,94 +24,89 @@ Program
   │     └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ IntegerConstant
     │   └ 3
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ b
     │ └ IntegerConstant
     │   └ 5
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ c
     │ └ IntegerConstant
     │   └ 7
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ d
     │ └ IntegerConstant
     │   └ 100
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ b
-    │ │   ├ >
-    │ │   └ Identifier
-    │ │     └ a
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ b
+    │ │ ├ >
+    │ │ └ EntireVariable
+    │ │   └ a
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ b
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ b
-    │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ b
-    │         ├ -
-    │         └ IntegerConstant
-    │           └ 1
+    │       ├ -
+    │       └ IntegerConstant
+    │         └ 1
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ c
-    │ │   ├ >
-    │ │   └ Identifier
-    │ │     └ b
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ c
+    │ │ ├ >
+    │ │ └ EntireVariable
+    │ │   └ b
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ c
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ c
-    │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ c
-    │         ├ -
-    │         └ IntegerConstant
-    │           └ 1
+    │       ├ -
+    │       └ IntegerConstant
+    │         └ 1
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ d
-    │ │   ├ >
-    │ │   └ Identifier
-    │ │     └ c
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ d
+    │ │ ├ >
+    │ │ └ EntireVariable
+    │ │   └ c
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ d
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ d
-    │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ d
-    │         ├ -
-    │         └ IntegerConstant
-    │           └ 1
+    │       ├ -
+    │       └ IntegerConstant
+    │         └ 1
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ AdditiveExpression
-        ├ Identifier
-        │ └ a
-        ├ +
-        ├ Identifier
-        │ └ b
-        ├ +
-        ├ Identifier
-        │ └ c
-        ├ +
-        └ Identifier
-          └ d
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ EntireVariable
+          │ └ a
+          ├ +
+          ├ EntireVariable
+          │ └ b
+          ├ +
+          ├ EntireVariable
+          │ └ c
+          ├ +
+          └ EntireVariable
+            └ d

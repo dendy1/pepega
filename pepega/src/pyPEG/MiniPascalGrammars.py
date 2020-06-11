@@ -13,6 +13,7 @@ class VariableDeclarations(CustomList):
 class VariableDeclaration(CustomList):
     @property
     def var_identifiers(self):
+        """Returns list of variables names (list of strings)"""
         var_list = []
         for i in range(len(self) - 1):
             var_list.append(self[i][0])
@@ -20,6 +21,7 @@ class VariableDeclaration(CustomList):
 
     @property
     def var_type(self):
+        """Returns variables type name (string)"""
         return self[-1].signature
 
 class SubprogramDeclarations(CustomList):
@@ -28,21 +30,29 @@ class SubprogramDeclarations(CustomList):
 class SubprogramDeclaration(CustomList):
     @property
     def header(self):
+        """Returns `SubprogramHeader` node"""
         return self[0]
 
 class SubprogramHeader(CustomList):
     @property
     def proc_name(self):
+        """Returns subprogram name (string) from first node"""
         return self[0][0]
 
     @property
     def proc_params(self):
+        """
+        Returns None if subprogram have parameters
+        or
+        `ParametersList` node which consist of `Parameter` nodes
+        """
         if len(self) < 3:
             return None
         return self[1]
 
     @property
     def proc_type(self):
+        """Returns None if subprogram = procedure or type name (string)"""
         if isinstance(self[-1], Type):
             return self[-1].signature
         else:
@@ -54,6 +64,7 @@ class ParametersList(CustomList):
 class Parameters(CustomList):
     @property
     def params_identifiers(self):
+        """Returns list of parameters names (list of strings)"""
         params_list = []
         for i in range(len(self) - 1):
             params_list.append(self[i][0])
@@ -61,15 +72,18 @@ class Parameters(CustomList):
 
     @property
     def params_type(self):
+        """Returns parameters type name (string)"""
         return self[-1].signature
 
 class ProcedureStatement(CustomList):
     @property
     def proc_name(self):
+        """Returns procedure name (string)"""
         return self[0][0]
 
     @property
     def args_count(self):
+        """Returns procedure parameters count (int)"""
         if isinstance(self[-1], Arguments):
             return len(self[-1])
         else:
@@ -78,6 +92,7 @@ class ProcedureStatement(CustomList):
 class Type(CustomList):
     @property
     def signature(self):
+        """Returns string name for type (string)"""
         if isinstance(self[0], ArrayType):
             return self[0].signature_without_ranges
         else:
@@ -86,9 +101,9 @@ class Type(CustomList):
 class ArrayType(CustomList):
     @property
     def signature_without_ranges(self):
+        """Returns string name for array type (string). (Ex. array of array of array of integer)"""
         if isinstance(self[-1][0], ArrayType):
             return 'array of ' + self[-1][0].signature_without_ranges
-
         return self[-1][0]
 
 class SimpleType(CustomKeyword):
@@ -112,10 +127,12 @@ class SimpleStatement(CustomList):
 class AssignmentStatement(CustomList):
     @property
     def left(self):
+        """Returns left `Variable` node"""
         return self[0]
 
     @property
     def right(self):
+        """Returns right `Expression` node"""
         return self[1]
 
 class IfStatement(CustomList):
@@ -154,6 +171,7 @@ class IndexedVariable(CustomList):
 class EntireVariable(CustomList):
     @property
     def var_name(self):
+        """Returns variable name (string)"""
         return self[0]
 
 class ConstantVariable(CustomList):
@@ -215,12 +233,14 @@ class Boolean(CustomLiteral):
             elif value == "true":
                 self.value = True
             else:
-                raise ValueError("«%s» is not a valid integer" % value)
+                raise ValueError("«%s» is not a valid boolean" % value)
         elif isinstance(value, bool):
             self.value = value
         else:
             self.value = bool(value)
 
+class String(CustomLiteral):
+    grammar = str
 
 class RelationalOperator(CustomKeyword):
     grammar = Enum(K("!="), K("=="), K("<"), K("<="), K(">="), K(">"))

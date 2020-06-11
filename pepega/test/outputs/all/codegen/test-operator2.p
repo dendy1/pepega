@@ -193,26 +193,25 @@ Program
     │ │ ├ >
     │ │ └ Identifier
     │ │   └ a
-    │ └ Statement
-    │   └ StatementList
-    │     ├ AssignmentStatement
-    │     │ ├ Identifier
-    │     │ │ └ b
-    │     │ └ AdditiveExpression
-    │     │   ├ Identifier
-    │     │   │ └ b
-    │     │   ├ +
-    │     │   └ IntegerConstant
-    │     │     └ 3
-    │     └ AssignmentStatement
+    │ └ StatementList
+    │   ├ AssignmentStatement
+    │   │ ├ Identifier
+    │   │ │ └ b
+    │   │ └ AdditiveExpression
+    │   │   ├ Identifier
+    │   │   │ └ b
+    │   │   ├ +
+    │   │   └ IntegerConstant
+    │   │     └ 3
+    │   └ AssignmentStatement
+    │     ├ Identifier
+    │     │ └ a
+    │     └ MultiplicativeExpression
     │       ├ Identifier
     │       │ └ a
-    │       └ MultiplicativeExpression
-    │         ├ Identifier
-    │         │ └ a
-    │         ├ *
-    │         └ IntegerConstant
-    │           └ 7
+    │       ├ *
+    │       └ IntegerConstant
+    │         └ 7
     └ WhileStatement
       ├ RelationalExpression
       │ ├ Identifier
@@ -231,23 +230,22 @@ Program
         │   ├ +
         │   └ Identifier
         │     └ b
-        └ Statement
-          └ StatementList
-            ├ AssignmentStatement
-            │ ├ Identifier
-            │ │ └ b
-            │ └ AdditiveExpression
-            │   ├ Identifier
-            │   │ └ b
-            │   ├ +
-            │   └ IntegerConstant
-            │     └ 3
-            └ AssignmentStatement
+        └ StatementList
+          ├ AssignmentStatement
+          │ ├ Identifier
+          │ │ └ b
+          │ └ AdditiveExpression
+          │   ├ Identifier
+          │   │ └ b
+          │   ├ +
+          │   └ IntegerConstant
+          │     └ 3
+          └ AssignmentStatement
+            ├ Identifier
+            │ └ a
+            └ MultiplicativeExpression
               ├ Identifier
               │ └ a
-              └ MultiplicativeExpression
-                ├ Identifier
-                │ └ a
-                ├ *
-                └ IntegerConstant
-                  └ 7
+              ├ *
+              └ IntegerConstant
+                └ 7

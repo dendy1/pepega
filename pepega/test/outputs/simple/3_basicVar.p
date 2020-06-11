@@ -24,47 +24,48 @@ Program
   │     └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ IntegerConstant
     │   └ 3
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ b
     │ └ IntegerConstant
     │   └ 4
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ c
     │ └ IntegerConstant
     │   └ 5
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ d
     │ └ IntegerConstant
     │   └ 6
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ e
     │ └ IntegerConstant
     │   └ 7
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ AdditiveExpression
-        ├ MultiplicativeExpression
-        │ ├ Identifier
-        │ │ └ a
-        │ ├ *
-        │ └ Identifier
-        │   └ b
-        ├ +
-        ├ MultiplicativeExpression
-        │ ├ Identifier
-        │ │ └ c
-        │ ├ /
-        │ └ Identifier
-        │   └ d
-        ├ -
-        └ Identifier
-          └ e
+      └ ExpressionList
+        └ AdditiveExpression
+          ├ MultiplicativeExpression
+          │ ├ EntireVariable
+          │ │ └ a
+          │ ├ *
+          │ └ EntireVariable
+          │   └ b
+          ├ +
+          ├ MultiplicativeExpression
+          │ ├ EntireVariable
+          │ │ └ c
+          │ ├ /
+          │ └ EntireVariable
+          │   └ d
+          ├ -
+          └ EntireVariable
+            └ e

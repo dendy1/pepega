@@ -24,7 +24,7 @@ Program
   │     └ real
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ AdditiveExpression
     │   ├ SignedFactor
@@ -35,7 +35,7 @@ Program
     │   └ IntegerConstant
     │     └ 4
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ c
     │ └ SignedFactor
     │   ├ -
@@ -46,7 +46,7 @@ Program
     │       └ IntegerConstant
     │         └ 5
     └ AssignmentStatement
-      ├ Identifier
+      ├ EntireVariable
       │ └ b
       └ AdditiveExpression
         ├ SignedFactor

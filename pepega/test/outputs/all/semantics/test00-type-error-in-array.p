@@ -138,75 +138,72 @@ Program
     │ │ ├ <
     │ │ └ IntegerConstant
     │ │   └ 10
-    │ └ Statement
-    │   └ StatementList
-    │     ├ AssignmentStatement
-    │     │ ├ Identifier
-    │     │ │ └ sum
-    │     │ └ AdditiveExpression
-    │     │   ├ Identifier
-    │     │   │ └ sum
-    │     │   ├ +
-    │     │   └ Identifier
-    │     │     └ a
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ a
-    │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ a
-    │         ├ +
-    │         └ IntegerConstant
-    │           └ 1
-    ├ Statement
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ Identifier
-    │   │ │ └ b
-    │   │ └ IntegerConstant
-    │   │   └ 1
-    │   ├ WhileStatement
-    │   │ ├ RelationalExpression
-    │   │ │ ├ Identifier
-    │   │ │ │ └ b
-    │   │ │ ├ <
-    │   │ │ └ IntegerConstant
-    │   │ │   └ 11
-    │   │ └ Statement
-    │   │   └ StatementList
-    │   │     ├ AssignmentStatement
-    │   │     │ ├ IndexedVariable
-    │   │     │ │ ├ Identifier
-    │   │     │ │ │ └ d
-    │   │     │ │ └ Identifier
-    │   │     │ │   └ b
-    │   │     │ └ AdditiveExpression
-    │   │     │   ├ Identifier
-    │   │     │   │ └ b
-    │   │     │   ├ +
-    │   │     │   └ MultiplicativeExpression
-    │   │     │     ├ Identifier
-    │   │     │     │ └ b
-    │   │     │     ├ *
-    │   │     │     └ Factor
-    │   │     │       └ AdditiveExpression
-    │   │     │         ├ Identifier
-    │   │     │         │ └ b
-    │   │     │         ├ -
-    │   │     │         └ IntegerConstant
-    │   │     │           └ 1
-    │   │     └ AssignmentStatement
-    │   │       ├ Identifier
-    │   │       │ └ b
-    │   │       └ AdditiveExpression
-    │   │         ├ Identifier
-    │   │         │ └ b
-    │   │         ├ +
-    │   │         └ IntegerConstant
-    │   │           └ 1
-    │   └ ProcedureStatement
+    │   │ │ └ sum
+    │   │ └ AdditiveExpression
+    │   │   ├ Identifier
+    │   │   │ └ sum
+    │   │   ├ +
+    │   │   └ Identifier
+    │   │     └ a
+    │   └ AssignmentStatement
     │     ├ Identifier
-    │     │ └ sort
+    │     │ └ a
+    │     └ AdditiveExpression
+    │       ├ Identifier
+    │       │ └ a
+    │       ├ +
+    │       └ IntegerConstant
+    │         └ 1
+    ├ StatementList
+    │ ├ AssignmentStatement
+    │ │ ├ Identifier
+    │ │ │ └ b
+    │ │ └ IntegerConstant
+    │ │   └ 1
+    │ ├ WhileStatement
+    │ │ ├ RelationalExpression
+    │ │ │ ├ Identifier
+    │ │ │ │ └ b
+    │ │ │ ├ <
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 11
+    │ │ └ StatementList
+    │ │   ├ AssignmentStatement
+    │ │   │ ├ IndexedVariable
+    │ │   │ │ ├ Identifier
+    │ │   │ │ │ └ d
+    │ │   │ │ └ Identifier
+    │ │   │ │   └ b
+    │ │   │ └ AdditiveExpression
+    │ │   │   ├ Identifier
+    │ │   │   │ └ b
+    │ │   │   ├ +
+    │ │   │   └ MultiplicativeExpression
+    │ │   │     ├ Identifier
+    │ │   │     │ └ b
+    │ │   │     ├ *
+    │ │   │     └ AdditiveExpression
+    │ │   │       ├ Identifier
+    │ │   │       │ └ b
+    │ │   │       ├ -
+    │ │   │       └ IntegerConstant
+    │ │   │         └ 1
+    │ │   └ AssignmentStatement
+    │ │     ├ Identifier
+    │ │     │ └ b
+    │ │     └ AdditiveExpression
+    │ │       ├ Identifier
+    │ │       │ └ b
+    │ │       ├ +
+    │ │       └ IntegerConstant
+    │ │         └ 1
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ sort
+    │   └ ExpressionList
     │     └ Identifier
     │       └ d
     ├ AssignmentStatement

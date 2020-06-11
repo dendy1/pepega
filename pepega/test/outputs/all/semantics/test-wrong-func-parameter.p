@@ -69,8 +69,9 @@ Program
     │ └ Factor
     │   ├ Identifier
     │   │ └ sum
-    │   └ IntegerConstant
-    │     └ 10
+    │   └ ExpressionList
+    │     └ IntegerConstant
+    │       └ 10
     ├ AssignmentStatement
     │ ├ Identifier
     │ │ └ a

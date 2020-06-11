@@ -59,8 +59,9 @@ Program
     │   └ Factor
     │     ├ Identifier
     │     │ └ simplesum
-    │     └ IntegerConstant
-    │       └ 10
+    │     └ ExpressionList
+    │       └ IntegerConstant
+    │         └ 10
     └ AssignmentStatement
       ├ Identifier
       │ └ b
@@ -71,7 +72,8 @@ Program
         └ Factor
           ├ Identifier
           │ └ simplesum
-          └ SignedFactor
-            ├ -
-            └ IntegerConstant
-              └ 10
+          └ ExpressionList
+            └ SignedFactor
+              ├ -
+              └ IntegerConstant
+                └ 10

@@ -9,7 +9,6 @@ class SymbolTable:
 
         self._initbuildins()
 
-
     def _initbuildins(self):
         self.define(ProcedureSymbol('printint', None, [VariableSymbol('a', 'integer')]))
         self.define(ProcedureSymbol('printreal', None, [VariableSymbol('a', 'real')]))

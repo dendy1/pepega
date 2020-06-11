@@ -88,20 +88,19 @@ Program
     │     ├ Identifier
     │     │ └ b
     │     ├ *
-    │     └ Factor
-    │       └ AdditiveExpression
+    │     └ AdditiveExpression
+    │       ├ IntegerConstant
+    │       │ └ 23
+    │       ├ -
+    │       └ MultiplicativeExpression
     │         ├ IntegerConstant
-    │         │ └ 23
-    │         ├ -
-    │         └ MultiplicativeExpression
-    │           ├ IntegerConstant
-    │           │ └ 15
-    │           ├ *
-    │           ├ IntegerConstant
-    │           │ └ 6
-    │           ├ /
-    │           └ IntegerConstant
-    │             └ 9
+    │         │ └ 15
+    │         ├ *
+    │         ├ IntegerConstant
+    │         │ └ 6
+    │         ├ /
+    │         └ IntegerConstant
+    │           └ 9
     ├ AssignmentStatement
     │ ├ Identifier
     │ │ └ a
@@ -261,12 +260,13 @@ Program
       ├ Factor
       │ ├ Identifier
       │ │ └ not
-      │ └ RelationalExpression
-      │   ├ Identifier
-      │   │ └ b
-      │   ├ >
-      │   └ Identifier
-      │     └ a
+      │ └ ExpressionList
+      │   └ RelationalExpression
+      │     ├ Identifier
+      │     │ └ b
+      │     ├ >
+      │     └ Identifier
+      │       └ a
       ├ AssignmentStatement
       │ ├ Identifier
       │ │ └ a
