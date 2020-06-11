@@ -51,7 +51,7 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ MultiplicativeExpression
           │ ├ EntireVariable

@@ -21,58 +21,60 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ simplesum
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ simplesum
-  │       └ MultiplicativeExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ *
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ simplesum
+  │         └ MultiplicativeExpression
+  │           ├ EntireVariable
+  │           │ └ a
+  │           ├ *
+  │           └ EntireVariable
+  │             └ b
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ IntegerConstant
     │   └ 7
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ b
     │ └ IntegerConstant
     │   └ 13
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ AdditiveExpression
     │   ├ IntegerConstant
     │   │ └ 3
     │   ├ +
-    │   └ Factor
+    │   └ ProcedureStatement
     │     ├ Identifier
     │     │ └ simplesum
-    │     └ ExpressionList
+    │     └ Arguments
     │       └ IntegerConstant
     │         └ 10
     └ AssignmentStatement
-      ├ Identifier
+      ├ EntireVariable
       │ └ b
       └ MultiplicativeExpression
         ├ IntegerConstant
         │ └ 1
         ├ *
-        └ Factor
+        └ ProcedureStatement
           ├ Identifier
           │ └ simplesum
-          └ ExpressionList
+          └ Arguments
             └ SignedFactor
               ├ -
               └ IntegerConstant

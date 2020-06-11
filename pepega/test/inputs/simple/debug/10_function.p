@@ -3,13 +3,15 @@ var x, y, z : integer;
 var str : string;
 
 function add(a, b : integer) : integer;
-var i, j, k : real;
+    var i, j, k : real;
+
     function mul(c, d : integer) : integer;
     begin
         mul := c * d
     end;
+
 begin
-    add := a + b
+    add := mul(a,b)
 end;
 
 begin

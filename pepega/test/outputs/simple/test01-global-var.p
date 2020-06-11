@@ -72,12 +72,12 @@ Program
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ kl
-    │   └ ExpressionList
+    │   └ Arguments
     │     └ IntegerConstant
     │       └ 55
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ EntireVariable
           └ ij

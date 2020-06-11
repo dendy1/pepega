@@ -6,7 +6,7 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ IntegerConstant
           │ └ 2

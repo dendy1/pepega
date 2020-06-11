@@ -1,5 +1,10 @@
+from typing import Optional
+
 from src.newAST.pyPEGElements import *
 import re
+
+class NodeException(Exception):
+    pass
 
 class Program(CustomList):
     pass
@@ -12,7 +17,7 @@ class VariableDeclarations(CustomList):
 
 class VariableDeclaration(CustomList):
     @property
-    def var_identifiers(self):
+    def var_identifiers(self) -> []:
         """Returns list of variables names (list of strings)"""
         var_list = []
         for i in range(len(self) - 1):
@@ -20,27 +25,28 @@ class VariableDeclaration(CustomList):
         return var_list
 
     @property
-    def var_type(self):
+    def type_node(self) -> 'Type':
+        return self[-1]
+
+    @property
+    def var_type(self) -> str:
         """Returns variables type name (string)"""
         return self[-1].signature
 
 class SubprogramDeclarations(CustomList):
     pass
 
-class SubprogramDeclaration(CustomList):
-    @property
-    def header(self):
-        """Returns `SubprogramHeader` node"""
-        return self[0]
+class ParametersList(CustomList):
+    pass
 
 class SubprogramHeader(CustomList):
     @property
-    def proc_name(self):
+    def proc_name(self) -> str:
         """Returns subprogram name (string) from first node"""
         return self[0][0]
 
     @property
-    def proc_params(self):
+    def proc_params(self) -> Optional[ParametersList]:
         """
         Returns None if subprogram have parameters
         or
@@ -51,15 +57,30 @@ class SubprogramHeader(CustomList):
         return self[1]
 
     @property
-    def proc_type(self):
+    def proc_type_node(self) -> Optional['Type']:
+        """Returns None if subprogram = procedure or type node (Type)"""
+        if isinstance(self[-1], Type):
+            return self[-1]
+        else:
+            return None
+
+    @property
+    def proc_type(self) -> str:
         """Returns None if subprogram = procedure or type name (string)"""
         if isinstance(self[-1], Type):
             return self[-1].signature
         else:
-            return None
+            return 'void'
 
-class ParametersList(CustomList):
-    pass
+    @property
+    def is_function(self) -> bool:
+        return isinstance(self[-1], Type)
+
+class SubprogramDeclaration(CustomList):
+    @property
+    def header(self) -> SubprogramHeader:
+        """Returns `SubprogramHeader` node"""
+        return self[0]
 
 class Parameters(CustomList):
     @property
@@ -71,18 +92,22 @@ class Parameters(CustomList):
         return params_list
 
     @property
-    def params_type(self):
+    def params_type(self) -> str:
         """Returns parameters type name (string)"""
         return self[-1].signature
 
+    @property
+    def params_type_node(self) -> 'Type':
+        return self[-1]
+
 class ProcedureStatement(CustomList):
     @property
-    def proc_name(self):
+    def proc_name(self) -> str:
         """Returns procedure name (string)"""
         return self[0][0]
 
     @property
-    def args_count(self):
+    def args_count(self) -> int:
         """Returns procedure parameters count (int)"""
         if isinstance(self[-1], Arguments):
             return len(self[-1])
@@ -95,26 +120,75 @@ class ProcedureStatement(CustomList):
 
 class Type(CustomList):
     @property
-    def signature(self):
+    def is_array(self) -> bool:
+        return isinstance(self[0], ArrayType)
+
+    @property
+    def array_node(self) -> 'ArrayType':
+        if self.is_array:
+            return self[0]
+
+        raise NodeException("{} is not array".format(self))
+
+    @property
+    def signature(self) -> str:
         """Returns string name for type (string)"""
-        if isinstance(self[0], ArrayType):
+        if self.is_array:
             return self[0].signature_without_ranges
         else:
             return self[0]
 
 class ArrayType(CustomList):
     @property
-    def signature_without_ranges(self):
-        """Returns string name for array type (string). (Ex. array of array of array of integer)"""
+    def base_type(self) -> str:
+        """Return string name for array base type (integer, real, string etc)"""
+        return self.__base_type
+
+    @property
+    def __base_type(self) -> str:
+        if isinstance(self[-1][0], ArrayType):
+            return self[-1][0].__base_type
+        return self[-1][0]
+
+    @property
+    def signature_without_ranges(self) -> str:
+        """Returns string name representation for array type (string). (Ex. array of array of array of integer)"""
         if isinstance(self[-1][0], ArrayType):
             return 'array of ' + self[-1][0].signature_without_ranges
         return self[-1][0]
 
+    @property
+    def array_depth(self) -> int:
+        return self.__array_depth(1)
+
+    def __array_depth(self, i):
+        if isinstance(self[-1][0], ArrayType):
+            return self[-1][0]._array_depth(i + 1)
+        return i
+
+    @property
+    def is_simple_array(self):
+        return not isinstance(self[-1][0], ArrayType)
+
+    @property
+    def index_range_node(self) -> Optional['IndexRange']:
+        if isinstance(self[0], IndexRange):
+            return self[0]
+        return None
+
 class SimpleType(CustomKeyword):
-    pass
+    @property
+    def signature(self):
+        return self[0]
 
 class IndexRange(CustomList):
-    pass
+    @property
+    def left_range(self) -> int:
+        return self[0][0]
+
+    @property
+    def right_range(self) -> int:
+        return self[1][0]
 
 class CompoundStatement(CustomList):
     pass
@@ -128,14 +202,23 @@ class Statement(CustomList):
 class SimpleStatement(CustomList):
     pass
 
+class Variable(CustomList):
+    @property
+    def var_name(self) -> str:
+        """Returns variable name (string)"""
+        return self.var_name
+
+class Expression(CustomList):
+    pass
+
 class AssignmentStatement(CustomList):
     @property
-    def left(self):
+    def left(self) -> Variable:
         """Returns left `Variable` node"""
         return self[0]
 
     @property
-    def right(self):
+    def right(self) -> Expression:
         """Returns right `Expression` node"""
         return self[1]
 
@@ -146,9 +229,6 @@ class WhileStatement(CustomList):
     pass
 
 class Arguments(CustomList):
-    pass
-
-class Expression(CustomList):
     pass
 
 class RelationalExpression(CustomList):
@@ -166,15 +246,15 @@ class SignedFactor(CustomList):
 class Factor(CustomList):
     pass
 
-class Variable(CustomList):
-    pass
-
 class IndexedVariable(CustomList):
-    pass
+    @property
+    def var_name(self) -> str:
+        """Returns variable name (string)"""
+        return self[0]
 
 class EntireVariable(CustomList):
     @property
-    def var_name(self):
+    def var_name(self) -> str:
         """Returns variable name (string)"""
         return self[0]
 
@@ -286,7 +366,7 @@ CompoundStatement.grammar = "begin", optional(StatementList), "end"
 StatementList.grammar = Statement, maybe_some(';', Statement)
 Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, WhileStatement, ProcedureStatement]
 
-AssignmentStatement.grammar = EntireVariable, ":=", Expression
+AssignmentStatement.grammar = [IndexedVariable, EntireVariable], ":=", Expression
 ProcedureStatement.grammar = Identifier, "(", optional(Arguments), ")"
 IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Statement)
 WhileStatement.grammar = "while", Expression, "do", Statement
@@ -297,12 +377,12 @@ RelationalExpression.grammar = AdditiveExpression, optional(RelationalOperator, 
 AdditiveExpression.grammar = MultiplicativeExpression, maybe_some(AdditiveOperator, MultiplicativeExpression)
 MultiplicativeExpression.grammar = SignedFactor, maybe_some(MultiplicativeOperator, SignedFactor)
 SignedFactor.grammar = optional(Sign), Factor
-Factor.grammar = [(Not, Factor), ProcedureStatement, ("(", Expression, ")"), Variable, SignedFactor]
+Factor.grammar = [(Not, Factor), ProcedureStatement, ("(", Expression, ")"), Variable]
 
 Variable.grammar = [ConstantVariable, IndexedVariable, EntireVariable]
 EntireVariable.grammar = str
 ConstantVariable.grammar = [RealConstant, IntegerConstant, BooleanConstant, StringConstant]
-IndexedVariable.grammar = Identifier, some("[", Expression, "]")
+IndexedVariable.grammar = str, some("[", Expression, "]")
 
 IntegerConstant.grammar = Integer
 RealConstant.grammar = Real

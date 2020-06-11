@@ -114,16 +114,14 @@ Program
     │     └ 1
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ Identifier
-      │ │ └ k
+      │ ├ k
       │ ├ IntegerConstant
       │ │ └ 25
       │ └ IntegerConstant
       │   └ 20
       └ AdditiveExpression
         ├ IndexedVariable
-        │ ├ Identifier
-        │ │ └ k
+        │ ├ k
         │ ├ IntegerConstant
         │ │ └ 25
         │ └ IntegerConstant

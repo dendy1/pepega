@@ -1,6 +1,5 @@
-from pypeg2 import parse
-from src.pyPEG.MiniPascalGrammars import Program, comment_cpp
-from src.Visitor.SemanticVisitor import SemanticVisitor
+from src.pyPEG.MiniPascalGrammars import *
+from src.Visitor.Semantic.SemanticVisitor import SemanticVisitor
 
 class Parser:
     def __init__(self):

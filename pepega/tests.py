@@ -4,7 +4,7 @@ from utils import get_list_of_files
 import io, traceback
 
 def run_tests():
-    files = get_list_of_files('test\inputs\simple\debug')
+    files = get_list_of_files('test\inputs')
     for filename in files:
         f = open(filename, 'r')
         program_lines = f.read().lower()

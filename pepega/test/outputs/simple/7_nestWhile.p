@@ -84,6 +84,6 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ EntireVariable
           └ c

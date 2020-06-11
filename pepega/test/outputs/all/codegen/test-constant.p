@@ -35,7 +35,7 @@ Program
   │         └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ a
     │ └ AdditiveExpression
     │   ├ IntegerConstant
@@ -44,7 +44,7 @@ Program
     │   └ IntegerConstant
     │     └ 99
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ b
     │ └ AdditiveExpression
     │   ├ IntegerConstant
@@ -73,8 +73,7 @@ Program
     │           └ 6
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ c
+    │ │ ├ c
     │ │ └ AdditiveExpression
     │ │   ├ IntegerConstant
     │ │   │ └ 4
@@ -108,8 +107,7 @@ Program
     │           └ 6
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ Identifier
-      │ │ └ c
+      │ ├ c
       │ └ AdditiveExpression
       │   ├ IntegerConstant
       │   │ └ 3

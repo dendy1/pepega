@@ -106,7 +106,7 @@ Program
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ add
-    │   └ ExpressionList
+    │   └ Arguments
     │     ├ IntegerConstant
     │     │ └ 3
     │     └ IntegerConstant
@@ -117,7 +117,7 @@ Program
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ mul
-    │   └ ExpressionList
+    │   └ Arguments
     │     ├ EntireVariable
     │     │ └ x
     │     └ EntireVariable
@@ -127,16 +127,18 @@ Program
     │ │ └ z
     │ └ ProcedureStatement
     │   ├ Identifier
-    │   │ └ add
-    │   └ ExpressionList
+    │   │ └ div
+    │   └ Arguments
     │     ├ EntireVariable
     │     │ └ y
+    │     ├ IntegerConstant
+    │     │ └ 2
     │     └ IntegerConstant
-    │       └ 2
+    │       └ 3
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ EntireVariable
           │ └ x

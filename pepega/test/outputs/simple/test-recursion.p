@@ -53,7 +53,7 @@ Program
   │             └ ProcedureStatement
   │               ├ Identifier
   │               │ └ sum
-  │               └ ExpressionList
+  │               └ Arguments
   │                 └ AdditiveExpression
   │                   ├ EntireVariable
   │                   │ └ a
@@ -67,7 +67,7 @@ Program
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ sum
-    │   └ ExpressionList
+    │   └ Arguments
     │     └ IntegerConstant
     │       └ 10
     └ AssignmentStatement
@@ -76,7 +76,7 @@ Program
       └ ProcedureStatement
         ├ Identifier
         │ └ sum
-        └ ExpressionList
+        └ Arguments
           └ SignedFactor
             ├ -
             └ IntegerConstant

@@ -16,7 +16,7 @@ Program
   │     └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
+    │ ├ EntireVariable
     │ │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
     │ └ AdditiveExpression
     │   ├ IntegerConstant
@@ -25,10 +25,10 @@ Program
     │   └ IntegerConstant
     │     └ 9
     └ AssignmentStatement
-      ├ Identifier
+      ├ EntireVariable
       │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
       └ AdditiveExpression
-        ├ Identifier
+        ├ EntireVariable
         │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
         ├ +
         └ IntegerConstant

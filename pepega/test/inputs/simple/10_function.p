@@ -19,7 +19,6 @@ end;
 begin
     x := add(3, 4);
     y := mul(x, z);
-    z := add(y, 2);
+    z := div(y, 2, 3);
     printInt(x+y+z)
 end.
-

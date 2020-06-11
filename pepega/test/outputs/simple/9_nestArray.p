@@ -31,8 +31,7 @@ Program
   └ StatementList
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ arr
+    │ │ ├ arr
     │ │ ├ IntegerConstant
     │ │ │ └ 1
     │ │ └ IntegerConstant
@@ -41,8 +40,7 @@ Program
     │   └ 1234
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ arr
+    │ │ ├ arr
     │ │ ├ IntegerConstant
     │ │ │ └ 1
     │ │ └ IntegerConstant
@@ -51,8 +49,7 @@ Program
     │   └ 5678
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ arr
+    │ │ ├ arr
     │ │ ├ IntegerConstant
     │ │ │ └ 2
     │ │ └ IntegerConstant
@@ -61,8 +58,7 @@ Program
     │   └ 1324
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ arr
+    │ │ ├ arr
     │ │ ├ IntegerConstant
     │ │ │ └ 2
     │ │ └ IntegerConstant
@@ -72,35 +68,31 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ IndexedVariable
-          │ ├ Identifier
-          │ │ └ arr
+          │ ├ arr
           │ ├ IntegerConstant
           │ │ └ 1
           │ └ IntegerConstant
           │   └ 1
           ├ +
           ├ IndexedVariable
-          │ ├ Identifier
-          │ │ └ arr
+          │ ├ arr
           │ ├ IntegerConstant
           │ │ └ 1
           │ └ IntegerConstant
           │   └ 2
           ├ +
           ├ IndexedVariable
-          │ ├ Identifier
-          │ │ └ arr
+          │ ├ arr
           │ ├ IntegerConstant
           │ │ └ 2
           │ └ IntegerConstant
           │   └ 1
           ├ +
           └ IndexedVariable
-            ├ Identifier
-            │ └ arr
+            ├ arr
             ├ IntegerConstant
             │ └ 2
             └ IntegerConstant

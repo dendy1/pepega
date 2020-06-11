@@ -12,7 +12,7 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printreal
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ MultiplicativeExpression
           │ ├ ConstantVariable

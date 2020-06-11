@@ -1,4 +1,4 @@
-from src.newAST.Symbols import ProcedureSymbol, VariableSymbol
+from src.Visitor.Semantic.Symbols import *
 
 class SymbolTable:
     def __init__(self, scope_name, scope_level, parent_scope):
@@ -10,9 +10,21 @@ class SymbolTable:
         self._initbuildins()
 
     def _initbuildins(self):
-        self.define(ProcedureSymbol('printint', None, [VariableSymbol('a', 'integer')]))
-        self.define(ProcedureSymbol('printreal', None, [VariableSymbol('a', 'real')]))
-        self.define(ProcedureSymbol('printstring', None, [VariableSymbol('a', 'string')]))
+        INTEGER = TypeSymbol.from_str('integer')
+        REAL = TypeSymbol.from_str('real')
+        BOOLEAN = TypeSymbol.from_str('boolean')
+        STRING = TypeSymbol.from_str('string')
+        VOID = TypeSymbol.from_str('void')
+
+        self.define(INTEGER)
+        self.define(REAL)
+        self.define(BOOLEAN)
+        self.define(STRING)
+        self.define(VOID)
+
+        self.define(ProcedureSymbol('printint', VOID, [VariableSymbol('input', INTEGER), ]))
+        self.define(ProcedureSymbol('printreal', VOID, [VariableSymbol('input', REAL), ]))
+        self.define(ProcedureSymbol('printstring', VOID, [VariableSymbol('input', STRING), ]))
 
     def __str__(self):
         s = 'Scope: {scope_name}\nScope level: {scope_level}\nSymbols: {symbols}'.format(

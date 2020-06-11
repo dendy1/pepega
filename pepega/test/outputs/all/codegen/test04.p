@@ -1,25 +1,14 @@
-program HelloWorld(output);
-VAR a,c :integer;
-VAR b : real;
-VAR d : array [1..10] of integer;
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 18, in run_tests
+    parser.parse(program_lines, filename)
+  File "F:\Projects\pepega\pepega\src\newAST\NewParser.py", line 9, in parse
+    self.AST = self.CST = parse(program_lines, Program, filename=filename, comment=comment_cpp)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 667, in parse
+    t, r = parser.parse(text, thing)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 794, in parse
+    raise r
+  File "test\inputs\all\codegen\test04.p", line 15
+    writeln('hello, wo
+    ^
+SyntaxError: expecting 'end'
 
-
-FUNCTION heloo (a,b,c:integer;d,e,f:real) :integer;
-VAR h,q : integer;
-begin
-    h := 0
-end;
-
-
-begin
-    writeln('Hello, world!');
-    d[3] := 5;
-    d[4] := 6;
-    a := 3;
-    c := d[3];
-    c := d[4]+d[3];
-    a := c+1;
-    heloo;
-    heloo(2,3,4,2.0,4.0,2);
-    if a then begin a;c:=a;b;c;e; while 124 do v(2,5,b,d) end
-end.

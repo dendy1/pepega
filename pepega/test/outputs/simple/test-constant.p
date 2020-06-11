@@ -73,8 +73,7 @@ Program
     │           └ 6
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ c
+    │ │ ├ c
     │ │ └ AdditiveExpression
     │ │   ├ IntegerConstant
     │ │   │ └ 4
@@ -108,8 +107,7 @@ Program
     │           └ 6
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ Identifier
-      │ │ └ c
+      │ ├ c
       │ └ AdditiveExpression
       │   ├ IntegerConstant
       │   │ └ 3

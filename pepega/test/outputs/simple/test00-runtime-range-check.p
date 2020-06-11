@@ -143,8 +143,7 @@ Program
     │   └ StatementList
     │     ├ AssignmentStatement
     │     │ ├ IndexedVariable
-    │     │ │ ├ Identifier
-    │     │ │ │ └ d
+    │     │ │ ├ d
     │     │ │ └ EntireVariable
     │     │ │   └ b
     │     │ └ AdditiveExpression
@@ -172,8 +171,7 @@ Program
     │           └ 1
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ k
+    │ │ ├ k
     │ │ ├ IntegerConstant
     │ │ │ └ 25
     │ │ └ IntegerConstant
@@ -182,16 +180,14 @@ Program
     │   └ 3
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ k
+    │ │ ├ k
     │ │ ├ IntegerConstant
     │ │ │ └ 25
     │ │ └ IntegerConstant
     │ │   └ 26
     │ └ AdditiveExpression
     │   ├ IndexedVariable
-    │   │ ├ Identifier
-    │   │ │ └ k
+    │   │ ├ k
     │   │ ├ IntegerConstant
     │   │ │ └ 25
     │   │ └ IntegerConstant
@@ -201,8 +197,7 @@ Program
     │     └ 3
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ Identifier
-      │ │ └ k
+      │ ├ k
       │ ├ AdditiveExpression
       │ │ ├ EntireVariable
       │ │ │ └ a

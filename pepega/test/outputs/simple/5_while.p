@@ -97,7 +97,7 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ ExpressionList
+      └ Arguments
         └ AdditiveExpression
           ├ EntireVariable
           │ └ a

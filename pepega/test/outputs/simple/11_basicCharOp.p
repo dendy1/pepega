@@ -23,6 +23,6 @@ Program
     └ ProcedureStatement
       ├ Identifier
       │ └ printstring
-      └ ExpressionList
+      └ Arguments
         └ EntireVariable
           └ a

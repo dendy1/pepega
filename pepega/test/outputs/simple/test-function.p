@@ -61,7 +61,7 @@ Program
     │   └ ProcedureStatement
     │     ├ Identifier
     │     │ └ simplesum
-    │     └ ExpressionList
+    │     └ Arguments
     │       └ IntegerConstant
     │         └ 10
     └ AssignmentStatement
@@ -74,7 +74,7 @@ Program
         └ ProcedureStatement
           ├ Identifier
           │ └ simplesum
-          └ ExpressionList
+          └ Arguments
             └ SignedFactor
               ├ -
               └ IntegerConstant

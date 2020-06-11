@@ -39,12 +39,8 @@ Program
     │ │ └ c
     │ └ SignedFactor
     │   ├ -
-    │   └ SignedFactor
-    │     ├ -
-    │     └ SignedFactor
-    │       ├ -
-    │       └ IntegerConstant
-    │         └ 5
+    │   └ IntegerConstant
+    │     └ 5
     └ AssignmentStatement
       ├ EntireVariable
       │ └ b
