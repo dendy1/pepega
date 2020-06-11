@@ -89,6 +89,10 @@ class ProcedureStatement(CustomList):
         else:
             return 0
 
+    @property
+    def return_type(self):
+        return
+
 class Type(CustomList):
     @property
     def signature(self):
@@ -282,7 +286,7 @@ CompoundStatement.grammar = "begin", optional(StatementList), "end"
 StatementList.grammar = Statement, maybe_some(';', Statement)
 Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, WhileStatement, ProcedureStatement]
 
-AssignmentStatement.grammar = Variable, ":=", Expression
+AssignmentStatement.grammar = EntireVariable, ":=", Expression
 ProcedureStatement.grammar = Identifier, "(", optional(Arguments), ")"
 IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Statement)
 WhileStatement.grammar = "while", Expression, "do", Statement

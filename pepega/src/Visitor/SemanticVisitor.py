@@ -102,6 +102,8 @@ class SemanticVisitor(object):
 
     @visitor.when(AssignmentStatement)
     def visit(self, node: AssignmentStatement):
+        var_symbol = self.current_scope.lookup(node.var_name)
+        print(node.right)
         for child in node:
             self.visit(child)
 
