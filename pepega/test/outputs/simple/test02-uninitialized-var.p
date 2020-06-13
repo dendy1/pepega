@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ foo
@@ -28,9 +29,9 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 10
+  │       │   └ 10 (None)
   │       └ Type
   │         └ integer
   ├ VariableDeclarations
@@ -49,37 +50,37 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23
+  │       │ │ └ 23 (None)
   │       │ └ IntegerConstant
-  │       │   └ 57
+  │       │   └ 57 (None)
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23
+  │           │ │ └ 23 (None)
   │           │ └ IntegerConstant
-  │           │   └ 57
+  │           │   └ 57 (None)
   │           └ Type
   │             └ ArrayType
   │               ├ IndexRange
   │               │ ├ IntegerConstant
-  │               │ │ └ 23
+  │               │ │ └ 23 (None)
   │               │ └ IntegerConstant
-  │               │   └ 57
+  │               │   └ 57 (None)
   │               └ Type
   │                 └ ArrayType
   │                   ├ IndexRange
   │                   │ ├ IntegerConstant
-  │                   │ │ └ 23
+  │                   │ │ └ 23 (None)
   │                   │ └ IntegerConstant
-  │                   │   └ 57
+  │                   │   └ 57 (None)
   │                   └ Type
   │                     └ ArrayType
   │                       ├ IndexRange
   │                       │ ├ IntegerConstant
-  │                       │ │ └ 23
+  │                       │ │ └ 23 (None)
   │                       │ └ IntegerConstant
-  │                       │   └ 57
+  │                       │   └ 57 (None)
   │                       └ Type
   │                         └ real
   ├ VariableDeclarations
@@ -90,42 +91,52 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23
+  │       │ │ └ 23 (None)
   │       │ └ IntegerConstant
-  │       │   └ 57
+  │       │   └ 57 (None)
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23
+  │           │ │ └ 23 (None)
   │           │ └ IntegerConstant
-  │           │   └ 57
+  │           │   └ 57 (None)
   │           └ Type
   │             └ real
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 1
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 1 (None)
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ k
-      │ ├ IntegerConstant
-      │ │ └ 25
-      │ └ IntegerConstant
-      │   └ 20
+      │ ├ Identifier
+      │ │ └ k
+      │ ├ ConstantVariable
+      │ │ └ IntegerConstant
+      │ │   └ 25 (None)
+      │ └ ConstantVariable
+      │   └ IntegerConstant
+      │     └ 20 (None)
       └ AdditiveExpression
         ├ IndexedVariable
-        │ ├ k
-        │ ├ IntegerConstant
-        │ │ └ 25
-        │ └ IntegerConstant
-        │   └ 20
+        │ ├ Identifier
+        │ │ └ k
+        │ ├ ConstantVariable
+        │ │ └ IntegerConstant
+        │ │   └ 25 (None)
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 20 (None)
         ├ +
-        └ IntegerConstant
-          └ 3
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 3 (None)

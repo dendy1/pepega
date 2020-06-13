@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ foo
@@ -34,21 +35,27 @@ Program
   │       └ IfStatement
   │         ├ RelationalExpression
   │         │ ├ EntireVariable
-  │         │ │ └ a
+  │         │ │ └ Identifier
+  │         │ │   └ a
   │         │ ├ <=
-  │         │ └ IntegerConstant
-  │         │   └ 0
+  │         │ └ ConstantVariable
+  │         │   └ IntegerConstant
+  │         │     └ 0 (None)
   │         ├ AssignmentStatement
   │         │ ├ EntireVariable
-  │         │ │ └ sum
-  │         │ └ IntegerConstant
-  │         │   └ 0
+  │         │ │ └ Identifier
+  │         │ │   └ sum
+  │         │ └ ConstantVariable
+  │         │   └ IntegerConstant
+  │         │     └ 0 (None)
   │         └ AssignmentStatement
   │           ├ EntireVariable
-  │           │ └ sum
+  │           │ └ Identifier
+  │           │   └ sum
   │           └ AdditiveExpression
   │             ├ EntireVariable
-  │             │ └ a
+  │             │ └ Identifier
+  │             │   └ a
   │             ├ +
   │             └ ProcedureStatement
   │               ├ Identifier
@@ -56,28 +63,34 @@ Program
   │               └ Arguments
   │                 └ AdditiveExpression
   │                   ├ EntireVariable
-  │                   │ └ a
+  │                   │ └ Identifier
+  │                   │   └ a
   │                   ├ -
-  │                   └ IntegerConstant
-  │                     └ 1
+  │                   └ ConstantVariable
+  │                     └ IntegerConstant
+  │                       └ 1 (None)
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
+    │ │ └ Identifier
+    │ │   └ a
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ sum
     │   └ Arguments
-    │     └ IntegerConstant
-    │       └ 10
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 10 (None)
     └ AssignmentStatement
       ├ EntireVariable
-      │ └ b
+      │ └ Identifier
+      │   └ b
       └ ProcedureStatement
         ├ Identifier
         │ └ sum
         └ Arguments
           └ SignedFactor
             ├ -
-            └ IntegerConstant
-              └ 10
+            └ ConstantVariable
+              └ IntegerConstant
+                └ 10 (None)

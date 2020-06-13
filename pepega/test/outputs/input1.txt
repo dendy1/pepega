@@ -1,245 +1,3 @@
-Program
-├ Identifier
-│ └ qqq
-└ Block
-  ├ VariableDeclarations
-  │ └ VariableDeclaration
-  │   ├ Identifier
-  │   │ └ a
-  │   └ Type
-  │     └ ArrayType
-  │       ├ IndexRange
-  │       │ ├ IntegerConstant
-  │       │ │ └ 1
-  │       │ └ IntegerConstant
-  │       │   └ 5
-  │       └ Type
-  │         └ integer
-  ├ SubprogramDeclarations
-  │ ├ SubprogramDeclaration
-  │ │ ├ SubprogramHeader
-  │ │ │ ├ Identifier
-  │ │ │ │ └ f1
-  │ │ │ ├ ParametersList
-  │ │ │ │ └ Parameters
-  │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ a
-  │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ b
-  │ │ │ │   └ Type
-  │ │ │ │     └ integer
-  │ │ │ └ Type
-  │ │ │   └ integer
-  │ │ └ Block
-  │ │   ├ VariableDeclarations
-  │ │   │ └ VariableDeclaration
-  │ │   │   ├ Identifier
-  │ │   │   │ └ a
-  │ │   │   └ Type
-  │ │   │     └ integer
-  │ │   └ StatementList
-  │ │     ├ AssignmentStatement
-  │ │     │ ├ EntireVariable
-  │ │     │ │ └ c
-  │ │     │ └ AdditiveExpression
-  │ │     │   ├ IntegerConstant
-  │ │     │   │ └ 2
-  │ │     │   ├ +
-  │ │     │   ├ MultiplicativeExpression
-  │ │     │   │ ├ IntegerConstant
-  │ │     │   │ │ └ 3
-  │ │     │   │ ├ *
-  │ │     │   │ └ IntegerConstant
-  │ │     │   │   └ 2
-  │ │     │   ├ +
-  │ │     │   ├ IntegerConstant
-  │ │     │   │ └ 3
-  │ │     │   ├ +
-  │ │     │   ├ IntegerConstant
-  │ │     │   │ └ 2
-  │ │     │   ├ +
-  │ │     │   └ IntegerConstant
-  │ │     │     └ 1
-  │ │     └ ProcedureStatement
-  │ │       ├ Identifier
-  │ │       │ └ read
-  │ │       └ Arguments
-  │ │         └ IntegerConstant
-  │ │           └ 123
-  │ ├ SubprogramDeclaration
-  │ │ ├ SubprogramHeader
-  │ │ │ ├ Identifier
-  │ │ │ │ └ f2
-  │ │ │ ├ ParametersList
-  │ │ │ │ └ Parameters
-  │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ a
-  │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ b
-  │ │ │ │   └ Type
-  │ │ │ │     └ real
-  │ │ │ └ Type
-  │ │ │   └ real
-  │ │ └ Block
-  │ │   └ StatementList
-  │ │     ├ ProcedureStatement
-  │ │     │ ├ Identifier
-  │ │     │ │ └ f1
-  │ │     │ └ Arguments
-  │ │     │   ├ EntireVariable
-  │ │     │   │ └ a
-  │ │     │   └ EntireVariable
-  │ │     │     └ b
-  │ │     └ AssignmentStatement
-  │ │       ├ EntireVariable
-  │ │       │ └ a
-  │ │       └ AdditiveExpression
-  │ │         ├ EntireVariable
-  │ │         │ └ b
-  │ │         ├ +
-  │ │         └ IntegerConstant
-  │ │           └ 3
-  │ ├ SubprogramDeclaration
-  │ │ ├ SubprogramHeader
-  │ │ │ ├ Identifier
-  │ │ │ │ └ sum
-  │ │ │ └ ParametersList
-  │ │ │   └ Parameters
-  │ │ │     ├ Identifier
-  │ │ │     │ └ a
-  │ │ │     ├ Identifier
-  │ │ │     │ └ b
-  │ │ │     └ Type
-  │ │ │       └ integer
-  │ │ └ Block
-  │ │   └ StatementList
-  │ │     └ IfStatement
-  │ │       ├ RelationalExpression
-  │ │       │ ├ EntireVariable
-  │ │       │ │ └ a
-  │ │       │ ├ <=
-  │ │       │ └ IntegerConstant
-  │ │       │   └ 0
-  │ │       ├ AssignmentStatement
-  │ │       │ ├ EntireVariable
-  │ │       │ │ └ g
-  │ │       │ └ AdditiveExpression
-  │ │       │   ├ EntireVariable
-  │ │       │   │ └ b
-  │ │       │   ├ +
-  │ │       │   └ IntegerConstant
-  │ │       │     └ 9
-  │ │       └ AssignmentStatement
-  │ │         ├ EntireVariable
-  │ │         │ └ g
-  │ │         └ MultiplicativeExpression
-  │ │           ├ EntireVariable
-  │ │           │ └ b
-  │ │           ├ *
-  │ │           └ IntegerConstant
-  │ │             └ 3
-  │ └ SubprogramDeclaration
-  │   ├ SubprogramHeader
-  │   │ ├ Identifier
-  │   │ │ └ mult
-  │   │ └ ParametersList
-  │   │   └ Parameters
-  │   │     ├ Identifier
-  │   │     │ └ a
-  │   │     ├ Identifier
-  │   │     │ └ b
-  │   │     └ Type
-  │   │       └ integer
-  │   └ Block
-  │     └ StatementList
-  │       └ IfStatement
-  │         ├ RelationalExpression
-  │         │ ├ EntireVariable
-  │         │ │ └ a
-  │         │ ├ <=
-  │         │ └ IntegerConstant
-  │         │   └ 0
-  │         ├ AssignmentStatement
-  │         │ ├ EntireVariable
-  │         │ │ └ g
-  │         │ └ AdditiveExpression
-  │         │   ├ EntireVariable
-  │         │   │ └ b
-  │         │   ├ +
-  │         │   └ IntegerConstant
-  │         │     └ 9
-  │         └ AssignmentStatement
-  │           ├ EntireVariable
-  │           │ └ g
-  │           └ MultiplicativeExpression
-  │             ├ EntireVariable
-  │             │ └ b
-  │             ├ *
-  │             └ IntegerConstant
-  │               └ 3
-  └ StatementList
-    ├ AssignmentStatement
-    │ ├ EntireVariable
-    │ │ └ a
-    │ └ RelationalExpression
-    │   ├ IntegerConstant
-    │   │ └ 2
-    │   ├ <
-    │   └ IntegerConstant
-    │     └ 2
-    ├ IfStatement
-    │ ├ RelationalExpression
-    │ │ ├ EntireVariable
-    │ │ │ └ a
-    │ │ ├ >
-    │ │ └ IntegerConstant
-    │ │   └ 5
-    │ ├ StatementList
-    │ │ └ AssignmentStatement
-    │ │   ├ EntireVariable
-    │ │   │ └ e
-    │ │   └ AdditiveExpression
-    │ │     ├ IntegerConstant
-    │ │     │ └ 3
-    │ │     ├ +
-    │ │     └ IntegerConstant
-    │ │       └ 1
-    │ └ StatementList
-    │   └ AssignmentStatement
-    │     ├ EntireVariable
-    │     │ └ e
-    │     └ AdditiveExpression
-    │       ├ IntegerConstant
-    │       │ └ 2
-    │       ├ +
-    │       └ IntegerConstant
-    │         └ 1
-    ├ WhileStatement
-    │ ├ RelationalExpression
-    │ │ ├ EntireVariable
-    │ │ │ └ a
-    │ │ ├ >
-    │ │ └ IntegerConstant
-    │ │   └ 5
-    │ └ StatementList
-    │   └ AssignmentStatement
-    │     ├ EntireVariable
-    │     │ └ a
-    │     └ AdditiveExpression
-    │       ├ IntegerConstant
-    │       │ └ 4
-    │       ├ +
-    │       └ IntegerConstant
-    │         └ 2
-    └ AssignmentStatement
-      ├ EntireVariable
-      │ └ a
-      └ AdditiveExpression
-        ├ IntegerConstant
-        │ └ 2
-        ├ +
-        └ IntegerConstant
-          └ 3
 Traceback (most recent call last):
   File "F:\Projects\pepega\pepega\tests.py", line 21, in run_tests
     parser.semantic_check()
@@ -249,43 +7,43 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 27, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 121, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 34, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 128, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 71, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 165, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 76, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 170, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 34, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 128, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 39, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 133, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 63, in visit
+  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 157, in visit
     raise SemanticException("SemanticError: Variable '%s' is already declared in the current scope!" % var_name)
 src.Visitor.Semantic.SemanticVisitor.SemanticException: SemanticError: Variable 'a' is already declared in the current scope!
 

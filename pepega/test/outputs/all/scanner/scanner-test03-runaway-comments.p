@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 18, in run_tests
+  File "F:\Projects\pepega\pepega\tests.py", line 17, in run_tests
     parser.parse(program_lines, filename)
   File "F:\Projects\pepega\pepega\src\newAST\NewParser.py", line 9, in parse
     self.AST = self.CST = parse(program_lines, Program, filename=filename, comment=comment_cpp)

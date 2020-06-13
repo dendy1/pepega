@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -37,13 +38,16 @@ Program
   │ │   └ StatementList
   │ │     └ AssignmentStatement
   │ │       ├ EntireVariable
-  │ │       │ └ add
+  │ │       │ └ Identifier
+  │ │       │   └ add
   │ │       └ AdditiveExpression
   │ │         ├ EntireVariable
-  │ │         │ └ a
+  │ │         │ └ Identifier
+  │ │         │   └ a
   │ │         ├ +
   │ │         └ EntireVariable
-  │ │           └ b
+  │ │           └ Identifier
+  │ │             └ b
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
@@ -62,13 +66,16 @@ Program
   │ │   └ StatementList
   │ │     └ AssignmentStatement
   │ │       ├ EntireVariable
-  │ │       │ └ mul
+  │ │       │ └ Identifier
+  │ │       │   └ mul
   │ │       └ MultiplicativeExpression
   │ │         ├ EntireVariable
-  │ │         │ └ a
+  │ │         │ └ Identifier
+  │ │         │   └ a
   │ │         ├ *
   │ │         └ EntireVariable
-  │ │           └ b
+  │ │           └ Identifier
+  │ │             └ b
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
@@ -92,59 +99,75 @@ Program
   │     └ StatementList
   │       └ AssignmentStatement
   │         ├ EntireVariable
-  │         │ └ div
+  │         │ └ Identifier
+  │         │   └ div
   │         └ MultiplicativeExpression
   │           ├ EntireVariable
-  │           │ └ a
+  │           │ └ Identifier
+  │           │   └ a
   │           ├ /
   │           └ EntireVariable
-  │             └ b
+  │             └ Identifier
+  │               └ b
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ x
+    │ │ └ Identifier
+    │ │   └ x
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ add
     │   └ Arguments
-    │     ├ IntegerConstant
-    │     │ └ 3
-    │     └ IntegerConstant
-    │       └ 4
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 3 (None)
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 4 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ y
+    │ │ └ Identifier
+    │ │   └ y
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ mul
     │   └ Arguments
     │     ├ EntireVariable
-    │     │ └ x
+    │     │ └ Identifier
+    │     │   └ x
     │     └ EntireVariable
-    │       └ z
+    │       └ Identifier
+    │         └ z
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ z
+    │ │ └ Identifier
+    │ │   └ z
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ div
     │   └ Arguments
     │     ├ EntireVariable
-    │     │ └ y
-    │     ├ IntegerConstant
-    │     │ └ 2
-    │     └ IntegerConstant
-    │       └ 3
+    │     │ └ Identifier
+    │     │   └ y
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 2 (None)
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 3 (None)
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
       └ Arguments
         └ AdditiveExpression
           ├ EntireVariable
-          │ └ x
+          │ └ Identifier
+          │   └ x
           ├ +
           ├ EntireVariable
-          │ └ y
+          │ └ Identifier
+          │   └ y
           ├ +
           └ EntireVariable
-            └ z
+            └ Identifier
+              └ z

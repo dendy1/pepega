@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ foo
@@ -17,19 +18,25 @@ Program
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
+    │ │ └ Identifier
+    │ │   └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3 (None)
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 9
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 9 (None)
     └ AssignmentStatement
       ├ EntireVariable
-      │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
+      │ └ Identifier
+      │   └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
       └ AdditiveExpression
         ├ EntireVariable
-        │ └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
+        │ └ Identifier
+        │   └ d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789d123456789
         ├ +
-        └ IntegerConstant
-          └ 9
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 9 (None)

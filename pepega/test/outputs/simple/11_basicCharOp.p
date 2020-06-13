@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -17,12 +18,15 @@ Program
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
-    │ └ StringConstant
-    │   └ hello
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ StringConstant
+    │     └ hello
     └ ProcedureStatement
       ├ Identifier
       │ └ printstring
       └ Arguments
         └ EntireVariable
-          └ a
+          └ Identifier
+            └ a

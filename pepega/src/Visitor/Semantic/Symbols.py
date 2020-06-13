@@ -5,15 +5,13 @@ from src.pyPEG.MiniPascalGrammars import ArrayType
 
 
 class BaseType(Enum):
-    '''
-        Базовые типы для операций
-    '''
-
     VOID = 'void'
     INTEGER = 'integer'
     REAL = 'real'
     BOOLEAN = 'boolean'
     STRING = 'string'
+    ARRAY = 'array'
+    OPERATOR = 'operator'
 
     def __str__(self):
         return self.value
@@ -46,6 +44,8 @@ class ArrayTypeSymbol:
             self.__add_array(array_node)
             array_node = array_node[-1][0]
 
+        self.base_type: BaseType = BaseType(array_node.base_type)
+
     def __add_array(self, array_node: ArrayType):
         if array_node.index_range_node:
             self.array_scope.append(
@@ -57,6 +57,7 @@ class ArrayTypeSymbol:
         output = ''
         for base_array in self.array_scope:
             output += str (base_array) + ' of '
+        output += str(self.base_type)
         return output
 
     __repr__ = __str__
@@ -83,10 +84,13 @@ class TypeSymbol(Symbol):
 
     @property
     def is_simple(self) -> bool:
-        return not self.is_function
+        return not (self.is_function or self.is_array)
 
     def __eq__(self, other: 'TypeSymbol'):
-        if self.is_function != other.is_function or self.is_array != other.is_array:
+        if self.is_array != other.is_array:
+            return False
+
+        if self.is_function != other.is_function:
             return False
 
         if self.is_array:
@@ -116,11 +120,11 @@ class TypeSymbol(Symbol):
             return TypeSymbol.from_base_type(base_type)
         except Exception as e:
             print(e)
-            raise Exception('Неизвестный тип {}'.format(str_decl))
+            raise Exception('Unknown type {}'.format(str_decl))
 
     def __str__(self) -> str:
         if self.is_array:
-            return str(self.array_type) + str(self.base_type)
+            return str(self.array_type)
         elif not self.is_function:
             return str(self.base_type)
         else:
@@ -150,9 +154,9 @@ class VariableSymbol(Symbol):
     __repr__ = __str__
 
 class ProcedureSymbol(Symbol):
-    def __init__(self, proc_name: str, type_desc: TypeSymbol, params = None):
+    def __init__(self, proc_name: str, return_type: TypeSymbol, params = None):
         self.proc_name = proc_name
-        self.type_desc = type_desc
+        self.return_type = return_type
         self.params = params if params is not None else []
 
     @property
@@ -160,7 +164,7 @@ class ProcedureSymbol(Symbol):
         return self.proc_name
 
     def __str__(self):
-        return '<{name}, ({params})>'.format(name=self.name,params=self.params)
+        return '<{name}, params: {params}, returns: {returns}>'.format(name=self.name,params=self.params,returns=self.return_type)
 
     __repr__ = __str__
 

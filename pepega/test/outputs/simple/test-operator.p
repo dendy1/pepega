@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ foo
@@ -28,258 +29,337 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 10
+  │       │   └ 10 (None)
   │       └ Type
   │         └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ AdditiveExpression
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 93
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 93 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ AdditiveExpression
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ -
-    │   └ IntegerConstant
-    │     └ 93
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 93 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ MultiplicativeExpression
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ *
-    │   └ IntegerConstant
-    │     └ 93
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 93 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ MultiplicativeExpression
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ /
-    │   └ IntegerConstant
-    │     └ 93
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 93 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3 (None)
     │   ├ +
     │   ├ MultiplicativeExpression
-    │   │ ├ IntegerConstant
-    │   │ │ └ 93
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 93 (None)
     │   │ ├ *
-    │   │ └ IntegerConstant
-    │   │   └ 5
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 5 (None)
     │   ├ +
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ b
+    │     │ └ Identifier
+    │     │   └ b
     │     ├ *
     │     └ AdditiveExpression
-    │       ├ IntegerConstant
-    │       │ └ 23
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 23 (None)
     │       ├ -
     │       └ MultiplicativeExpression
-    │         ├ IntegerConstant
-    │         │ └ 15
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 15 (None)
     │         ├ *
-    │         ├ IntegerConstant
-    │         │ └ 6
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 6 (None)
     │         ├ /
-    │         └ IntegerConstant
-    │           └ 9
+    │         └ ConstantVariable
+    │           └ IntegerConstant
+    │             └ 9 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 1
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 1 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ >
     │ │ └ EntireVariable
-    │ │   └ a
+    │ │   └ Identifier
+    │ │     └ a
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 2
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 2 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 3
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 3 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ <
     │ │ └ EntireVariable
-    │ │   └ a
+    │ │   └ Identifier
+    │ │     └ a
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 5
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 5 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 7
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 7 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ ==
     │ │ └ EntireVariable
-    │ │   └ a
+    │ │   └ Identifier
+    │ │     └ a
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 11
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 11 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 13
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 13 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ >=
     │ │ └ EntireVariable
-    │ │   └ a
+    │ │   └ Identifier
+    │ │     └ a
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 17
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 17 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 19
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 19 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ <=
     │ │ └ EntireVariable
-    │ │   └ a
+    │ │   └ Identifier
+    │ │     └ a
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 23
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 23 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 29
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 29 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ b
+    │ │ │ └ Identifier
+    │ │ │   └ b
     │ │ ├ !=
-    │ │ └ IntegerConstant
-    │ │   └ 0
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 0 (None)
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ └ MultiplicativeExpression
     │ │   ├ EntireVariable
-    │ │   │ └ a
+    │ │   │ └ Identifier
+    │ │   │   └ a
     │ │   ├ *
-    │ │   └ IntegerConstant
-    │ │     └ 31
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 31 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ a
+    │   │ └ Identifier
+    │   │   └ a
     │   └ MultiplicativeExpression
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     ├ *
-    │     └ IntegerConstant
-    │       └ 37
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 37 (None)
     └ IfStatement
       ├ Factor
       │ ├ not
       │ └ RelationalExpression
       │   ├ EntireVariable
-      │   │ └ b
+      │   │ └ Identifier
+      │   │   └ b
       │   ├ >
       │   └ EntireVariable
-      │     └ a
+      │     └ Identifier
+      │       └ a
       ├ AssignmentStatement
       │ ├ EntireVariable
-      │ │ └ a
+      │ │ └ Identifier
+      │ │   └ a
       │ └ MultiplicativeExpression
       │   ├ EntireVariable
-      │   │ └ a
+      │   │ └ Identifier
+      │   │   └ a
       │   ├ *
-      │   └ IntegerConstant
-      │     └ 41
+      │   └ ConstantVariable
+      │     └ IntegerConstant
+      │       └ 41 (None)
       └ AssignmentStatement
         ├ EntireVariable
-        │ └ a
+        │ └ Identifier
+        │   └ a
         └ MultiplicativeExpression
           ├ EntireVariable
-          │ └ a
+          │ └ Identifier
+          │   └ a
           ├ *
-          └ IntegerConstant
-            └ 43
+          └ ConstantVariable
+            └ IntegerConstant
+              └ 43 (None)

@@ -1,7 +1,9 @@
 from typing import Optional
-
 from src.newAST.pyPEGElements import *
 import re
+
+class BinOp(CustomEnum):
+    grammar = [K('+'), K('-')]
 
 class NodeException(Exception):
     pass
@@ -105,6 +107,14 @@ class ProcedureStatement(CustomList):
     def proc_name(self) -> str:
         """Returns procedure name (string)"""
         return self[0][0]
+
+    @property
+    def agruments_node(self) -> Optional['Arguments']:
+        """Returns procedure arguments node (Arguments or None)"""
+        if isinstance(self[-1], Arguments):
+            return self[-1]
+        else:
+            return None
 
     @property
     def args_count(self) -> int:
@@ -223,10 +233,26 @@ class AssignmentStatement(CustomList):
         return self[1]
 
 class IfStatement(CustomList):
-    pass
+    @property
+    def cond_expr(self):
+        return self[0]
+
+    @property
+    def if_body_stmt(self):
+        return self[1]
+
+    @property
+    def else_body_stmt(self):
+        return self[2]
 
 class WhileStatement(CustomList):
-    pass
+    @property
+    def cond_expr(self):
+        return self[0]
+
+    @property
+    def while_body_stmt(self):
+        return self[1]
 
 class Arguments(CustomList):
     pass
@@ -248,15 +274,15 @@ class Factor(CustomList):
 
 class IndexedVariable(CustomList):
     @property
-    def var_name(self) -> str:
+    def variable_name(self) -> str:
         """Returns variable name (string)"""
-        return self[0]
+        return self[0][0]
 
 class EntireVariable(CustomList):
     @property
-    def var_name(self) -> str:
+    def variable_name(self) -> str:
         """Returns variable name (string)"""
-        return self[0]
+        return self[0][0]
 
 class ConstantVariable(CustomList):
     pass
@@ -380,9 +406,9 @@ SignedFactor.grammar = optional(Sign), Factor
 Factor.grammar = [(Not, Factor), ProcedureStatement, ("(", Expression, ")"), Variable]
 
 Variable.grammar = [ConstantVariable, IndexedVariable, EntireVariable]
-EntireVariable.grammar = str
+EntireVariable.grammar = Identifier
 ConstantVariable.grammar = [RealConstant, IntegerConstant, BooleanConstant, StringConstant]
-IndexedVariable.grammar = str, some("[", Expression, "]")
+IndexedVariable.grammar = Identifier, some("[", Expression, "]")
 
 IntegerConstant.grammar = Integer
 RealConstant.grammar = Real

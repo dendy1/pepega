@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -21,69 +22,90 @@ Program
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ c
-    │ └ IntegerConstant
-    │   └ 0
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 0 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 2
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 2 (None)
     ├ WhileStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ a
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ ├ <=
-    │ │ └ IntegerConstant
-    │ │   └ 9
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 9 (None)
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
-    │   │ │ └ b
-    │   │ └ IntegerConstant
-    │   │   └ 1
+    │   │ │ └ Identifier
+    │   │ │   └ b
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 1 (None)
     │   ├ WhileStatement
     │   │ ├ RelationalExpression
     │   │ │ ├ EntireVariable
-    │   │ │ │ └ b
+    │   │ │ │ └ Identifier
+    │   │ │ │   └ b
     │   │ │ ├ <=
-    │   │ │ └ IntegerConstant
-    │   │ │   └ 9
+    │   │ │ └ ConstantVariable
+    │   │ │   └ IntegerConstant
+    │   │ │     └ 9 (None)
     │   │ └ StatementList
     │   │   ├ AssignmentStatement
     │   │   │ ├ EntireVariable
-    │   │   │ │ └ c
+    │   │   │ │ └ Identifier
+    │   │   │ │   └ c
     │   │   │ └ AdditiveExpression
     │   │   │   ├ EntireVariable
-    │   │   │   │ └ c
+    │   │   │   │ └ Identifier
+    │   │   │   │   └ c
     │   │   │   ├ +
     │   │   │   └ MultiplicativeExpression
     │   │   │     ├ EntireVariable
-    │   │   │     │ └ a
+    │   │   │     │ └ Identifier
+    │   │   │     │   └ a
     │   │   │     ├ *
     │   │   │     └ EntireVariable
-    │   │   │       └ b
+    │   │   │       └ Identifier
+    │   │   │         └ b
     │   │   └ AssignmentStatement
     │   │     ├ EntireVariable
-    │   │     │ └ b
+    │   │     │ └ Identifier
+    │   │     │   └ b
     │   │     └ AdditiveExpression
     │   │       ├ EntireVariable
-    │   │       │ └ b
+    │   │       │ └ Identifier
+    │   │       │   └ b
     │   │       ├ +
-    │   │       └ IntegerConstant
-    │   │         └ 1
+    │   │       └ ConstantVariable
+    │   │         └ IntegerConstant
+    │   │           └ 1 (None)
     │   └ AssignmentStatement
     │     ├ EntireVariable
-    │     │ └ a
+    │     │ └ Identifier
+    │     │   └ a
     │     └ AdditiveExpression
     │       ├ EntireVariable
-    │       │ └ a
+    │       │ └ Identifier
+    │       │   └ a
     │       ├ +
-    │       └ IntegerConstant
-    │         └ 1
+    │       └ ConstantVariable
+    │         └ IntegerConstant
+    │           └ 1 (None)
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
       └ Arguments
         └ EntireVariable
-          └ c
+          └ Identifier
+            └ c

@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ foo
@@ -28,133 +29,169 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 10
+  │       │   └ 10 (None)
   │       └ Type
   │         └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 2
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 2 (None)
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 99
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 99 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
+    │ │ └ Identifier
+    │ │   └ b
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3 (None)
     │   ├ +
     │   ├ MultiplicativeExpression
-    │   │ ├ IntegerConstant
-    │   │ │ └ 93
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 93 (None)
     │   │ ├ *
-    │   │ └ IntegerConstant
-    │   │   └ 5
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 5 (None)
     │   ├ +
     │   └ MultiplicativeExpression
-    │     ├ IntegerConstant
-    │     │ └ 87
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 87 (None)
     │     ├ *
     │     └ AdditiveExpression
-    │       ├ IntegerConstant
-    │       │ └ 23
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 23 (None)
     │       ├ +
     │       └ MultiplicativeExpression
-    │         ├ IntegerConstant
-    │         │ └ 15
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 15 (None)
     │         ├ *
-    │         └ IntegerConstant
-    │           └ 6
+    │         └ ConstantVariable
+    │           └ IntegerConstant
+    │             └ 6 (None)
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ c
+    │ │ ├ Identifier
+    │ │ │ └ c
     │ │ └ AdditiveExpression
-    │ │   ├ IntegerConstant
-    │ │   │ └ 4
+    │ │   ├ ConstantVariable
+    │ │   │ └ IntegerConstant
+    │ │   │   └ 4 (None)
     │ │   ├ +
-    │ │   └ IntegerConstant
-    │ │     └ 2
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 2 (None)
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3 (None)
     │   ├ +
     │   ├ MultiplicativeExpression
-    │   │ ├ IntegerConstant
-    │   │ │ └ 9
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 9 (None)
     │   │ ├ *
-    │   │ └ IntegerConstant
-    │   │   └ 5
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 5 (None)
     │   ├ +
     │   └ MultiplicativeExpression
-    │     ├ IntegerConstant
-    │     │ └ 87
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 87 (None)
     │     ├ *
     │     └ AdditiveExpression
-    │       ├ IntegerConstant
-    │       │ └ 2
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 2 (None)
     │       ├ +
     │       └ MultiplicativeExpression
-    │         ├ IntegerConstant
-    │         │ └ 15
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 15 (None)
     │         ├ *
-    │         └ IntegerConstant
-    │           └ 6
+    │         └ ConstantVariable
+    │           └ IntegerConstant
+    │             └ 6 (None)
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ c
+      │ ├ Identifier
+      │ │ └ c
       │ └ AdditiveExpression
-      │   ├ IntegerConstant
-      │   │ └ 3
+      │   ├ ConstantVariable
+      │   │ └ IntegerConstant
+      │   │   └ 3 (None)
       │   ├ +
       │   ├ MultiplicativeExpression
-      │   │ ├ IntegerConstant
-      │   │ │ └ 9
+      │   │ ├ ConstantVariable
+      │   │ │ └ IntegerConstant
+      │   │ │   └ 9 (None)
       │   │ ├ *
-      │   │ └ IntegerConstant
-      │   │   └ 5
+      │   │ └ ConstantVariable
+      │   │   └ IntegerConstant
+      │   │     └ 5 (None)
       │   ├ +
       │   └ MultiplicativeExpression
-      │     ├ IntegerConstant
-      │     │ └ 87
+      │     ├ ConstantVariable
+      │     │ └ IntegerConstant
+      │     │   └ 87 (None)
       │     ├ *
       │     └ AdditiveExpression
-      │       ├ IntegerConstant
-      │       │ └ 2
+      │       ├ ConstantVariable
+      │       │ └ IntegerConstant
+      │       │   └ 2 (None)
       │       ├ +
       │       └ MultiplicativeExpression
-      │         ├ IntegerConstant
-      │         │ └ 15
+      │         ├ ConstantVariable
+      │         │ └ IntegerConstant
+      │         │   └ 15 (None)
       │         ├ *
-      │         └ IntegerConstant
-      │           └ 6
+      │         └ ConstantVariable
+      │           └ IntegerConstant
+      │             └ 6 (None)
       └ AdditiveExpression
-        ├ IntegerConstant
-        │ └ 3
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 3 (None)
         ├ +
         ├ MultiplicativeExpression
-        │ ├ IntegerConstant
-        │ │ └ 9
+        │ ├ ConstantVariable
+        │ │ └ IntegerConstant
+        │ │   └ 9 (None)
         │ ├ *
-        │ └ IntegerConstant
-        │   └ 5
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 5 (None)
         ├ +
         └ MultiplicativeExpression
-          ├ IntegerConstant
-          │ └ 8
+          ├ ConstantVariable
+          │ └ IntegerConstant
+          │   └ 8 (None)
           ├ *
           └ AdditiveExpression
-            ├ IntegerConstant
-            │ └ 2
+            ├ ConstantVariable
+            │ └ IntegerConstant
+            │   └ 2 (None)
             ├ +
             └ MultiplicativeExpression
-              ├ IntegerConstant
-              │ └ 15
+              ├ ConstantVariable
+              │ └ IntegerConstant
+              │   └ 15 (None)
               ├ *
-              └ IntegerConstant
-                └ 6
+              └ ConstantVariable
+                └ IntegerConstant
+                  └ 6 (None)

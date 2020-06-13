@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -25,29 +26,39 @@ Program
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 3
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 3 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ b
-    │ └ IntegerConstant
-    │   └ 4
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 4 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ c
-    │ └ IntegerConstant
-    │   └ 5
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 5 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ d
-    │ └ IntegerConstant
-    │   └ 6
+    │ │ └ Identifier
+    │ │   └ d
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 6 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ e
-    │ └ IntegerConstant
-    │   └ 7
+    │ │ └ Identifier
+    │ │   └ e
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 7 (None)
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
@@ -55,17 +66,22 @@ Program
         └ AdditiveExpression
           ├ MultiplicativeExpression
           │ ├ EntireVariable
-          │ │ └ a
+          │ │ └ Identifier
+          │ │   └ a
           │ ├ *
           │ └ EntireVariable
-          │   └ b
+          │   └ Identifier
+          │     └ b
           ├ +
           ├ MultiplicativeExpression
           │ ├ EntireVariable
-          │ │ └ c
+          │ │ └ Identifier
+          │ │   └ c
           │ ├ /
           │ └ EntireVariable
-          │   └ d
+          │   └ Identifier
+          │     └ d
           ├ -
           └ EntireVariable
-            └ e
+            └ Identifier
+              └ e

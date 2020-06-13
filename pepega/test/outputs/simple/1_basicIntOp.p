@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -8,8 +9,10 @@ Program
       │ └ printint
       └ Arguments
         └ AdditiveExpression
-          ├ IntegerConstant
-          │ └ 2
+          ├ ConstantVariable
+          │ └ IntegerConstant
+          │   └ 2 (None)
           ├ +
-          └ IntegerConstant
-            └ 3
+          └ ConstantVariable
+            └ IntegerConstant
+              └ 3 (None)

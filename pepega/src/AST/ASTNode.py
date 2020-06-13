@@ -104,10 +104,6 @@ class ASTNode:
             node.fold()
 
     def __str__(self) -> str:
-        # if len(self.nodes) < 1:
-        #     return str(self.value) + " (" + type(self.token).__name__ + ")"
-
         return str(self.value)
 
-    def __repr__(self) -> str:
-        return self.__str__()
+    __repr__ = __str__

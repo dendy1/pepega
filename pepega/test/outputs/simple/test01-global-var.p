@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ ab
@@ -33,51 +34,66 @@ Program
   │     └ StatementList
   │       └ AssignmentStatement
   │         ├ EntireVariable
-  │         │ └ kl
+  │         │ └ Identifier
+  │         │   └ kl
   │         └ AdditiveExpression
   │           ├ EntireVariable
-  │           │ └ ij
+  │           │ └ Identifier
+  │           │   └ ij
   │           ├ +
   │           ├ EntireVariable
-  │           │ └ mn
+  │           │ └ Identifier
+  │           │   └ mn
   │           ├ +
   │           └ EntireVariable
-  │             └ op
+  │             └ Identifier
+  │               └ op
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ ij
-    │ └ IntegerConstant
-    │   └ 45
+    │ │ └ Identifier
+    │ │   └ ij
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 45 (None)
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
-    │ │ │ └ ij
+    │ │ │ └ Identifier
+    │ │ │   └ ij
     │ │ ├ >
-    │ │ └ IntegerConstant
-    │ │   └ 1
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1 (None)
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
-    │ │ │ └ op
-    │ │ └ IntegerConstant
-    │ │   └ 1
+    │ │ │ └ Identifier
+    │ │ │   └ op
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1 (None)
     │ └ AssignmentStatement
     │   ├ EntireVariable
-    │   │ └ op
-    │   └ IntegerConstant
-    │     └ 2
+    │   │ └ Identifier
+    │   │   └ op
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 2 (None)
     ├ AssignmentStatement
     │ ├ EntireVariable
-    │ │ └ ij
+    │ │ └ Identifier
+    │ │   └ ij
     │ └ ProcedureStatement
     │   ├ Identifier
     │   │ └ kl
     │   └ Arguments
-    │     └ IntegerConstant
-    │       └ 55
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 55 (None)
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
       └ Arguments
         └ EntireVariable
-          └ ij
+          └ Identifier
+            └ ij

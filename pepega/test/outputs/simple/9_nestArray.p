@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ test
@@ -16,84 +17,112 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 9
+  │       │   └ 9 (None)
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 1
+  │           │ │ └ 1 (None)
   │           │ └ IntegerConstant
-  │           │   └ 9
+  │           │   └ 9 (None)
   │           └ Type
   │             └ integer
   └ StatementList
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ arr
-    │ │ ├ IntegerConstant
-    │ │ │ └ 1
-    │ │ └ IntegerConstant
-    │ │   └ 1
-    │ └ IntegerConstant
-    │   └ 1234
+    │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 1 (None)
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1 (None)
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 1234 (None)
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ arr
-    │ │ ├ IntegerConstant
-    │ │ │ └ 1
-    │ │ └ IntegerConstant
-    │ │   └ 2
-    │ └ IntegerConstant
-    │   └ 5678
+    │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 1 (None)
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 2 (None)
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 5678 (None)
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ arr
-    │ │ ├ IntegerConstant
-    │ │ │ └ 2
-    │ │ └ IntegerConstant
-    │ │   └ 1
-    │ └ IntegerConstant
-    │   └ 1324
+    │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 2 (None)
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1 (None)
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 1324 (None)
     ├ AssignmentStatement
     │ ├ IndexedVariable
-    │ │ ├ arr
-    │ │ ├ IntegerConstant
-    │ │ │ └ 2
-    │ │ └ IntegerConstant
-    │ │   └ 2
-    │ └ IntegerConstant
-    │   └ 5768
+    │ │ ├ Identifier
+    │ │ │ └ arr
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 2 (None)
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 2 (None)
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 5768 (None)
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
       └ Arguments
         └ AdditiveExpression
           ├ IndexedVariable
-          │ ├ arr
-          │ ├ IntegerConstant
-          │ │ └ 1
-          │ └ IntegerConstant
-          │   └ 1
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ ConstantVariable
+          │ │ └ IntegerConstant
+          │ │   └ 1 (None)
+          │ └ ConstantVariable
+          │   └ IntegerConstant
+          │     └ 1 (None)
           ├ +
           ├ IndexedVariable
-          │ ├ arr
-          │ ├ IntegerConstant
-          │ │ └ 1
-          │ └ IntegerConstant
-          │   └ 2
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ ConstantVariable
+          │ │ └ IntegerConstant
+          │ │   └ 1 (None)
+          │ └ ConstantVariable
+          │   └ IntegerConstant
+          │     └ 2 (None)
           ├ +
           ├ IndexedVariable
-          │ ├ arr
-          │ ├ IntegerConstant
-          │ │ └ 2
-          │ └ IntegerConstant
-          │   └ 1
+          │ ├ Identifier
+          │ │ └ arr
+          │ ├ ConstantVariable
+          │ │ └ IntegerConstant
+          │ │   └ 2 (None)
+          │ └ ConstantVariable
+          │   └ IntegerConstant
+          │     └ 1 (None)
           ├ +
           └ IndexedVariable
-            ├ arr
-            ├ IntegerConstant
-            │ └ 2
-            └ IntegerConstant
-              └ 2
+            ├ Identifier
+            │ └ arr
+            ├ ConstantVariable
+            │ └ IntegerConstant
+            │   └ 2 (None)
+            └ ConstantVariable
+              └ IntegerConstant
+                └ 2 (None)

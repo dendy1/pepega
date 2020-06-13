@@ -1,3 +1,4 @@
+======== AST AFTER SEMANTIC ========
 Program
 ├ Identifier
 │ └ arrays
@@ -16,9 +17,9 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 9
+  │       │   └ 9 (None)
   │       └ Type
   │         └ real
   ├ VariableDeclarations
@@ -29,17 +30,19 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1
+  │       │ │ └ 1 (None)
   │       │ └ IntegerConstant
-  │       │   └ 9
+  │       │   └ 9 (None)
   │       └ Type
   │         └ string
   └ StatementList
     └ AssignmentStatement
       ├ IndexedVariable
-      │ ├ arr
-      │ └ IntegerConstant
-      │   └ 1
+      │ ├ Identifier
+      │ │ └ arr
+      │ └ ConstantVariable
+      │   └ IntegerConstant
+      │     └ 1 (None)
       └ ConstantVariable
         └ RealConstant
-          └ 12.34
+          └ 12.34 (None)

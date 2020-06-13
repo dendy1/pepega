@@ -1,7 +1,11 @@
+from typing import Optional
+
 class ASTNode:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.parent = None
+        self.type_desc: Optional['TypeSymbol'] = None
+        self.converted: bool = False
 
     __renames = {
         "SimpleStatement": 'Statement',
@@ -20,18 +24,17 @@ class ASTNode:
         "SignedFactor": "Factor",
 
         "IntegerConstant": "Variable",
-        "FloatConstant": "Variable",
+        "RealConstant": "Variable",
         "BooleanConstant": "Variable",
         "StringConstant": "Variable",
 
         "IndexedVariable": "Variable",
-        "ConstantVariable": "Variable",
         "EntireVariable": "Variable"
     }
     __folds = {
         "Expression": ["Expression", "ExpressionList", "Factor"],
         "Factor": ["Factor", "Variable", "Expression", "Statement"],
-        "Variable": ["Variable"],
+        "Variable": ["Variable", "ConstantVariable"],
         "Statement": ["Statement", "CompoundStatement"],
         "CompoundStatement": ["StatementList"],
     }
@@ -41,7 +44,8 @@ class ASTNode:
 
     # вывод дерева в строку
     def tree(self) -> str:
-        res = [self.__class__.__name__]
+        type = '' if not self.type_desc else ((' (converted to '  if (self.converted) else ' (') + str(self.type_desc) + ')')
+        res = [self.__class__.__name__ + type]
         for i, child in enumerate(self):
             from pypeg2 import Literal
 
@@ -70,7 +74,7 @@ class ASTNode:
     # удаление ненужных узлов, которые появляются в процессе парсинга
     def fold(self):
         for folds in self.__folds:
-            if isinstance(self[0], str):
+            if self[0] is None or isinstance(self[0], str):
                 continue
 
             self_renamed = self.__renamed()
@@ -90,7 +94,10 @@ class ASTNode:
 
         for child in self:
             from src.newAST.pyPEGElements import CustomLiteral
-            if isinstance(child, CustomLiteral) or isinstance(child, str):
+            if isinstance(child, CustomLiteral) or isinstance(child, str) or child is None:
                 continue
 
             child.fold()
+
+    def __str__(self):
+        return self.__class__.__name__ + ' (' + str(self.type_desc) + ')'
