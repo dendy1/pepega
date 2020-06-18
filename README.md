@@ -1,6 +1,45 @@
 # pepega
 Компилятор языка Mini-Pascal на языке Python.  
 Для парсинга кода используется библиотека [pyPEG2](https://fdik.org/pyPEG/)
+
+## Поддерживаемые операции
+- Объявление переменных
+- Объявление пользовательских функций и процедур с параметрами (в том числе вложенные функции)
+- Выполнение присваивания (:=)
+- Базовые математические операции:
+  - Сложение (+)
+  - Вычитание (-)
+  - Умножение (*)
+  - Деление без остатка (/)
+  - Остаток от деления (%)
+- Базовые логические операции:
+  - ИЛИ (or)
+  - И (and)
+  - Отрицания (not)
+- Базовые операции сравнения:  
+  - Больше (>)
+  - Меньше (<)
+  - Равно (==)
+  - Не равно (!=)
+  - Больше или равно (>=)
+  - Меньше или равно (<=)
+- Условные операции:
+  - Операция If (if expression then statement else statement)
+  - Операция WHILE (while expression do statement)
+- Вызов системных функций (printInt, printReal, printString)
+- Вызов пользовательских функций
+
+### Поддерживается синтаксисом и семантикой, но не транслируется в байт-код
+- Массивы (в том числе и многомерные) и обращение к элементам массива
+
+
+## Реализация компилятора
+В ходе выполнения проекта были выполнены следующие действия
+- Проведён синтаксический анализ с помощью библиотеки [pyPEG2](https://fdik.org/pyPEG/)  
+- Проведён [семантический анализ](https://github.com/dendy1/pepega/blob/master/pepega/src/SemanticAnalysis/SemanticVisitor.py)  
+- Написан [транслятор](https://github.com/dendy1/pepega/blob/master/pepega/src/Translation/TranslatorVisitor.py) AST-дерева в байт-код самописной виртуальной машины  
+- Реализована сама [виртуальная машина](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/VirtualMachine.py), команды которой описаны в [OPCodes.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/OPCodes.py)
+
 # Структура проекта
 ```
 pepega
@@ -35,56 +74,58 @@ pepega
 ├ tests.py
 └ utils.py
 ```
-## AST  
+## [AST](https://github.com/dendy1/pepega/tree/master/pepega/src/AST)
 ### [ASTNode.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/ASTNode.py)
 Модуль, в котором находится класс, описывающий узел синтаксического дерева. Более подробное описание методов и полей класса находится в самом модуле.  
 
-### [Parser.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/Parser.py)
-Модуль, в котором находится класс парсера с доступом к узлам AST и CST и методами для их вывода в консоль.  
-
-## pyPEG  
+## [pyPEG](https://github.com/dendy1/pepega/tree/master/pepega/src/pyPEG)  
 ### [MiniPascalGrammars.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/MiniPascalGrammars.py)
 Модуль, в котором находятся классы для нетерминальных символов [грамматики](https://github.com/dendy1/pepega#peg-%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0) языка и описание самой грамматики.  
 
-### [pyPEGElements.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/Parser.py)
+### [pyPEGElements.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/pyPEGElements.py)
 Модуль, в котором находятся классы, расширяющие базовый функционал классов из библиотеки pyPEG2
 
-## SemanticAnalysis
-### [SemanticVisitor.py]
+## [SemanticAnalysis](https://github.com/dendy1/pepega/tree/master/pepega/src/SemanticAnalysis)
+### [SemanticVisitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/SemanticAnalysis/SemanticVisitor.py)
 Класс, реализующий паттерн "Посетитель", в котором находятся методы, осуществляющие семантический анализ узлов AST-дерева
-### [Symbols.py]
+### [Symbols.py](https://github.com/dendy1/pepega/blob/master/pepega/src/SemanticAnalysis/Symbols.py)
 Классы для хранения информации элементов, используемых при проведении семантического анализа
-### [SymbolTable.py]
+### [SymbolTable.py](https://github.com/dendy1/pepega/blob/master/pepega/src/SemanticAnalysis/SymbolTable.py)
 Реализация таблицы символов - структуры данных, в которой каждый идентификатор переменной или функции из исходного кода ассоциируется с информацией, связанной с его объявлением или появлением в коде: типом данных, областью видимости и в некоторых случаях местом в памяти (смещением).
 
-## Translation
-### [OPCodesContext.py]
+## [Translation](https://github.com/dendy1/pepega/tree/master/pepega/src/Translation)
+### [OPCodesContext.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Translation/OPCodesContext.py)
 Класс, агрегирующий в себе список команд при трансляции в байт-код, и предоставляющий удобные методы для их использования
-### [TraslatorVisitor.py]
+### [TraslatorVisitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Translation/TranslatorVisitor.py)
 Класс, реализующий паттерн "Посетитель", в котором находятся методы, осуществляющие трансляюцию узлов AST-дерева в собственный байт-код
 
-## SemanticAnalysis
-### [BuiltinFunctions.py]
+## [VirtualMachine](https://github.com/dendy1/pepega/tree/master/pepega/src/VirtualMachine)
+### [BuiltinFunctions.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/BuiltinFunctions.py)
 Здесь описаны встроенные функции
-### [OPCodes.py]
+### [OPCodes.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/OPCodes.py)
 Класс, описывающий команды байт-кода
-### [Scope.py]
+### [Scope.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/Scope.py)
 Класс, аналогичный SymbolTable.py, только для виртуальной машины
-### [utils.py]
+### [utils.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/utils.py)
 Вспомогательные методы, используемые при работе виртуальной машины
-### [Values.py]
+### [Values.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/Values.py)
 Классы для хранения информации элементов-значений, используемых при работе виртуальной машины
-### [VirtualMachine.py]
+### [VirtualMachine.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/VirtualMachine.py)
 Реализация стековой виртуальной машины
-### [VMContext.py]
+### [VMContext.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/VMContext.py)
 Класс, агрегирующий в себе список вызовов (CallStack) и значений (ValueStack), используемые при работе виртуальной машины
 
-## Visitor
+## Visitor(https://github.com/dendy1/pepega/tree/master/pepega/src/Visitor)
 ### [visitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/visitor.py)
 Модуль, в котором находится базовый класс для реализации паттерна посетитель. (Пока не используется)
-
-### [VisitorElement.py]
+### [VisitorElement.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/VisitorElement.py)
 Модуль, в котором находится класс с методом accept() для реализации паттерна "Посетитель"
+
+## [Compiler.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Compiler.py)
+Модуль, в котором находится класс компилятора с доступом к узлам AST и CST, списку команд байт-кода и методами для их вывода в консоль. 
+
+## [Exceptions.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Exceptions.py)
+Модуль, в котором находится классы ошибок
 
 ## [main.py](https://github.com/dendy1/pepega/blob/master/pepega/main.py) 
 Главный исполнительный модуль программы. Сейчас в нём вызывается функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6) для парсинга тестовых файлов из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs)  
@@ -248,7 +289,10 @@ PROGRAM foo;
 Другие примеры можно найти в файлах для [тестирования](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs/simple) компилятора.
 
 # Примеры работы компилятора
-## Input Lines
+Другие примеры работы компилятора можно найти в папке [test](https://github.com/dendy1/pepega/tree/master/pepega/test)  
+[Input files](https://github.com/dendy1/pepega/blob/master/pepega/test/inputs)  
+[Output files](https://github.com/dendy1/pepega/blob/master/pepega/test/outputs)  
+## Input Lines ([input1.txt](https://github.com/dendy1/pepega/blob/master/pepega/test/inputs/input1.txt))
 ```
 program test(in, out, err);
 var x, y, z : integer;
