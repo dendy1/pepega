@@ -1,49 +1,101 @@
 # pepega
 Компилятор языка Mini-Pascal на языке Python.  
 Для парсинга кода используется библиотека [pyPEG2](https://fdik.org/pyPEG/)
-## Структура проекта
+# Структура проекта
 ```
 pepega
 ├ src
 │ ├ AST
 │ │ ├ ASTNode.py
 │ │ └ Parser.py
-│ ├ Visitor
-│ │ └ visitor.py
 │ └ pyPEG
 │ │ ├ MiniPascalGrammars.py
-│ │ └ pyPEG.py
+│ │ └ pyPEGElements.py
+│ ├ SemanticAnalysis
+│ │ ├ SemanticVisitor.py
+│ │ ├ Symbols.py
+│ │ └ SymbolTable.py
+│ ├ Translation
+│ │ ├ OPCodesContext.py
+│ │ └ TraslatorVisitor.py
+│ ├ VirtualMachine
+│ │ ├ BuiltinFunctions.py
+│ │ ├ OPCodes.py
+│ │ ├ Scope.py
+│ │ ├ utils.py
+│ │ ├ Values.py
+│ │ ├ VirtualMachine.py
+│ │ └ VMContext.py
+│ ├ Visitor
+│ │ ├ VisitorElement.py
+│ │ └ visitor.py
 ├ test
 │ └ ...
 ├ main.py
 ├ tests.py
 └ utils.py
 ```
-### [main.py](https://github.com/dendy1/pepega/blob/master/pepega/main.py) 
-Главный исполнительный модуль программы. Сейчас в нём вызывается функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6) для парсинга тестовых файлов из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs)  
-
-### [tests.py](https://github.com/dendy1/pepega/blob/master/pepega/tests.py)
-Модуль, в котором расположена функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6). В функции считываются все файлы из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs), и для содержания каждого файла выполняется метод parse библиотеки pyPEG2, который осуществляет разбор кода. Получаемое AST записывается в файл с таким же названием в папку [test/outputs](https://github.com/dendy1/pepega/tree/master/pepega/test/outputs). Ошибки парсинга выводятся в консоль.    
-
-### [utils.py](https://github.com/dendy1/pepega/blob/master/pepega/utils.py)
-Модуль для дополнительных функций, таких как поиск всех файлов в директории и т.д.
-
+## AST  
 ### [ASTNode.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/ASTNode.py)
-Модуль, в котором находится класс, описывающий узел синтаксического дерева. Более подробное описание методов и полей класса находится в самом модуле.
+Модуль, в котором находится класс, описывающий узел синтаксического дерева. Более подробное описание методов и полей класса находится в самом модуле.  
 
 ### [Parser.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/Parser.py)
-Модуль, в котором находится класс парсера с доступом к узлам AST и CST и методами для их вывода в консоль.
+Модуль, в котором находится класс парсера с доступом к узлам AST и CST и методами для их вывода в консоль.  
 
+## pyPEG  
+### [MiniPascalGrammars.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/MiniPascalGrammars.py)
+Модуль, в котором находятся классы для нетерминальных символов [грамматики](https://github.com/dendy1/pepega#peg-%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0) языка и описание самой грамматики.  
+
+### [pyPEGElements.py](https://github.com/dendy1/pepega/blob/master/pepega/src/AST/Parser.py)
+Модуль, в котором находятся классы, расширяющие базовый функционал классов из библиотеки pyPEG2
+
+## SemanticAnalysis
+### [SemanticVisitor.py]
+Класс, реализующий паттерн "Посетитель", в котором находятся методы, осуществляющие семантический анализ узлов AST-дерева
+### [Symbols.py]
+Классы для хранения информации элементов, используемых при проведении семантического анализа
+### [SymbolTable.py]
+Реализация таблицы символов - структуры данных, в которой каждый идентификатор переменной или функции из исходного кода ассоциируется с информацией, связанной с его объявлением или появлением в коде: типом данных, областью видимости и в некоторых случаях местом в памяти (смещением).
+
+## Translation
+### [OPCodesContext.py]
+Класс, агрегирующий в себе список команд при трансляции в байт-код, и предоставляющий удобные методы для их использования
+### [TraslatorVisitor.py]
+Класс, реализующий паттерн "Посетитель", в котором находятся методы, осуществляющие трансляюцию узлов AST-дерева в собственный байт-код
+
+## SemanticAnalysis
+### [BuiltinFunctions.py]
+Здесь описаны встроенные функции
+### [OPCodes.py]
+Класс, описывающий команды байт-кода
+### [Scope.py]
+Класс, аналогичный SymbolTable.py, только для виртуальной машины
+### [utils.py]
+Вспомогательные методы, используемые при работе виртуальной машины
+### [Values.py]
+Классы для хранения информации элементов-значений, используемых при работе виртуальной машины
+### [VirtualMachine.py]
+Реализация стековой виртуальной машины
+### [VMContext.py]
+Класс, агрегирующий в себе список вызовов (CallStack) и значений (ValueStack), используемые при работе виртуальной машины
+
+## Visitor
 ### [visitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/visitor.py)
 Модуль, в котором находится базовый класс для реализации паттерна посетитель. (Пока не используется)
 
-### [MiniPascalGrammars.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/MiniPascalGrammars.py)
-Модуль, в котором находятся классы для нетерминальных символов [грамматики](https://github.com/dendy1/pepega#peg-%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B0) языка и описание самой грамматики.
+### [VisitorElement.py]
+Модуль, в котором находится класс с методом accept() для реализации паттерна "Посетитель"
 
-### [pyPEG.py](https://github.com/dendy1/pepega/blob/master/pepega/src/pyPEG/pyPEG.py)
-Модуль, в котором находятся унаследованные от базовых объектов библиотеки pyPEG классы с методом accept() для реализации паттерна посетитель.
+## [main.py](https://github.com/dendy1/pepega/blob/master/pepega/main.py) 
+Главный исполнительный модуль программы. Сейчас в нём вызывается функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6) для парсинга тестовых файлов из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs)  
 
-## PEG-грамматика языка
+## [tests.py](https://github.com/dendy1/pepega/blob/master/pepega/tests.py)
+Модуль, в котором расположена функция [run_tests()](https://github.com/dendy1/pepega/blob/d80ce0df1d1775c658d1ff4ec6751f7396986700/pepega/tests.py#L6). В функции считываются все файлы из папки [test/inputs](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs), и для содержания каждого файла выполняется метод parse библиотеки pyPEG2, который осуществляет разбор кода. Получаемое AST записывается в файл с таким же названием в папку [test/outputs](https://github.com/dendy1/pepega/tree/master/pepega/test/outputs). Ошибки парсинга выводятся в консоль.    
+
+## [utils.py](https://github.com/dendy1/pepega/blob/master/pepega/utils.py)
+Модуль для дополнительных функций, таких как поиск всех файлов в директории и т.д.
+
+# PEG-грамматика языка
 ```
 <program> => "program" <identifier> ("(" <identifier> ("," <identifier>)* ")")? ";" <block> "."
 <block> => <variable declarations>* <subprogram declarations>? <compound statement>
@@ -95,7 +147,7 @@ pepega
 <multiplying operator> => "*" | "/" | "%"
 <logical operator> => "and" | "or"
 ```
-## Дополнительная семантика языка
+# Дополнительная семантика языка
 1. Запрещено объявлять новые типы.
 
 2. Комментарии обозначены двумя слешами и продолжаются до конца строки. Например,
@@ -127,8 +179,8 @@ foo(a, b, c);
 8. Возвращаемое функцией значение - это значение переменной, которая имеет одинаковый с функцией идентификатор.
 
 9. Mini-Pascal - регистронезависимый язык, т.е. слова в нижнем и верхнем регистрах эквивалентны. Например, aBcD = abcd = ABCD - одно и тоже.
-## Примеры языка
-### Пример 1
+# Примеры языка
+## Пример 1
 ```
 PROGRAM foo; // заголовок программы
   // декларация переменных
@@ -154,7 +206,7 @@ PROGRAM foo; // заголовок программы
      b := 1 * simplesum(-10) 
   end.   // Конец программы
 ```
-### Пример 2
+## Пример 2
 ```
 PROGRAM foo;
    // Декларация переменных
@@ -195,35 +247,102 @@ PROGRAM foo;
 ```
 Другие примеры можно найти в файлах для [тестирования](https://github.com/dendy1/pepega/tree/master/pepega/test/inputs/simple) компилятора.
 
-## Примеры AST генерации
-### Input
+# Примеры работы компилятора
+## Input Lines
 ```
-program foo(boo);
+program test(in, out, err);
+var x, y, z : integer;
+var a, b, c, d, e : integer;
 
-    // global variable declarations
-    var a, b, c, d: integer;
+function add(a, b : integer) : integer;
+begin
+    add := a + b
+end;
 
-    // function declarations
-    function addition(a, b: integer) : integer;
-        var c: integer;
+function mul(a, b : integer) : integer;
+begin
+    mul := a * b
+end;
+
+function div(a, b : integer; c : real) : integer;
+begin
+    div := a / b
+end;
+
+begin
+    z := 10;
+    x := add(3, 4);
+    y := mul(x, z);
+    z := div(y, 2, 3);
+
+    a := 3;
+    b := a * 3;
+
+    if (not (b > 50)) then
         begin
-            addition := a + b
+            c := a + b - 2
+        end
+    else
+        begin
+            c := b * a - 7
         end;
 
-    // compound statements: "main"
+    if (c > 5) then
+        begin
+            d := c + a - b
+        end
+    else
+        begin
+            d := c - a + b
+        end;
+
+    e := 7;
+    a := 3;
+    b := 5;
+    c := 7;
+    d := 100;
+
+    while (b > a) do
     begin
-        a := addition(1, 2);
-        putchar(a)
-    end.
+        b := b-1
+    end;
+
+    while (c > b) do
+    begin
+        c := c-1
+    end;
+
+    while (d > c) do
+    begin
+        d := d - 1
+    end;
+
+    printInt(a+b+c+d);
+    printInt(x+y+z)
+end.
 ```
-### Output
+## AST
 ```
 Program
 ├ Identifier
-│ └ foo
+│ └ test
 ├ Identifier
-│ └ boo
+│ └ in
+├ Identifier
+│ └ out
+├ Identifier
+│ └ err
 └ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ x
+  │   ├ Identifier
+  │   │ └ y
+  │   ├ Identifier
+  │   │ └ z
+  │   └ Type
+  │     └ integer
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
@@ -234,53 +353,586 @@ Program
   │   │ └ c
   │   ├ Identifier
   │   │ └ d
+  │   ├ Identifier
+  │   │ └ e
   │   └ Type
   │     └ integer
   ├ SubprogramDeclarations
+  │ ├ SubprogramDeclaration
+  │ │ ├ SubprogramHeader
+  │ │ │ ├ Identifier
+  │ │ │ │ └ add
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
+  │ │ │ └ Type
+  │ │ │   └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement (integer)
+  │ │       ├ EntireVariable (integer)
+  │ │       │ └ Identifier
+  │ │       │   └ add
+  │ │       └ AdditiveExpression (integer)
+  │ │         ├ EntireVariable (integer)
+  │ │         │ └ Identifier
+  │ │         │   └ a
+  │ │         ├ +
+  │ │         └ EntireVariable (integer)
+  │ │           └ Identifier
+  │ │             └ b
+  │ ├ SubprogramDeclaration
+  │ │ ├ SubprogramHeader
+  │ │ │ ├ Identifier
+  │ │ │ │ └ mul
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
+  │ │ │ └ Type
+  │ │ │   └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement (integer)
+  │ │       ├ EntireVariable (integer)
+  │ │       │ └ Identifier
+  │ │       │   └ mul
+  │ │       └ MultiplicativeExpression (integer)
+  │ │         ├ EntireVariable (integer)
+  │ │         │ └ Identifier
+  │ │         │   └ a
+  │ │         ├ *
+  │ │         └ EntireVariable (integer)
+  │ │           └ Identifier
+  │ │             └ b
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ addition
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ ├ Identifier
-  │   │ │ │ └ b
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ │ └ div
+  │   │ ├ ParametersList
+  │   │ │ ├ Parameters
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ a
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ b
+  │   │ │ │ └ Type
+  │   │ │ │   └ integer
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ c
+  │   │ │   └ Type
+  │   │ │     └ real
   │   │ └ Type
   │   │   └ integer
-  │   ├ VariableDeclarations
-  │   │ └ VariableDeclaration
-  │   │   ├ Identifier
-  │   │   │ └ c
-  │   │   └ Type
-  │   │     └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ addition
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ +
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement (integer)
+  │         ├ EntireVariable (integer)
+  │         │ └ Identifier
+  │         │   └ div
+  │         └ MultiplicativeExpression (integer)
+  │           ├ EntireVariable (integer)
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ /
+  │           └ EntireVariable (integer)
+  │             └ Identifier
+  │               └ b
   └ StatementList
-    ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
-    │ └ Factor
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ z
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 10
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ x
+    │ └ ProcedureStatement (integer)
     │   ├ Identifier
-    │   │ └ addition
-    │   └ ExpressionList
-    │     ├ IntegerConstant
-    │     │ └ 1
-    │     └ IntegerConstant
-    │       └ 2
-    └ ProcedureStatement
+    │   │ └ add
+    │   └ Arguments
+    │     ├ ConstantVariable (integer)
+    │     │ └ IntegerConstant (integer)
+    │     │   └ 3
+    │     └ ConstantVariable (integer)
+    │       └ IntegerConstant (integer)
+    │         └ 4
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ y
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ mul
+    │   └ Arguments
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ x
+    │     └ EntireVariable (integer)
+    │       └ Identifier
+    │         └ z
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ z
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ div
+    │   └ Arguments
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ y
+    │     ├ ConstantVariable (integer)
+    │     │ └ IntegerConstant (integer)
+    │     │   └ 2
+    │     └ ConstantVariable (converted to real)
+    │       └ IntegerConstant (integer)
+    │         └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ MultiplicativeExpression (integer)
+    │   ├ EntireVariable (integer)
+    │   │ └ Identifier
+    │   │   └ a
+    │   ├ *
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 3
+    ├ IfStatement (void)
+    │ ├ Factor (boolean)
+    │ │ ├ not
+    │ │ └ RelationalExpression (boolean)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ b
+    │ │   ├ >
+    │ │   └ ConstantVariable (integer)
+    │ │     └ IntegerConstant (integer)
+    │ │       └ 50
+    │ ├ StatementList
+    │ │ └ AssignmentStatement (integer)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ c
+    │ │   └ AdditiveExpression (integer)
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ +
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ b
+    │ │     ├ -
+    │ │     └ ConstantVariable (integer)
+    │ │       └ IntegerConstant (integer)
+    │ │         └ 2
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     └ AdditiveExpression (integer)
+    │       ├ MultiplicativeExpression (integer)
+    │       │ ├ EntireVariable (integer)
+    │       │ │ └ Identifier
+    │       │ │   └ b
+    │       │ ├ *
+    │       │ └ EntireVariable (integer)
+    │       │   └ Identifier
+    │       │     └ a
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 7
+    ├ IfStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ c
+    │ │ ├ >
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 5
+    │ ├ StatementList
+    │ │ └ AssignmentStatement (integer)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ d
+    │ │   └ AdditiveExpression (integer)
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ c
+    │ │     ├ +
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ -
+    │ │     └ EntireVariable (integer)
+    │ │       └ Identifier
+    │ │         └ b
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ d
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ a
+    │       ├ +
+    │       └ EntireVariable (integer)
+    │         └ Identifier
+    │           └ b
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ e
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 7
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 5
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 7
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ d
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 100
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ b
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ a
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ b
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ b
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ c
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ b
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ d
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ c
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ d
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ d
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ ProcedureStatement (void)
+    │ ├ Identifier
+    │ │ └ printint
+    │ └ Arguments
+    │   └ AdditiveExpression (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ a
+    │     ├ +
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ b
+    │     ├ +
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     ├ +
+    │     └ EntireVariable (integer)
+    │       └ Identifier
+    │         └ d
+    └ ProcedureStatement (void)
       ├ Identifier
-      │ └ putchar
-      └ Identifier
-        └ a
+      │ └ printint
+      └ Arguments
+        └ AdditiveExpression (integer)
+          ├ EntireVariable (integer)
+          │ └ Identifier
+          │   └ x
+          ├ +
+          ├ EntireVariable (integer)
+          │ └ Identifier
+          │   └ y
+          ├ +
+          └ EntireVariable (integer)
+            └ Identifier
+              └ z
+```
+## Bytecode
+```
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL x
+2:		 DECLARE_LOCAL y
+3:		 DECLARE_LOCAL z
+4:		 DECLARE_LOCAL a
+5:		 DECLARE_LOCAL b
+6:		 DECLARE_LOCAL c
+7:		 DECLARE_LOCAL d
+8:		 DECLARE_LOCAL e
+9:		 FUNCTION add
+10:		 BEGIN_SCOPE 
+11:		 ASSIGN b
+12:		 ASSIGN a
+13:		 PUSH a
+14:		 PUSH b
+15:		 SUM 
+16:		 ASSIGN add
+17:		 PUSH add
+18:		 RETURN 1
+19:		 END_SCOPE 
+20:		 FUNCTION mul
+21:		 BEGIN_SCOPE 
+22:		 ASSIGN b
+23:		 ASSIGN a
+24:		 PUSH a
+25:		 PUSH b
+26:		 MULTIPLY 
+27:		 ASSIGN mul
+28:		 PUSH mul
+29:		 RETURN 1
+30:		 END_SCOPE 
+31:		 FUNCTION div
+32:		 BEGIN_SCOPE 
+33:		 ASSIGN b
+34:		 ASSIGN a
+35:		 ASSIGN c
+36:		 PUSH a
+37:		 PUSH b
+38:		 DIVIDE 
+39:		 ASSIGN div
+40:		 PUSH div
+41:		 RETURN 1
+42:		 END_SCOPE 
+43:		 PUSH 10
+44:		 ASSIGN z
+45:		 PUSH 3
+46:		 PUSH 4
+47:		 PUSH add
+48:		 CALL 2
+49:		 ASSIGN x
+50:		 PUSH x
+51:		 PUSH z
+52:		 PUSH mul
+53:		 CALL 2
+54:		 ASSIGN y
+55:		 PUSH y
+56:		 PUSH 2
+57:		 PUSH 3
+58:		 PUSH div
+59:		 CALL 3
+60:		 ASSIGN z
+61:		 PUSH 3
+62:		 ASSIGN a
+63:		 PUSH a
+64:		 PUSH 3
+65:		 MULTIPLY 
+66:		 ASSIGN b
+67:		 BEGIN_SCOPE 
+68:		 PUSH b
+69:		 PUSH 50
+70:		 COMPARE_GT 
+71:		 BOOLEAN_NOT 
+72:		 JUMP_NEG 83
+73:		 PUSH a
+74:		 PUSH b
+75:		 SUM 
+76:		 PUSH b
+77:		 PUSH 2
+78:		 SUBTRACT 
+79:		 ASSIGN c
+80:		 JUMP 90
+81:		 END_SCOPE 
+82:		 BEGIN_SCOPE 
+83:		 PUSH b
+84:		 PUSH a
+85:		 MULTIPLY 
+86:		 PUSH 7
+87:		 SUBTRACT 
+88:		 ASSIGN c
+89:		 END_SCOPE 
+90:		 BEGIN_SCOPE 
+91:		 PUSH c
+92:		 PUSH 5
+93:		 COMPARE_GT 
+94:		 JUMP_NEG 105
+95:		 PUSH c
+96:		 PUSH a
+97:		 SUM 
+98:		 PUSH a
+99:		 PUSH b
+100:		 SUBTRACT 
+101:		 ASSIGN d
+102:		 JUMP 113
+103:		 END_SCOPE 
+104:		 BEGIN_SCOPE 
+105:		 PUSH c
+106:		 PUSH a
+107:		 SUBTRACT 
+108:		 PUSH a
+109:		 PUSH b
+110:		 SUM 
+111:		 ASSIGN d
+112:		 END_SCOPE 
+113:		 PUSH 7
+114:		 ASSIGN e
+115:		 PUSH 3
+116:		 ASSIGN a
+117:		 PUSH 5
+118:		 ASSIGN b
+119:		 PUSH 7
+120:		 ASSIGN c
+121:		 PUSH 100
+122:		 ASSIGN d
+123:		 BEGIN_SCOPE 
+124:		 PUSH b
+125:		 PUSH a
+126:		 COMPARE_GT 
+127:		 JUMP_NEG 135
+128:		 BEGIN_SCOPE 
+129:		 PUSH b
+130:		 PUSH 1
+131:		 SUBTRACT 
+132:		 ASSIGN b
+133:		 JUMP 123
+134:		 END_SCOPE 
+135:		 END_SCOPE 
+136:		 BEGIN_SCOPE 
+137:		 PUSH c
+138:		 PUSH b
+139:		 COMPARE_GT 
+140:		 JUMP_NEG 148
+141:		 BEGIN_SCOPE 
+142:		 PUSH c
+143:		 PUSH 1
+144:		 SUBTRACT 
+145:		 ASSIGN c
+146:		 JUMP 136
+147:		 END_SCOPE 
+148:		 END_SCOPE 
+149:		 BEGIN_SCOPE 
+150:		 PUSH d
+151:		 PUSH c
+152:		 COMPARE_GT 
+153:		 JUMP_NEG 161
+154:		 BEGIN_SCOPE 
+155:		 PUSH d
+156:		 PUSH 1
+157:		 SUBTRACT 
+158:		 ASSIGN d
+159:		 JUMP 149
+160:		 END_SCOPE 
+161:		 END_SCOPE 
+162:		 PUSH a
+163:		 PUSH b
+164:		 SUM 
+165:		 PUSH b
+166:		 PUSH c
+167:		 SUM 
+168:		 PUSH c
+169:		 PUSH d
+170:		 SUM 
+171:		 PUSH printint
+172:		 CALL 1
+173:		 PUSH x
+174:		 PUSH y
+175:		 SUM 
+176:		 PUSH y
+177:		 PUSH z
+178:		 SUM 
+179:		 PUSH printint
+180:		 CALL 1
+181:		 END_SCOPE 
+```
+## Program Result
+```
+6.0
+70.66666666666667
 ```
