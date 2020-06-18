@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ ab
@@ -21,54 +22,108 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ kl
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ mn
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ mn
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ op
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ ij
-  │         ├ +
-  │         ├ Identifier
-  │         │ └ mn
-  │         ├ +
-  │         └ Identifier
-  │           └ op
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ op
+  │         └ AdditiveExpression
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ ij
+  │           ├ +
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ mn
+  │           ├ +
+  │           └ EntireVariable
+  │             └ Identifier
+  │               └ op
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ ij
-    │ └ IntegerConstant
-    │   └ 45
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ ij
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 45
     ├ IfStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
-    │ │ │ └ ij
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ ij
     │ │ ├ >
-    │ │ └ IntegerConstant
-    │ │   └ 1
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1
     │ ├ AssignmentStatement
-    │ │ ├ Identifier
-    │ │ │ └ op
-    │ │ └ IntegerConstant
-    │ │   └ 1
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ op
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1
     │ └ AssignmentStatement
-    │   ├ Identifier
-    │   │ └ op
-    │   └ IntegerConstant
-    │     └ 2
+    │   ├ EntireVariable
+    │   │ └ Identifier
+    │   │   └ op
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 2
     └ AssignmentStatement
-      ├ Identifier
-      │ └ qr
-      └ Factor
+      ├ EntireVariable
+      │ └ Identifier
+      │   └ qr
+      └ ProcedureStatement
         ├ Identifier
         │ └ kl
-        └ IntegerConstant
-          └ 55
+        └ Arguments
+          └ ConstantVariable
+            └ IntegerConstant
+              └ 55
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 260, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 536, in visit
+    raise SemanticException("Entire Variable {} is not defined!".format(node.variable_name))
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Entire Variable qr is not defined!
+

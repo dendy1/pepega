@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ qqq
@@ -20,219 +21,320 @@ Program
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
   │ │ │ │ └ f1
-  │ │ │ ├ Arguments
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ a
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ b
-  │ │ │ │ └ Type
-  │ │ │ │   └ integer
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
   │ │ │ └ Type
   │ │ │   └ integer
-  │ │ ├ VariableDeclarations
-  │ │ │ └ VariableDeclaration
-  │ │ │   ├ Identifier
-  │ │ │   │ └ a
-  │ │ │   └ Type
-  │ │ │     └ integer
-  │ │ └ StatementList
-  │ │   ├ AssignmentStatement
-  │ │   │ ├ Identifier
-  │ │   │ │ └ c
-  │ │   │ └ AdditiveExpression
-  │ │   │   ├ IntegerConstant
-  │ │   │   │ └ 2
-  │ │   │   ├ +
-  │ │   │   ├ MultiplicativeExpression
-  │ │   │   │ ├ IntegerConstant
-  │ │   │   │ │ └ 3
-  │ │   │   │ ├ *
-  │ │   │   │ └ IntegerConstant
-  │ │   │   │   └ 2
-  │ │   │   ├ +
-  │ │   │   ├ IntegerConstant
-  │ │   │   │ └ 3
-  │ │   │   ├ +
-  │ │   │   ├ IntegerConstant
-  │ │   │   │ └ 2
-  │ │   │   ├ +
-  │ │   │   └ IntegerConstant
-  │ │   │     └ 1
-  │ │   └ ProcedureStatement
-  │ │     ├ Identifier
-  │ │     │ └ read
-  │ │     └ IntegerConstant
-  │ │       └ 123
+  │ │ └ Block
+  │ │   ├ VariableDeclarations
+  │ │   │ └ VariableDeclaration
+  │ │   │   ├ Identifier
+  │ │   │   │ └ a
+  │ │   │   └ Type
+  │ │   │     └ integer
+  │ │   └ StatementList
+  │ │     ├ AssignmentStatement
+  │ │     │ ├ EntireVariable
+  │ │     │ │ └ Identifier
+  │ │     │ │   └ c
+  │ │     │ └ AdditiveExpression
+  │ │     │   ├ ConstantVariable
+  │ │     │   │ └ IntegerConstant
+  │ │     │   │   └ 2
+  │ │     │   ├ +
+  │ │     │   ├ MultiplicativeExpression
+  │ │     │   │ ├ ConstantVariable
+  │ │     │   │ │ └ IntegerConstant
+  │ │     │   │ │   └ 3
+  │ │     │   │ ├ *
+  │ │     │   │ └ ConstantVariable
+  │ │     │   │   └ IntegerConstant
+  │ │     │   │     └ 2
+  │ │     │   ├ +
+  │ │     │   ├ ConstantVariable
+  │ │     │   │ └ IntegerConstant
+  │ │     │   │   └ 3
+  │ │     │   ├ +
+  │ │     │   ├ ConstantVariable
+  │ │     │   │ └ IntegerConstant
+  │ │     │   │   └ 2
+  │ │     │   ├ +
+  │ │     │   └ ConstantVariable
+  │ │     │     └ IntegerConstant
+  │ │     │       └ 1
+  │ │     └ ProcedureStatement
+  │ │       ├ Identifier
+  │ │       │ └ read
+  │ │       └ Arguments
+  │ │         └ ConstantVariable
+  │ │           └ IntegerConstant
+  │ │             └ 123
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
   │ │ │ │ └ f2
-  │ │ │ ├ Arguments
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ a
-  │ │ │ │ ├ Identifier
-  │ │ │ │ │ └ b
-  │ │ │ │ └ Type
-  │ │ │ │   └ cardinal
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ real
   │ │ │ └ Type
-  │ │ │   └ cardinal
-  │ │ └ StatementList
-  │ │   ├ ProcedureStatement
-  │ │   │ ├ Identifier
-  │ │   │ │ └ f1
-  │ │   │ └ ExpressionList
-  │ │   │   ├ Identifier
-  │ │   │   │ └ a
-  │ │   │   └ Identifier
-  │ │   │     └ b
-  │ │   └ AssignmentStatement
-  │ │     ├ Identifier
-  │ │     │ └ a
-  │ │     └ AdditiveExpression
-  │ │       ├ Identifier
-  │ │       │ └ b
-  │ │       ├ +
-  │ │       └ IntegerConstant
-  │ │         └ 3
+  │ │ │   └ real
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     ├ ProcedureStatement
+  │ │     │ ├ Identifier
+  │ │     │ │ └ f1
+  │ │     │ └ Arguments
+  │ │     │   ├ EntireVariable
+  │ │     │   │ └ Identifier
+  │ │     │   │   └ a
+  │ │     │   └ EntireVariable
+  │ │     │     └ Identifier
+  │ │     │       └ b
+  │ │     └ AssignmentStatement
+  │ │       ├ EntireVariable
+  │ │       │ └ Identifier
+  │ │       │   └ a
+  │ │       └ AdditiveExpression
+  │ │         ├ EntireVariable
+  │ │         │ └ Identifier
+  │ │         │   └ b
+  │ │         ├ +
+  │ │         └ ConstantVariable
+  │ │           └ IntegerConstant
+  │ │             └ 3
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
   │ │ │ │ └ sum
-  │ │ │ └ Arguments
-  │ │ │   ├ Identifier
-  │ │ │   │ └ a
-  │ │ │   ├ Identifier
-  │ │ │   │ └ b
-  │ │ │   └ Type
-  │ │ │     └ integer
-  │ │ └ StatementList
-  │ │   └ IfStatement
-  │ │     ├ RelationalExpression
-  │ │     │ ├ Identifier
-  │ │     │ │ └ a
-  │ │     │ ├ <=
-  │ │     │ └ IntegerConstant
-  │ │     │   └ 0
-  │ │     ├ AssignmentStatement
-  │ │     │ ├ Identifier
-  │ │     │ │ └ g
-  │ │     │ └ AdditiveExpression
-  │ │     │   ├ Identifier
-  │ │     │   │ └ b
-  │ │     │   ├ +
-  │ │     │   └ IntegerConstant
-  │ │     │     └ 9
-  │ │     └ AssignmentStatement
-  │ │       ├ Identifier
-  │ │       │ └ g
-  │ │       └ MultiplicativeExpression
-  │ │         ├ Identifier
-  │ │         │ └ b
-  │ │         ├ *
-  │ │         └ IntegerConstant
-  │ │           └ 3
+  │ │ │ └ ParametersList
+  │ │ │   └ Parameters
+  │ │ │     ├ Identifier
+  │ │ │     │ └ a
+  │ │ │     ├ Identifier
+  │ │ │     │ └ b
+  │ │ │     └ Type
+  │ │ │       └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ IfStatement
+  │ │       ├ RelationalExpression
+  │ │       │ ├ EntireVariable
+  │ │       │ │ └ Identifier
+  │ │       │ │   └ a
+  │ │       │ ├ <=
+  │ │       │ └ ConstantVariable
+  │ │       │   └ IntegerConstant
+  │ │       │     └ 0
+  │ │       ├ AssignmentStatement
+  │ │       │ ├ EntireVariable
+  │ │       │ │ └ Identifier
+  │ │       │ │   └ g
+  │ │       │ └ AdditiveExpression
+  │ │       │   ├ EntireVariable
+  │ │       │   │ └ Identifier
+  │ │       │   │   └ b
+  │ │       │   ├ +
+  │ │       │   └ ConstantVariable
+  │ │       │     └ IntegerConstant
+  │ │       │       └ 9
+  │ │       └ AssignmentStatement
+  │ │         ├ EntireVariable
+  │ │         │ └ Identifier
+  │ │         │   └ g
+  │ │         └ MultiplicativeExpression
+  │ │           ├ EntireVariable
+  │ │           │ └ Identifier
+  │ │           │   └ b
+  │ │           ├ *
+  │ │           └ ConstantVariable
+  │ │             └ IntegerConstant
+  │ │               └ 3
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ mult
-  │   │ └ Arguments
-  │   │   ├ Identifier
-  │   │   │ └ a
-  │   │   ├ Identifier
-  │   │   │ └ b
-  │   │   └ Type
-  │   │     └ integer
-  │   └ StatementList
-  │     └ IfStatement
-  │       ├ RelationalExpression
-  │       │ ├ Identifier
-  │       │ │ └ a
-  │       │ ├ <=
-  │       │ └ IntegerConstant
-  │       │   └ 0
-  │       ├ AssignmentStatement
-  │       │ ├ Identifier
-  │       │ │ └ g
-  │       │ └ AdditiveExpression
-  │       │   ├ Identifier
-  │       │   │ └ b
-  │       │   ├ +
-  │       │   └ IntegerConstant
-  │       │     └ 9
-  │       └ AssignmentStatement
-  │         ├ Identifier
-  │         │ └ g
-  │         └ MultiplicativeExpression
-  │           ├ Identifier
-  │           │ └ b
-  │           ├ *
-  │           └ IntegerConstant
-  │             └ 3
+  │   │ └ ParametersList
+  │   │   └ Parameters
+  │   │     ├ Identifier
+  │   │     │ └ a
+  │   │     ├ Identifier
+  │   │     │ └ b
+  │   │     └ Type
+  │   │       └ integer
+  │   └ Block
+  │     └ StatementList
+  │       └ IfStatement
+  │         ├ RelationalExpression
+  │         │ ├ EntireVariable
+  │         │ │ └ Identifier
+  │         │ │   └ a
+  │         │ ├ <=
+  │         │ └ ConstantVariable
+  │         │   └ IntegerConstant
+  │         │     └ 0
+  │         ├ AssignmentStatement
+  │         │ ├ EntireVariable
+  │         │ │ └ Identifier
+  │         │ │   └ g
+  │         │ └ AdditiveExpression
+  │         │   ├ EntireVariable
+  │         │   │ └ Identifier
+  │         │   │   └ b
+  │         │   ├ +
+  │         │   └ ConstantVariable
+  │         │     └ IntegerConstant
+  │         │       └ 9
+  │         └ AssignmentStatement
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ g
+  │           └ MultiplicativeExpression
+  │             ├ EntireVariable
+  │             │ └ Identifier
+  │             │   └ b
+  │             ├ *
+  │             └ ConstantVariable
+  │               └ IntegerConstant
+  │                 └ 3
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ RelationalExpression
-    │   ├ IntegerConstant
-    │   │ └ 2
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 2
     │   ├ <
-    │   └ IntegerConstant
-    │     └ 2
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 2
     ├ IfStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ a
-    │ │   ├ >
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ a
+    │ │ ├ >
+    │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 5
-    │ ├ Statement
-    │ │ └ StatementList
-    │ │   └ AssignmentStatement
-    │ │     ├ Identifier
-    │ │     │ └ e
-    │ │     └ AdditiveExpression
-    │ │       ├ IntegerConstant
-    │ │       │ └ 3
-    │ │       ├ +
+    │ ├ StatementList
+    │ │ └ AssignmentStatement
+    │ │   ├ EntireVariable
+    │ │   │ └ Identifier
+    │ │   │   └ e
+    │ │   └ AdditiveExpression
+    │ │     ├ ConstantVariable
+    │ │     │ └ IntegerConstant
+    │ │     │   └ 3
+    │ │     ├ +
+    │ │     └ ConstantVariable
     │ │       └ IntegerConstant
     │ │         └ 1
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ e
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 2
-    │         ├ +
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ e
+    │     └ AdditiveExpression
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 2
+    │       ├ +
+    │       └ ConstantVariable
     │         └ IntegerConstant
     │           └ 1
     ├ WhileStatement
-    │ ├ Factor
-    │ │ └ RelationalExpression
-    │ │   ├ Identifier
-    │ │   │ └ a
-    │ │   ├ >
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ a
+    │ │ ├ >
+    │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 5
-    │ └ Statement
-    │   └ StatementList
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ a
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 4
-    │         ├ +
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ a
+    │     └ AdditiveExpression
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 4
+    │       ├ +
+    │       └ ConstantVariable
     │         └ IntegerConstant
     │           └ 2
     └ AssignmentStatement
-      ├ Identifier
-      │ └ a
+      ├ EntireVariable
+      │ └ Identifier
+      │   └ a
       └ AdditiveExpression
-        ├ IntegerConstant
-        │ └ 2
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 2
         ├ +
-        └ IntegerConstant
-          └ 3
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 3
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 168, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 173, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 136, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 160, in visit
+    raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable 'a' is already declared in the current scope!
+

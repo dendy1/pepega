@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -68,213 +69,293 @@ Program
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
   │ │ │ │ └ sort
-  │ │ │ └ Arguments
-  │ │ │   ├ Identifier
-  │ │ │   │ └ a
-  │ │ │   └ Type
-  │ │ │     └ ArrayType
-  │ │ │       ├ IndexRange
-  │ │ │       │ ├ IntegerConstant
-  │ │ │       │ │ └ 1
-  │ │ │       │ └ IntegerConstant
-  │ │ │       │   └ 10
-  │ │ │       └ Type
-  │ │ │         └ integer
-  │ │ ├ VariableDeclarations
-  │ │ │ └ VariableDeclaration
-  │ │ │   ├ Identifier
-  │ │ │   │ └ a
-  │ │ │   ├ Identifier
-  │ │ │   │ └ b
-  │ │ │   ├ Identifier
-  │ │ │   │ └ c
-  │ │ │   └ Type
-  │ │ │     └ integer
-  │ │ └ StatementList
-  │ │   └ AssignmentStatement
-  │ │     ├ Identifier
-  │ │     │ └ e
-  │ │     └ Identifier
-  │ │       └ a
+  │ │ │ └ ParametersList
+  │ │ │   └ Parameters
+  │ │ │     ├ Identifier
+  │ │ │     │ └ a
+  │ │ │     └ Type
+  │ │ │       └ ArrayType
+  │ │ │         ├ IndexRange
+  │ │ │         │ ├ IntegerConstant
+  │ │ │         │ │ └ 1
+  │ │ │         │ └ IntegerConstant
+  │ │ │         │   └ 10
+  │ │ │         └ Type
+  │ │ │           └ integer
+  │ │ └ Block
+  │ │   ├ VariableDeclarations
+  │ │   │ └ VariableDeclaration
+  │ │   │   ├ Identifier
+  │ │   │   │ └ a
+  │ │   │   ├ Identifier
+  │ │   │   │ └ b
+  │ │   │   ├ Identifier
+  │ │   │   │ └ c
+  │ │   │   └ Type
+  │ │   │     └ integer
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement
+  │ │       ├ EntireVariable
+  │ │       │ └ Identifier
+  │ │       │   └ e
+  │ │       └ EntireVariable
+  │ │         └ Identifier
+  │ │           └ a
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ addition
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ ├ Identifier
-  │   │ │ │ └ b
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   ├ VariableDeclarations
-  │   │ └ VariableDeclaration
-  │   │   ├ Identifier
-  │   │   │ └ c
-  │   │   └ Type
-  │   │     └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ addition
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ +
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     ├ VariableDeclarations
+  │     │ └ VariableDeclaration
+  │     │   ├ Identifier
+  │     │   │ └ c
+  │     │   └ Type
+  │     │     └ integer
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ addition
+  │         └ AdditiveExpression
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ +
+  │           └ EntireVariable
+  │             └ Identifier
+  │               └ b
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 1
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 1
     ├ WhileStatement
     │ ├ RelationalExpression
-    │ │ ├ Identifier
-    │ │ │ └ a
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ a
     │ │ ├ <
-    │ │ └ IntegerConstant
-    │ │   └ 10
-    │ └ Statement
-    │   └ StatementList
-    │     ├ AssignmentStatement
-    │     │ ├ Identifier
-    │     │ │ └ sum
-    │     │ └ AdditiveExpression
-    │     │   ├ Identifier
-    │     │   │ └ sum
-    │     │   ├ +
-    │     │   └ Identifier
-    │     │     └ a
-    │     └ AssignmentStatement
-    │       ├ Identifier
-    │       │ └ a
-    │       └ AdditiveExpression
-    │         ├ Identifier
-    │         │ └ a
-    │         ├ +
-    │         └ IntegerConstant
-    │           └ 1
-    ├ Statement
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 10
     │ └ StatementList
     │   ├ AssignmentStatement
-    │   │ ├ Identifier
-    │   │ │ └ b
-    │   │ └ IntegerConstant
-    │   │   └ 1
-    │   ├ WhileStatement
-    │   │ ├ RelationalExpression
-    │   │ │ ├ Identifier
-    │   │ │ │ └ b
-    │   │ │ ├ <
-    │   │ │ └ IntegerConstant
-    │   │ │   └ 11
-    │   │ └ Statement
-    │   │   └ StatementList
-    │   │     ├ AssignmentStatement
-    │   │     │ ├ IndexedVariable
-    │   │     │ │ ├ Identifier
-    │   │     │ │ │ └ d
-    │   │     │ │ └ Identifier
-    │   │     │ │   └ b
-    │   │     │ └ AdditiveExpression
-    │   │     │   ├ Identifier
-    │   │     │   │ └ b
-    │   │     │   ├ +
-    │   │     │   └ MultiplicativeExpression
-    │   │     │     ├ Identifier
-    │   │     │     │ └ b
-    │   │     │     ├ *
-    │   │     │     └ Factor
-    │   │     │       └ AdditiveExpression
-    │   │     │         ├ Identifier
-    │   │     │         │ └ b
-    │   │     │         ├ -
-    │   │     │         └ IntegerConstant
-    │   │     │           └ 1
-    │   │     └ AssignmentStatement
-    │   │       ├ Identifier
-    │   │       │ └ b
-    │   │       └ AdditiveExpression
-    │   │         ├ Identifier
-    │   │         │ └ b
-    │   │         ├ +
-    │   │         └ IntegerConstant
-    │   │           └ 1
-    │   └ ProcedureStatement
-    │     ├ Identifier
-    │     │ └ sort
-    │     └ Identifier
-    │       └ d
+    │   │ ├ EntireVariable
+    │   │ │ └ Identifier
+    │   │ │   └ sum
+    │   │ └ AdditiveExpression
+    │   │   ├ EntireVariable
+    │   │   │ └ Identifier
+    │   │   │   └ sum
+    │   │   ├ +
+    │   │   └ EntireVariable
+    │   │     └ Identifier
+    │   │       └ a
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ a
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ a
+    │       ├ +
+    │       └ ConstantVariable
+    │         └ IntegerConstant
+    │           └ 1
+    ├ StatementList
+    │ ├ AssignmentStatement
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ b
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 1
+    │ ├ WhileStatement
+    │ │ ├ RelationalExpression
+    │ │ │ ├ EntireVariable
+    │ │ │ │ └ Identifier
+    │ │ │ │   └ b
+    │ │ │ ├ <
+    │ │ │ └ ConstantVariable
+    │ │ │   └ IntegerConstant
+    │ │ │     └ 11
+    │ │ └ StatementList
+    │ │   ├ AssignmentStatement
+    │ │   │ ├ IndexedVariable
+    │ │   │ │ ├ Identifier
+    │ │   │ │ │ └ d
+    │ │   │ │ └ EntireVariable
+    │ │   │ │   └ Identifier
+    │ │   │ │     └ b
+    │ │   │ └ AdditiveExpression
+    │ │   │   ├ EntireVariable
+    │ │   │   │ └ Identifier
+    │ │   │   │   └ b
+    │ │   │   ├ +
+    │ │   │   └ MultiplicativeExpression
+    │ │   │     ├ EntireVariable
+    │ │   │     │ └ Identifier
+    │ │   │     │   └ b
+    │ │   │     ├ *
+    │ │   │     └ AdditiveExpression
+    │ │   │       ├ EntireVariable
+    │ │   │       │ └ Identifier
+    │ │   │       │   └ b
+    │ │   │       ├ -
+    │ │   │       └ ConstantVariable
+    │ │   │         └ IntegerConstant
+    │ │   │           └ 1
+    │ │   └ AssignmentStatement
+    │ │     ├ EntireVariable
+    │ │     │ └ Identifier
+    │ │     │   └ b
+    │ │     └ AdditiveExpression
+    │ │       ├ EntireVariable
+    │ │       │ └ Identifier
+    │ │       │   └ b
+    │ │       ├ +
+    │ │       └ ConstantVariable
+    │ │         └ IntegerConstant
+    │ │           └ 1
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ sort
+    │   └ Arguments
+    │     └ EntireVariable
+    │       └ Identifier
+    │         └ d
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ k
-    │ │ ├ IntegerConstant
-    │ │ │ └ 25
-    │ │ └ IntegerConstant
-    │ │   └ 26
-    │ └ IntegerConstant
-    │   └ 3
-    ├ AssignmentStatement
-    │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ k
-    │ │ ├ IntegerConstant
-    │ │ │ └ 25
-    │ │ └ IntegerConstant
-    │ │   └ 26
-    │ └ FloatConstant
-    │   └ 3.14
-    ├ AssignmentStatement
-    │ ├ IndexedVariable
-    │ │ ├ Identifier
-    │ │ │ └ k
-    │ │ ├ IntegerConstant
-    │ │ │ └ 25
-    │ │ └ IntegerConstant
-    │ │   └ 26
-    │ └ AdditiveExpression
-    │   ├ IndexedVariable
-    │   │ ├ Identifier
-    │   │ │ └ k
-    │   │ ├ IntegerConstant
-    │   │ │ └ 25
-    │   │ └ IntegerConstant
-    │   │   └ 26
-    │   ├ +
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 25
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 26
+    │ └ ConstantVariable
     │   └ IntegerConstant
     │     └ 3
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ k
-    │ │ ├ IntegerConstant
-    │ │ │ └ 25
-    │ │ └ IntegerConstant
-    │ │   └ 126
-    │ └ FloatConstant
-    │   └ 3.14
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 25
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 26
+    │ └ ConstantVariable
+    │   └ RealConstant
+    │     └ 3.14
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ k
-    │ │ ├ IntegerConstant
-    │ │ │ └ 125
-    │ │ └ IntegerConstant
-    │ │   └ 26
-    │ └ FloatConstant
-    │   └ 3.14
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 25
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 26
+    │ └ AdditiveExpression
+    │   ├ IndexedVariable
+    │   │ ├ Identifier
+    │   │ │ └ k
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 25
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 26
+    │   ├ +
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 3
+    ├ AssignmentStatement
+    │ ├ IndexedVariable
+    │ │ ├ Identifier
+    │ │ │ └ k
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 25
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 126
+    │ └ ConstantVariable
+    │   └ RealConstant
+    │     └ 3.14
+    ├ AssignmentStatement
+    │ ├ IndexedVariable
+    │ │ ├ Identifier
+    │ │ │ └ k
+    │ │ ├ ConstantVariable
+    │ │ │ └ IntegerConstant
+    │ │ │   └ 125
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 26
+    │ └ ConstantVariable
+    │   └ RealConstant
+    │     └ 3.14
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
       │ │ └ k
-      │ ├ IntegerConstant
-      │ │ └ 125
-      │ └ IntegerConstant
-      │   └ 126
-      └ FloatConstant
-        └ 3.14
+      │ ├ ConstantVariable
+      │ │ └ IntegerConstant
+      │ │   └ 125
+      │ └ ConstantVariable
+      │   └ IntegerConstant
+      │     └ 126
+      └ ConstantVariable
+        └ RealConstant
+          └ 3.14
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 136, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 160, in visit
+    raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable 'b' is already declared in the current scope!
+

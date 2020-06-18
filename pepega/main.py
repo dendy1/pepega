@@ -1,3 +1,5 @@
+from pypeg2 import parse
+
 from tests import run_tests
 
 if __name__ == "__main__":

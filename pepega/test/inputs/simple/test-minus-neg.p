@@ -3,7 +3,7 @@ program foo(input, output, error) ;
    var b: real;
    begin
       a := -3-4;
-      c := ---5;   // Is this allowed?
+      c := -5;   // Is this allowed?
       b := -5-6
    end.
 

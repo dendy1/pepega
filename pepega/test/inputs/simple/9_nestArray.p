@@ -1,5 +1,6 @@
 program test(in, out, err);
 var arr : array [1..9] of array [1..9] of integer;
+
 begin
     arr[1][1] := 1234;
     arr[1][2] := 5678;

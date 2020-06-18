@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -21,57 +22,169 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ simplesum
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ simplesum
-  │       └ MultiplicativeExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ *
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ simplesum
+  │         └ MultiplicativeExpression
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ *
+  │           └ EntireVariable
+  │             └ Identifier
+  │               └ b
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 7
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 7
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ b
-    │ └ IntegerConstant
-    │   └ 13
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 13
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3
     │   ├ +
-    │   └ Factor
+    │   └ ProcedureStatement
     │     ├ Identifier
     │     │ └ simplesum
-    │     └ IntegerConstant
-    │       └ 10
+    │     └ Arguments
+    │       └ ConstantVariable
+    │         └ IntegerConstant
+    │           └ 10
     └ AssignmentStatement
-      ├ Identifier
-      │ └ b
+      ├ EntireVariable
+      │ └ Identifier
+      │   └ b
       └ MultiplicativeExpression
-        ├ IntegerConstant
-        │ └ 1
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 1
         ├ *
-        └ Factor
+        └ ProcedureStatement
           ├ Identifier
           │ └ simplesum
-          └ SignedFactor
-            ├ -
-            └ IntegerConstant
-              └ 10
+          └ Arguments
+            └ SignedFactor
+              ├ -
+              └ ConstantVariable
+                └ IntegerConstant
+                  └ 10
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ input
+├ Identifier
+│ └ output
+├ Identifier
+│ └ error
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   └ Type
+  │     └ integer
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ simplesum
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   └ Type
+  │   │ │     └ integer
+  │   │ └ Type
+  │   │   └ integer
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement (integer)
+  │         ├ EntireVariable (integer)
+  │         │ └ Identifier
+  │         │   └ simplesum
+  │         └ MultiplicativeExpression (integer)
+  │           ├ EntireVariable (integer)
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ *
+  │           └ EntireVariable (integer)
+  │             └ Identifier
+  │               └ b
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 7
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 13
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ AdditiveExpression (integer)
+    │   ├ ConstantVariable (integer)
+    │   │ └ IntegerConstant (integer)
+    │   │   └ 3
+    │   ├ +
+    │   └ ProcedureStatement (integer)
+    │     ├ Identifier
+    │     │ └ simplesum
+    │     └ Arguments
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 10
+    └ AssignmentStatement (integer)
+      ├ EntireVariable (integer)
+      │ └ Identifier
+      │   └ b
+      └ MultiplicativeExpression (integer)
+        ├ ConstantVariable (integer)
+        │ └ IntegerConstant (integer)
+        │   └ 1
+        ├ *
+        └ ProcedureStatement (integer)
+          ├ Identifier
+          │ └ simplesum
+          └ Arguments
+            └ SignedFactor (integer)
+              ├ -
+              └ ConstantVariable (integer)
+                └ IntegerConstant (integer)
+                  └ 10

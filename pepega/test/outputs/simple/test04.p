@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ helloworld
@@ -36,137 +37,148 @@ Program
   │   ├ SubprogramHeader
   │   │ ├ Identifier
   │   │ │ └ add
-  │   │ ├ Arguments
-  │   │ │ ├ Identifier
-  │   │ │ │ └ a
-  │   │ │ ├ Identifier
-  │   │ │ │ └ b
-  │   │ │ └ Type
-  │   │ │   └ integer
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
   │   │ └ Type
   │   │   └ integer
-  │   └ StatementList
-  │     └ AssignmentStatement
-  │       ├ Identifier
-  │       │ └ add
-  │       └ AdditiveExpression
-  │         ├ Identifier
-  │         │ └ a
-  │         ├ +
-  │         └ Identifier
-  │           └ b
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ add
+  │         └ AdditiveExpression
+  │           ├ EntireVariable
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ +
+  │           └ EntireVariable
+  │             └ Identifier
+  │               └ b
   └ StatementList
-    ├ ProcedureStatement
-    │ ├ Identifier
-    │ │ └ writeln
-    │ └ StringConstant
-    │   └ hello
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ d
-    │ │ └ IntegerConstant
-    │ │   └ 3
-    │ └ IntegerConstant
-    │   └ 5
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 3
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 5
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ d
-    │ │ └ IntegerConstant
-    │ │   └ 4
-    │ └ IntegerConstant
-    │   └ 6
+    │ │ └ ConstantVariable
+    │ │   └ IntegerConstant
+    │ │     └ 4
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 6
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
-    │ └ IntegerConstant
-    │   └ 3
-    ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ c
-    │ └ IndexedVariable
-    │   ├ Identifier
-    │   │ └ d
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
     │   └ IntegerConstant
     │     └ 3
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ c
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ IndexedVariable
+    │   ├ Identifier
+    │   │ └ d
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 3
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ c
     │ └ AdditiveExpression
     │   ├ IndexedVariable
     │   │ ├ Identifier
     │   │ │ └ d
-    │   │ └ IntegerConstant
-    │   │   └ 4
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 4
     │   ├ +
     │   └ IndexedVariable
     │     ├ Identifier
     │     │ └ d
-    │     └ IntegerConstant
-    │       └ 3
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 3
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
-    │   ├ Identifier
-    │   │ └ c
+    │   ├ EntireVariable
+    │   │ └ Identifier
+    │   │   └ c
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 1
-    ├ ProcedureStatement
-    │ └ Identifier
-    │   └ heloo
-    ├ ProcedureStatement
-    │ ├ Identifier
-    │ │ └ heloo
-    │ └ ExpressionList
-    │   ├ IntegerConstant
-    │   │ └ 2
-    │   ├ IntegerConstant
-    │   │ └ 3
-    │   ├ IntegerConstant
-    │   │ └ 4
-    │   ├ IntegerConstant
-    │   │ └ 2
-    │   ├ IntegerConstant
-    │   │ └ 4
-    │   └ IntegerConstant
-    │     └ 2
-    └ IfStatement
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 1
+    └ ProcedureStatement
       ├ Identifier
-      │ └ a
-      └ Statement
-        └ StatementList
-          ├ ProcedureStatement
-          │ └ Identifier
-          │   └ a
-          ├ AssignmentStatement
-          │ ├ Identifier
-          │ │ └ c
-          │ └ Identifier
-          │   └ a
-          ├ ProcedureStatement
-          │ └ Identifier
-          │   └ b
-          ├ ProcedureStatement
-          │ └ Identifier
-          │   └ c
-          ├ ProcedureStatement
-          │ └ Identifier
-          │   └ e
-          └ WhileStatement
-            ├ IntegerConstant
-            │ └ 124
-            └ ProcedureStatement
-              ├ Identifier
-              │ └ v
-              └ ExpressionList
-                ├ IntegerConstant
-                │ └ 2
-                ├ IntegerConstant
-                │ └ 5
-                ├ Identifier
-                │ └ b
-                └ Identifier
-                  └ d
+      │ └ qwe
+      └ Arguments
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 2
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 3
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 4
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 2
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 4
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 2
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 312, in visit
+    raise SemanticException("Procedure '%s' is not defined!" % proc_name)
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Procedure 'qwe' is not defined!
+

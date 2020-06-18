@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -35,41 +36,51 @@ Program
   │         └ integer
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 2
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 2
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 99
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 99
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ b
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ b
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3
     │   ├ +
     │   ├ MultiplicativeExpression
-    │   │ ├ IntegerConstant
-    │   │ │ └ 93
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 93
     │   │ ├ *
-    │   │ └ IntegerConstant
-    │   │   └ 5
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 5
     │   ├ +
     │   └ MultiplicativeExpression
-    │     ├ IntegerConstant
-    │     │ └ 87
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 87
     │     ├ *
-    │     └ Factor
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 23
-    │         ├ +
-    │         └ MultiplicativeExpression
-    │           ├ IntegerConstant
-    │           │ └ 15
-    │           ├ *
+    │     └ AdditiveExpression
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 23
+    │       ├ +
+    │       └ MultiplicativeExpression
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 15
+    │         ├ *
+    │         └ ConstantVariable
     │           └ IntegerConstant
     │             └ 6
     ├ AssignmentStatement
@@ -77,35 +88,43 @@ Program
     │ │ ├ Identifier
     │ │ │ └ c
     │ │ └ AdditiveExpression
-    │ │   ├ IntegerConstant
-    │ │   │ └ 4
+    │ │   ├ ConstantVariable
+    │ │   │ └ IntegerConstant
+    │ │   │   └ 4
     │ │   ├ +
-    │ │   └ IntegerConstant
-    │ │     └ 2
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 2
     │ └ AdditiveExpression
-    │   ├ IntegerConstant
-    │   │ └ 3
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 3
     │   ├ +
     │   ├ MultiplicativeExpression
-    │   │ ├ IntegerConstant
-    │   │ │ └ 9
+    │   │ ├ ConstantVariable
+    │   │ │ └ IntegerConstant
+    │   │ │   └ 9
     │   │ ├ *
-    │   │ └ IntegerConstant
-    │   │   └ 5
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 5
     │   ├ +
     │   └ MultiplicativeExpression
-    │     ├ IntegerConstant
-    │     │ └ 87
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 87
     │     ├ *
-    │     └ Factor
-    │       └ AdditiveExpression
-    │         ├ IntegerConstant
-    │         │ └ 2
-    │         ├ +
-    │         └ MultiplicativeExpression
-    │           ├ IntegerConstant
-    │           │ └ 15
-    │           ├ *
+    │     └ AdditiveExpression
+    │       ├ ConstantVariable
+    │       │ └ IntegerConstant
+    │       │   └ 2
+    │       ├ +
+    │       └ MultiplicativeExpression
+    │         ├ ConstantVariable
+    │         │ └ IntegerConstant
+    │         │   └ 15
+    │         ├ *
+    │         └ ConstantVariable
     │           └ IntegerConstant
     │             └ 6
     └ AssignmentStatement
@@ -113,54 +132,103 @@ Program
       │ ├ Identifier
       │ │ └ c
       │ └ AdditiveExpression
-      │   ├ IntegerConstant
-      │   │ └ 3
+      │   ├ ConstantVariable
+      │   │ └ IntegerConstant
+      │   │   └ 3
       │   ├ +
       │   ├ MultiplicativeExpression
-      │   │ ├ IntegerConstant
-      │   │ │ └ 9
+      │   │ ├ ConstantVariable
+      │   │ │ └ IntegerConstant
+      │   │ │   └ 9
       │   │ ├ *
-      │   │ └ IntegerConstant
-      │   │   └ 5
+      │   │ └ ConstantVariable
+      │   │   └ IntegerConstant
+      │   │     └ 5
       │   ├ +
       │   └ MultiplicativeExpression
-      │     ├ IntegerConstant
-      │     │ └ 87
+      │     ├ ConstantVariable
+      │     │ └ IntegerConstant
+      │     │   └ 87
       │     ├ *
-      │     └ Factor
-      │       └ AdditiveExpression
-      │         ├ IntegerConstant
-      │         │ └ 2
-      │         ├ +
-      │         └ MultiplicativeExpression
-      │           ├ IntegerConstant
-      │           │ └ 15
-      │           ├ *
+      │     └ AdditiveExpression
+      │       ├ ConstantVariable
+      │       │ └ IntegerConstant
+      │       │   └ 2
+      │       ├ +
+      │       └ MultiplicativeExpression
+      │         ├ ConstantVariable
+      │         │ └ IntegerConstant
+      │         │   └ 15
+      │         ├ *
+      │         └ ConstantVariable
       │           └ IntegerConstant
       │             └ 6
       └ AdditiveExpression
-        ├ IntegerConstant
-        │ └ 3
+        ├ ConstantVariable
+        │ └ IntegerConstant
+        │   └ 3
         ├ +
         ├ MultiplicativeExpression
-        │ ├ IntegerConstant
-        │ │ └ 9
+        │ ├ ConstantVariable
+        │ │ └ IntegerConstant
+        │ │   └ 9
         │ ├ *
-        │ └ IntegerConstant
-        │   └ 5
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 5
         ├ +
         └ MultiplicativeExpression
-          ├ IntegerConstant
-          │ └ 8
+          ├ ConstantVariable
+          │ └ IntegerConstant
+          │   └ 8
           ├ *
-          └ Factor
-            └ AdditiveExpression
-              ├ IntegerConstant
-              │ └ 2
-              ├ +
-              └ MultiplicativeExpression
-                ├ IntegerConstant
-                │ └ 15
-                ├ *
+          └ AdditiveExpression
+            ├ ConstantVariable
+            │ └ IntegerConstant
+            │   └ 2
+            ├ +
+            └ MultiplicativeExpression
+              ├ ConstantVariable
+              │ └ IntegerConstant
+              │   └ 15
+              ├ *
+              └ ConstantVariable
                 └ IntegerConstant
                   └ 6
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 260, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 521, in visit
+    raise SemanticException("Variable {} is not array!".format(node.variable_name))
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable c is not array!
+

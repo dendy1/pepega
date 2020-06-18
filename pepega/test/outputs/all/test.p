@@ -1,53 +1,14 @@
-program foo(boo);
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 17, in run_tests
+    parser.parse(program_lines, filename)
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 9, in parse
+    self.CST = parse(program_lines, Program, filename=filename, comment=comment_cpp)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 667, in parse
+    t, r = parser.parse(text, thing)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 794, in parse
+    raise r
+  File "test\inputs\all\test.p", line 5
+    function addition(a,
+    ^
+SyntaxError: expecting 'begin'
 
-    var a, b, c, d: integer;
-
-    function addition(a, b: integer) : integer;
-        var c: integer;
-            begin
-                begin
-                    c := a + b
-                end;
-                return c
-            end;
-
-    function getint : integer;
-        var a : integer;
-            begin
-                a := getchar();
-                return a - 48
-            end;
-
-    function newline : void;
-        begin
-            putchar(10)
-        end;
-
-    function putint(a: integer) : void;
-        begin
-            putchar(a + 48)
-        end;
-
-    // compound statements, "main"
-    begin
-        a := getint();
-        newline();
-        putint(not a);
-        newline();
-
-
-
-
-        if a < 5 then
-            putint(0)
-        else
-            putint(1);
-
-
-        //while a < 5 do begin
-        //    putint(a);
-        //    a := a + 1
-        //end;
-
-        newline()
-    end.

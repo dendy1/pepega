@@ -1,31 +1,36 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ test
-├ Identifier
-│ └ in
-├ Identifier
-│ └ out
-├ Identifier
-│ └ err
 └ Block
   └ StatementList
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
-      └ AdditiveExpression
-        ├ MultiplicativeExpression
-        │ ├ IntegerConstant
-        │ │ └ 3
-        │ ├ *
-        │ └ IntegerConstant
-        │   └ 4
-        ├ +
-        ├ MultiplicativeExpression
-        │ ├ IntegerConstant
-        │ │ └ 5
-        │ ├ /
-        │ └ IntegerConstant
-        │   └ 6
-        ├ -
-        └ IntegerConstant
-          └ 7
+      └ Arguments
+        └ AdditiveExpression
+          ├ ConstantVariable
+          │ └ IntegerConstant
+          │   └ 2
+          ├ +
+          └ ConstantVariable
+            └ IntegerConstant
+              └ 3
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ test
+└ Block
+  └ StatementList
+    └ ProcedureStatement (void)
+      ├ Identifier
+      │ └ printint
+      └ Arguments
+        └ AdditiveExpression (integer)
+          ├ ConstantVariable (integer)
+          │ └ IntegerConstant (integer)
+          │   └ 2
+          ├ +
+          └ ConstantVariable (integer)
+            └ IntegerConstant (integer)
+              └ 3

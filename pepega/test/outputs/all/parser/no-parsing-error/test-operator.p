@@ -1,23 +1,14 @@
-PROGRAM foo(input, output, error) ;
-   // this test checks various operators
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 17, in run_tests
+    parser.parse(program_lines, filename)
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 9, in parse
+    self.CST = parse(program_lines, Program, filename=filename, comment=comment_cpp)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 667, in parse
+    t, r = parser.parse(text, thing)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 794, in parse
+    raise r
+  File "test\inputs\all\parser\no-parsing-error\test-operator.p", line 16
+    if b < a then
+    ^
+SyntaxError: expecting 'end'
 
-   var a, b, c: integer;
-   var d, e: array [ 1 .. 10 ] of integer; 
-
-   begin
-      b := a + 93;  // simple expression
-      b := a - 93;  // simple expression
-      b := a * 93;  // simple expression
-      b := a / 93;  // simple expression
-      b := 3 + 93 * 5 + b * (23-15*6/9);  // complex expression
-      
-      a := 1;   // test relation operators
-      if b > a then a := a * 2 else a := a * 3;
-      if b < a then a := a * 5 else a := a * 7;
-      if b = a then a := a * 11 else a := a * 13;
-      if b >= a then a := a * 17 else a := a * 19;
-      if b <= a then a := a * 23 else a := a * 29;
-      if b != 0 then a := a * 31 else a := a * 37;
-      if not (b > a) then a := a * 41 else a := a * 43
-      
-   end.   // this is the end of the program

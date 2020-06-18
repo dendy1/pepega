@@ -1,13 +1,14 @@
-PROGRAM foo(input, output, error) ;
-   var c, d, e, f, g: integer;
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 17, in run_tests
+    parser.parse(program_lines, filename)
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 9, in parse
+    self.CST = parse(program_lines, Program, filename=filename, comment=comment_cpp)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 667, in parse
+    t, r = parser.parse(text, thing)
+  File "F:\Projects\pepega\venv\lib\site-packages\pypeg2\__init__.py", line 794, in parse
+    raise r
+  File "test\inputs\all\parser\test-parser-error.p", line 4
+    procedure  sum(a, b:
+    ^
+SyntaxError: expecting 'begin'
 
-   procedure  sum(a, b: integer);
-      begin   // here is a parser error.
-         a := b + ;
-         if a <= 0 then g := b + 9
-         else g := b * 3
-      end;
-      
-   begin   // here is another parser error.
-      g := c + (d * (e);
-   end.   // this is the end of the program

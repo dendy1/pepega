@@ -5,7 +5,7 @@ program foo(input, output, error) ;
    var g, h: real;
 
    // multi-dimensional array
-   var g: array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of real; 
+   var j: array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of array [ 23 .. 57 ] of real;
  
    var k: array [ 23 .. 57 ] of array [ 23 .. 57 ] of real; 
 

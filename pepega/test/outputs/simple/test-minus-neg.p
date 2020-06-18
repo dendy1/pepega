@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -24,35 +25,102 @@ Program
   │     └ real
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
     │   ├ SignedFactor
     │   │ ├ -
-    │   │ └ IntegerConstant
-    │   │   └ 3
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 3
     │   ├ -
-    │   └ IntegerConstant
-    │     └ 4
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 4
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ c
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ c
     │ └ SignedFactor
     │   ├ -
-    │   └ SignedFactor
-    │     ├ -
-    │     └ SignedFactor
-    │       ├ -
-    │       └ IntegerConstant
-    │         └ 5
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 5
     └ AssignmentStatement
-      ├ Identifier
-      │ └ b
+      ├ EntireVariable
+      │ └ Identifier
+      │   └ b
       └ AdditiveExpression
         ├ SignedFactor
         │ ├ -
-        │ └ IntegerConstant
-        │   └ 5
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 5
         ├ -
-        └ IntegerConstant
-          └ 6
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 6
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ input
+├ Identifier
+│ └ output
+├ Identifier
+│ └ error
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ c
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ b
+  │   └ Type
+  │     └ real
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ AdditiveExpression (integer)
+    │   ├ SignedFactor (integer)
+    │   │ ├ -
+    │   │ └ ConstantVariable (integer)
+    │   │   └ IntegerConstant (integer)
+    │   │     └ 3
+    │   ├ -
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 4
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ SignedFactor (integer)
+    │   ├ -
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 5
+    └ AssignmentStatement (real)
+      ├ EntireVariable (real)
+      │ └ Identifier
+      │   └ b
+      └ AdditiveExpression (converted to real)
+        ├ SignedFactor (integer)
+        │ ├ -
+        │ └ ConstantVariable (integer)
+        │   └ IntegerConstant (integer)
+        │     └ 5
+        ├ -
+        └ ConstantVariable (integer)
+          └ IntegerConstant (integer)
+            └ 6

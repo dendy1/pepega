@@ -12,5 +12,5 @@ program foo(input, output, error) ;
    
    begin  
       a := sum(10);   // the result is 55.
-      b := sum(-10)   // the result is 0. 
+      b := sum(-10)   // the result is 0.
    end.   // this is the end of the program

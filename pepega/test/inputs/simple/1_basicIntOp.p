@@ -1,4 +1,4 @@
-program test(in, out, err);
+program test;
 begin
-    printInt(3*4+5/6-7)
+    printInt(2 + 3)
 end.

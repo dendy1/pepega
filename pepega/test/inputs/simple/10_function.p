@@ -11,11 +11,14 @@ begin
     mul := a*b
 end;
 
+function div(a, b : integer; c : real) : integer;
+begin
+    div := a/b
+end;
+
 begin
     x := add(3, 4);
-    y := mul(x, x);
-    z := add(y, mul(x, 1));
-
+    y := mul(x, z);
+    z := div(y, 2, 3);
     printInt(x+y+z)
 end.
-

@@ -1,3 +1,4 @@
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -104,30 +105,69 @@ Program
   │             └ real
   └ StatementList
     ├ AssignmentStatement
-    │ ├ Identifier
-    │ │ └ a
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
     │ └ AdditiveExpression
-    │   ├ Identifier
-    │   │ └ a
+    │   ├ EntireVariable
+    │   │ └ Identifier
+    │   │   └ a
     │   ├ +
-    │   └ IntegerConstant
-    │     └ 1
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 1
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
       │ │ └ k
-      │ ├ IntegerConstant
-      │ │ └ 25
-      │ └ IntegerConstant
-      │   └ 20
+      │ ├ ConstantVariable
+      │ │ └ IntegerConstant
+      │ │   └ 25
+      │ └ ConstantVariable
+      │   └ IntegerConstant
+      │     └ 20
       └ AdditiveExpression
         ├ IndexedVariable
         │ ├ Identifier
         │ │ └ k
-        │ ├ IntegerConstant
-        │ │ └ 25
-        │ └ IntegerConstant
-        │   └ 20
+        │ ├ ConstantVariable
+        │ │ └ IntegerConstant
+        │ │   └ 25
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 20
         ├ +
-        └ FloatConstant
-          └ 3.14
+        └ ConstantVariable
+          └ RealConstant
+            └ 3.14
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 136, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 160, in visit
+    raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable 'g' is already declared in the current scope!
+
