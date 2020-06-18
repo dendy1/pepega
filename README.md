@@ -115,7 +115,7 @@ pepega
 ### [VMContext.py](https://github.com/dendy1/pepega/blob/master/pepega/src/VirtualMachine/VMContext.py)
 Класс, агрегирующий в себе список вызовов (CallStack) и значений (ValueStack), используемые при работе виртуальной машины
 
-## Visitor(https://github.com/dendy1/pepega/tree/master/pepega/src/Visitor)
+## [Visitor](https://github.com/dendy1/pepega/tree/master/pepega/src/Visitor)
 ### [visitor.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/visitor.py)
 Модуль, в котором находится базовый класс для реализации паттерна посетитель. (Пока не используется)
 ### [VisitorElement.py](https://github.com/dendy1/pepega/blob/master/pepega/src/Visitor/VisitorElement.py)
@@ -365,7 +365,7 @@ begin
     printInt(x+y+z)
 end.
 ```
-## AST
+## AST ([input1.txt](https://github.com/dendy1/pepega/blob/master/pepega/test/outputs/input1.txt))
 ```
 Program
 ├ Identifier
