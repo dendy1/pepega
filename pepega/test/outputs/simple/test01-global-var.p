@@ -97,6 +97,8 @@ Program
         └ EntireVariable
           └ Identifier
             └ ij
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -196,3 +198,49 @@ Program
         └ EntireVariable (integer)
           └ Identifier
             └ ij
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL ij
+2:		 DECLARE_LOCAL op
+3:		 FUNCTION kl
+4:		 BEGIN_SCOPE 
+5:		 ASSIGN mn
+6:		 PUSH ij
+7:		 PUSH mn
+8:		 SUM 
+9:		 PUSH mn
+10:		 PUSH op
+11:		 SUM 
+12:		 ASSIGN kl
+13:		 PUSH kl
+14:		 RETURN 1
+15:		 END_SCOPE 
+16:		 PUSH 45
+17:		 ASSIGN ij
+18:		 BEGIN_SCOPE 
+19:		 PUSH ij
+20:		 PUSH 1
+21:		 COMPARE_GT 
+22:		 JUMP_NEG 28
+23:		 PUSH 1
+24:		 ASSIGN op
+25:		 JUMP 31
+26:		 END_SCOPE 
+27:		 BEGIN_SCOPE 
+28:		 PUSH 2
+29:		 ASSIGN op
+30:		 END_SCOPE 
+31:		 PUSH 55
+32:		 PUSH kl
+33:		 CALL 1
+34:		 ASSIGN ij
+35:		 PUSH ij
+36:		 PUSH printint
+37:		 CALL 1
+38:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
+56.0

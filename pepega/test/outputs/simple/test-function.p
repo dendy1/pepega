@@ -93,6 +93,8 @@ Program
               └ ConstantVariable
                 └ IntegerConstant
                   └ 10
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -188,3 +190,40 @@ Program
               └ ConstantVariable (integer)
                 └ IntegerConstant (integer)
                   └ 10
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL a
+2:		 DECLARE_LOCAL b
+3:		 FUNCTION simplesum
+4:		 BEGIN_SCOPE 
+5:		 ASSIGN a
+6:		 PUSH a
+7:		 PUSH b
+8:		 MULTIPLY 
+9:		 ASSIGN simplesum
+10:		 PUSH simplesum
+11:		 RETURN 1
+12:		 END_SCOPE 
+13:		 PUSH 7
+14:		 ASSIGN a
+15:		 PUSH 13
+16:		 ASSIGN b
+17:		 PUSH 3
+18:		 PUSH 10
+19:		 PUSH simplesum
+20:		 CALL 1
+21:		 SUM 
+22:		 ASSIGN a
+23:		 PUSH 1
+24:		 PUSH 10
+25:		 BOOLEAN_MINUS 
+26:		 PUSH simplesum
+27:		 CALL 1
+28:		 MULTIPLY 
+29:		 ASSIGN b
+30:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========

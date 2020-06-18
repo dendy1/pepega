@@ -41,10 +41,10 @@ Program
   │       └ AssignmentStatement
   │         ├ EntireVariable
   │         │ └ Identifier
-  │         │   └ a
+  │         │   └ addition
   │         └ ConstantVariable
   │           └ IntegerConstant
-  │             └ 2
+  │             └ 123
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
@@ -62,39 +62,110 @@ Program
     │         └ 2
     └ ProcedureStatement
       ├ Identifier
-      │ └ putchar
+      │ └ printint
       └ Arguments
         └ EntireVariable
           └ Identifier
             └ a
-Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
-    parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
-    semantic_visitor.visit(self.AST)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 120, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 242, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 308, in visit
-    raise SemanticError("Procedure '%s' is not defined!" % proc_name)
-src.Exceptions.SemanticError: Procedure 'putchar' is not defined!
 
+
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ foo
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   └ Type
+  │     └ integer
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ addition
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
+  │   │ └ Type
+  │   │   └ integer
+  │   └ Block
+  │     ├ VariableDeclarations
+  │     │ └ VariableDeclaration
+  │     │   ├ Identifier
+  │     │   │ └ c
+  │     │   └ Type
+  │     │     └ integer
+  │     └ StatementList
+  │       └ AssignmentStatement (integer)
+  │         ├ EntireVariable (integer)
+  │         │ └ Identifier
+  │         │   └ addition
+  │         └ ConstantVariable (integer)
+  │           └ IntegerConstant (integer)
+  │             └ 123
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ addition
+    │   └ Arguments
+    │     ├ ConstantVariable (integer)
+    │     │ └ IntegerConstant (integer)
+    │     │   └ 1
+    │     └ ConstantVariable (integer)
+    │       └ IntegerConstant (integer)
+    │         └ 2
+    └ ProcedureStatement (void)
+      ├ Identifier
+      │ └ printint
+      └ Arguments
+        └ EntireVariable (integer)
+          └ Identifier
+            └ a
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL a
+2:		 DECLARE_LOCAL b
+3:		 DECLARE_LOCAL c
+4:		 DECLARE_LOCAL d
+5:		 FUNCTION addition
+6:		 BEGIN_SCOPE 
+7:		 ASSIGN b
+8:		 ASSIGN a
+9:		 DECLARE_LOCAL c
+10:		 PUSH 123
+11:		 ASSIGN addition
+12:		 PUSH addition
+13:		 RETURN 1
+14:		 END_SCOPE 
+15:		 PUSH 1
+16:		 PUSH 2
+17:		 PUSH addition
+18:		 CALL 2
+19:		 ASSIGN a
+20:		 PUSH a
+21:		 PUSH printint
+22:		 CALL 1
+23:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
+123.0

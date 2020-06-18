@@ -16,6 +16,8 @@ Program
           └ ConstantVariable
             └ IntegerConstant
               └ 3
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -34,3 +36,17 @@ Program
           └ ConstantVariable (integer)
             └ IntegerConstant (integer)
               └ 3
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 PUSH 2
+2:		 PUSH 3
+3:		 SUM 
+4:		 PUSH printint
+5:		 CALL 1
+6:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
+5.0

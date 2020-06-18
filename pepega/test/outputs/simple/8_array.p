@@ -46,6 +46,8 @@ Program
       └ ConstantVariable
         └ RealConstant
           └ 12.34
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -94,3 +96,15 @@ Program
       └ ConstantVariable (real)
         └ RealConstant (real)
           └ 12.34
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL arr
+2:		 DECLARE_LOCAL crr
+3:		 PUSH 12.34
+4:		 ASSIGN arr
+5:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========

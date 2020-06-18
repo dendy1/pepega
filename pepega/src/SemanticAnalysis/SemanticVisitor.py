@@ -1,8 +1,8 @@
 from src.Exceptions import SemanticError
 from src.Visitor import visitor
 from src.pyPEG.MiniPascalGrammars import *
-from src.Semantic.Symbols import *
-from src.Semantic.SymbolTable import SymbolTable
+from src.SemanticAnalysis.Symbols import *
+from src.SemanticAnalysis.SymbolTable import SymbolTable
 
 VOID, INTEGER, REAL, BOOLEAN, STRING, ARRAY = BaseType.VOID, \
                                        BaseType.INTEGER, \
@@ -11,7 +11,7 @@ VOID, INTEGER, REAL, BOOLEAN, STRING, ARRAY = BaseType.VOID, \
                                        BaseType.STRING, \
                                        BaseType.ARRAY
 
-ADD, SUB, MUL, DIV, MOD, GT, LT, GE, LE, EQ, NEQ = '+', '-', '*', '/', '%', '>', '<', '>=', '<=', '==', '!='
+ADD, SUB, MUL, DIV, MOD, GT, LT, GE, LE, EQ, NEQ, AND, OR = '+', '-', '*', '/', '%', '>', '<', '>=', '<=', '==', '!=', 'and', 'or'
 
 BIN_OP_TYPE_COMPATIBILITY = {
     ADD: {
@@ -74,6 +74,14 @@ BIN_OP_TYPE_COMPATIBILITY = {
         (INTEGER, INTEGER): BOOLEAN,
         (REAL, REAL): BOOLEAN,
         (STRING, STRING): BOOLEAN,
+    },
+
+    OR: {
+        (BOOLEAN, BOOLEAN): BOOLEAN,
+    },
+
+    AND: {
+        (BOOLEAN, BOOLEAN): BOOLEAN,
     },
 }
 
@@ -232,10 +240,6 @@ class SemanticVisitor(object):
         for child in node:
             self.visit(child)
 
-    @visitor.when(Parameters)
-    def visit(self, node: Parameters):
-        pass
-
     @visitor.when(StatementList)
     def visit(self, node: StatementList):
         for child in node:
@@ -316,7 +320,7 @@ class SemanticVisitor(object):
             self.visit(child)
 
         # Checking arguments type semantic
-        args_node = node.agruments_node
+        args_node = node.arguments_node
         params = []
         error = False
         decl_params_str = fact_args_str = ''
@@ -349,6 +353,47 @@ class SemanticVisitor(object):
     def visit(self, node: Arguments):
         for child in node:
             self.visit(child)
+
+    @visitor.when(LogicalExpression)
+    def visit(self, node: LogicalExpression):
+        for child in node:
+            self.visit(child)
+
+        left_type = node[0].type_desc
+        op = node[1]
+        right_type = node[2].type_desc
+
+        if left_type.is_simple or right_type.is_simple:
+            args_types = (left_type.base_type, right_type.base_type)
+            compatibility = BIN_OP_TYPE_COMPATIBILITY[op]
+            if args_types in compatibility:
+                if node.type_desc is not None:
+                    args_types = (node.type_desc.base_type, compatibility[args_types])
+                    if args_types in compatibility:
+                        node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
+                        return
+                else:
+                    node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
+                    return
+
+            if right_type.base_type in TYPE_CONVERTIBILITY:
+                for arg2_type in TYPE_CONVERTIBILITY[right_type.base_type]:
+                    args_types = (left_type.base_type, arg2_type)
+                    if args_types in compatibility:
+                        node[2] = self.type_convert(node[2], TypeSymbol.from_base_type(arg2_type))
+                        node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
+                        return
+
+            if left_type.base_type in TYPE_CONVERTIBILITY:
+                for arg1_type in TYPE_CONVERTIBILITY[left_type.base_type]:
+                    args_types = (arg1_type, right_type.base_type)
+                    if args_types in compatibility:
+                        node[0] = self.type_convert(node[0], TypeSymbol.from_base_type(arg1_type))
+                        node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
+                        return
+
+        raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
+                            .format(op, left_type, right_type))
 
     @visitor.when(RelationalExpression)
     def visit(self, node: RelationalExpression):
@@ -519,8 +564,6 @@ class SemanticVisitor(object):
         for i in range(1, len(node)):
             if node[i].type_desc.base_type != INTEGER:
                 raise SemanticError("Array Index {} must be integer!".format(node[i]))
-
-
 
         node.type_desc = TypeSymbol.from_base_type(var_symbol.type_desc.array_type.base_type)
 

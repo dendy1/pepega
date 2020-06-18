@@ -109,7 +109,7 @@ class ProcedureStatement(CustomList):
         return self[0][0]
 
     @property
-    def agruments_node(self) -> Optional['Arguments']:
+    def arguments_node(self) -> Optional['Arguments']:
         """Returns procedure arguments node (Arguments or None)"""
         if isinstance(self[-1], Arguments):
             return self[-1]
@@ -214,9 +214,9 @@ class SimpleStatement(CustomList):
 
 class Variable(CustomList):
     @property
-    def var_name(self) -> str:
+    def variable_name(self) -> str:
         """Returns variable name (string)"""
-        return self.var_name
+        return self.variable_name
 
 class Expression(CustomList):
     pass
@@ -257,6 +257,9 @@ class WhileStatement(CustomList):
 class Arguments(CustomList):
     pass
 
+class LogicalExpression(CustomList):
+    pass
+
 class RelationalExpression(CustomList):
     pass
 
@@ -288,16 +291,24 @@ class ConstantVariable(CustomList):
     pass
 
 class RealConstant(CustomList):
-    pass
+    @property
+    def value(self) -> float:
+        return self[0].value
 
 class IntegerConstant(CustomList):
-    pass
+    @property
+    def value(self) -> int:
+        return self[0].value
 
 class BooleanConstant(CustomList):
-    pass
+    @property
+    def value(self) -> bool:
+        return self[0].value
 
 class StringConstant(CustomList):
-    pass
+    @property
+    def value(self) -> str:
+        return self[0]
 
 class Identifier(CustomList):
     pass
@@ -356,6 +367,9 @@ class RelationalOperator(CustomKeyword):
     grammar = Enum(K("!="), K("=="), K("<"), K("<="), K(">="), K(">"))
     regex = re.compile('[<>=!]=?')
 
+class LogicalOperator(CustomKeyword):
+    grammar = Enum(K("and"), K("or"))
+
 class AdditiveOperator(CustomKeyword):
     grammar = Enum(K("+"), K("-"))
     regex = re.compile('[+-]')
@@ -370,7 +384,6 @@ class Sign(CustomKeyword):
 
 class Not(CustomKeyword):
     grammar = Enum(K("not"))
-
 
 Program.grammar = K("program"), Identifier, optional('(', csl(Identifier), ')'), ";", Block, "."
 Block.grammar = maybe_some(VariableDeclarations), optional(SubprogramDeclarations), CompoundStatement
@@ -398,7 +411,8 @@ IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Stat
 WhileStatement.grammar = "while", Expression, "do", Statement
 
 Arguments.grammar = csl(Expression)
-Expression.grammar = RelationalExpression
+Expression.grammar = LogicalExpression
+LogicalExpression.grammar = RelationalExpression, optional(LogicalOperator, RelationalExpression)
 RelationalExpression.grammar = AdditiveExpression, optional(RelationalOperator, AdditiveExpression)
 AdditiveExpression.grammar = MultiplicativeExpression, maybe_some(AdditiveOperator, MultiplicativeExpression)
 MultiplicativeExpression.grammar = SignedFactor, maybe_some(MultiplicativeOperator, SignedFactor)

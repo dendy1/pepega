@@ -5,6 +5,7 @@ PROGRAM foo(input, output, error) ;
    var d, e: array [ 1 .. 10 ] of integer; 
 
    begin
+      a := 10;
       b := a + 93;  // simple expression
       b := a - 93;  // simple expression
       b := a * 93;  // simple expression

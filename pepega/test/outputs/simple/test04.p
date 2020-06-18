@@ -151,34 +151,37 @@ Program
         └ ConstantVariable
           └ IntegerConstant
             └ 2
+
+
+======== AST AFTER SEMANTIC ANALYSIS ========
 Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
-    parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+  File "F:\Projects\pepega\pepega\tests.py", line 28, in run_tests
+    compiler.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Compiler.py", line 24, in semantic_check
     semantic_visitor.visit(self.AST)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 120, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 128, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 135, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 242, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 246, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 308, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 312, in visit
     raise SemanticError("Procedure '%s' is not defined!" % proc_name)
 src.Exceptions.SemanticError: Procedure 'qwe' is not defined!
 

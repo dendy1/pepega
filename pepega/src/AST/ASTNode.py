@@ -17,6 +17,7 @@ class ASTNode:
         "WhileStatement": "Statement",
 
         "SimpleExpression": "Expression",
+        "LogicalExpression": "Expression",
         "RelationalExpression": "Expression",
         "AdditiveExpression": "Expression",
         "MultiplicativeExpression": "Expression",
@@ -47,6 +48,9 @@ class ASTNode:
         type = '' if not self.type_desc else ((' (converted to '  if (self.converted) else ' (') + str(self.type_desc) + ')')
         res = [self.__class__.__name__ + type]
         for i, child in enumerate(self):
+            if child is None:
+                return res
+
             from pypeg2 import Literal
 
             if isinstance(child, Literal) or isinstance(child, str):

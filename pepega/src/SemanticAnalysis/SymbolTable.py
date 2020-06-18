@@ -1,4 +1,4 @@
-from src.Semantic.Symbols import *
+from src.SemanticAnalysis.Symbols import *
 
 class SymbolTable:
     def __init__(self, scope_name, scope_level, enclosing_scope):
@@ -7,9 +7,9 @@ class SymbolTable:
         self.scope_level = scope_level
         self.enclosing_scope : SymbolTable = enclosing_scope
 
-        self._initbuildins()
+        self.load_standard_library()
 
-    def _initbuildins(self):
+    def load_standard_library(self):
         INTEGER = TypeSymbol.from_str('integer')
         REAL = TypeSymbol.from_str('real')
         BOOLEAN = TypeSymbol.from_str('boolean')

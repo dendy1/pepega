@@ -61,6 +61,8 @@ Program
         └ ConstantVariable
           └ IntegerConstant
             └ 6
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -124,3 +126,27 @@ Program
         └ ConstantVariable (integer)
           └ IntegerConstant (integer)
             └ 6
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL a
+2:		 DECLARE_LOCAL c
+3:		 DECLARE_LOCAL b
+4:		 PUSH 3
+5:		 BOOLEAN_MINUS 
+6:		 PUSH 4
+7:		 SUBTRACT 
+8:		 ASSIGN a
+9:		 PUSH 5
+10:		 BOOLEAN_MINUS 
+11:		 ASSIGN c
+12:		 PUSH 5
+13:		 BOOLEAN_MINUS 
+14:		 PUSH 6
+15:		 SUBTRACT 
+16:		 ASSIGN b
+17:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
