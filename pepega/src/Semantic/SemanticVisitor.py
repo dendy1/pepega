@@ -1,7 +1,7 @@
 from src.Visitor import visitor
 from src.pyPEG.MiniPascalGrammars import *
-from src.Visitor.Semantic.Symbols import *
-from src.Visitor.Semantic.SymbolTable import SymbolTable
+from src.Semantic.Symbols import *
+from src.Semantic.SymbolTable import SymbolTable
 
 VOID, INTEGER, REAL, BOOLEAN, STRING, ARRAY = BaseType.VOID, \
                                        BaseType.INTEGER, \
@@ -82,9 +82,14 @@ TYPE_CONVERTIBILITY = {
     BOOLEAN: (STRING,)
 }
 
+class SemanticException(Exception):
+    def __init__(self, message: str):
+        Exception.__init__(self, "SemanticExpression: " + message)
+
+
 def type_convert(node, new_type):
     if node.type_desc is None:
-        raise SemanticException("Тип неопределён")
+        raise SemanticException("Convert type not defined")
 
     if node.type_desc == new_type:
         return node
@@ -97,9 +102,6 @@ def type_convert(node, new_type):
         return node
 
     raise SemanticException("Cannot convert {} to {}".format(node.type_desc, new_type))
-
-class SemanticException(Exception):
-    pass
 
 class SemanticVisitor(object):
     def __init__(self):
@@ -155,7 +157,7 @@ class SemanticVisitor(object):
 
         for var_name in node.var_identifiers:
             if self.current_scope.lookup(var_name, True) is not None:
-                raise SemanticException("SemanticError: Variable '%s' is already declared in the current scope!" % var_name)
+                raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
 
             var_symbol = VariableSymbol(var_name, type_symbol)
             self.current_scope.define(var_symbol)
@@ -277,7 +279,7 @@ class SemanticVisitor(object):
 
         self.visit(node.cond_expr)
         if node.cond_expr.type_desc.base_type != BOOLEAN:
-            raise SemanticException("SemanticException: IF-Condition must be boolean!")
+            raise SemanticException("IF-Condition must be boolean!")
 
         self.visit(node.if_body_stmt)
         self.visit(node.else_body_stmt)
@@ -292,7 +294,7 @@ class SemanticVisitor(object):
 
         self.visit(node.cond_expr)
         if node.cond_expr.type_desc.base_type != BOOLEAN:
-            raise SemanticException("SemanticException: WHILE-Condition must be boolean!")
+            raise SemanticException("WHILE-Condition must be boolean!")
 
         self.visit(node.while_body_stmt)
 
@@ -307,11 +309,11 @@ class SemanticVisitor(object):
         proc_symbol: ProcedureSymbol = self.current_scope.lookup(proc_name)
 
         if proc_symbol is None:
-            raise SemanticException("SemanticError: Procedure '%s' is not defined!" % proc_name)
+            raise SemanticException("Procedure '%s' is not defined!" % proc_name)
 
         # Checking arguments count
         if len(proc_symbol.params) != node.args_count:
-            raise SemanticException("SemanticError: Procedure '{}' takes only {} arguments! ({}{})"
+            raise SemanticException("Procedure '{}' takes only {} arguments! ({}{})"
                                     .format(proc_name, len(proc_symbol.params), proc_name, str(proc_symbol.params)))
 
         for child in node:
@@ -341,7 +343,7 @@ class SemanticVisitor(object):
                     error = True
 
             if error:
-                raise SemanticException("SemanticError: Function args types mismatch: "
+                raise SemanticException("Function args types mismatch: "
                                         "<func_declaration: {}({})>; <func_call: {}({})>"
                                         .format(proc_name, decl_params_str, proc_name, fact_args_str))
             else:
@@ -513,11 +515,16 @@ class SemanticVisitor(object):
         # Checks if current and upper scopes contains array variable name
         var_symbol: VariableSymbol = self.current_scope.lookup(node.variable_name)
         if var_symbol is None:
-            raise SemanticException("SemanticError: Array Variable {} is not defined!".format(node.variable_name))
+            raise SemanticException("Array Variable {} is not defined!".format(node.variable_name))
+
+        if var_symbol.type_desc.array_type is None:
+            raise SemanticException("Variable {} is not array!".format(node.variable_name))
 
         for i in range(1, len(node)):
             if node[i].type_desc.base_type != INTEGER:
-                raise SemanticException("SemanticError: Array Index {} must be integer!".format(node[i]))
+                raise SemanticException("Array Index {} must be integer!".format(node[i]))
+
+
 
         node.type_desc = TypeSymbol.from_base_type(var_symbol.type_desc.array_type.base_type)
 
@@ -526,12 +533,12 @@ class SemanticVisitor(object):
         # Checks if current and upper scopes contains variable name
         var_symbol: VariableSymbol = self.current_scope.lookup(node.variable_name)
         if var_symbol is None:
-            raise SemanticException("SemanticError: Entire Variable {} is not defined!".format(node.variable_name))
+            raise SemanticException("Entire Variable {} is not defined!".format(node.variable_name))
 
         try:
             node.type_desc = var_symbol.type_desc
         except:
-            raise SemanticException("SemanticError: Incorrect variable name: {}".format(node.variable_name))
+            raise SemanticException("Incorrect variable name: {}".format(node.variable_name))
 
     @visitor.when(ConstantVariable)
     def visit(self, node: ConstantVariable):
@@ -562,7 +569,7 @@ class SemanticVisitor(object):
         factor = node[1]
 
         if factor.type_desc.base_type == BaseType.BOOLEAN:
-            raise SemanticException("SemanticException: Signed keyword mustn't be used with boolean expression!")
+            raise SemanticException("Signed keyword mustn't be used with boolean expression!")
 
         node.type_desc = factor.type_desc
 
@@ -574,7 +581,7 @@ class SemanticVisitor(object):
         if isinstance(node[0], Not):
             factor = node[1]
             if factor.type_desc.base_type != BaseType.BOOLEAN:
-                raise SemanticException("SemanticException: 'Not' keyword must be used with boolean expression!")
+                raise SemanticException("'Not' keyword must be used with boolean expression!")
         else:
             factor = node[0]
 
@@ -589,7 +596,7 @@ class SemanticVisitor(object):
             type_name = node[0]
             type_symbol = self.current_scope.lookup(type_name)
             if type_symbol is None:
-                raise SemanticException("SemanticError: SimpleType {} is not supported!".format(type_name))
+                raise SemanticException("SimpleType {} is not supported!".format(type_name))
 
     @visitor.when(ArrayType)
     def visit(self, node: ArrayType):
@@ -597,7 +604,7 @@ class SemanticVisitor(object):
         type_name = node.base_type
         type_symbol = self.current_scope.lookup(type_name)
         if type_symbol is None:
-            raise SemanticException("SemanticError: ArrayType of {} is not supported!".format(type_name))
+            raise SemanticException("ArrayType of {} is not supported!".format(type_name))
 
     @visitor.when(RelationalOperator)
     def visit(self, node: RelationalOperator):

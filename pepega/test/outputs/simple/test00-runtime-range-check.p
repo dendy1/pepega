@@ -1,4 +1,4 @@
-======== AST AFTER SEMANTIC ========
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -31,9 +31,9 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (None)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (None)
+  │       │   └ 10
   │       └ Type
   │         └ integer
   ├ VariableDeclarations
@@ -52,16 +52,16 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 23 (None)
+  │       │ │ └ 23
   │       │ └ IntegerConstant
-  │       │   └ 57 (None)
+  │       │   └ 57
   │       └ Type
   │         └ ArrayType
   │           ├ IndexRange
   │           │ ├ IntegerConstant
-  │           │ │ └ 23 (None)
+  │           │ │ └ 23
   │           │ └ IntegerConstant
-  │           │   └ 57 (None)
+  │           │   └ 57
   │           └ Type
   │             └ real
   ├ SubprogramDeclarations
@@ -106,7 +106,7 @@ Program
     │ │   └ a
     │ └ ConstantVariable
     │   └ IntegerConstant
-    │     └ 1 (None)
+    │     └ 1
     ├ WhileStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
@@ -115,7 +115,7 @@ Program
     │ │ ├ <
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
-    │ │     └ 10 (None)
+    │ │     └ 10
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -124,7 +124,7 @@ Program
     │   │ └ AdditiveExpression
     │   │   ├ ConstantVariable
     │   │   │ └ IntegerConstant
-    │   │   │   └ 10 (None)
+    │   │   │   └ 10
     │   │   ├ +
     │   │   └ EntireVariable
     │   │     └ Identifier
@@ -140,7 +140,7 @@ Program
     │       ├ +
     │       └ ConstantVariable
     │         └ IntegerConstant
-    │           └ 1 (None)
+    │           └ 1
     ├ StatementList
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
@@ -148,7 +148,7 @@ Program
     │ │ │   └ b
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
-    │ │     └ 1 (None)
+    │ │     └ 1
     │ └ WhileStatement
     │   ├ RelationalExpression
     │   │ ├ EntireVariable
@@ -157,7 +157,7 @@ Program
     │   │ ├ <
     │   │ └ ConstantVariable
     │   │   └ IntegerConstant
-    │   │     └ 11 (None)
+    │   │     └ 11
     │   └ StatementList
     │     ├ AssignmentStatement
     │     │ ├ IndexedVariable
@@ -183,7 +183,7 @@ Program
     │     │       ├ -
     │     │       └ ConstantVariable
     │     │         └ IntegerConstant
-    │     │           └ 1 (None)
+    │     │           └ 1
     │     └ AssignmentStatement
     │       ├ EntireVariable
     │       │ └ Identifier
@@ -195,44 +195,44 @@ Program
     │         ├ +
     │         └ ConstantVariable
     │           └ IntegerConstant
-    │             └ 1 (None)
+    │             └ 1
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ k
     │ │ ├ ConstantVariable
     │ │ │ └ IntegerConstant
-    │ │ │   └ 25 (None)
+    │ │ │   └ 25
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
-    │ │     └ 26 (None)
+    │ │     └ 26
     │ └ ConstantVariable
     │   └ IntegerConstant
-    │     └ 3 (None)
+    │     └ 3
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
     │ │ │ └ k
     │ │ ├ ConstantVariable
     │ │ │ └ IntegerConstant
-    │ │ │   └ 25 (None)
+    │ │ │   └ 25
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
-    │ │     └ 26 (None)
+    │ │     └ 26
     │ └ AdditiveExpression
     │   ├ IndexedVariable
     │   │ ├ Identifier
     │   │ │ └ k
     │   │ ├ ConstantVariable
     │   │ │ └ IntegerConstant
-    │   │ │   └ 25 (None)
+    │   │ │   └ 25
     │   │ └ ConstantVariable
     │   │   └ IntegerConstant
-    │   │     └ 26 (None)
+    │   │     └ 26
     │   ├ +
     │   └ ConstantVariable
     │     └ IntegerConstant
-    │       └ 3 (None)
+    │       └ 3
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
@@ -244,7 +244,7 @@ Program
       │ │ ├ +
       │ │ └ ConstantVariable
       │ │   └ IntegerConstant
-      │ │     └ 35 (None)
+      │ │     └ 35
       │ └ AdditiveExpression
       │   ├ EntireVariable
       │   │ └ Identifier
@@ -252,7 +252,265 @@ Program
       │   ├ +
       │   └ ConstantVariable
       │     └ IntegerConstant
-      │       └ 30 (None)
+      │       └ 30
       └ ConstantVariable
         └ IntegerConstant
-          └ 3 (None)
+          └ 3
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ input
+├ Identifier
+│ └ output
+├ Identifier
+│ └ error
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ sum
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ d
+  │   ├ Identifier
+  │   │ └ e
+  │   └ Type
+  │     └ ArrayType
+  │       ├ IndexRange
+  │       │ ├ IntegerConstant
+  │       │ │ └ 1
+  │       │ └ IntegerConstant
+  │       │   └ 10
+  │       └ Type
+  │         └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ g
+  │   ├ Identifier
+  │   │ └ h
+  │   └ Type
+  │     └ real
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ k
+  │   └ Type
+  │     └ ArrayType
+  │       ├ IndexRange
+  │       │ ├ IntegerConstant
+  │       │ │ └ 23
+  │       │ └ IntegerConstant
+  │       │   └ 57
+  │       └ Type
+  │         └ ArrayType
+  │           ├ IndexRange
+  │           │ ├ IntegerConstant
+  │           │ │ └ 23
+  │           │ └ IntegerConstant
+  │           │   └ 57
+  │           └ Type
+  │             └ real
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ addition
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
+  │   │ └ Type
+  │   │   └ integer
+  │   └ Block
+  │     ├ VariableDeclarations
+  │     │ └ VariableDeclaration
+  │     │   ├ Identifier
+  │     │   │ └ c
+  │     │   └ Type
+  │     │     └ real
+  │     └ StatementList
+  │       └ AssignmentStatement (integer)
+  │         ├ EntireVariable (integer)
+  │         │ └ Identifier
+  │         │   └ addition
+  │         └ AdditiveExpression (integer)
+  │           ├ EntireVariable (integer)
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ +
+  │           └ EntireVariable (integer)
+  │             └ Identifier
+  │               └ b
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 1
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ a
+    │ │ ├ <
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 10
+    │ └ StatementList
+    │   ├ AssignmentStatement (integer)
+    │   │ ├ EntireVariable (integer)
+    │   │ │ └ Identifier
+    │   │ │   └ sum
+    │   │ └ AdditiveExpression (integer)
+    │   │   ├ ConstantVariable (integer)
+    │   │   │ └ IntegerConstant (integer)
+    │   │   │   └ 10
+    │   │   ├ +
+    │   │   └ EntireVariable (integer)
+    │   │     └ Identifier
+    │   │       └ a
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ a
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ a
+    │       ├ +
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ StatementList
+    │ ├ AssignmentStatement (integer)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ b
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 1
+    │ └ WhileStatement (void)
+    │   ├ RelationalExpression (boolean)
+    │   │ ├ EntireVariable (integer)
+    │   │ │ └ Identifier
+    │   │ │   └ b
+    │   │ ├ <
+    │   │ └ ConstantVariable (integer)
+    │   │   └ IntegerConstant (integer)
+    │   │     └ 11
+    │   └ StatementList
+    │     ├ AssignmentStatement (integer)
+    │     │ ├ IndexedVariable (integer)
+    │     │ │ ├ Identifier
+    │     │ │ │ └ d
+    │     │ │ └ EntireVariable (integer)
+    │     │ │   └ Identifier
+    │     │ │     └ b
+    │     │ └ AdditiveExpression (integer)
+    │     │   ├ EntireVariable (integer)
+    │     │   │ └ Identifier
+    │     │   │   └ b
+    │     │   ├ +
+    │     │   └ MultiplicativeExpression (integer)
+    │     │     ├ EntireVariable (integer)
+    │     │     │ └ Identifier
+    │     │     │   └ b
+    │     │     ├ *
+    │     │     └ AdditiveExpression (integer)
+    │     │       ├ EntireVariable (integer)
+    │     │       │ └ Identifier
+    │     │       │   └ b
+    │     │       ├ -
+    │     │       └ ConstantVariable (integer)
+    │     │         └ IntegerConstant (integer)
+    │     │           └ 1
+    │     └ AssignmentStatement (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ b
+    │       └ AdditiveExpression (integer)
+    │         ├ EntireVariable (integer)
+    │         │ └ Identifier
+    │         │   └ b
+    │         ├ +
+    │         └ ConstantVariable (integer)
+    │           └ IntegerConstant (integer)
+    │             └ 1
+    ├ AssignmentStatement (real)
+    │ ├ IndexedVariable (real)
+    │ │ ├ Identifier
+    │ │ │ └ k
+    │ │ ├ ConstantVariable (integer)
+    │ │ │ └ IntegerConstant (integer)
+    │ │ │   └ 25
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 26
+    │ └ ConstantVariable (converted to real)
+    │   └ IntegerConstant (integer)
+    │     └ 3
+    ├ AssignmentStatement (real)
+    │ ├ IndexedVariable (real)
+    │ │ ├ Identifier
+    │ │ │ └ k
+    │ │ ├ ConstantVariable (integer)
+    │ │ │ └ IntegerConstant (integer)
+    │ │ │   └ 25
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 26
+    │ └ AdditiveExpression (real)
+    │   ├ IndexedVariable (real)
+    │   │ ├ Identifier
+    │   │ │ └ k
+    │   │ ├ ConstantVariable (integer)
+    │   │ │ └ IntegerConstant (integer)
+    │   │ │   └ 25
+    │   │ └ ConstantVariable (integer)
+    │   │   └ IntegerConstant (integer)
+    │   │     └ 26
+    │   ├ +
+    │   └ ConstantVariable (converted to real)
+    │     └ IntegerConstant (integer)
+    │       └ 3
+    └ AssignmentStatement (real)
+      ├ IndexedVariable (real)
+      │ ├ Identifier
+      │ │ └ k
+      │ ├ AdditiveExpression (integer)
+      │ │ ├ EntireVariable (integer)
+      │ │ │ └ Identifier
+      │ │ │   └ a
+      │ │ ├ +
+      │ │ └ ConstantVariable (integer)
+      │ │   └ IntegerConstant (integer)
+      │ │     └ 35
+      │ └ AdditiveExpression (integer)
+      │   ├ EntireVariable (integer)
+      │   │ └ Identifier
+      │   │   └ a
+      │   ├ +
+      │   └ ConstantVariable (integer)
+      │     └ IntegerConstant (integer)
+      │       └ 30
+      └ ConstantVariable (converted to real)
+        └ IntegerConstant (integer)
+          └ 3

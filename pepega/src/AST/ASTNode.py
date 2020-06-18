@@ -1,8 +1,14 @@
-from src.pyPEG.MiniPascalGrammars import *
+from typing import Optional
 
 class ASTNode:
-    renames = {
-        "SimpleStatement" : 'Statement',
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.parent = None
+        self.type_desc: Optional['TypeSymbol'] = None
+        self.converted: bool = False
+
+    __renames = {
+        "SimpleStatement": 'Statement',
         "StructuredStatement": "Statement",
 
         "AssignmentStatement": "Statement",
@@ -10,100 +16,88 @@ class ASTNode:
         "IfStatement": "Statement",
         "WhileStatement": "Statement",
 
-        "SimpleExpression" : "Expression",
+        "SimpleExpression": "Expression",
         "RelationalExpression": "Expression",
         "AdditiveExpression": "Expression",
         "MultiplicativeExpression": "Expression",
 
         "SignedFactor": "Factor",
 
-        "IntegerConstant" : "Variable",
-        "FloatConstant" : "Variable",
-        "BooleanConstant" : "Variable",
-        "StringConstant" : "Variable",
+        "IntegerConstant": "Variable",
+        "RealConstant": "Variable",
+        "BooleanConstant": "Variable",
+        "StringConstant": "Variable",
 
-        "IndexedVariable" : "Variable",
-        "EntireVariable" : "Variable"
+        "IndexedVariable": "Variable",
+        "EntireVariable": "Variable"
     }
-    folds = {
-        "ExpressionList" : ["Expression"],
-        "Expression" : ["Expression", "Factor"],
-        "Factor": ["Factor", "Variable"],
-        "Variable": ["Variable", "Identifier"],
+    __folds = {
+        "Expression": ["Expression", "ExpressionList", "Factor"],
+        "Factor": ["Factor", "Variable", "Expression", "Statement"],
+        "Variable": ["Variable", "ConstantVariable"],
+        "Statement": ["Statement", "CompoundStatement"],
         "CompoundStatement": ["StatementList"],
-        "Statement" : ["Statement"]
     }
 
-    def __init__(self, parent, token):
-        # список дочерних узлов
-        self.nodes = []
-
-        # ссылка на родителя
-        self.parent = parent
-
-        # токен, возвращаемый pyPEG2
-        self.token = token
-
-        # значение токена (применимо к литералам) и его тип
-        # если токен не литерал, то value == type_name
-        self.value = self.type_name = type(token).__name__
-
-    # парсинг дерева, которое возвращаяет pyPEG2 в собственную структуру
-    def parse(self, raw):
-        if isinstance(raw, Literal):
-            self.value = raw.value
-            self.type_name = raw.__class__.__name__
-            return
-
-        if isinstance(raw, str):
-            self.value = raw
-            self.type_name = "str"
-            return
-
-        for e in raw:
-            child = ASTNode(self, e)
-            self.nodes += [child]
-            child.parse(e)
+    def __renamed(self):
+        return self.__renames.get(self.__class__.__name__, self.__class__.__name__)
 
     # вывод дерева в строку
-    def tree(self, content = False) -> str:
-        res = [str(self)]
-        nodes = self.nodes
-        for i, child in enumerate(nodes):
-            cont = " '%s'" % self.token if self.token and content else ""
-            ch0, ch = '├', '│'
-            if i == len(nodes) - 1:
-                ch0, ch = '└', ' '
-            res.extend(((ch0 if j == 0 else ch) + ' ' + s + cont for j, s in enumerate(child.tree(content))))
+    def tree(self) -> str:
+        type = '' if not self.type_desc else ((' (converted to '  if (self.converted) else ' (') + str(self.type_desc) + ')')
+        res = [self.__class__.__name__ + type]
+        for i, child in enumerate(self):
+            from pypeg2 import Literal
+
+            if isinstance(child, Literal) or isinstance(child, str):
+                ch0 = '└' if i == len(self) - 1 else '├'
+                res.append(ch0 + ' ' + child.__str__())
+            else:
+                ch0, ch = ('└', ' ') if i == len(self) - 1 else ('├', '│')
+                res.extend(((ch0 if j == 0 else ch) + ' ' + s for j, s in enumerate(child.tree())))
         return res
 
-    # переименование некоторых узлов для последующего уменьшения дерева
-    def rename(self):
-        if self.type_name in self.renames:
-            self.type_name = self.renames[self.type_name]
+    # рекурсивное назначение потомкам узла родителя для дальнейшего сокращения дерева
+    def set_parent(self):
+        for child in self:
+            from pypeg2 import Literal
+            if isinstance(child, Literal):
+                child.parent = self
+                continue
 
-        for n in self.nodes:
-            n.rename()
+            elif isinstance(child, str) or child is None:
+                continue
+
+            child.parent = self
+            child.set_parent()
 
     # удаление ненужных узлов, которые появляются в процессе парсинга
     def fold(self):
-        if self.parent is None:
-            for node in self.nodes:
-                node.fold()
-            return
+        for folds in self.__folds:
+            if self[0] is None or isinstance(self[0], str):
+                continue
 
-        for folds in self.folds:
-            if len(self.nodes) == 1 and self.type_name in folds and self.nodes[0].type_name in self.folds[self.type_name]:
-                for i in range(len(self.parent.nodes)):
-                    if self.parent.nodes[i] == self:
-                        self.parent.nodes[i] = self.nodes[0]
-                        self.nodes[0].parent = self.parent
-                        break
+            self_renamed = self.__renamed()
+            child_renamed = self[0].__renamed()
 
-        for node in self.nodes:
-            node.fold()
+            if len(self) == 1 and self_renamed in folds and child_renamed in self.__folds[self_renamed]:
+                for i in range(len(self.parent)):
+                    try:
+                        if self.parent[i] == self:
+                            self.parent[i] = self[0]
+                            self[0].parent = self.parent
+                            break
+                    except TypeError:
+                        continue
+                    except AttributeError:
+                        continue
 
-    def __str__(self) -> str:
-        return str(self.value)
+        for child in self:
+            from src.pyPEG.pyPEGElements import CustomLiteral
+            if isinstance(child, CustomLiteral) or isinstance(child, str) or child is None:
+                continue
 
-    __repr__ = __str__
+            child.fold()
+
+    def __str__(self):
+        return self.__class__.__name__ + ' (' + str(self.type_desc) + ')'

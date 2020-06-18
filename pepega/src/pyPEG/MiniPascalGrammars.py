@@ -1,5 +1,5 @@
 from typing import Optional
-from src.newAST.pyPEGElements import *
+from src.pyPEG.pyPEGElements import *
 import re
 
 class BinOp(CustomEnum):

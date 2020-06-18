@@ -1,4 +1,4 @@
-======== AST AFTER SEMANTIC ========
+======== AST ========
 Program
 ├ Identifier
 │ └ test
@@ -17,9 +17,9 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (None)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (None)
+  │       │   └ 10
   │       └ Type
   │         └ integer
   ├ VariableDeclarations
@@ -47,37 +47,37 @@ Program
           ├ MultiplicativeExpression
           │ ├ ConstantVariable
           │ │ └ RealConstant
-          │ │   └ 3.5 (None)
+          │ │   └ 3.5
           │ ├ *
           │ ├ ConstantVariable
           │ │ └ RealConstant
-          │ │   └ 4.7 (None)
+          │ │   └ 4.7
           │ ├ *
           │ ├ AdditiveExpression
           │ │ ├ ConstantVariable
           │ │ │ └ IntegerConstant
-          │ │ │   └ 3 (None)
+          │ │ │   └ 3
           │ │ ├ +
           │ │ └ IndexedVariable
           │ │   ├ Identifier
           │ │   │ └ arr
           │ │   └ ConstantVariable
           │ │     └ IntegerConstant
-          │ │       └ 1 (None)
+          │ │       └ 1
           │ ├ *
           │ └ ConstantVariable
           │   └ IntegerConstant
-          │     └ 4 (None)
+          │     └ 4
           ├ +
           ├ AdditiveExpression
           │ ├ MultiplicativeExpression
           │ │ ├ ConstantVariable
           │ │ │ └ RealConstant
-          │ │ │   └ 9.3 (None)
+          │ │ │   └ 9.3
           │ │ ├ /
           │ │ └ ConstantVariable
           │ │   └ RealConstant
-          │ │     └ 3.1 (None)
+          │ │     └ 3.1
           │ ├ +
           │ └ MultiplicativeExpression
           │   ├ EntireVariable
@@ -100,7 +100,7 @@ Program
           ├ MultiplicativeExpression
           │ ├ ConstantVariable
           │ │ └ RealConstant
-          │ │   └ 0.4 (None)
+          │ │   └ 0.4
           │ ├ *
           │ └ EntireVariable
           │   └ Identifier
@@ -120,5 +120,129 @@ Program
             │   └ a
             ├ *
             └ EntireVariable
+              └ Identifier
+                └ b
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ test
+├ Identifier
+│ └ in
+├ Identifier
+│ └ out
+├ Identifier
+│ └ err
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ arr
+  │   └ Type
+  │     └ ArrayType
+  │       ├ IndexRange
+  │       │ ├ IntegerConstant
+  │       │ │ └ 1
+  │       │ └ IntegerConstant
+  │       │   └ 10
+  │       └ Type
+  │         └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   └ Type
+  │     └ real
+  └ StatementList
+    └ ProcedureStatement (void)
+      ├ Identifier
+      │ └ printreal
+      └ Arguments
+        └ AdditiveExpression (real)
+          ├ MultiplicativeExpression (real)
+          │ ├ ConstantVariable (real)
+          │ │ └ RealConstant (real)
+          │ │   └ 3.5
+          │ ├ *
+          │ ├ ConstantVariable (real)
+          │ │ └ RealConstant (real)
+          │ │   └ 4.7
+          │ ├ *
+          │ ├ AdditiveExpression (integer)
+          │ │ ├ ConstantVariable (integer)
+          │ │ │ └ IntegerConstant (integer)
+          │ │ │   └ 3
+          │ │ ├ +
+          │ │ └ IndexedVariable (integer)
+          │ │   ├ Identifier
+          │ │   │ └ arr
+          │ │   └ ConstantVariable (integer)
+          │ │     └ IntegerConstant (integer)
+          │ │       └ 1
+          │ ├ *
+          │ └ ConstantVariable (integer)
+          │   └ IntegerConstant (integer)
+          │     └ 4
+          ├ +
+          ├ AdditiveExpression (real)
+          │ ├ MultiplicativeExpression (real)
+          │ │ ├ ConstantVariable (real)
+          │ │ │ └ RealConstant (real)
+          │ │ │   └ 9.3
+          │ │ ├ /
+          │ │ └ ConstantVariable (real)
+          │ │   └ RealConstant (real)
+          │ │     └ 3.1
+          │ ├ +
+          │ └ MultiplicativeExpression (real)
+          │   ├ EntireVariable (converted to real)
+          │   │ └ Identifier
+          │   │   └ a
+          │   ├ *
+          │   ├ EntireVariable (real)
+          │   │ └ Identifier
+          │   │   └ c
+          │   ├ *
+          │   └ MultiplicativeExpression (real)
+          │     ├ EntireVariable (real)
+          │     │ └ Identifier
+          │     │   └ c
+          │     ├ /
+          │     └ EntireVariable (real)
+          │       └ Identifier
+          │         └ d
+          ├ -
+          ├ MultiplicativeExpression (real)
+          │ ├ ConstantVariable (real)
+          │ │ └ RealConstant (real)
+          │ │   └ 0.4
+          │ ├ *
+          │ └ EntireVariable (converted to real)
+          │   └ Identifier
+          │     └ b
+          ├ +
+          └ MultiplicativeExpression (real)
+            ├ EntireVariable (real)
+            │ └ Identifier
+            │   └ c
+            ├ /
+            ├ EntireVariable (real)
+            │ └ Identifier
+            │   └ d
+            ├ *
+            ├ EntireVariable (integer)
+            │ └ Identifier
+            │   └ a
+            ├ *
+            └ EntireVariable (integer)
               └ Identifier
                 └ b

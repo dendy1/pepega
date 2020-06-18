@@ -16,7 +16,7 @@ program foo(input, output, error) ;
       // nested if statement
       if b > a then if b < a - 2 then a := a * 5
                                  else a := a * 7
-               else a := a / 11 * a;
+               else a := a / 11 * 10;
       
       // nested if statement
       if b > a then a := a * 2

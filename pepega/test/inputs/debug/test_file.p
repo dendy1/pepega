@@ -2,6 +2,7 @@ program test(in, out, err);
 var x, y, z : integer;
 var arrInt1, arrInt2: array [1..10] of integer;
 var arrRe: array [1..10] of real;
+var arr: array [1..10] of array [1..10] of real;
 var test: boolean;
 var a, b, c, d, e : integer;
 
@@ -72,6 +73,7 @@ begin
         d := d - -1
     end;
 
+    printReal(arr[1]);
     printInt(a+b+c+d);
     printInt(x+y+z)
 end.

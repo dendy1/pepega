@@ -1,37 +1,126 @@
-Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 21, in run_tests
-    parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\newAST\NewParser.py", line 17, in semantic_check
-    semantic_visitor.visit(self.AST)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 121, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 128, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 253, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 258, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 305, in visit
-    if types[index].is_simple or types[index + 2].is_simple:
-AttributeError: 'NoneType' object has no attribute 'is_simple'
-
+======== AST ========
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ input
+├ Identifier
+│ └ output
+├ Identifier
+│ └ error
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ c
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ b
+  │   └ Type
+  │     └ real
+  └ StatementList
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ AdditiveExpression
+    │   ├ SignedFactor
+    │   │ ├ -
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
+    │   │     └ 3
+    │   ├ -
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 4
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ SignedFactor
+    │   ├ -
+    │   └ ConstantVariable
+    │     └ IntegerConstant
+    │       └ 5
+    └ AssignmentStatement
+      ├ EntireVariable
+      │ └ Identifier
+      │   └ b
+      └ AdditiveExpression
+        ├ SignedFactor
+        │ ├ -
+        │ └ ConstantVariable
+        │   └ IntegerConstant
+        │     └ 5
+        ├ -
+        └ ConstantVariable
+          └ IntegerConstant
+            └ 6
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ foo
+├ Identifier
+│ └ input
+├ Identifier
+│ └ output
+├ Identifier
+│ └ error
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ c
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ b
+  │   └ Type
+  │     └ real
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ AdditiveExpression (integer)
+    │   ├ SignedFactor (integer)
+    │   │ ├ -
+    │   │ └ ConstantVariable (integer)
+    │   │   └ IntegerConstant (integer)
+    │   │     └ 3
+    │   ├ -
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 4
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ SignedFactor (integer)
+    │   ├ -
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 5
+    └ AssignmentStatement (real)
+      ├ EntireVariable (real)
+      │ └ Identifier
+      │   └ b
+      └ AdditiveExpression (converted to real)
+        ├ SignedFactor (integer)
+        │ ├ -
+        │ └ ConstantVariable (integer)
+        │   └ IntegerConstant (integer)
+        │     └ 5
+        ├ -
+        └ ConstantVariable (integer)
+          └ IntegerConstant (integer)
+            └ 6

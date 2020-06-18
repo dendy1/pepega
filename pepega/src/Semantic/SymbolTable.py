@@ -1,4 +1,4 @@
-from src.Visitor.Semantic.Symbols import *
+from src.Semantic.Symbols import *
 
 class SymbolTable:
     def __init__(self, scope_name, scope_level, parent_scope):

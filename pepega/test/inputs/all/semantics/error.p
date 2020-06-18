@@ -35,6 +35,7 @@ PROGRAM foo(input, output, error) ;
          end;
          sort(d)   // a procedure call
       end;
+
       k[25][26] := 3;        // wrong element type
       k[25][26] := 3.14;     // good
       k[25][26] := k[25][26] + 3;     // good

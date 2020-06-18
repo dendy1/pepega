@@ -1,4 +1,4 @@
-======== AST AFTER SEMANTIC ========
+======== AST ========
 Program
 ├ Identifier
 │ └ foo
@@ -29,9 +29,9 @@ Program
   │     └ ArrayType
   │       ├ IndexRange
   │       │ ├ IntegerConstant
-  │       │ │ └ 1 (None)
+  │       │ │ └ 1
   │       │ └ IntegerConstant
-  │       │   └ 10 (None)
+  │       │   └ 10
   │       └ Type
   │         └ integer
   └ StatementList
@@ -42,11 +42,11 @@ Program
     │ └ AdditiveExpression
     │   ├ ConstantVariable
     │   │ └ IntegerConstant
-    │   │   └ 2 (None)
+    │   │   └ 2
     │   ├ +
     │   └ ConstantVariable
     │     └ IntegerConstant
-    │       └ 99 (None)
+    │       └ 99
     ├ AssignmentStatement
     │ ├ EntireVariable
     │ │ └ Identifier
@@ -54,35 +54,35 @@ Program
     │ └ AdditiveExpression
     │   ├ ConstantVariable
     │   │ └ IntegerConstant
-    │   │   └ 3 (None)
+    │   │   └ 3
     │   ├ +
     │   ├ MultiplicativeExpression
     │   │ ├ ConstantVariable
     │   │ │ └ IntegerConstant
-    │   │ │   └ 93 (None)
+    │   │ │   └ 93
     │   │ ├ *
     │   │ └ ConstantVariable
     │   │   └ IntegerConstant
-    │   │     └ 5 (None)
+    │   │     └ 5
     │   ├ +
     │   └ MultiplicativeExpression
     │     ├ ConstantVariable
     │     │ └ IntegerConstant
-    │     │   └ 87 (None)
+    │     │   └ 87
     │     ├ *
     │     └ AdditiveExpression
     │       ├ ConstantVariable
     │       │ └ IntegerConstant
-    │       │   └ 23 (None)
+    │       │   └ 23
     │       ├ +
     │       └ MultiplicativeExpression
     │         ├ ConstantVariable
     │         │ └ IntegerConstant
-    │         │   └ 15 (None)
+    │         │   └ 15
     │         ├ *
     │         └ ConstantVariable
     │           └ IntegerConstant
-    │             └ 6 (None)
+    │             └ 6
     ├ AssignmentStatement
     │ ├ IndexedVariable
     │ │ ├ Identifier
@@ -90,43 +90,43 @@ Program
     │ │ └ AdditiveExpression
     │ │   ├ ConstantVariable
     │ │   │ └ IntegerConstant
-    │ │   │   └ 4 (None)
+    │ │   │   └ 4
     │ │   ├ +
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
-    │ │       └ 2 (None)
+    │ │       └ 2
     │ └ AdditiveExpression
     │   ├ ConstantVariable
     │   │ └ IntegerConstant
-    │   │   └ 3 (None)
+    │   │   └ 3
     │   ├ +
     │   ├ MultiplicativeExpression
     │   │ ├ ConstantVariable
     │   │ │ └ IntegerConstant
-    │   │ │   └ 9 (None)
+    │   │ │   └ 9
     │   │ ├ *
     │   │ └ ConstantVariable
     │   │   └ IntegerConstant
-    │   │     └ 5 (None)
+    │   │     └ 5
     │   ├ +
     │   └ MultiplicativeExpression
     │     ├ ConstantVariable
     │     │ └ IntegerConstant
-    │     │   └ 87 (None)
+    │     │   └ 87
     │     ├ *
     │     └ AdditiveExpression
     │       ├ ConstantVariable
     │       │ └ IntegerConstant
-    │       │   └ 2 (None)
+    │       │   └ 2
     │       ├ +
     │       └ MultiplicativeExpression
     │         ├ ConstantVariable
     │         │ └ IntegerConstant
-    │         │   └ 15 (None)
+    │         │   └ 15
     │         ├ *
     │         └ ConstantVariable
     │           └ IntegerConstant
-    │             └ 6 (None)
+    │             └ 6
     └ AssignmentStatement
       ├ IndexedVariable
       │ ├ Identifier
@@ -134,64 +134,101 @@ Program
       │ └ AdditiveExpression
       │   ├ ConstantVariable
       │   │ └ IntegerConstant
-      │   │   └ 3 (None)
+      │   │   └ 3
       │   ├ +
       │   ├ MultiplicativeExpression
       │   │ ├ ConstantVariable
       │   │ │ └ IntegerConstant
-      │   │ │   └ 9 (None)
+      │   │ │   └ 9
       │   │ ├ *
       │   │ └ ConstantVariable
       │   │   └ IntegerConstant
-      │   │     └ 5 (None)
+      │   │     └ 5
       │   ├ +
       │   └ MultiplicativeExpression
       │     ├ ConstantVariable
       │     │ └ IntegerConstant
-      │     │   └ 87 (None)
+      │     │   └ 87
       │     ├ *
       │     └ AdditiveExpression
       │       ├ ConstantVariable
       │       │ └ IntegerConstant
-      │       │   └ 2 (None)
+      │       │   └ 2
       │       ├ +
       │       └ MultiplicativeExpression
       │         ├ ConstantVariable
       │         │ └ IntegerConstant
-      │         │   └ 15 (None)
+      │         │   └ 15
       │         ├ *
       │         └ ConstantVariable
       │           └ IntegerConstant
-      │             └ 6 (None)
+      │             └ 6
       └ AdditiveExpression
         ├ ConstantVariable
         │ └ IntegerConstant
-        │   └ 3 (None)
+        │   └ 3
         ├ +
         ├ MultiplicativeExpression
         │ ├ ConstantVariable
         │ │ └ IntegerConstant
-        │ │   └ 9 (None)
+        │ │   └ 9
         │ ├ *
         │ └ ConstantVariable
         │   └ IntegerConstant
-        │     └ 5 (None)
+        │     └ 5
         ├ +
         └ MultiplicativeExpression
           ├ ConstantVariable
           │ └ IntegerConstant
-          │   └ 8 (None)
+          │   └ 8
           ├ *
           └ AdditiveExpression
             ├ ConstantVariable
             │ └ IntegerConstant
-            │   └ 2 (None)
+            │   └ 2
             ├ +
             └ MultiplicativeExpression
               ├ ConstantVariable
               │ └ IntegerConstant
-              │   └ 15 (None)
+              │   └ 15
               ├ *
               └ ConstantVariable
                 └ IntegerConstant
-                  └ 6 (None)
+                  └ 6
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
+    parser.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+    semantic_visitor.visit(self.AST)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 260, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 521, in visit
+    raise SemanticException("Variable {} is not array!".format(node.variable_name))
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable c is not array!
+

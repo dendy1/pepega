@@ -1,31 +1,100 @@
+======== AST ========
+Program
+├ Identifier
+│ └ foo
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   └ Type
+  │     └ integer
+  ├ SubprogramDeclarations
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ addition
+  │   │ ├ ParametersList
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ a
+  │   │ │   ├ Identifier
+  │   │ │   │ └ b
+  │   │ │   └ Type
+  │   │ │     └ integer
+  │   │ └ Type
+  │   │   └ integer
+  │   └ Block
+  │     ├ VariableDeclarations
+  │     │ └ VariableDeclaration
+  │     │   ├ Identifier
+  │     │   │ └ c
+  │     │   └ Type
+  │     │     └ integer
+  │     └ StatementList
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ a
+  │         └ ConstantVariable
+  │           └ IntegerConstant
+  │             └ 2
+  └ StatementList
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ addition
+    │   └ Arguments
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 1
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 2
+    └ ProcedureStatement
+      ├ Identifier
+      │ └ putchar
+      └ Arguments
+        └ EntireVariable
+          └ Identifier
+            └ a
 Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 21, in run_tests
+  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
     parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\newAST\NewParser.py", line 17, in semantic_check
+  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
     semantic_visitor.visit(self.AST)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 121, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 128, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 253, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\Semantic\SemanticVisitor.py", line 276, in visit
-    raise SemanticException("SemanticError: Procedure '%s' is not defined!" % proc_name)
-src.Visitor.Semantic.SemanticVisitor.SemanticException: SemanticError: Procedure 'putchar' is not defined!
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 312, in visit
+    raise SemanticException("Procedure '%s' is not defined!" % proc_name)
+src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Procedure 'putchar' is not defined!
 
