@@ -262,7 +262,7 @@ Program
 Traceback (most recent call last):
   File "F:\Projects\pepega\pepega\tests.py", line 32, in run_tests
     compiler.generate_code()
-  File "F:\Projects\pepega\pepega\src\Compiler.py", line 28, in generate_code
+  File "F:\Projects\pepega\pepega\src\Compiler.py", line 27, in generate_code
     translator_visitor.visit(self.AST)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)

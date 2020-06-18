@@ -1,4 +1,3 @@
-from src.Translation.CodeLine import CodeLine
 from src.Translation.OPCodesContext import OPCodesContext
 from src.Translation.TranslatorVisitor import TranslatorVisitor
 from src.pyPEG.MiniPascalGrammars import *
