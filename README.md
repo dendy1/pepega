@@ -46,7 +46,7 @@ pepega
 ## PEG-грамматика языка
 ```
 <program> => "program" <identifier> ("(" <identifier> ("," <identifier>)* ")")? ";" <block> "."
-<block> => <variable declarations>* <function declarations>? <compound statement>
+<block> => <variable declarations>* <subprogram declarations>? <compound statement>
 
 <variable declarations> => var (<variable declaration> ";")+
 <variable declaration> => <identifier> ("," <identifier>)* ":" <type>
@@ -56,32 +56,35 @@ pepega
 <simple type> => <boolean> | <string> | <integer> | <float>
 
 <subprogram declarations> => (<subprogram declaration> ";")+
-<subprogram declaration> => <subprogram header> <variable declarations>* <compound statement>
-<subprogram header> => "function" <identifier> <arguments> ":" <type> ";" | "procedure" <arguments> <function parameters> ";"
-<arguments> => "(" <identifier> ("," <identifier>)* ":" <type> ")"
+<subprogram declaration> => <subprogram header> <block>
+<subprogram header> => "function" <identifier> "(" (<parameters list>)? ")" ":" <type> ";" | "procedure" <identifier> "(" (<parameters list>)? ")" ";"
+<parameters list> => <parameters> ("," <parameters>)*
+<parameters> => <identifier> ("," <identifier>)* ":" <type>
 
 <compound statement> => "begin" <statement list>? "end"
 <statement list> => <statement> (";" <statement>)*
-<statement> => <compound statement> | <assignment statement> | <if statement> | <while statement> | <function statement>
+<statement> => <compound statement> | <assignment statement> | <if statement> | <while statement> | <procedure statement>
 
-<assignment statement> => <variable> ":=" <expression>
-<function statement> => <identifier> ("(" <expression list> ")")?
+<assignment statement> => (<indexed variable> | <entire variable>) ":=" <expression>
+<procedure statement> => <identifier> "(" (<arguments>)? ")"
 <if statement> => "if" <expression> "then" <statement> ("else" <statement>)?
 <while statement> => "while" <expression> "do" <statement>
 
-<expression list> => <expression> ("," <expression>)*
-<expression> => <relational expression>
+<arguments> => <expression> ("," <expression>)*
+<expression> => <logical expression>
+<logical expression> => <relational expression> (<boolean expression> <relational expression>)
 <relational expression> => <additive expression> (<relational operator> <additive expression>)?
 <additive expression> => <multiplicative expression> (<additive operator> <multiplicative expression>)*
 <multiplicative expression> => <singed factor> (<multiplicative operator> <signed factor>)*
 <signed factor> => <sign>? <factor>
-<factor> => <identifier> "(" <expression list> ")" | "(" <expression> ")" | <variable> | "not" <factor> | <signed factor>
+<factor> => "not" <factor> | <procedure statement> | "(" <expression> ")" | <variable>
 
-<variable> => <indexed variable> | <entire variable>
-<entire variable> => <float constant> | <integer constant> | <boolean constant> | <string constant> 
+<variable> => <constant variable> | <indexed variable> | <entire variable>
+<entire variable> => <identifier>
+<constant variable> => <real constant> | <integer constant> | <boolean constant> | <string constant> 
 <indexed variable> => <identifier>, ("[", <expression>, "]")+
 
-<float constant> => FLOAT
+<real constant> => FLOAT
 <integer constant> => INTEGER
 <boolean constant> => BOOLEAN
 <string constant> => "\"" STR "\"" | "\'" STR "\'"
@@ -90,7 +93,7 @@ pepega
 <sign> => "+" | "-"
 <adding operator> => "+" | "-"
 <multiplying operator> => "*" | "/" | "%"
-
+<logical operator> => "and" | "or"
 ```
 ## Дополнительная семантика языка
 1. Запрещено объявлять новые типы.
