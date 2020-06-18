@@ -1,3 +1,4 @@
+from src.Exceptions import SemanticError
 from src.Visitor import visitor
 from src.pyPEG.MiniPascalGrammars import *
 from src.Semantic.Symbols import *
@@ -82,30 +83,25 @@ TYPE_CONVERTIBILITY = {
     BOOLEAN: (STRING,)
 }
 
-class SemanticException(Exception):
-    def __init__(self, message: str):
-        Exception.__init__(self, "SemanticExpression: " + message)
-
-
-def type_convert(node, new_type):
-    if node.type_desc is None:
-        raise SemanticException("Convert type not defined")
-
-    if node.type_desc == new_type:
-        return node
-
-    if node.type_desc.is_simple and new_type.is_simple and \
-        node.type_desc.base_type in TYPE_CONVERTIBILITY and \
-            new_type.base_type in TYPE_CONVERTIBILITY[node.type_desc.base_type]:
-        node.type_desc = new_type
-        node.converted = True
-        return node
-
-    raise SemanticException("Cannot convert {} to {}".format(node.type_desc, new_type))
-
 class SemanticVisitor(object):
     def __init__(self):
         self.current_scope = None
+
+    def type_convert(self, node, new_type):
+        if node.type_desc is None:
+            raise SemanticError("Convert type not defined")
+
+        if node.type_desc == new_type:
+            return node
+
+        if node.type_desc.is_simple and new_type.is_simple and \
+                node.type_desc.base_type in TYPE_CONVERTIBILITY and \
+                new_type.base_type in TYPE_CONVERTIBILITY[node.type_desc.base_type]:
+            node.type_desc = new_type
+            node.converted = True
+            return node
+
+        raise SemanticError("Cannot convert {} to {}".format(node.type_desc, new_type))
 
     @visitor.on('node')
     def visit(self, node):
@@ -123,7 +119,7 @@ class SemanticVisitor(object):
         for child in node:
             self.visit(child)
 
-        self.current_scope = global_scope.parent_scope
+        self.current_scope = global_scope.enclosing_scope
 
     @visitor.when(Block)
     def visit(self, node: Block):
@@ -157,7 +153,7 @@ class SemanticVisitor(object):
 
         for var_name in node.var_identifiers:
             if self.current_scope.lookup(var_name, True) is not None:
-                raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
+                raise SemanticError("Variable '%s' is already declared in the current scope!" % var_name)
 
             var_symbol = VariableSymbol(var_name, type_symbol)
             self.current_scope.define(var_symbol)
@@ -172,7 +168,7 @@ class SemanticVisitor(object):
         for child in node:
             self.visit(child)
 
-        self.current_scope = self.current_scope.parent_scope
+        self.current_scope = self.current_scope.enclosing_scope
 
     @visitor.when(SubprogramHeader)
     def visit(self, node: SubprogramHeader):
@@ -265,12 +261,12 @@ class SemanticVisitor(object):
             return
         elif node.right.type_desc.base_type in TYPE_CONVERTIBILITY:
             # Trying convert right side to left side type
-            node[1] = type_convert(node.right, TypeSymbol.from_base_type(node.left.type_desc.base_type))
+            node[1] = self.type_convert(node.right, TypeSymbol.from_base_type(node.left.type_desc.base_type))
             node.type_desc = TypeSymbol.from_base_type(node.left.type_desc.base_type)
             return
 
-        raise SemanticException("Cannot assign {} to variable {}"
-                                .format(node.right.type_desc, node.left.type_desc))
+        raise SemanticError("Cannot assign {} to variable {}"
+                            .format(node.right.type_desc, node.left.type_desc))
 
     @visitor.when(IfStatement)
     def visit(self, node: IfStatement):
@@ -279,13 +275,13 @@ class SemanticVisitor(object):
 
         self.visit(node.cond_expr)
         if node.cond_expr.type_desc.base_type != BOOLEAN:
-            raise SemanticException("IF-Condition must be boolean!")
+            raise SemanticError("IF-Condition must be boolean!")
 
         self.visit(node.if_body_stmt)
         self.visit(node.else_body_stmt)
 
         node.type_desc = TypeSymbol.from_str('void')
-        self.current_scope = if_scope.parent_scope
+        self.current_scope = if_scope.enclosing_scope
 
     @visitor.when(WhileStatement)
     def visit(self, node: WhileStatement):
@@ -294,12 +290,12 @@ class SemanticVisitor(object):
 
         self.visit(node.cond_expr)
         if node.cond_expr.type_desc.base_type != BOOLEAN:
-            raise SemanticException("WHILE-Condition must be boolean!")
+            raise SemanticError("WHILE-Condition must be boolean!")
 
         self.visit(node.while_body_stmt)
 
         node.type_desc = TypeSymbol.from_str('void')
-        self.current_scope = while_scope.parent_scope
+        self.current_scope = while_scope.enclosing_scope
 
     @visitor.when(ProcedureStatement)
     def visit(self, node: ProcedureStatement):
@@ -309,12 +305,12 @@ class SemanticVisitor(object):
         proc_symbol: ProcedureSymbol = self.current_scope.lookup(proc_name)
 
         if proc_symbol is None:
-            raise SemanticException("Procedure '%s' is not defined!" % proc_name)
+            raise SemanticError("Procedure '%s' is not defined!" % proc_name)
 
         # Checking arguments count
         if len(proc_symbol.params) != node.args_count:
-            raise SemanticException("Procedure '{}' takes only {} arguments! ({}{})"
-                                    .format(proc_name, len(proc_symbol.params), proc_name, str(proc_symbol.params)))
+            raise SemanticError("Procedure '{}' takes only {} arguments! ({}{})"
+                                .format(proc_name, len(proc_symbol.params), proc_name, str(proc_symbol.params)))
 
         for child in node:
             self.visit(child)
@@ -338,14 +334,14 @@ class SemanticVisitor(object):
                 fact_args_str += str(arg_node.type_desc)
 
                 try:
-                    params.append(type_convert(arg_node, proc_symbol.params[i].type_desc))
+                    params.append(self.type_convert(arg_node, proc_symbol.params[i].type_desc))
                 except:
                     error = True
 
             if error:
-                raise SemanticException("Function args types mismatch: "
+                raise SemanticError("Function args types mismatch: "
                                         "<func_declaration: {}({})>; <func_call: {}({})>"
-                                        .format(proc_name, decl_params_str, proc_name, fact_args_str))
+                                    .format(proc_name, decl_params_str, proc_name, fact_args_str))
             else:
                 node.type_desc = proc_symbol.return_type
 
@@ -380,7 +376,7 @@ class SemanticVisitor(object):
                 for arg2_type in TYPE_CONVERTIBILITY[right_type.base_type]:
                     args_types = (left_type.base_type, arg2_type)
                     if args_types in compatibility:
-                        node[2] = type_convert(node[2], TypeSymbol.from_base_type(arg2_type))
+                        node[2] = self.type_convert(node[2], TypeSymbol.from_base_type(arg2_type))
                         node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
                         return
 
@@ -388,12 +384,12 @@ class SemanticVisitor(object):
                 for arg1_type in TYPE_CONVERTIBILITY[left_type.base_type]:
                     args_types = (arg1_type, right_type.base_type)
                     if args_types in compatibility:
-                        node[0] = type_convert(node[0], TypeSymbol.from_base_type(arg1_type))
+                        node[0] = self.type_convert(node[0], TypeSymbol.from_base_type(arg1_type))
                         node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
                         return
 
-        raise SemanticException("Operator {} cannot be applied to types ({}, {})!"
-                                .format(op, left_type, right_type))
+        raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
+                            .format(op, left_type, right_type))
 
     @visitor.when(AdditiveExpression)
     def visit(self, node: AdditiveExpression):
@@ -421,7 +417,7 @@ class SemanticVisitor(object):
                     for arg2_type in TYPE_CONVERTIBILITY[types[index + 2].base_type]:
                         args_types = (types[index].base_type, arg2_type)
                         if args_types in compatibility:
-                            node[index + 2] = type_convert(node[index + 2], TypeSymbol.from_base_type(arg2_type))
+                            node[index + 2] = self.type_convert(node[index + 2], TypeSymbol.from_base_type(arg2_type))
                             if node.type_desc is not None:
                                 args_types = (node.type_desc.base_type, compatibility[args_types])
                                 if args_types in compatibility:
@@ -435,7 +431,7 @@ class SemanticVisitor(object):
                     for arg1_type in TYPE_CONVERTIBILITY[types[index].base_type]:
                         args_types = (arg1_type, types[index + 2].base_type)
                         if args_types in compatibility:
-                            node[index] = type_convert(node[index], TypeSymbol.from_base_type(arg1_type))
+                            node[index] = self.type_convert(node[index], TypeSymbol.from_base_type(arg1_type))
                             if node.type_desc is not None:
                                 args_types = (node.type_desc.base_type, compatibility[args_types])
                                 if args_types in compatibility:
@@ -445,11 +441,11 @@ class SemanticVisitor(object):
                                 node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
                                 break
                 else:
-                    raise SemanticException("Operator {} cannot be applied to types ({}, {})!"
-                                            .format(node[index + 1], types[index], types[index + 2]))
-            else:
-                raise SemanticException("Operator {} cannot be applied to types ({}, {})!"
+                    raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
                                         .format(node[index + 1], types[index], types[index + 2]))
+            else:
+                raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
+                                    .format(node[index + 1], types[index], types[index + 2]))
 
     @visitor.when(MultiplicativeExpression)
     def visit(self, node: MultiplicativeExpression):
@@ -477,7 +473,7 @@ class SemanticVisitor(object):
                     for arg2_type in TYPE_CONVERTIBILITY[types[index + 2].base_type]:
                         args_types = (types[index].base_type, arg2_type)
                         if args_types in compatibility:
-                            node[index + 2] = type_convert(node[index + 2], TypeSymbol.from_base_type(arg2_type))
+                            node[index + 2] = self.type_convert(node[index + 2], TypeSymbol.from_base_type(arg2_type))
                             if node.type_desc is not None:
                                 args_types = (node.type_desc.base_type, compatibility[args_types])
                                 if args_types in compatibility:
@@ -491,7 +487,7 @@ class SemanticVisitor(object):
                     for arg1_type in TYPE_CONVERTIBILITY[types[index].base_type]:
                         args_types = (arg1_type, types[index + 2].base_type)
                         if args_types in compatibility:
-                            node[index] = type_convert(node[index], TypeSymbol.from_base_type(arg1_type))
+                            node[index] = self.type_convert(node[index], TypeSymbol.from_base_type(arg1_type))
                             if node.type_desc is not None:
                                 args_types = (node.type_desc.base_type, compatibility[args_types])
                                 if args_types in compatibility:
@@ -501,11 +497,11 @@ class SemanticVisitor(object):
                                 node.type_desc = TypeSymbol.from_base_type(compatibility[args_types])
                                 return
                 else:
-                    raise SemanticException("Operator {} cannot be applied to types ({}, {})!"
-                                            .format(node[index + 1], types[index], types[index + 2]))
-            else:
-                raise SemanticException("Operator {} cannot be applied to types ({}, {})!"
+                    raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
                                         .format(node[index + 1], types[index], types[index + 2]))
+            else:
+                raise SemanticError("Operator {} cannot be applied to types ({}, {})!"
+                                    .format(node[index + 1], types[index], types[index + 2]))
 
     @visitor.when(IndexedVariable)
     def visit(self, node: IndexedVariable):
@@ -515,14 +511,14 @@ class SemanticVisitor(object):
         # Checks if current and upper scopes contains array variable name
         var_symbol: VariableSymbol = self.current_scope.lookup(node.variable_name)
         if var_symbol is None:
-            raise SemanticException("Array Variable {} is not defined!".format(node.variable_name))
+            raise SemanticError("Array Variable {} is not defined!".format(node.variable_name))
 
         if var_symbol.type_desc.array_type is None:
-            raise SemanticException("Variable {} is not array!".format(node.variable_name))
+            raise SemanticError("Variable {} is not array!".format(node.variable_name))
 
         for i in range(1, len(node)):
             if node[i].type_desc.base_type != INTEGER:
-                raise SemanticException("Array Index {} must be integer!".format(node[i]))
+                raise SemanticError("Array Index {} must be integer!".format(node[i]))
 
 
 
@@ -533,12 +529,12 @@ class SemanticVisitor(object):
         # Checks if current and upper scopes contains variable name
         var_symbol: VariableSymbol = self.current_scope.lookup(node.variable_name)
         if var_symbol is None:
-            raise SemanticException("Entire Variable {} is not defined!".format(node.variable_name))
+            raise SemanticError("Entire Variable {} is not defined!".format(node.variable_name))
 
         try:
             node.type_desc = var_symbol.type_desc
         except:
-            raise SemanticException("Incorrect variable name: {}".format(node.variable_name))
+            raise SemanticError("Incorrect variable name: {}".format(node.variable_name))
 
     @visitor.when(ConstantVariable)
     def visit(self, node: ConstantVariable):
@@ -569,7 +565,7 @@ class SemanticVisitor(object):
         factor = node[1]
 
         if factor.type_desc.base_type == BaseType.BOOLEAN:
-            raise SemanticException("Signed keyword mustn't be used with boolean expression!")
+            raise SemanticError("Signed keyword mustn't be used with boolean expression!")
 
         node.type_desc = factor.type_desc
 
@@ -581,7 +577,7 @@ class SemanticVisitor(object):
         if isinstance(node[0], Not):
             factor = node[1]
             if factor.type_desc.base_type != BaseType.BOOLEAN:
-                raise SemanticException("'Not' keyword must be used with boolean expression!")
+                raise SemanticError("'Not' keyword must be used with boolean expression!")
         else:
             factor = node[0]
 
@@ -596,7 +592,7 @@ class SemanticVisitor(object):
             type_name = node[0]
             type_symbol = self.current_scope.lookup(type_name)
             if type_symbol is None:
-                raise SemanticException("SimpleType {} is not supported!".format(type_name))
+                raise SemanticError("SimpleType {} is not supported!".format(type_name))
 
     @visitor.when(ArrayType)
     def visit(self, node: ArrayType):
@@ -604,7 +600,7 @@ class SemanticVisitor(object):
         type_name = node.base_type
         type_symbol = self.current_scope.lookup(type_name)
         if type_symbol is None:
-            raise SemanticException("ArrayType of {} is not supported!".format(type_name))
+            raise SemanticError("ArrayType of {} is not supported!".format(type_name))
 
     @visitor.when(RelationalOperator)
     def visit(self, node: RelationalOperator):

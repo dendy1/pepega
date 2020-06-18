@@ -316,45 +316,45 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 120, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 168, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 164, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 173, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 169, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 242, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 268, in visit
-    node[1] = type_convert(node.right, TypeSymbol.from_base_type(node.left.type_desc.base_type))
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 264, in visit
+    node[1] = self.type_convert(node.right, TypeSymbol.from_base_type(node.left.type_desc.base_type))
   File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 104, in type_convert
-    raise SemanticException("Cannot convert {} to {}".format(node.type_desc, new_type))
-src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Cannot convert integer to array
+    raise SemanticError("Cannot convert {} to {}".format(node.type_desc, new_type))
+src.Exceptions.SemanticError: Cannot convert integer to array
 

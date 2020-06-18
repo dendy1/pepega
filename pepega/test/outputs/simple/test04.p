@@ -160,25 +160,25 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 120, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 242, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 312, in visit
-    raise SemanticException("Procedure '%s' is not defined!" % proc_name)
-src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Procedure 'qwe' is not defined!
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 308, in visit
+    raise SemanticError("Procedure '%s' is not defined!" % proc_name)
+src.Exceptions.SemanticError: Procedure 'qwe' is not defined!
 

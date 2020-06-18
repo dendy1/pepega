@@ -1,11 +1,11 @@
 from src.Semantic.Symbols import *
 
 class SymbolTable:
-    def __init__(self, scope_name, scope_level, parent_scope):
+    def __init__(self, scope_name, scope_level, enclosing_scope):
         self._symbols = {}
         self.scope_name = scope_name
         self.scope_level = scope_level
-        self.parent_scope = parent_scope
+        self.enclosing_scope : SymbolTable = enclosing_scope
 
         self._initbuildins()
 
@@ -27,11 +27,24 @@ class SymbolTable:
         self.define(ProcedureSymbol('printstring', VOID, [VariableSymbol('input', STRING), ]))
 
     def __str__(self):
-        s = 'Scope: {scope_name}\nScope level: {scope_level}\nSymbols: {symbols}'.format(
-            symbols=[value for value in self._symbols.values()],
-            scope_name = self.scope_name,
-            scope_level = self.scope_level
+        h1 = 'SCOPE (SCOPED SYMBOL TABLE)'
+        lines = ['\n', h1, '=', * len(h1)]
+
+        for header_name, header_value in (
+            ('Scope name', self.scope_name),
+            ('Scope level', self.scope_level),
+            ('Enclosing scope', self.enclosing_scope.scope_name if self.enclosing_scope else None)
+        ):
+            lines.append('%-15s: %s' % (header_name, header_value))
+
+        h2 = 'Scope (Scoped symbol table) contents'
+        lines.extend([h2, '-' * len(h2)])
+        lines.extend(
+            ('%7s: %r' % (key, value))
+            for key, value in self._symbols.items()
         )
+        lines.append('\n')
+        s = '\n'.join(lines)
         return s
 
     __repr__ = __str__
@@ -48,5 +61,5 @@ class SymbolTable:
         if current_scope_only:
             return None
 
-        if self.parent_scope is not None:
-            return self.parent_scope.lookup(name)
+        if self.enclosing_scope is not None:
+            return self.enclosing_scope.lookup(name)

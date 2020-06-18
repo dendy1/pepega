@@ -204,31 +204,31 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 120, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 127, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 242, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 260, in visit
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 256, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 521, in visit
-    raise SemanticException("Variable {} is not array!".format(node.variable_name))
-src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable c is not array!
+  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 517, in visit
+    raise SemanticError("Variable {} is not array!".format(node.variable_name))
+src.Exceptions.SemanticError: Variable c is not array!
 
