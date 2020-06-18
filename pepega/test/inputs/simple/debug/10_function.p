@@ -16,8 +16,9 @@ end;
 
 begin
     str := "hello";
-    x := add(3, 4 + 3);
-    z := add(y, 2);
+    x := add(3, 4);
+    y := 3;
+    z := 3;
     printInt(x+y+z)
 end.
 

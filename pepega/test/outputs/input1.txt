@@ -1,26 +1,43 @@
 ======== AST ========
 Program
 ├ Identifier
-│ └ qqq
+│ └ test
+├ Identifier
+│ └ in
+├ Identifier
+│ └ out
+├ Identifier
+│ └ err
 └ Block
   ├ VariableDeclarations
   │ └ VariableDeclaration
   │   ├ Identifier
-  │   │ └ a
+  │   │ └ x
+  │   ├ Identifier
+  │   │ └ y
+  │   ├ Identifier
+  │   │ └ z
   │   └ Type
-  │     └ ArrayType
-  │       ├ IndexRange
-  │       │ ├ IntegerConstant
-  │       │ │ └ 1
-  │       │ └ IntegerConstant
-  │       │   └ 5
-  │       └ Type
-  │         └ integer
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   ├ Identifier
+  │   │ └ e
+  │   └ Type
+  │     └ integer
   ├ SubprogramDeclarations
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
-  │ │ │ │ └ f1
+  │ │ │ │ └ add
   │ │ │ ├ ParametersList
   │ │ │ │ └ Parameters
   │ │ │ │   ├ Identifier
@@ -32,53 +49,23 @@ Program
   │ │ │ └ Type
   │ │ │   └ integer
   │ │ └ Block
-  │ │   ├ VariableDeclarations
-  │ │   │ └ VariableDeclaration
-  │ │   │   ├ Identifier
-  │ │   │   │ └ a
-  │ │   │   └ Type
-  │ │   │     └ integer
   │ │   └ StatementList
-  │ │     ├ AssignmentStatement
-  │ │     │ ├ EntireVariable
-  │ │     │ │ └ Identifier
-  │ │     │ │   └ c
-  │ │     │ └ AdditiveExpression
-  │ │     │   ├ ConstantVariable
-  │ │     │   │ └ IntegerConstant
-  │ │     │   │   └ 2
-  │ │     │   ├ +
-  │ │     │   ├ MultiplicativeExpression
-  │ │     │   │ ├ ConstantVariable
-  │ │     │   │ │ └ IntegerConstant
-  │ │     │   │ │   └ 3
-  │ │     │   │ ├ *
-  │ │     │   │ └ ConstantVariable
-  │ │     │   │   └ IntegerConstant
-  │ │     │   │     └ 2
-  │ │     │   ├ +
-  │ │     │   ├ ConstantVariable
-  │ │     │   │ └ IntegerConstant
-  │ │     │   │   └ 3
-  │ │     │   ├ +
-  │ │     │   ├ ConstantVariable
-  │ │     │   │ └ IntegerConstant
-  │ │     │   │   └ 2
-  │ │     │   ├ +
-  │ │     │   └ ConstantVariable
-  │ │     │     └ IntegerConstant
-  │ │     │       └ 1
-  │ │     └ ProcedureStatement
-  │ │       ├ Identifier
-  │ │       │ └ read
-  │ │       └ Arguments
-  │ │         └ ConstantVariable
-  │ │           └ IntegerConstant
-  │ │             └ 123
+  │ │     └ AssignmentStatement
+  │ │       ├ EntireVariable
+  │ │       │ └ Identifier
+  │ │       │   └ add
+  │ │       └ AdditiveExpression
+  │ │         ├ EntireVariable
+  │ │         │ └ Identifier
+  │ │         │   └ a
+  │ │         ├ +
+  │ │         └ EntireVariable
+  │ │           └ Identifier
+  │ │             └ b
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
-  │ │ │ │ └ f2
+  │ │ │ │ └ mul
   │ │ │ ├ ParametersList
   │ │ │ │ └ Parameters
   │ │ │ │   ├ Identifier
@@ -86,145 +73,179 @@ Program
   │ │ │ │   ├ Identifier
   │ │ │ │   │ └ b
   │ │ │ │   └ Type
-  │ │ │ │     └ real
+  │ │ │ │     └ integer
   │ │ │ └ Type
-  │ │ │   └ real
+  │ │ │   └ integer
   │ │ └ Block
   │ │   └ StatementList
-  │ │     ├ ProcedureStatement
-  │ │     │ ├ Identifier
-  │ │     │ │ └ f1
-  │ │     │ └ Arguments
-  │ │     │   ├ EntireVariable
-  │ │     │   │ └ Identifier
-  │ │     │   │   └ a
-  │ │     │   └ EntireVariable
-  │ │     │     └ Identifier
-  │ │     │       └ b
   │ │     └ AssignmentStatement
   │ │       ├ EntireVariable
   │ │       │ └ Identifier
-  │ │       │   └ a
-  │ │       └ AdditiveExpression
+  │ │       │   └ mul
+  │ │       └ MultiplicativeExpression
   │ │         ├ EntireVariable
   │ │         │ └ Identifier
-  │ │         │   └ b
-  │ │         ├ +
-  │ │         └ ConstantVariable
-  │ │           └ IntegerConstant
-  │ │             └ 3
-  │ ├ SubprogramDeclaration
-  │ │ ├ SubprogramHeader
-  │ │ │ ├ Identifier
-  │ │ │ │ └ sum
-  │ │ │ └ ParametersList
-  │ │ │   └ Parameters
-  │ │ │     ├ Identifier
-  │ │ │     │ └ a
-  │ │ │     ├ Identifier
-  │ │ │     │ └ b
-  │ │ │     └ Type
-  │ │ │       └ integer
-  │ │ └ Block
-  │ │   └ StatementList
-  │ │     └ IfStatement
-  │ │       ├ RelationalExpression
-  │ │       │ ├ EntireVariable
-  │ │       │ │ └ Identifier
-  │ │       │ │   └ a
-  │ │       │ ├ <=
-  │ │       │ └ ConstantVariable
-  │ │       │   └ IntegerConstant
-  │ │       │     └ 0
-  │ │       ├ AssignmentStatement
-  │ │       │ ├ EntireVariable
-  │ │       │ │ └ Identifier
-  │ │       │ │   └ g
-  │ │       │ └ AdditiveExpression
-  │ │       │   ├ EntireVariable
-  │ │       │   │ └ Identifier
-  │ │       │   │   └ b
-  │ │       │   ├ +
-  │ │       │   └ ConstantVariable
-  │ │       │     └ IntegerConstant
-  │ │       │       └ 9
-  │ │       └ AssignmentStatement
-  │ │         ├ EntireVariable
-  │ │         │ └ Identifier
-  │ │         │   └ g
-  │ │         └ MultiplicativeExpression
-  │ │           ├ EntireVariable
-  │ │           │ └ Identifier
-  │ │           │   └ b
-  │ │           ├ *
-  │ │           └ ConstantVariable
-  │ │             └ IntegerConstant
-  │ │               └ 3
+  │ │         │   └ a
+  │ │         ├ *
+  │ │         └ EntireVariable
+  │ │           └ Identifier
+  │ │             └ b
   │ └ SubprogramDeclaration
   │   ├ SubprogramHeader
   │   │ ├ Identifier
-  │   │ │ └ mult
-  │   │ └ ParametersList
-  │   │   └ Parameters
-  │   │     ├ Identifier
-  │   │     │ └ a
-  │   │     ├ Identifier
-  │   │     │ └ b
-  │   │     └ Type
-  │   │       └ integer
+  │   │ │ └ div
+  │   │ ├ ParametersList
+  │   │ │ ├ Parameters
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ a
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ b
+  │   │ │ │ └ Type
+  │   │ │ │   └ integer
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ c
+  │   │ │   └ Type
+  │   │ │     └ real
+  │   │ └ Type
+  │   │   └ integer
   │   └ Block
   │     └ StatementList
-  │       └ IfStatement
-  │         ├ RelationalExpression
-  │         │ ├ EntireVariable
-  │         │ │ └ Identifier
-  │         │ │   └ a
-  │         │ ├ <=
-  │         │ └ ConstantVariable
-  │         │   └ IntegerConstant
-  │         │     └ 0
-  │         ├ AssignmentStatement
-  │         │ ├ EntireVariable
-  │         │ │ └ Identifier
-  │         │ │   └ g
-  │         │ └ AdditiveExpression
-  │         │   ├ EntireVariable
-  │         │   │ └ Identifier
-  │         │   │   └ b
-  │         │   ├ +
-  │         │   └ ConstantVariable
-  │         │     └ IntegerConstant
-  │         │       └ 9
-  │         └ AssignmentStatement
+  │       └ AssignmentStatement
+  │         ├ EntireVariable
+  │         │ └ Identifier
+  │         │   └ div
+  │         └ MultiplicativeExpression
   │           ├ EntireVariable
   │           │ └ Identifier
-  │           │   └ g
-  │           └ MultiplicativeExpression
-  │             ├ EntireVariable
-  │             │ └ Identifier
-  │             │   └ b
-  │             ├ *
-  │             └ ConstantVariable
-  │               └ IntegerConstant
-  │                 └ 3
+  │           │   └ a
+  │           ├ /
+  │           └ EntireVariable
+  │             └ Identifier
+  │               └ b
   └ StatementList
     ├ AssignmentStatement
     │ ├ EntireVariable
     │ │ └ Identifier
+    │ │   └ z
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 10
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ x
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ add
+    │   └ Arguments
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 3
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 4
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ y
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ mul
+    │   └ Arguments
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ x
+    │     └ EntireVariable
+    │       └ Identifier
+    │         └ z
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ z
+    │ └ ProcedureStatement
+    │   ├ Identifier
+    │   │ └ div
+    │   └ Arguments
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ y
+    │     ├ ConstantVariable
+    │     │ └ IntegerConstant
+    │     │   └ 2
+    │     └ ConstantVariable
+    │       └ IntegerConstant
+    │         └ 3
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
     │ │   └ a
-    │ └ RelationalExpression
-    │   ├ ConstantVariable
-    │   │ └ IntegerConstant
-    │   │   └ 2
-    │   ├ <
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 3
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ MultiplicativeExpression
+    │   ├ EntireVariable
+    │   │ └ Identifier
+    │   │   └ a
+    │   ├ *
     │   └ ConstantVariable
     │     └ IntegerConstant
-    │       └ 2
+    │       └ 3
+    ├ IfStatement
+    │ ├ Factor
+    │ │ ├ not
+    │ │ └ RelationalExpression
+    │ │   ├ EntireVariable
+    │ │   │ └ Identifier
+    │ │   │   └ b
+    │ │   ├ >
+    │ │   └ ConstantVariable
+    │ │     └ IntegerConstant
+    │ │       └ 50
+    │ ├ StatementList
+    │ │ └ AssignmentStatement
+    │ │   ├ EntireVariable
+    │ │   │ └ Identifier
+    │ │   │   └ c
+    │ │   └ AdditiveExpression
+    │ │     ├ EntireVariable
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ +
+    │ │     ├ EntireVariable
+    │ │     │ └ Identifier
+    │ │     │   └ b
+    │ │     ├ -
+    │ │     └ ConstantVariable
+    │ │       └ IntegerConstant
+    │ │         └ 2
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ c
+    │     └ AdditiveExpression
+    │       ├ MultiplicativeExpression
+    │       │ ├ EntireVariable
+    │       │ │ └ Identifier
+    │       │ │   └ b
+    │       │ ├ *
+    │       │ └ EntireVariable
+    │       │   └ Identifier
+    │       │     └ a
+    │       ├ -
+    │       └ ConstantVariable
+    │         └ IntegerConstant
+    │           └ 7
     ├ IfStatement
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
-    │ │ │   └ a
+    │ │ │   └ c
     │ │ ├ >
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
@@ -233,25 +254,90 @@ Program
     │ │ └ AssignmentStatement
     │ │   ├ EntireVariable
     │ │   │ └ Identifier
-    │ │   │   └ e
+    │ │   │   └ d
     │ │   └ AdditiveExpression
-    │ │     ├ ConstantVariable
-    │ │     │ └ IntegerConstant
-    │ │     │   └ 3
+    │ │     ├ EntireVariable
+    │ │     │ └ Identifier
+    │ │     │   └ c
     │ │     ├ +
-    │ │     └ ConstantVariable
-    │ │       └ IntegerConstant
-    │ │         └ 1
+    │ │     ├ EntireVariable
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ -
+    │ │     └ EntireVariable
+    │ │       └ Identifier
+    │ │         └ b
     │ └ StatementList
     │   └ AssignmentStatement
     │     ├ EntireVariable
     │     │ └ Identifier
-    │     │   └ e
+    │     │   └ d
     │     └ AdditiveExpression
-    │       ├ ConstantVariable
-    │       │ └ IntegerConstant
-    │       │   └ 2
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ a
     │       ├ +
+    │       └ EntireVariable
+    │         └ Identifier
+    │           └ b
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ e
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 7
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 3
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 5
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 7
+    ├ AssignmentStatement
+    │ ├ EntireVariable
+    │ │ └ Identifier
+    │ │   └ d
+    │ └ ConstantVariable
+    │   └ IntegerConstant
+    │     └ 100
+    ├ WhileStatement
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ b
+    │ │ ├ >
+    │ │ └ EntireVariable
+    │ │   └ Identifier
+    │ │     └ a
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ b
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ b
+    │       ├ -
     │       └ ConstantVariable
     │         └ IntegerConstant
     │           └ 1
@@ -259,82 +345,694 @@ Program
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
-    │ │ │   └ a
+    │ │ │   └ c
     │ │ ├ >
-    │ │ └ ConstantVariable
-    │ │   └ IntegerConstant
-    │ │     └ 5
+    │ │ └ EntireVariable
+    │ │   └ Identifier
+    │ │     └ b
     │ └ StatementList
     │   └ AssignmentStatement
     │     ├ EntireVariable
     │     │ └ Identifier
-    │     │   └ a
+    │     │   └ c
     │     └ AdditiveExpression
-    │       ├ ConstantVariable
-    │       │ └ IntegerConstant
-    │       │   └ 4
-    │       ├ +
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
     │       └ ConstantVariable
     │         └ IntegerConstant
-    │           └ 2
-    └ AssignmentStatement
-      ├ EntireVariable
-      │ └ Identifier
-      │   └ a
-      └ AdditiveExpression
-        ├ ConstantVariable
-        │ └ IntegerConstant
-        │   └ 2
-        ├ +
-        └ ConstantVariable
-          └ IntegerConstant
-            └ 3
-Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
-    parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
-    semantic_visitor.visit(self.AST)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 168, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 173, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 136, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 160, in visit
-    raise SemanticException("Variable '%s' is already declared in the current scope!" % var_name)
-src.Semantic.SemanticVisitor.SemanticException: SemanticExpression: Variable 'a' is already declared in the current scope!
+    │           └ 1
+    ├ WhileStatement
+    │ ├ RelationalExpression
+    │ │ ├ EntireVariable
+    │ │ │ └ Identifier
+    │ │ │   └ d
+    │ │ ├ >
+    │ │ └ EntireVariable
+    │ │   └ Identifier
+    │ │     └ c
+    │ └ StatementList
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ d
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ d
+    │       ├ -
+    │       └ ConstantVariable
+    │         └ IntegerConstant
+    │           └ 1
+    ├ ProcedureStatement
+    │ ├ Identifier
+    │ │ └ printint
+    │ └ Arguments
+    │   └ AdditiveExpression
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ a
+    │     ├ +
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ b
+    │     ├ +
+    │     ├ EntireVariable
+    │     │ └ Identifier
+    │     │   └ c
+    │     ├ +
+    │     └ EntireVariable
+    │       └ Identifier
+    │         └ d
+    └ ProcedureStatement
+      ├ Identifier
+      │ └ printint
+      └ Arguments
+        └ AdditiveExpression
+          ├ EntireVariable
+          │ └ Identifier
+          │   └ x
+          ├ +
+          ├ EntireVariable
+          │ └ Identifier
+          │   └ y
+          ├ +
+          └ EntireVariable
+            └ Identifier
+              └ z
 
+
+======== AST AFTER SEMANTIC ANALYSIS ========
+Program
+├ Identifier
+│ └ test
+├ Identifier
+│ └ in
+├ Identifier
+│ └ out
+├ Identifier
+│ └ err
+└ Block
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ x
+  │   ├ Identifier
+  │   │ └ y
+  │   ├ Identifier
+  │   │ └ z
+  │   └ Type
+  │     └ integer
+  ├ VariableDeclarations
+  │ └ VariableDeclaration
+  │   ├ Identifier
+  │   │ └ a
+  │   ├ Identifier
+  │   │ └ b
+  │   ├ Identifier
+  │   │ └ c
+  │   ├ Identifier
+  │   │ └ d
+  │   ├ Identifier
+  │   │ └ e
+  │   └ Type
+  │     └ integer
+  ├ SubprogramDeclarations
+  │ ├ SubprogramDeclaration
+  │ │ ├ SubprogramHeader
+  │ │ │ ├ Identifier
+  │ │ │ │ └ add
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
+  │ │ │ └ Type
+  │ │ │   └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement (integer)
+  │ │       ├ EntireVariable (integer)
+  │ │       │ └ Identifier
+  │ │       │   └ add
+  │ │       └ AdditiveExpression (integer)
+  │ │         ├ EntireVariable (integer)
+  │ │         │ └ Identifier
+  │ │         │   └ a
+  │ │         ├ +
+  │ │         └ EntireVariable (integer)
+  │ │           └ Identifier
+  │ │             └ b
+  │ ├ SubprogramDeclaration
+  │ │ ├ SubprogramHeader
+  │ │ │ ├ Identifier
+  │ │ │ │ └ mul
+  │ │ │ ├ ParametersList
+  │ │ │ │ └ Parameters
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ a
+  │ │ │ │   ├ Identifier
+  │ │ │ │   │ └ b
+  │ │ │ │   └ Type
+  │ │ │ │     └ integer
+  │ │ │ └ Type
+  │ │ │   └ integer
+  │ │ └ Block
+  │ │   └ StatementList
+  │ │     └ AssignmentStatement (integer)
+  │ │       ├ EntireVariable (integer)
+  │ │       │ └ Identifier
+  │ │       │   └ mul
+  │ │       └ MultiplicativeExpression (integer)
+  │ │         ├ EntireVariable (integer)
+  │ │         │ └ Identifier
+  │ │         │   └ a
+  │ │         ├ *
+  │ │         └ EntireVariable (integer)
+  │ │           └ Identifier
+  │ │             └ b
+  │ └ SubprogramDeclaration
+  │   ├ SubprogramHeader
+  │   │ ├ Identifier
+  │   │ │ └ div
+  │   │ ├ ParametersList
+  │   │ │ ├ Parameters
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ a
+  │   │ │ │ ├ Identifier
+  │   │ │ │ │ └ b
+  │   │ │ │ └ Type
+  │   │ │ │   └ integer
+  │   │ │ └ Parameters
+  │   │ │   ├ Identifier
+  │   │ │   │ └ c
+  │   │ │   └ Type
+  │   │ │     └ real
+  │   │ └ Type
+  │   │   └ integer
+  │   └ Block
+  │     └ StatementList
+  │       └ AssignmentStatement (integer)
+  │         ├ EntireVariable (integer)
+  │         │ └ Identifier
+  │         │   └ div
+  │         └ MultiplicativeExpression (integer)
+  │           ├ EntireVariable (integer)
+  │           │ └ Identifier
+  │           │   └ a
+  │           ├ /
+  │           └ EntireVariable (integer)
+  │             └ Identifier
+  │               └ b
+  └ StatementList
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ z
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 10
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ x
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ add
+    │   └ Arguments
+    │     ├ ConstantVariable (integer)
+    │     │ └ IntegerConstant (integer)
+    │     │   └ 3
+    │     └ ConstantVariable (integer)
+    │       └ IntegerConstant (integer)
+    │         └ 4
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ y
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ mul
+    │   └ Arguments
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ x
+    │     └ EntireVariable (integer)
+    │       └ Identifier
+    │         └ z
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ z
+    │ └ ProcedureStatement (integer)
+    │   ├ Identifier
+    │   │ └ div
+    │   └ Arguments
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ y
+    │     ├ ConstantVariable (integer)
+    │     │ └ IntegerConstant (integer)
+    │     │   └ 2
+    │     └ ConstantVariable (converted to real)
+    │       └ IntegerConstant (integer)
+    │         └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ MultiplicativeExpression (integer)
+    │   ├ EntireVariable (integer)
+    │   │ └ Identifier
+    │   │   └ a
+    │   ├ *
+    │   └ ConstantVariable (integer)
+    │     └ IntegerConstant (integer)
+    │       └ 3
+    ├ IfStatement (void)
+    │ ├ Factor (boolean)
+    │ │ ├ not
+    │ │ └ RelationalExpression (boolean)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ b
+    │ │   ├ >
+    │ │   └ ConstantVariable (integer)
+    │ │     └ IntegerConstant (integer)
+    │ │       └ 50
+    │ ├ StatementList
+    │ │ └ AssignmentStatement (integer)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ c
+    │ │   └ AdditiveExpression (integer)
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ +
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ b
+    │ │     ├ -
+    │ │     └ ConstantVariable (integer)
+    │ │       └ IntegerConstant (integer)
+    │ │         └ 2
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     └ AdditiveExpression (integer)
+    │       ├ MultiplicativeExpression (integer)
+    │       │ ├ EntireVariable (integer)
+    │       │ │ └ Identifier
+    │       │ │   └ b
+    │       │ ├ *
+    │       │ └ EntireVariable (integer)
+    │       │   └ Identifier
+    │       │     └ a
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 7
+    ├ IfStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ c
+    │ │ ├ >
+    │ │ └ ConstantVariable (integer)
+    │ │   └ IntegerConstant (integer)
+    │ │     └ 5
+    │ ├ StatementList
+    │ │ └ AssignmentStatement (integer)
+    │ │   ├ EntireVariable (integer)
+    │ │   │ └ Identifier
+    │ │   │   └ d
+    │ │   └ AdditiveExpression (integer)
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ c
+    │ │     ├ +
+    │ │     ├ EntireVariable (integer)
+    │ │     │ └ Identifier
+    │ │     │   └ a
+    │ │     ├ -
+    │ │     └ EntireVariable (integer)
+    │ │       └ Identifier
+    │ │         └ b
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ d
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ a
+    │       ├ +
+    │       └ EntireVariable (integer)
+    │         └ Identifier
+    │           └ b
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ e
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 7
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ a
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 3
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ b
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 5
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ c
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 7
+    ├ AssignmentStatement (integer)
+    │ ├ EntireVariable (integer)
+    │ │ └ Identifier
+    │ │   └ d
+    │ └ ConstantVariable (integer)
+    │   └ IntegerConstant (integer)
+    │     └ 100
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ b
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ a
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ b
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ b
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ c
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ b
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ c
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ WhileStatement (void)
+    │ ├ RelationalExpression (boolean)
+    │ │ ├ EntireVariable (integer)
+    │ │ │ └ Identifier
+    │ │ │   └ d
+    │ │ ├ >
+    │ │ └ EntireVariable (integer)
+    │ │   └ Identifier
+    │ │     └ c
+    │ └ StatementList
+    │   └ AssignmentStatement (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ d
+    │     └ AdditiveExpression (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ d
+    │       ├ -
+    │       └ ConstantVariable (integer)
+    │         └ IntegerConstant (integer)
+    │           └ 1
+    ├ ProcedureStatement (void)
+    │ ├ Identifier
+    │ │ └ printint
+    │ └ Arguments
+    │   └ AdditiveExpression (integer)
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ a
+    │     ├ +
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ b
+    │     ├ +
+    │     ├ EntireVariable (integer)
+    │     │ └ Identifier
+    │     │   └ c
+    │     ├ +
+    │     └ EntireVariable (integer)
+    │       └ Identifier
+    │         └ d
+    └ ProcedureStatement (void)
+      ├ Identifier
+      │ └ printint
+      └ Arguments
+        └ AdditiveExpression (integer)
+          ├ EntireVariable (integer)
+          │ └ Identifier
+          │   └ x
+          ├ +
+          ├ EntireVariable (integer)
+          │ └ Identifier
+          │   └ y
+          ├ +
+          └ EntireVariable (integer)
+            └ Identifier
+              └ z
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL x
+2:		 DECLARE_LOCAL y
+3:		 DECLARE_LOCAL z
+4:		 DECLARE_LOCAL a
+5:		 DECLARE_LOCAL b
+6:		 DECLARE_LOCAL c
+7:		 DECLARE_LOCAL d
+8:		 DECLARE_LOCAL e
+9:		 FUNCTION add
+10:		 BEGIN_SCOPE 
+11:		 ASSIGN b
+12:		 ASSIGN a
+13:		 PUSH a
+14:		 PUSH b
+15:		 SUM 
+16:		 ASSIGN add
+17:		 PUSH add
+18:		 RETURN 1
+19:		 END_SCOPE 
+20:		 FUNCTION mul
+21:		 BEGIN_SCOPE 
+22:		 ASSIGN b
+23:		 ASSIGN a
+24:		 PUSH a
+25:		 PUSH b
+26:		 MULTIPLY 
+27:		 ASSIGN mul
+28:		 PUSH mul
+29:		 RETURN 1
+30:		 END_SCOPE 
+31:		 FUNCTION div
+32:		 BEGIN_SCOPE 
+33:		 ASSIGN b
+34:		 ASSIGN a
+35:		 ASSIGN c
+36:		 PUSH a
+37:		 PUSH b
+38:		 DIVIDE 
+39:		 ASSIGN div
+40:		 PUSH div
+41:		 RETURN 1
+42:		 END_SCOPE 
+43:		 PUSH 10
+44:		 ASSIGN z
+45:		 PUSH 3
+46:		 PUSH 4
+47:		 PUSH add
+48:		 CALL 2
+49:		 ASSIGN x
+50:		 PUSH x
+51:		 PUSH z
+52:		 PUSH mul
+53:		 CALL 2
+54:		 ASSIGN y
+55:		 PUSH y
+56:		 PUSH 2
+57:		 PUSH 3
+58:		 PUSH div
+59:		 CALL 3
+60:		 ASSIGN z
+61:		 PUSH 3
+62:		 ASSIGN a
+63:		 PUSH a
+64:		 PUSH 3
+65:		 MULTIPLY 
+66:		 ASSIGN b
+67:		 BEGIN_SCOPE 
+68:		 PUSH b
+69:		 PUSH 50
+70:		 COMPARE_GT 
+71:		 BOOLEAN_NOT 
+72:		 JUMP_NEG 83
+73:		 PUSH a
+74:		 PUSH b
+75:		 SUM 
+76:		 PUSH b
+77:		 PUSH 2
+78:		 SUBTRACT 
+79:		 ASSIGN c
+80:		 JUMP 90
+81:		 END_SCOPE 
+82:		 BEGIN_SCOPE 
+83:		 PUSH b
+84:		 PUSH a
+85:		 MULTIPLY 
+86:		 PUSH 7
+87:		 SUBTRACT 
+88:		 ASSIGN c
+89:		 END_SCOPE 
+90:		 BEGIN_SCOPE 
+91:		 PUSH c
+92:		 PUSH 5
+93:		 COMPARE_GT 
+94:		 JUMP_NEG 105
+95:		 PUSH c
+96:		 PUSH a
+97:		 SUM 
+98:		 PUSH a
+99:		 PUSH b
+100:		 SUBTRACT 
+101:		 ASSIGN d
+102:		 JUMP 113
+103:		 END_SCOPE 
+104:		 BEGIN_SCOPE 
+105:		 PUSH c
+106:		 PUSH a
+107:		 SUBTRACT 
+108:		 PUSH a
+109:		 PUSH b
+110:		 SUM 
+111:		 ASSIGN d
+112:		 END_SCOPE 
+113:		 PUSH 7
+114:		 ASSIGN e
+115:		 PUSH 3
+116:		 ASSIGN a
+117:		 PUSH 5
+118:		 ASSIGN b
+119:		 PUSH 7
+120:		 ASSIGN c
+121:		 PUSH 100
+122:		 ASSIGN d
+123:		 BEGIN_SCOPE 
+124:		 PUSH b
+125:		 PUSH a
+126:		 COMPARE_GT 
+127:		 JUMP_NEG 135
+128:		 BEGIN_SCOPE 
+129:		 PUSH b
+130:		 PUSH 1
+131:		 SUBTRACT 
+132:		 ASSIGN b
+133:		 JUMP 123
+134:		 END_SCOPE 
+135:		 END_SCOPE 
+136:		 BEGIN_SCOPE 
+137:		 PUSH c
+138:		 PUSH b
+139:		 COMPARE_GT 
+140:		 JUMP_NEG 148
+141:		 BEGIN_SCOPE 
+142:		 PUSH c
+143:		 PUSH 1
+144:		 SUBTRACT 
+145:		 ASSIGN c
+146:		 JUMP 136
+147:		 END_SCOPE 
+148:		 END_SCOPE 
+149:		 BEGIN_SCOPE 
+150:		 PUSH d
+151:		 PUSH c
+152:		 COMPARE_GT 
+153:		 JUMP_NEG 161
+154:		 BEGIN_SCOPE 
+155:		 PUSH d
+156:		 PUSH 1
+157:		 SUBTRACT 
+158:		 ASSIGN d
+159:		 JUMP 149
+160:		 END_SCOPE 
+161:		 END_SCOPE 
+162:		 PUSH a
+163:		 PUSH b
+164:		 SUM 
+165:		 PUSH b
+166:		 PUSH c
+167:		 SUM 
+168:		 PUSH c
+169:		 PUSH d
+170:		 SUM 
+171:		 PUSH printint
+172:		 CALL 1
+173:		 PUSH x
+174:		 PUSH y
+175:		 SUM 
+176:		 PUSH y
+177:		 PUSH z
+178:		 SUM 
+179:		 PUSH printint
+180:		 CALL 1
+181:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
+6.0
+70.66666666666667

@@ -1,37 +1,70 @@
-PROGRAM qqq;
+program test(in, out, err);
+var x, y, z : integer;
+var a, b, c, d, e : integer;
 
-VAR
-    a: array [1..5] of integer;
+function add(a, b : integer) : integer;
+begin
+    add := a + b
+end;
 
-function f1(a, b: integer) : integer;
-    var a: integer;
-    begin
-        c := 2 + 3 * 2 + 3 + 2 + 1;
-        Read(123)
-    end;
+function mul(a, b : integer) : integer;
+begin
+    mul := a * b
+end;
 
-function f2(a, b: real) : real;
-    begin
-        f1(a, b);
-        a := b + 3
-    end;
-
-
-procedure  sum(a, b: integer);
-  begin
-     if a <= 0 then g := b + 9
-     else g := b * 3
-  end;
-
-procedure  mult(a, b: integer);
-  begin
-     if a <= 0 then g := b + 9
-     else g := b * 3
-  end;
+function div(a, b : integer; c : real) : integer;
+begin
+    div := a / b
+end;
 
 begin
-    a := 2 < 2;
-	if (a > 5) then begin e := 3 + 1 end else begin e:= 2 + 1 end;
-	while (a > 5) do begin a := 4 + 2 end;
-	a := 2 + 3
+    z := 10;
+    x := add(3, 4);
+    y := mul(x, z);
+    z := div(y, 2, 3);
+
+    a := 3;
+    b := a * 3;
+
+    if (not (b > 50)) then
+        begin
+            c := a + b - 2
+        end
+    else
+        begin
+            c := b * a - 7
+        end;
+
+    if (c > 5) then
+        begin
+            d := c + a - b
+        end
+    else
+        begin
+            d := c - a + b
+        end;
+
+    e := 7;
+    a := 3;
+    b := 5;
+    c := 7;
+    d := 100;
+
+    while (b > a) do
+    begin
+        b := b-1
+    end;
+
+    while (c > b) do
+    begin
+        c := c-1
+    end;
+
+    while (d > c) do
+    begin
+        d := d - 1
+    end;
+
+    printInt(a+b+c+d);
+    printInt(x+y+z)
 end.

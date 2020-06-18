@@ -185,6 +185,8 @@ Program
           └ EntireVariable
             └ Identifier
               └ e
+
+
 ======== AST AFTER SEMANTIC ANALYSIS ========
 Program
 ├ Identifier
@@ -372,3 +374,98 @@ Program
           └ EntireVariable (integer)
             └ Identifier
               └ e
+
+
+======== BYTECODE ========
+0:		 BEGIN_SCOPE 
+1:		 DECLARE_LOCAL a
+2:		 DECLARE_LOCAL b
+3:		 DECLARE_LOCAL c
+4:		 DECLARE_LOCAL d
+5:		 DECLARE_LOCAL e
+6:		 PUSH 3
+7:		 ASSIGN a
+8:		 PUSH a
+9:		 PUSH 3
+10:		 MULTIPLY 
+11:		 ASSIGN b
+12:		 BEGIN_SCOPE 
+13:		 PUSH b
+14:		 PUSH 7
+15:		 COMPARE_GT 
+16:		 JUMP_NEG 50
+17:		 PUSH a
+18:		 PUSH b
+19:		 SUM 
+20:		 PUSH b
+21:		 PUSH 2
+22:		 SUBTRACT 
+23:		 ASSIGN c
+24:		 BEGIN_SCOPE 
+25:		 PUSH c
+26:		 PUSH 5
+27:		 COMPARE_LT 
+28:		 JUMP_NEG 39
+29:		 PUSH c
+30:		 PUSH a
+31:		 SUM 
+32:		 PUSH a
+33:		 PUSH b
+34:		 SUBTRACT 
+35:		 ASSIGN d
+36:		 JUMP 47
+37:		 END_SCOPE 
+38:		 BEGIN_SCOPE 
+39:		 PUSH c
+40:		 PUSH a
+41:		 SUBTRACT 
+42:		 PUSH a
+43:		 PUSH b
+44:		 SUM 
+45:		 ASSIGN d
+46:		 END_SCOPE 
+47:		 JUMP 71
+48:		 END_SCOPE 
+49:		 BEGIN_SCOPE 
+50:		 PUSH a
+51:		 PUSH b
+52:		 MULTIPLY 
+53:		 PUSH b
+54:		 PUSH 2
+55:		 DIVIDE 
+56:		 ASSIGN c
+57:		 BEGIN_SCOPE 
+58:		 PUSH c
+59:		 PUSH 5
+60:		 COMPARE_GT 
+61:		 JUMP_NEG 67
+62:		 PUSH 6
+63:		 ASSIGN d
+64:		 JUMP 70
+65:		 END_SCOPE 
+66:		 BEGIN_SCOPE 
+67:		 PUSH 7
+68:		 ASSIGN d
+69:		 END_SCOPE 
+70:		 END_SCOPE 
+71:		 PUSH 7
+72:		 ASSIGN e
+73:		 PUSH a
+74:		 PUSH b
+75:		 MULTIPLY 
+76:		 PUSH c
+77:		 PUSH d
+78:		 DIVIDE 
+79:		 SUM 
+80:		 PUSH c
+81:		 PUSH d
+82:		 DIVIDE 
+83:		 PUSH e
+84:		 SUBTRACT 
+85:		 PUSH printint
+86:		 CALL 1
+87:		 END_SCOPE 
+
+
+======== PROGRAM RESULT ========
+-6.416666666666667

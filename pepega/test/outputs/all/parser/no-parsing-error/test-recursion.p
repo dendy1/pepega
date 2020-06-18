@@ -94,70 +94,73 @@ Program
             └ ConstantVariable
               └ IntegerConstant
                 └ 10
+
+
+======== AST AFTER SEMANTIC ANALYSIS ========
 Traceback (most recent call last):
-  File "F:\Projects\pepega\pepega\tests.py", line 23, in run_tests
-    parser.semantic_check()
-  File "F:\Projects\pepega\pepega\src\Parser.py", line 18, in semantic_check
+  File "F:\Projects\pepega\pepega\tests.py", line 28, in run_tests
+    compiler.semantic_check()
+  File "F:\Projects\pepega\pepega\src\Compiler.py", line 24, in semantic_check
     semantic_visitor.visit(self.AST)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 124, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 128, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 135, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 168, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 172, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 173, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 177, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 131, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 135, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 246, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 246, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 285, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 285, in visit
     self.visit(node.else_body_stmt)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 260, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 260, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 403, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 444, in visit
     self.visit(node[index])
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Semantic\SemanticVisitor.py", line 315, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 315, in visit
     if len(proc_symbol.params) != node.args_count:
 AttributeError: 'VariableSymbol' object has no attribute 'params'
 

@@ -6,10 +6,10 @@ var
 function addition(a, b: integer) : integer;
     var c: integer;
     begin
-        a := 2
+        addition := 123
     end;
 
 begin
     a := addition(1, 2);
-    putchar(a)
+    printInt(a)
 end.
