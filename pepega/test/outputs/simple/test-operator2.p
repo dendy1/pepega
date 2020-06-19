@@ -55,6 +55,7 @@ Program
     │     └ IntegerConstant
     │       └ 15
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -63,6 +64,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -75,6 +77,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 2
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -88,6 +91,7 @@ Program
     │       └ IntegerConstant
     │         └ 3
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -96,7 +100,9 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ IfStatement
+    │ │ ├ if
     │ │ ├ RelationalExpression
     │ │ │ ├ EntireVariable
     │ │ │ │ └ Identifier
@@ -110,6 +116,7 @@ Program
     │ │ │   └ ConstantVariable
     │ │ │     └ IntegerConstant
     │ │ │       └ 2
+    │ │ ├ then
     │ │ ├ AssignmentStatement
     │ │ │ ├ EntireVariable
     │ │ │ │ └ Identifier
@@ -122,6 +129,7 @@ Program
     │ │ │   └ ConstantVariable
     │ │ │     └ IntegerConstant
     │ │ │       └ 5
+    │ │ ├ else
     │ │ └ AssignmentStatement
     │ │   ├ EntireVariable
     │ │   │ └ Identifier
@@ -134,6 +142,7 @@ Program
     │ │     └ ConstantVariable
     │ │       └ IntegerConstant
     │ │         └ 7
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -151,6 +160,7 @@ Program
     │       └ IntegerConstant
     │         └ 10
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -159,6 +169,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -171,7 +182,9 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 2
+    │ ├ else
     │ └ IfStatement
+    │   ├ if
     │   ├ RelationalExpression
     │   │ ├ EntireVariable
     │   │ │ └ Identifier
@@ -185,6 +198,7 @@ Program
     │   │   └ EntireVariable
     │   │     └ Identifier
     │   │       └ a
+    │   ├ then
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
     │   │ │ └ Identifier
@@ -197,6 +211,7 @@ Program
     │   │   └ EntireVariable
     │   │     └ Identifier
     │   │       └ a
+    │   ├ else
     │   └ AssignmentStatement
     │     ├ EntireVariable
     │     │ └ Identifier
@@ -210,6 +225,7 @@ Program
     │         └ Identifier
     │           └ b
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -218,6 +234,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -231,6 +248,7 @@ Program
     │       └ IntegerConstant
     │         └ 7
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -239,6 +257,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -265,6 +284,7 @@ Program
     │         └ IntegerConstant
     │           └ 7
     └ WhileStatement
+      ├ while
       ├ RelationalExpression
       │ ├ EntireVariable
       │ │ └ Identifier
@@ -273,7 +293,9 @@ Program
       │ └ EntireVariable
       │   └ Identifier
       │     └ a
+      ├ do
       └ WhileStatement
+        ├ while
         ├ RelationalExpression
         │ ├ EntireVariable
         │ │ └ Identifier
@@ -287,6 +309,7 @@ Program
         │   └ EntireVariable
         │     └ Identifier
         │       └ b
+        ├ do
         └ StatementList
           ├ AssignmentStatement
           │ ├ EntireVariable
@@ -371,6 +394,7 @@ Program
     │     └ IntegerConstant (integer)
     │       └ 15
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -379,6 +403,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -391,6 +416,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 2
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -404,6 +430,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 3
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -412,7 +439,9 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ IfStatement (void)
+    │ │ ├ if
     │ │ ├ RelationalExpression (boolean)
     │ │ │ ├ EntireVariable (integer)
     │ │ │ │ └ Identifier
@@ -426,6 +455,7 @@ Program
     │ │ │   └ ConstantVariable (integer)
     │ │ │     └ IntegerConstant (integer)
     │ │ │       └ 2
+    │ │ ├ then
     │ │ ├ AssignmentStatement (integer)
     │ │ │ ├ EntireVariable (integer)
     │ │ │ │ └ Identifier
@@ -438,6 +468,7 @@ Program
     │ │ │   └ ConstantVariable (integer)
     │ │ │     └ IntegerConstant (integer)
     │ │ │       └ 5
+    │ │ ├ else
     │ │ └ AssignmentStatement (integer)
     │ │   ├ EntireVariable (integer)
     │ │   │ └ Identifier
@@ -450,6 +481,7 @@ Program
     │ │     └ ConstantVariable (integer)
     │ │       └ IntegerConstant (integer)
     │ │         └ 7
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -467,6 +499,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 10
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -475,6 +508,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -487,7 +521,9 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 2
+    │ ├ else
     │ └ IfStatement (void)
+    │   ├ if
     │   ├ RelationalExpression (boolean)
     │   │ ├ EntireVariable (integer)
     │   │ │ └ Identifier
@@ -501,6 +537,7 @@ Program
     │   │   └ EntireVariable (integer)
     │   │     └ Identifier
     │   │       └ a
+    │   ├ then
     │   ├ AssignmentStatement (integer)
     │   │ ├ EntireVariable (integer)
     │   │ │ └ Identifier
@@ -513,6 +550,7 @@ Program
     │   │   └ EntireVariable (integer)
     │   │     └ Identifier
     │   │       └ a
+    │   ├ else
     │   └ AssignmentStatement (integer)
     │     ├ EntireVariable (integer)
     │     │ └ Identifier
@@ -526,6 +564,7 @@ Program
     │         └ Identifier
     │           └ b
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -534,19 +573,21 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
-    │ └ AssignmentStatement (integer)
-    │   ├ EntireVariable (integer)
+    │ ├ do
+    │ └ AssignmentStatement
+    │   ├ EntireVariable
     │   │ └ Identifier
     │   │   └ a
-    │   └ MultiplicativeExpression (integer)
-    │     ├ EntireVariable (integer)
+    │   └ MultiplicativeExpression
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ a
     │     ├ *
-    │     └ ConstantVariable (integer)
-    │       └ IntegerConstant (integer)
+    │     └ ConstantVariable
+    │       └ IntegerConstant
     │         └ 7
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -555,32 +596,34 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ StatementList
-    │   ├ AssignmentStatement (integer)
-    │   │ ├ EntireVariable (integer)
+    │   ├ AssignmentStatement
+    │   │ ├ EntireVariable
     │   │ │ └ Identifier
     │   │ │   └ b
-    │   │ └ AdditiveExpression (integer)
-    │   │   ├ EntireVariable (integer)
+    │   │ └ AdditiveExpression
+    │   │   ├ EntireVariable
     │   │   │ └ Identifier
     │   │   │   └ b
     │   │   ├ +
-    │   │   └ ConstantVariable (integer)
-    │   │     └ IntegerConstant (integer)
+    │   │   └ ConstantVariable
+    │   │     └ IntegerConstant
     │   │       └ 3
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ a
-    │     └ MultiplicativeExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ MultiplicativeExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ a
     │       ├ *
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 7
     └ WhileStatement (void)
+      ├ while
       ├ RelationalExpression (boolean)
       │ ├ EntireVariable (integer)
       │ │ └ Identifier
@@ -589,44 +632,47 @@ Program
       │ └ EntireVariable (integer)
       │   └ Identifier
       │     └ a
-      └ WhileStatement (void)
-        ├ RelationalExpression (boolean)
-        │ ├ EntireVariable (integer)
+      ├ do
+      └ WhileStatement
+        ├ while
+        ├ RelationalExpression
+        │ ├ EntireVariable
         │ │ └ Identifier
         │ │   └ c
         │ ├ >
-        │ └ AdditiveExpression (integer)
-        │   ├ EntireVariable (integer)
+        │ └ AdditiveExpression
+        │   ├ EntireVariable
         │   │ └ Identifier
         │   │   └ a
         │   ├ +
-        │   └ EntireVariable (integer)
+        │   └ EntireVariable
         │     └ Identifier
         │       └ b
+        ├ do
         └ StatementList
-          ├ AssignmentStatement (integer)
-          │ ├ EntireVariable (integer)
+          ├ AssignmentStatement
+          │ ├ EntireVariable
           │ │ └ Identifier
           │ │   └ b
-          │ └ AdditiveExpression (integer)
-          │   ├ EntireVariable (integer)
+          │ └ AdditiveExpression
+          │   ├ EntireVariable
           │   │ └ Identifier
           │   │   └ b
           │   ├ +
-          │   └ ConstantVariable (integer)
-          │     └ IntegerConstant (integer)
+          │   └ ConstantVariable
+          │     └ IntegerConstant
           │       └ 3
-          └ AssignmentStatement (integer)
-            ├ EntireVariable (integer)
+          └ AssignmentStatement
+            ├ EntireVariable
             │ └ Identifier
             │   └ a
-            └ MultiplicativeExpression (integer)
-              ├ EntireVariable (integer)
+            └ MultiplicativeExpression
+              ├ EntireVariable
               │ └ Identifier
               │   └ a
               ├ *
-              └ ConstantVariable (integer)
-                └ IntegerConstant (integer)
+              └ ConstantVariable
+                └ IntegerConstant
                   └ 7
 
 
@@ -731,61 +777,30 @@ Program
 97:		 PUSH b
 98:		 PUSH a
 99:		 COMPARE_GT 
-100:		 JUMP_NEG 108
+100:		 JUMP_NEG 104
 101:		 BEGIN_SCOPE 
-102:		 PUSH a
-103:		 PUSH 7
-104:		 MULTIPLY 
-105:		 ASSIGN a
-106:		 JUMP 96
-107:		 END_SCOPE 
-108:		 END_SCOPE 
-109:		 BEGIN_SCOPE 
-110:		 PUSH b
-111:		 PUSH a
-112:		 COMPARE_GT 
-113:		 JUMP_NEG 125
+102:		 JUMP 96
+103:		 END_SCOPE 
+104:		 END_SCOPE 
+105:		 BEGIN_SCOPE 
+106:		 PUSH b
+107:		 PUSH a
+108:		 COMPARE_GT 
+109:		 JUMP_NEG 113
+110:		 BEGIN_SCOPE 
+111:		 JUMP 105
+112:		 END_SCOPE 
+113:		 END_SCOPE 
 114:		 BEGIN_SCOPE 
 115:		 PUSH b
-116:		 PUSH 3
-117:		 SUM 
-118:		 ASSIGN b
-119:		 PUSH a
-120:		 PUSH 7
-121:		 MULTIPLY 
-122:		 ASSIGN a
-123:		 JUMP 109
-124:		 END_SCOPE 
-125:		 END_SCOPE 
-126:		 BEGIN_SCOPE 
-127:		 PUSH b
-128:		 PUSH a
-129:		 COMPARE_GT 
-130:		 JUMP_NEG 153
-131:		 BEGIN_SCOPE 
-132:		 BEGIN_SCOPE 
-133:		 PUSH c
-134:		 PUSH a
-135:		 PUSH b
-136:		 SUM 
-137:		 COMPARE_GT 
-138:		 JUMP_NEG 150
-139:		 BEGIN_SCOPE 
-140:		 PUSH b
-141:		 PUSH 3
-142:		 SUM 
-143:		 ASSIGN b
-144:		 PUSH a
-145:		 PUSH 7
-146:		 MULTIPLY 
-147:		 ASSIGN a
-148:		 JUMP 132
-149:		 END_SCOPE 
-150:		 END_SCOPE 
-151:		 JUMP 126
-152:		 END_SCOPE 
-153:		 END_SCOPE 
-154:		 END_SCOPE 
+116:		 PUSH a
+117:		 COMPARE_GT 
+118:		 JUMP_NEG 122
+119:		 BEGIN_SCOPE 
+120:		 JUMP 114
+121:		 END_SCOPE 
+122:		 END_SCOPE 
+123:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========

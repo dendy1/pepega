@@ -231,7 +231,7 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 562, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 582, in visit
     raise SemanticError("Variable {} is not array!".format(node.variable_name))
 src.Exceptions.SemanticError: Variable c is not array!
 

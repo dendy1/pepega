@@ -287,6 +287,26 @@ class SemanticVisitor(object):
         node.type_desc = TypeSymbol.from_str('void')
         self.current_scope = if_scope.enclosing_scope
 
+    @visitor.when(ForStatement)
+    def visit(self, node: ForStatement):
+        if_scope = SymbolTable('for_inner_scope', self.current_scope.scope_level + 1, self.current_scope)
+        self.current_scope = if_scope
+
+        self.visit(node.variable)
+
+        self.visit(node.initial_expression)
+        if node.initial_expression.type_desc.base_type.value == 'boolean':
+            raise SemanticError('Initial expression in FOR-Loop mustn\'t be boolean')
+
+        self.visit(node.final_expression)
+        if node.final_expression.type_desc.base_type.value == 'boolean':
+            raise SemanticError('Final expression in FOR-Loop mustn\'t be boolean')
+
+        self.visit(node.for_stmt)
+
+        node.type_desc = TypeSymbol.from_str('void')
+        self.current_scope = if_scope.enclosing_scope
+
     @visitor.when(WhileStatement)
     def visit(self, node: WhileStatement):
         while_scope = SymbolTable('while_inner_scope', self.current_scope.scope_level + 1, self.current_scope)
@@ -296,7 +316,7 @@ class SemanticVisitor(object):
         if node.cond_expr.type_desc.base_type != BOOLEAN:
             raise SemanticError("WHILE-Condition must be boolean!")
 
-        self.visit(node.while_body_stmt)
+        self.visit(node.while_stmt)
 
         node.type_desc = TypeSymbol.from_str('void')
         self.current_scope = while_scope.enclosing_scope

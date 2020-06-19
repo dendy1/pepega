@@ -57,6 +57,7 @@ Program
     │   └ IntegerConstant
     │     └ 45
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -65,6 +66,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 1
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -72,6 +74,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 1
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -158,6 +161,7 @@ Program
     │   └ IntegerConstant (integer)
     │     └ 45
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -166,6 +170,7 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 1
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -173,6 +178,7 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 1
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier

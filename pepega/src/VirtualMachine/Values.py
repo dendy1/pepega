@@ -31,33 +31,21 @@ class Value:
     def __lt__(self, other):
         raise VirtualMachineInvalidOperationError("Invalid operands for '<' operation: {} and {}".format(self, other))
 
+    def __le__(self, other):
+        raise VirtualMachineInvalidOperationError("Invalid operands for '<=' operation: {} and {}".format(self, other))
+
+    def __gt__(self, other):
+        raise VirtualMachineInvalidOperationError("Invalid operands for '>' operation: {} and {}".format(self, other))
+
+    def __ge__(self, other):
+        raise VirtualMachineInvalidOperationError("Invalid operands for '>=' operation: {} and {}".format(self, other))
+
     def __ne__(self, other):
         try:
             return self.__eq__(other).boolean_not()
         except VirtualMachineInvalidOperationError:
             raise VirtualMachineInvalidOperationError(
                 "Invalid operands for '~=' operation: {} and {}".format(self, other))
-
-    def __ge__(self, other):
-        try:
-            return self.__lt__(other).boolean_not()
-        except VirtualMachineInvalidOperationError:
-            raise VirtualMachineInvalidOperationError(
-                "Invalid operands for '>=' operation: {} and {}".format(self, other))
-
-    def __le__(self, other):
-        try:
-            return self.__lt__(other).boolean_or(self.__eq__(other))
-        except VirtualMachineInvalidOperationError:
-            raise VirtualMachineInvalidOperationError(
-                "Invalid operands for '<=' operation: {} and {}".format(self, other))
-
-    def __gt__(self, other):
-        try:
-            return self.__le__(other).boolean_not()
-        except VirtualMachineInvalidOperationError:
-            raise VirtualMachineInvalidOperationError(
-                "Invalid operands for '>' operation: {} and {}".format(self, other))
 
     def call(self, *args):
         raise VirtualMachineInvalidOperationError("Impossible to call value: {}".format(self))
@@ -199,7 +187,25 @@ class NumberValue(Value):
 
     def __lt__(self, other):
         if isinstance(other, NumberValue):
+            return BooleanValue(self.value < other.value)
+        else:
+            super().__lt__(other)
+
+    def __le__(self, other):
+        if isinstance(other, NumberValue):
             return BooleanValue(self.value <= other.value)
+        else:
+            super().__lt__(other)
+
+    def __gt__(self, other):
+        if isinstance(other, NumberValue):
+            return BooleanValue(self.value > other.value)
+        else:
+            super().__lt__(other)
+
+    def __ge__(self, other):
+        if isinstance(other, NumberValue):
+            return BooleanValue(self.value >= other.value)
         else:
             super().__lt__(other)
 

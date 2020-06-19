@@ -104,7 +104,7 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 312, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 332, in visit
     raise SemanticError("Procedure '%s' is not defined!" % proc_name)
 src.Exceptions.SemanticError: Procedure 'putchar' is not defined!
 

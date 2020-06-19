@@ -33,6 +33,7 @@ Program
   │   └ Block
   │     └ StatementList
   │       └ IfStatement
+  │         ├ if
   │         ├ RelationalExpression
   │         │ ├ EntireVariable
   │         │ │ └ Identifier
@@ -41,6 +42,7 @@ Program
   │         │ └ ConstantVariable
   │         │   └ IntegerConstant
   │         │     └ 0
+  │         ├ then
   │         ├ AssignmentStatement
   │         │ ├ EntireVariable
   │         │ │ └ Identifier
@@ -48,6 +50,7 @@ Program
   │         │ └ ConstantVariable
   │         │   └ IntegerConstant
   │         │     └ 0
+  │         ├ else
   │         └ AssignmentStatement
   │           ├ EntireVariable
   │           │ └ Identifier
@@ -154,13 +157,13 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 444, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 464, in visit
     self.visit(node[index])
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 315, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 335, in visit
     if len(proc_symbol.params) != node.args_count:
 AttributeError: 'VariableSymbol' object has no attribute 'params'
 

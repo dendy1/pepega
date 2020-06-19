@@ -235,24 +235,45 @@ class AssignmentStatement(CustomList):
 class IfStatement(CustomList):
     @property
     def cond_expr(self):
-        return self[0]
-
-    @property
-    def if_body_stmt(self):
         return self[1]
 
     @property
+    def if_body_stmt(self):
+        return self[3]
+
+    @property
     def else_body_stmt(self):
+        return self[5]
+
+class ForStatement(CustomList):
+    @property
+    def variable(self):
+        return self[1]
+
+    @property
+    def initial_expression(self):
         return self[2]
+
+    @property
+    def to_downto(self):
+        return self[3]
+
+    @property
+    def final_expression(self):
+        return self[4]
+
+    @property
+    def for_stmt(self):
+        return self[6]
 
 class WhileStatement(CustomList):
     @property
     def cond_expr(self):
-        return self[0]
+        return self[1]
 
     @property
-    def while_body_stmt(self):
-        return self[1]
+    def while_stmt(self):
+        return self[2]
 
 class Arguments(CustomList):
     pass
@@ -385,6 +406,31 @@ class Sign(CustomKeyword):
 class Not(CustomKeyword):
     grammar = Enum(K("not"))
 
+class If(CustomKeyword):
+    grammar = Enum(K("if"))
+
+class Then(CustomKeyword):
+    grammar = Enum(K("then"))
+
+class Else(CustomKeyword):
+    grammar = Enum(K("else"))
+
+class For(CustomKeyword):
+    grammar = Enum(K("for"))
+
+class To(CustomKeyword):
+    grammar = Enum(K("to"))
+
+class DownTo(CustomKeyword):
+    grammar = Enum(K("downto"))
+
+class While(CustomKeyword):
+    grammar = Enum(K("while"))
+
+class Do(CustomKeyword):
+    grammar = Enum(K("do"))
+
+
 Program.grammar = K("program"), Identifier, optional('(', csl(Identifier), ')'), ";", Block, "."
 Block.grammar = maybe_some(VariableDeclarations), optional(SubprogramDeclarations), CompoundStatement
 
@@ -403,12 +449,13 @@ Parameters.grammar = csl(Identifier), ":", Type
 
 CompoundStatement.grammar = "begin", optional(StatementList), "end"
 StatementList.grammar = Statement, maybe_some(';', Statement)
-Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, WhileStatement, ProcedureStatement]
+Statement.grammar = [CompoundStatement, AssignmentStatement, IfStatement, ForStatement, WhileStatement, ProcedureStatement]
 
 AssignmentStatement.grammar = [IndexedVariable, EntireVariable], ":=", Expression
 ProcedureStatement.grammar = Identifier, "(", optional(Arguments), ")"
-IfStatement.grammar = "if", Expression, "then", Statement, optional("else", Statement)
-WhileStatement.grammar = "while", Expression, "do", Statement
+IfStatement.grammar = If, Expression, Then, Statement, optional(Else, Statement)
+ForStatement.grammar = For, EntireVariable, ":=", Expression, [To, DownTo], Expression, Do, Statement
+WhileStatement.grammar = While, Expression, Do, Statement
 
 Arguments.grammar = csl(Expression)
 Expression.grammar = LogicalExpression

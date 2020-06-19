@@ -138,6 +138,7 @@ Program
     │   └ IntegerConstant
     │     └ 1
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -146,6 +147,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -158,6 +160,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 2
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -171,6 +174,7 @@ Program
     │       └ IntegerConstant
     │         └ 3
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -179,6 +183,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -191,6 +196,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 5
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -204,6 +210,7 @@ Program
     │       └ IntegerConstant
     │         └ 7
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -212,6 +219,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -224,6 +232,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 11
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -237,6 +246,7 @@ Program
     │       └ IntegerConstant
     │         └ 13
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -245,6 +255,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -257,6 +268,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 17
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -270,6 +282,7 @@ Program
     │       └ IntegerConstant
     │         └ 19
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -278,6 +291,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -290,6 +304,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 23
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -303,6 +318,7 @@ Program
     │       └ IntegerConstant
     │         └ 29
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -311,6 +327,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 0
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -323,6 +340,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 31
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -336,6 +354,7 @@ Program
     │       └ IntegerConstant
     │         └ 37
     └ IfStatement
+      ├ if
       ├ Factor
       │ ├ not
       │ └ RelationalExpression
@@ -346,6 +365,7 @@ Program
       │   └ EntireVariable
       │     └ Identifier
       │       └ a
+      ├ then
       ├ AssignmentStatement
       │ ├ EntireVariable
       │ │ └ Identifier
@@ -358,6 +378,7 @@ Program
       │   └ ConstantVariable
       │     └ IntegerConstant
       │       └ 41
+      ├ else
       └ AssignmentStatement
         ├ EntireVariable
         │ └ Identifier
@@ -512,6 +533,7 @@ Program
     │   └ IntegerConstant (integer)
     │     └ 1
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -520,6 +542,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -532,6 +555,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 2
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -545,6 +569,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 3
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -553,6 +578,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -565,6 +591,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 5
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -578,6 +605,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 7
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -586,6 +614,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -598,6 +627,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 11
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -611,6 +641,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 13
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -619,6 +650,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -631,6 +663,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 17
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -644,6 +677,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 19
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -652,6 +686,7 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -664,6 +699,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 23
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -677,6 +713,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 29
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -685,6 +722,7 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 0
+    │ ├ then
     │ ├ AssignmentStatement (integer)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -697,6 +735,7 @@ Program
     │ │   └ ConstantVariable (integer)
     │ │     └ IntegerConstant (integer)
     │ │       └ 31
+    │ ├ else
     │ └ AssignmentStatement (integer)
     │   ├ EntireVariable (integer)
     │   │ └ Identifier
@@ -710,6 +749,7 @@ Program
     │       └ IntegerConstant (integer)
     │         └ 37
     └ IfStatement (void)
+      ├ if
       ├ Factor (boolean)
       │ ├ not
       │ └ RelationalExpression (boolean)
@@ -720,6 +760,7 @@ Program
       │   └ EntireVariable (integer)
       │     └ Identifier
       │       └ a
+      ├ then
       ├ AssignmentStatement (integer)
       │ ├ EntireVariable (integer)
       │ │ └ Identifier
@@ -732,6 +773,7 @@ Program
       │   └ ConstantVariable (integer)
       │     └ IntegerConstant (integer)
       │       └ 41
+      ├ else
       └ AssignmentStatement (integer)
         ├ EntireVariable (integer)
         │ └ Identifier

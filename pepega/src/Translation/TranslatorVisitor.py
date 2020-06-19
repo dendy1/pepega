@@ -122,6 +122,41 @@ class TranslatorVisitor(object):
         jump_complete_opcode.args[0] = complete_address
         jump_fail_opcode.args[0] = fail_address
 
+    @visitor.when(ForStatement)
+    def visit(self, node: ForStatement):
+        self.context.add_opcode(OPCode(OPCodeType.BEGIN_SCOPE))
+
+        self.visit(node.initial_expression)
+        self.context.add_opcode(OPCode(OPCodeType.ASSIGN, [node.variable.variable_name]))
+        loop_iteration_address = self.context.current_address + 1
+        self.visit(node.final_expression)
+
+        self.context.add_opcode(OPCode(OPCodeType.PUSH, [node.variable.variable_name]))
+
+        if (node.to_downto == 'to'):
+            self.context.add_opcode(OPCode(OPCodeType.COMPARE_GE))
+        else:
+            self.context.add_opcode(OPCode(OPCodeType.COMPARE_LE))
+
+        self.context.add_opcode(OPCode(OPCodeType.JUMP_NEG, [-1]))
+
+        jump_to_loop_end_opcode = self.context.current_opcode
+
+        self.visit(node.for_stmt)
+
+        if (node.to_downto == 'to'):
+            self.context.add_opcode(OPCode(OPCodeType.PUSH, ['1']))
+            self.context.add_opcode(OPCode(OPCodeType.PUSH, [node.variable.variable_name]))
+            self.context.add_opcode(OPCode(OPCodeType.SUM))
+        else:
+            self.context.add_opcode(OPCode(OPCodeType.PUSH, [node.variable.variable_name]))
+            self.context.add_opcode(OPCode(OPCodeType.PUSH, ['1']))
+            self.context.add_opcode(OPCode(OPCodeType.SUBTRACT))
+
+        self.context.add_opcode(OPCode(OPCodeType.ASSIGN, [node.variable.variable_name]))
+        self.context.add_opcode(OPCode(OPCodeType.JUMP, [loop_iteration_address]))
+        self.context.add_opcode(OPCode(OPCodeType.END_SCOPE))
+        jump_to_loop_end_opcode.args[0] = self.context.current_address
 
     @visitor.when(WhileStatement)
     def visit(self, node: WhileStatement):
@@ -133,7 +168,7 @@ class TranslatorVisitor(object):
         jump_fail_opcode = self.context.current_opcode
 
         self.context.add_opcode(OPCode(OPCodeType.BEGIN_SCOPE))
-        self.visit(node.while_body_stmt)
+        self.visit(node.while_stmt)
         self.context.add_opcode(OPCode(OPCodeType.JUMP, [-1]))
         jump_condition_opcode = self.context.current_opcode
         self.context.add_opcode(OPCode(OPCodeType.END_SCOPE))

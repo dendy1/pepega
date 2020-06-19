@@ -14,6 +14,11 @@ begin
         a := a+1
     end;
 
+    for c := 0 to 5 do
+        begin
+            a := a + 1
+        end;
+
     printInt(c)
 end.
 

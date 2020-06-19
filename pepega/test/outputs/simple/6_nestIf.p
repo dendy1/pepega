@@ -44,6 +44,7 @@ Program
     │     └ IntegerConstant
     │       └ 3
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -52,6 +53,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 7
+    │ ├ then
     │ ├ StatementList
     │ │ ├ AssignmentStatement
     │ │ │ ├ EntireVariable
@@ -70,6 +72,7 @@ Program
     │ │ │     └ IntegerConstant
     │ │ │       └ 2
     │ │ └ IfStatement
+    │ │   ├ if
     │ │   ├ RelationalExpression
     │ │   │ ├ EntireVariable
     │ │   │ │ └ Identifier
@@ -78,6 +81,7 @@ Program
     │ │   │ └ ConstantVariable
     │ │   │   └ IntegerConstant
     │ │   │     └ 5
+    │ │   ├ then
     │ │   ├ StatementList
     │ │   │ └ AssignmentStatement
     │ │   │   ├ EntireVariable
@@ -95,6 +99,7 @@ Program
     │ │   │     └ EntireVariable
     │ │   │       └ Identifier
     │ │   │         └ b
+    │ │   ├ else
     │ │   └ StatementList
     │ │     └ AssignmentStatement
     │ │       ├ EntireVariable
@@ -112,6 +117,7 @@ Program
     │ │         └ EntireVariable
     │ │           └ Identifier
     │ │             └ b
+    │ ├ else
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -130,6 +136,7 @@ Program
     │   │     └ IntegerConstant
     │   │       └ 2
     │   └ IfStatement
+    │     ├ if
     │     ├ RelationalExpression
     │     │ ├ EntireVariable
     │     │ │ └ Identifier
@@ -138,6 +145,7 @@ Program
     │     │ └ ConstantVariable
     │     │   └ IntegerConstant
     │     │     └ 5
+    │     ├ then
     │     ├ AssignmentStatement
     │     │ ├ EntireVariable
     │     │ │ └ Identifier
@@ -145,6 +153,7 @@ Program
     │     │ └ ConstantVariable
     │     │   └ IntegerConstant
     │     │     └ 6
+    │     ├ else
     │     └ AssignmentStatement
     │       ├ EntireVariable
     │       │ └ Identifier
@@ -233,6 +242,7 @@ Program
     │     └ IntegerConstant (integer)
     │       └ 3
     ├ IfStatement (void)
+    │ ├ if
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -241,6 +251,7 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 7
+    │ ├ then
     │ ├ StatementList
     │ │ ├ AssignmentStatement (integer)
     │ │ │ ├ EntireVariable (integer)
@@ -259,6 +270,7 @@ Program
     │ │ │     └ IntegerConstant (integer)
     │ │ │       └ 2
     │ │ └ IfStatement (void)
+    │ │   ├ if
     │ │   ├ RelationalExpression (boolean)
     │ │   │ ├ EntireVariable (integer)
     │ │   │ │ └ Identifier
@@ -267,6 +279,7 @@ Program
     │ │   │ └ ConstantVariable (integer)
     │ │   │   └ IntegerConstant (integer)
     │ │   │     └ 5
+    │ │   ├ then
     │ │   ├ StatementList
     │ │   │ └ AssignmentStatement (integer)
     │ │   │   ├ EntireVariable (integer)
@@ -284,6 +297,7 @@ Program
     │ │   │     └ EntireVariable (integer)
     │ │   │       └ Identifier
     │ │   │         └ b
+    │ │   ├ else
     │ │   └ StatementList
     │ │     └ AssignmentStatement (integer)
     │ │       ├ EntireVariable (integer)
@@ -301,6 +315,7 @@ Program
     │ │         └ EntireVariable (integer)
     │ │           └ Identifier
     │ │             └ b
+    │ ├ else
     │ └ StatementList
     │   ├ AssignmentStatement (integer)
     │   │ ├ EntireVariable (integer)
@@ -319,6 +334,7 @@ Program
     │   │     └ IntegerConstant (integer)
     │   │       └ 2
     │   └ IfStatement (void)
+    │     ├ if
     │     ├ RelationalExpression (boolean)
     │     │ ├ EntireVariable (integer)
     │     │ │ └ Identifier
@@ -327,6 +343,7 @@ Program
     │     │ └ ConstantVariable (integer)
     │     │   └ IntegerConstant (integer)
     │     │     └ 5
+    │     ├ then
     │     ├ AssignmentStatement (integer)
     │     │ ├ EntireVariable (integer)
     │     │ │ └ Identifier
@@ -334,6 +351,7 @@ Program
     │     │ └ ConstantVariable (integer)
     │     │   └ IntegerConstant (integer)
     │     │     └ 6
+    │     ├ else
     │     └ AssignmentStatement (integer)
     │       ├ EntireVariable (integer)
     │       │ └ Identifier

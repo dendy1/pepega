@@ -144,6 +144,7 @@ Program
     │   └ IntegerConstant
     │     └ 1
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -152,6 +153,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 10
+    │ ├ do
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -186,6 +188,7 @@ Program
     │ │   └ IntegerConstant
     │ │     └ 1
     │ ├ WhileStatement
+    │ │ ├ while
     │ │ ├ RelationalExpression
     │ │ │ ├ EntireVariable
     │ │ │ │ └ Identifier
@@ -194,6 +197,7 @@ Program
     │ │ │ └ ConstantVariable
     │ │ │   └ IntegerConstant
     │ │ │     └ 11
+    │ │ ├ do
     │ │ └ StatementList
     │ │   ├ AssignmentStatement
     │ │   │ ├ IndexedVariable

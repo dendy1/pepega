@@ -108,6 +108,7 @@ Program
     │   └ IntegerConstant
     │     └ 1
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -116,6 +117,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 10
+    │ ├ do
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -150,6 +152,7 @@ Program
     │ │   └ IntegerConstant
     │ │     └ 1
     │ └ WhileStatement
+    │   ├ while
     │   ├ RelationalExpression
     │   │ ├ EntireVariable
     │   │ │ └ Identifier
@@ -158,6 +161,7 @@ Program
     │   │ └ ConstantVariable
     │   │   └ IntegerConstant
     │   │     └ 11
+    │   ├ do
     │   └ StatementList
     │     ├ AssignmentStatement
     │     │ ├ IndexedVariable
@@ -368,6 +372,7 @@ Program
     │   └ IntegerConstant (integer)
     │     └ 1
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -376,30 +381,31 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 10
+    │ ├ do
     │ └ StatementList
-    │   ├ AssignmentStatement (integer)
-    │   │ ├ EntireVariable (integer)
+    │   ├ AssignmentStatement
+    │   │ ├ EntireVariable
     │   │ │ └ Identifier
     │   │ │   └ sum
-    │   │ └ AdditiveExpression (integer)
-    │   │   ├ ConstantVariable (integer)
-    │   │   │ └ IntegerConstant (integer)
+    │   │ └ AdditiveExpression
+    │   │   ├ ConstantVariable
+    │   │   │ └ IntegerConstant
     │   │   │   └ 10
     │   │   ├ +
-    │   │   └ EntireVariable (integer)
+    │   │   └ EntireVariable
     │   │     └ Identifier
     │   │       └ a
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ a
-    │     └ AdditiveExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ a
     │       ├ +
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 1
     ├ StatementList
     │ ├ AssignmentStatement (integer)
@@ -410,6 +416,7 @@ Program
     │ │   └ IntegerConstant (integer)
     │ │     └ 1
     │ └ WhileStatement (void)
+    │   ├ while
     │   ├ RelationalExpression (boolean)
     │   │ ├ EntireVariable (integer)
     │   │ │ └ Identifier
@@ -418,43 +425,44 @@ Program
     │   │ └ ConstantVariable (integer)
     │   │   └ IntegerConstant (integer)
     │   │     └ 11
+    │   ├ do
     │   └ StatementList
-    │     ├ AssignmentStatement (integer)
-    │     │ ├ IndexedVariable (integer)
+    │     ├ AssignmentStatement
+    │     │ ├ IndexedVariable
     │     │ │ ├ Identifier
     │     │ │ │ └ d
-    │     │ │ └ EntireVariable (integer)
+    │     │ │ └ EntireVariable
     │     │ │   └ Identifier
     │     │ │     └ b
-    │     │ └ AdditiveExpression (integer)
-    │     │   ├ EntireVariable (integer)
+    │     │ └ AdditiveExpression
+    │     │   ├ EntireVariable
     │     │   │ └ Identifier
     │     │   │   └ b
     │     │   ├ +
-    │     │   └ MultiplicativeExpression (integer)
-    │     │     ├ EntireVariable (integer)
+    │     │   └ MultiplicativeExpression
+    │     │     ├ EntireVariable
     │     │     │ └ Identifier
     │     │     │   └ b
     │     │     ├ *
-    │     │     └ AdditiveExpression (integer)
-    │     │       ├ EntireVariable (integer)
+    │     │     └ AdditiveExpression
+    │     │       ├ EntireVariable
     │     │       │ └ Identifier
     │     │       │   └ b
     │     │       ├ -
-    │     │       └ ConstantVariable (integer)
-    │     │         └ IntegerConstant (integer)
+    │     │       └ ConstantVariable
+    │     │         └ IntegerConstant
     │     │           └ 1
-    │     └ AssignmentStatement (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AssignmentStatement
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ b
-    │       └ AdditiveExpression (integer)
-    │         ├ EntireVariable (integer)
+    │       └ AdditiveExpression
+    │         ├ EntireVariable
     │         │ └ Identifier
     │         │   └ b
     │         ├ +
-    │         └ ConstantVariable (integer)
-    │           └ IntegerConstant (integer)
+    │         └ ConstantVariable
+    │           └ IntegerConstant
     │             └ 1
     ├ AssignmentStatement (real)
     │ ├ IndexedVariable (real)
@@ -552,13 +560,13 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 193, in visit
+  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 228, in visit
     self.visit(node[index])
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 218, in visit
+  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 253, in visit
     raise TranslatorError("IndexedVariable is not supported!")
 src.Exceptions.TranslatorError: IndexedVariable is not supported!
 

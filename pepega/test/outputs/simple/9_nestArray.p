@@ -286,25 +286,25 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 150, in visit
-    self.visit(child)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
-    return dispatcher(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
-    return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 158, in visit
+  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 185, in visit
     self.visit(child)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 193, in visit
+    self.visit(child)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
+    return dispatcher(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
+    return d(*args, **kw)
+  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 228, in visit
     self.visit(node[index])
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 218, in visit
+  File "F:\Projects\pepega\pepega\src\Translation\TranslatorVisitor.py", line 253, in visit
     raise TranslatorError("IndexedVariable is not supported!")
 src.Exceptions.TranslatorError: IndexedVariable is not supported!
 

@@ -55,6 +55,7 @@ Program
     │     └ IntegerConstant
     │       └ 15
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -63,6 +64,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -75,6 +77,7 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 2
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -88,6 +91,7 @@ Program
     │       └ IntegerConstant
     │         └ 3
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -96,7 +100,9 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ IfStatement
+    │ │ ├ if
     │ │ ├ RelationalExpression
     │ │ │ ├ EntireVariable
     │ │ │ │ └ Identifier
@@ -110,6 +116,7 @@ Program
     │ │ │   └ ConstantVariable
     │ │ │     └ IntegerConstant
     │ │ │       └ 2
+    │ │ ├ then
     │ │ ├ AssignmentStatement
     │ │ │ ├ EntireVariable
     │ │ │ │ └ Identifier
@@ -122,6 +129,7 @@ Program
     │ │ │   └ ConstantVariable
     │ │ │     └ IntegerConstant
     │ │ │       └ 5
+    │ │ ├ else
     │ │ └ AssignmentStatement
     │ │   ├ EntireVariable
     │ │   │ └ Identifier
@@ -134,6 +142,7 @@ Program
     │ │     └ ConstantVariable
     │ │       └ IntegerConstant
     │ │         └ 7
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -154,6 +163,7 @@ Program
     │             └ Identifier
     │               └ a
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -162,6 +172,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -174,7 +185,9 @@ Program
     │ │   └ ConstantVariable
     │ │     └ IntegerConstant
     │ │       └ 2
+    │ ├ else
     │ └ IfStatement
+    │   ├ if
     │   ├ RelationalExpression
     │   │ ├ EntireVariable
     │   │ │ └ Identifier
@@ -188,6 +201,7 @@ Program
     │   │   └ EntireVariable
     │   │     └ Identifier
     │   │       └ a
+    │   ├ then
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
     │   │ │ └ Identifier
@@ -200,6 +214,7 @@ Program
     │   │   └ EntireVariable
     │   │     └ Identifier
     │   │       └ a
+    │   ├ else
     │   └ AssignmentStatement
     │     ├ EntireVariable
     │     │ └ Identifier
@@ -213,6 +228,7 @@ Program
     │         └ Identifier
     │           └ b
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -221,6 +237,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -234,6 +251,7 @@ Program
     │       └ IntegerConstant
     │         └ 7
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -242,6 +260,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -268,6 +287,7 @@ Program
     │         └ IntegerConstant
     │           └ 7
     └ WhileStatement
+      ├ while
       ├ RelationalExpression
       │ ├ EntireVariable
       │ │ └ Identifier
@@ -276,7 +296,9 @@ Program
       │ └ EntireVariable
       │   └ Identifier
       │     └ a
+      ├ do
       └ WhileStatement
+        ├ while
         ├ RelationalExpression
         │ ├ EntireVariable
         │ │ └ Identifier
@@ -290,6 +312,7 @@ Program
         │   └ EntireVariable
         │     └ Identifier
         │       └ b
+        ├ do
         └ StatementList
           ├ AssignmentStatement
           │ ├ EntireVariable
@@ -357,13 +380,13 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 500, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 520, in visit
     self.visit(node[index])
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 46, in ff
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 608, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 628, in visit
     factor = node[1]
 IndexError: list index out of range
 

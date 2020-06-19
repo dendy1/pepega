@@ -57,6 +57,7 @@ Program
     │   └ IntegerConstant
     │     └ 45
     ├ IfStatement
+    │ ├ if
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -65,6 +66,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 1
+    │ ├ then
     │ ├ AssignmentStatement
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -72,6 +74,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 1
+    │ ├ else
     │ └ AssignmentStatement
     │   ├ EntireVariable
     │   │ └ Identifier
@@ -126,7 +129,7 @@ Traceback (most recent call last):
     return dispatcher(*args, **kw)
   File "F:\Projects\pepega\pepega\src\Visitor\visitor.py", line 66, in __call__
     return d(*args, **kw)
-  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 575, in visit
+  File "F:\Projects\pepega\pepega\src\SemanticAnalysis\SemanticVisitor.py", line 595, in visit
     raise SemanticError("Entire Variable {} is not defined!".format(node.variable_name))
 src.Exceptions.SemanticError: Entire Variable qr is not defined!
 

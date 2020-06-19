@@ -35,6 +35,7 @@ Program
     │   └ IntegerConstant
     │     └ 2
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -43,6 +44,7 @@ Program
     │ │ └ ConstantVariable
     │ │   └ IntegerConstant
     │ │     └ 9
+    │ ├ do
     │ └ StatementList
     │   ├ AssignmentStatement
     │   │ ├ EntireVariable
@@ -52,6 +54,7 @@ Program
     │   │   └ IntegerConstant
     │   │     └ 1
     │   ├ WhileStatement
+    │   │ ├ while
     │   │ ├ RelationalExpression
     │   │ │ ├ EntireVariable
     │   │ │ │ └ Identifier
@@ -60,6 +63,7 @@ Program
     │   │ │ └ ConstantVariable
     │   │ │   └ IntegerConstant
     │   │ │     └ 9
+    │   │ ├ do
     │   │ └ StatementList
     │   │   ├ AssignmentStatement
     │   │   │ ├ EntireVariable
@@ -102,6 +106,33 @@ Program
     │       └ ConstantVariable
     │         └ IntegerConstant
     │           └ 1
+    ├ Statement
+    │ └ ForStatement
+    │   ├ for
+    │   ├ EntireVariable
+    │   │ └ Identifier
+    │   │   └ c
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 0
+    │   ├ to
+    │   ├ ConstantVariable
+    │   │ └ IntegerConstant
+    │   │   └ 5
+    │   ├ do
+    │   └ StatementList
+    │     └ AssignmentStatement
+    │       ├ EntireVariable
+    │       │ └ Identifier
+    │       │   └ a
+    │       └ AdditiveExpression
+    │         ├ EntireVariable
+    │         │ └ Identifier
+    │         │   └ a
+    │         ├ +
+    │         └ ConstantVariable
+    │           └ IntegerConstant
+    │             └ 1
     └ ProcedureStatement
       ├ Identifier
       │ └ printint
@@ -148,6 +179,7 @@ Program
     │   └ IntegerConstant (integer)
     │     └ 2
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -156,65 +188,95 @@ Program
     │ │ └ ConstantVariable (integer)
     │ │   └ IntegerConstant (integer)
     │ │     └ 9
+    │ ├ do
     │ └ StatementList
-    │   ├ AssignmentStatement (integer)
-    │   │ ├ EntireVariable (integer)
+    │   ├ AssignmentStatement
+    │   │ ├ EntireVariable
     │   │ │ └ Identifier
     │   │ │   └ b
-    │   │ └ ConstantVariable (integer)
-    │   │   └ IntegerConstant (integer)
+    │   │ └ ConstantVariable
+    │   │   └ IntegerConstant
     │   │     └ 1
-    │   ├ WhileStatement (void)
-    │   │ ├ RelationalExpression (boolean)
-    │   │ │ ├ EntireVariable (integer)
+    │   ├ WhileStatement
+    │   │ ├ while
+    │   │ ├ RelationalExpression
+    │   │ │ ├ EntireVariable
     │   │ │ │ └ Identifier
     │   │ │ │   └ b
     │   │ │ ├ <=
-    │   │ │ └ ConstantVariable (integer)
-    │   │ │   └ IntegerConstant (integer)
+    │   │ │ └ ConstantVariable
+    │   │ │   └ IntegerConstant
     │   │ │     └ 9
+    │   │ ├ do
     │   │ └ StatementList
-    │   │   ├ AssignmentStatement (integer)
-    │   │   │ ├ EntireVariable (integer)
+    │   │   ├ AssignmentStatement
+    │   │   │ ├ EntireVariable
     │   │   │ │ └ Identifier
     │   │   │ │   └ c
-    │   │   │ └ AdditiveExpression (integer)
-    │   │   │   ├ EntireVariable (integer)
+    │   │   │ └ AdditiveExpression
+    │   │   │   ├ EntireVariable
     │   │   │   │ └ Identifier
     │   │   │   │   └ c
     │   │   │   ├ +
-    │   │   │   └ MultiplicativeExpression (integer)
-    │   │   │     ├ EntireVariable (integer)
+    │   │   │   └ MultiplicativeExpression
+    │   │   │     ├ EntireVariable
     │   │   │     │ └ Identifier
     │   │   │     │   └ a
     │   │   │     ├ *
-    │   │   │     └ EntireVariable (integer)
+    │   │   │     └ EntireVariable
     │   │   │       └ Identifier
     │   │   │         └ b
-    │   │   └ AssignmentStatement (integer)
-    │   │     ├ EntireVariable (integer)
+    │   │   └ AssignmentStatement
+    │   │     ├ EntireVariable
     │   │     │ └ Identifier
     │   │     │   └ b
-    │   │     └ AdditiveExpression (integer)
-    │   │       ├ EntireVariable (integer)
+    │   │     └ AdditiveExpression
+    │   │       ├ EntireVariable
     │   │       │ └ Identifier
     │   │       │   └ b
     │   │       ├ +
-    │   │       └ ConstantVariable (integer)
-    │   │         └ IntegerConstant (integer)
+    │   │       └ ConstantVariable
+    │   │         └ IntegerConstant
     │   │           └ 1
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ a
-    │     └ AdditiveExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ a
     │       ├ +
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 1
+    ├ Statement
+    │ └ ForStatement (void)
+    │   ├ for
+    │   ├ EntireVariable (integer)
+    │   │ └ Identifier
+    │   │   └ c
+    │   ├ ConstantVariable (integer)
+    │   │ └ IntegerConstant (integer)
+    │   │   └ 0
+    │   ├ to
+    │   ├ ConstantVariable (integer)
+    │   │ └ IntegerConstant (integer)
+    │   │   └ 5
+    │   ├ do
+    │   └ StatementList
+    │     └ AssignmentStatement (integer)
+    │       ├ EntireVariable (integer)
+    │       │ └ Identifier
+    │       │   └ a
+    │       └ AdditiveExpression (integer)
+    │         ├ EntireVariable (integer)
+    │         │ └ Identifier
+    │         │   └ a
+    │         ├ +
+    │         └ ConstantVariable (integer)
+    │           └ IntegerConstant (integer)
+    │             └ 1
     └ ProcedureStatement (void)
       ├ Identifier
       │ └ printint
@@ -237,41 +299,52 @@ Program
 9:		 PUSH a
 10:		 PUSH 9
 11:		 COMPARE_LE 
-12:		 JUMP_NEG 41
+12:		 JUMP_NEG 16
 13:		 BEGIN_SCOPE 
-14:		 PUSH 1
-15:		 ASSIGN b
-16:		 BEGIN_SCOPE 
-17:		 PUSH b
-18:		 PUSH 9
-19:		 COMPARE_LE 
-20:		 JUMP_NEG 34
-21:		 BEGIN_SCOPE 
-22:		 PUSH c
-23:		 PUSH a
-24:		 PUSH b
-25:		 MULTIPLY 
+14:		 JUMP 8
+15:		 END_SCOPE 
+16:		 END_SCOPE 
+17:		 BEGIN_SCOPE 
+18:		 PUSH 0
+19:		 ASSIGN c
+20:		 PUSH 5
+21:		 PUSH c
+22:		 COMPARE_GE 
+23:		 JUMP_NEG 33
+24:		 PUSH a
+25:		 PUSH 1
 26:		 SUM 
-27:		 ASSIGN c
-28:		 PUSH b
-29:		 PUSH 1
+27:		 ASSIGN a
+28:		 PUSH 1
+29:		 PUSH c
 30:		 SUM 
-31:		 ASSIGN b
-32:		 JUMP 16
+31:		 ASSIGN c
+32:		 JUMP 20
 33:		 END_SCOPE 
-34:		 END_SCOPE 
-35:		 PUSH a
-36:		 PUSH 1
-37:		 SUM 
-38:		 ASSIGN a
-39:		 JUMP 8
-40:		 END_SCOPE 
-41:		 END_SCOPE 
-42:		 PUSH c
-43:		 PUSH printint
-44:		 CALL 1
-45:		 END_SCOPE 
+34:		 PUSH c
+35:		 PUSH printint
+36:		 CALL 1
+37:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========
-1980.0
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 43, in run_tests
+    virtual_machine.run()
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 71, in run
+    self._handle_instruction(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 81, in _handle_instruction
+    handler(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 94, in _handle_push
+    pushed_value = self._context.current_scope.lookup(value)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  [Previous line repeated 991 more times]
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 24, in lookup
+    value = self._values.get(name)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+

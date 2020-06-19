@@ -53,6 +53,7 @@ Program
     │   └ IntegerConstant
     │     └ 100
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -61,6 +62,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ StatementList
     │   └ AssignmentStatement
     │     ├ EntireVariable
@@ -75,6 +77,7 @@ Program
     │         └ IntegerConstant
     │           └ 1
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -83,6 +86,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ b
+    │ ├ do
     │ └ StatementList
     │   └ AssignmentStatement
     │     ├ EntireVariable
@@ -97,6 +101,7 @@ Program
     │         └ IntegerConstant
     │           └ 1
     ├ WhileStatement
+    │ ├ while
     │ ├ RelationalExpression
     │ │ ├ EntireVariable
     │ │ │ └ Identifier
@@ -105,6 +110,7 @@ Program
     │ │ └ EntireVariable
     │ │   └ Identifier
     │ │     └ c
+    │ ├ do
     │ └ StatementList
     │   └ AssignmentStatement
     │     ├ EntireVariable
@@ -195,6 +201,7 @@ Program
     │   └ IntegerConstant (integer)
     │     └ 100
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -203,20 +210,22 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ a
+    │ ├ do
     │ └ StatementList
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ b
-    │     └ AdditiveExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ b
     │       ├ -
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 1
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -225,20 +234,22 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ b
+    │ ├ do
     │ └ StatementList
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ c
-    │     └ AdditiveExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ c
     │       ├ -
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 1
     ├ WhileStatement (void)
+    │ ├ while
     │ ├ RelationalExpression (boolean)
     │ │ ├ EntireVariable (integer)
     │ │ │ └ Identifier
@@ -247,18 +258,19 @@ Program
     │ │ └ EntireVariable (integer)
     │ │   └ Identifier
     │ │     └ c
+    │ ├ do
     │ └ StatementList
-    │   └ AssignmentStatement (integer)
-    │     ├ EntireVariable (integer)
+    │   └ AssignmentStatement
+    │     ├ EntireVariable
     │     │ └ Identifier
     │     │   └ d
-    │     └ AdditiveExpression (integer)
-    │       ├ EntireVariable (integer)
+    │     └ AdditiveExpression
+    │       ├ EntireVariable
     │       │ └ Identifier
     │       │   └ d
     │       ├ -
-    │       └ ConstantVariable (integer)
-    │         └ IntegerConstant (integer)
+    │       └ ConstantVariable
+    │         └ IntegerConstant
     │           └ 1
     └ ProcedureStatement (void)
       ├ Identifier
@@ -301,54 +313,61 @@ Program
 15:		 PUSH b
 16:		 PUSH a
 17:		 COMPARE_GT 
-18:		 JUMP_NEG 26
+18:		 JUMP_NEG 22
 19:		 BEGIN_SCOPE 
-20:		 PUSH b
-21:		 PUSH 1
-22:		 SUBTRACT 
-23:		 ASSIGN b
-24:		 JUMP 14
-25:		 END_SCOPE 
-26:		 END_SCOPE 
-27:		 BEGIN_SCOPE 
-28:		 PUSH c
-29:		 PUSH b
-30:		 COMPARE_GT 
-31:		 JUMP_NEG 39
+20:		 JUMP 14
+21:		 END_SCOPE 
+22:		 END_SCOPE 
+23:		 BEGIN_SCOPE 
+24:		 PUSH c
+25:		 PUSH b
+26:		 COMPARE_GT 
+27:		 JUMP_NEG 31
+28:		 BEGIN_SCOPE 
+29:		 JUMP 23
+30:		 END_SCOPE 
+31:		 END_SCOPE 
 32:		 BEGIN_SCOPE 
-33:		 PUSH c
-34:		 PUSH 1
-35:		 SUBTRACT 
-36:		 ASSIGN c
-37:		 JUMP 27
-38:		 END_SCOPE 
+33:		 PUSH d
+34:		 PUSH c
+35:		 COMPARE_GT 
+36:		 JUMP_NEG 40
+37:		 BEGIN_SCOPE 
+38:		 JUMP 32
 39:		 END_SCOPE 
-40:		 BEGIN_SCOPE 
-41:		 PUSH d
-42:		 PUSH c
-43:		 COMPARE_GT 
-44:		 JUMP_NEG 52
-45:		 BEGIN_SCOPE 
-46:		 PUSH d
-47:		 PUSH 1
-48:		 SUBTRACT 
-49:		 ASSIGN d
-50:		 JUMP 40
-51:		 END_SCOPE 
+40:		 END_SCOPE 
+41:		 PUSH a
+42:		 PUSH b
+43:		 SUM 
+44:		 PUSH b
+45:		 PUSH c
+46:		 SUM 
+47:		 PUSH c
+48:		 PUSH d
+49:		 SUM 
+50:		 PUSH printint
+51:		 CALL 1
 52:		 END_SCOPE 
-53:		 PUSH a
-54:		 PUSH b
-55:		 SUM 
-56:		 PUSH b
-57:		 PUSH c
-58:		 SUM 
-59:		 PUSH c
-60:		 PUSH d
-61:		 SUM 
-62:		 PUSH printint
-63:		 CALL 1
-64:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========
-6.0
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 43, in run_tests
+    virtual_machine.run()
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 71, in run
+    self._handle_instruction(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 81, in _handle_instruction
+    handler(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 94, in _handle_push
+    pushed_value = self._context.current_scope.lookup(value)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+    return self._enclosing_scope.lookup(name)
+  [Previous line repeated 991 more times]
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 24, in lookup
+    value = self._values.get(name)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+
