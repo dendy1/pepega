@@ -66,7 +66,6 @@ class Value:
 class StringValue(Value):
     def __init__(self, value: str):
         super().__init__()
-
         self.value = value
 
     def __str__(self):
@@ -94,7 +93,6 @@ class StringValue(Value):
 class BooleanValue(Value):
     def __init__(self, value: bool):
         super().__init__()
-
         self.value = value
 
     def __str__(self):
@@ -213,6 +211,12 @@ class NumberValue(Value):
         return NumberValue(-self.value)
 
     __repr__ = __str__
+
+
+class ArrayValue(Value):
+    def __init__(self, values: [Value, ...]):
+        super().__init__()
+        self.values = values
 
 
 class IdentifierValue(Value):

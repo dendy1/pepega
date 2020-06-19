@@ -80,8 +80,8 @@ class OPCodeType(Enum):
     BOOLEAN_OR = auto()
 
     # Gets value from the stack, inverse its sign and pushes result
-    # Example: boolean_or
-    MINUS = auto()
+    # Example: boolean_minus
+    BOOLEAN_MINUS = auto()
 
     # Gets value from the stack, inverses its logical value and pushes result
     # Example: boolean_or
@@ -158,7 +158,7 @@ class OPCodesDefinitions:
         OPCodeType.BOOLEAN_AND: OPCodeDefinition("BOOLEAN_AND"),
         OPCodeType.BOOLEAN_OR: OPCodeDefinition("BOOLEAN_OR"),
         OPCodeType.BOOLEAN_NOT: OPCodeDefinition("BOOLEAN_NOT"),
-        OPCodeType.MINUS: OPCodeDefinition("BOOLEAN_MINUS"),
+        OPCodeType.BOOLEAN_MINUS: OPCodeDefinition("BOOLEAN_MINUS"),
         OPCodeType.COMPARE_EQ: OPCodeDefinition("COMPARE_EQ"),
         OPCodeType.COMPARE_NEQ: OPCodeDefinition("COMPARE_NE"),
         OPCodeType.COMPARE_LT: OPCodeDefinition("COMPARE_LT"),
