@@ -198,32 +198,33 @@ Program
 2:		 DECLARE_LOCAL b
 3:		 FUNCTION simplesum
 4:		 BEGIN_SCOPE 
-5:		 ASSIGN a
-6:		 PUSH a
-7:		 PUSH b
-8:		 MULTIPLY 
-9:		 ASSIGN simplesum
-10:		 PUSH simplesum
-11:		 RETURN 1
-12:		 END_SCOPE 
-13:		 PUSH 7
-14:		 ASSIGN a
-15:		 PUSH 13
-16:		 ASSIGN b
-17:		 PUSH 3
-18:		 PUSH 10
-19:		 PUSH simplesum
-20:		 CALL 1
-21:		 SUM 
-22:		 ASSIGN a
-23:		 PUSH 1
-24:		 PUSH 10
-25:		 BOOLEAN_MINUS 
-26:		 PUSH simplesum
-27:		 CALL 1
-28:		 MULTIPLY 
-29:		 ASSIGN b
-30:		 END_SCOPE 
+5:		 DECLARE_LOCAL a
+6:		 ASSIGN a
+7:		 PUSH a
+8:		 PUSH b
+9:		 MULTIPLY 
+10:		 ASSIGN simplesum
+11:		 PUSH simplesum
+12:		 RETURN 1
+13:		 END_SCOPE 
+14:		 PUSH 7
+15:		 ASSIGN a
+16:		 PUSH 13
+17:		 ASSIGN b
+18:		 PUSH 3
+19:		 PUSH 10
+20:		 PUSH simplesum
+21:		 CALL 1
+22:		 SUM 
+23:		 ASSIGN a
+24:		 PUSH 1
+25:		 PUSH 10
+26:		 BOOLEAN_MINUS 
+27:		 PUSH simplesum
+28:		 CALL 1
+29:		 MULTIPLY 
+30:		 ASSIGN b
+31:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========

@@ -1,8 +1,8 @@
 import math
 
 from src.Exceptions import VirtualMachineInvalidOperationError
-from src.VirtualMachine.Values import StringValue, NilValue, NumberValue, Value, BooleanValue, BuiltinFunctionValue, \
-    CustomFunctionValue
+from src.VirtualMachine.Values import StringValue, NilValue, NumberValue, Value, BooleanValue, BuiltinSubprogramValue, \
+    CustomSubprogramValue
 
 
 class IOFunctions:
@@ -26,10 +26,10 @@ class IOFunctions:
             return 'nil'
         elif isinstance(value, BooleanValue):
             return 'true' if value.value else 'false'
-        elif isinstance(value, BuiltinFunctionValue):
+        elif isinstance(value, BuiltinSubprogramValue):
             return 'builtin_function_instance(name=\"{}\")'.format(value.name)
-        elif isinstance(value, CustomFunctionValue):
-            return 'function_instance(name=\"{}\", addr={})'.format(value.name, value.instruction_address)
+        elif isinstance(value, CustomSubprogramValue):
+            return 'function_instaёnce(name=\"{}\", addr={})'.format(value.name, value.instruction_address)
         else:
             raise VirtualMachineInvalidOperationError(
                 "Impossible to get value representation for value {}".format(value))

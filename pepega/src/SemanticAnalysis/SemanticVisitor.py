@@ -117,11 +117,11 @@ class SemanticVisitor(object):
 
     @visitor.when(Program)
     def visit(self, node: Program):
-        # Creates global_scope with level 1
+        # Creates global_scope with level 0
         # Sets current_scope to global_scope
         # Visits all child nodes
         # Sets current_scope to None (global_scope.parent_scope == Null)
-        global_scope = SymbolTable('global', 1, self.current_scope)
+        global_scope = SymbolTable('global', 0, self.current_scope)
         self.current_scope = global_scope
 
         for child in node:

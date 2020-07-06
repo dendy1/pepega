@@ -492,6 +492,20 @@ Program
 
 
 ======== PROGRAM RESULT ========
-2.0
-6.0
--6.666666666666667
+0.0
+0.0
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 43, in run_tests
+    virtual_machine.run()
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 71, in run
+    self._handle_instruction(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 81, in _handle_instruction
+    handler(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 17, in binary_operation_handler_internal
+    value = func(self, left, right)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 122, in _handle_divide
+    return left / right
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Values.py", line 173, in __truediv__
+    return NumberValue(self.value / other.value)
+ZeroDivisionError: float division by zero
+

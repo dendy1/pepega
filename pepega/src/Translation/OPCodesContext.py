@@ -1,5 +1,5 @@
 from typing import List
-from src.VirtualMachine.OPCodes import OPCode, OPCodesDefinitions
+from src.Translation.OPCodes import OPCode, OPCodesDefinitions
 
 
 class OPCodesContext:
@@ -35,6 +35,3 @@ class OPCodesContext:
 
     def add_opcode(self, opcode: OPCode):
         self._opcodes.append(opcode)
-
-    def print(self):
-        print(self._opcodes, sep='\n')

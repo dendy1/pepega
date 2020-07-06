@@ -212,40 +212,41 @@ Program
 2:		 DECLARE_LOCAL op
 3:		 FUNCTION kl
 4:		 BEGIN_SCOPE 
-5:		 ASSIGN mn
-6:		 PUSH ij
-7:		 PUSH mn
-8:		 SUM 
-9:		 PUSH mn
-10:		 PUSH op
-11:		 SUM 
-12:		 ASSIGN kl
-13:		 PUSH kl
-14:		 RETURN 1
-15:		 END_SCOPE 
-16:		 PUSH 45
-17:		 ASSIGN ij
-18:		 BEGIN_SCOPE 
-19:		 PUSH ij
-20:		 PUSH 1
-21:		 COMPARE_GT 
-22:		 JUMP_NEG 28
-23:		 PUSH 1
-24:		 ASSIGN op
-25:		 JUMP 31
-26:		 END_SCOPE 
-27:		 BEGIN_SCOPE 
-28:		 PUSH 2
-29:		 ASSIGN op
-30:		 END_SCOPE 
-31:		 PUSH 55
-32:		 PUSH kl
-33:		 CALL 1
-34:		 ASSIGN ij
-35:		 PUSH ij
-36:		 PUSH printint
-37:		 CALL 1
-38:		 END_SCOPE 
+5:		 DECLARE_LOCAL mn
+6:		 ASSIGN mn
+7:		 PUSH ij
+8:		 PUSH mn
+9:		 SUM 
+10:		 PUSH mn
+11:		 PUSH op
+12:		 SUM 
+13:		 ASSIGN kl
+14:		 PUSH kl
+15:		 RETURN 1
+16:		 END_SCOPE 
+17:		 PUSH 45
+18:		 ASSIGN ij
+19:		 BEGIN_SCOPE 
+20:		 PUSH ij
+21:		 PUSH 1
+22:		 COMPARE_GT 
+23:		 JUMP_NEG 29
+24:		 PUSH 1
+25:		 ASSIGN op
+26:		 JUMP 32
+27:		 END_SCOPE 
+28:		 BEGIN_SCOPE 
+29:		 PUSH 2
+30:		 ASSIGN op
+31:		 END_SCOPE 
+32:		 PUSH 55
+33:		 PUSH kl
+34:		 CALL 1
+35:		 ASSIGN ij
+36:		 PUSH ij
+37:		 PUSH printint
+38:		 CALL 1
+39:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========

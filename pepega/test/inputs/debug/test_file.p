@@ -1,26 +1,70 @@
 program test(in, out, err);
-var z, y : integer;
-var x : real;
+var x, y, z : integer;
+var a, b, c, d, e : integer;
 
-function add(a, b : integer) : real;
-    function mul(a, b : integer) : integer;
-    begin
-        mul := a * b
-    end;
+function add(o, n : integer) : integer;
 begin
-    add := mul(a,b) + 2
+    add := o + n
 end;
 
-function div(a, b : integer) : integer;
+function mul(a, b : integer) : integer;
+begin
+    mul := a * b
+end;
+
+function div(a, b : integer; c : real) : integer;
 begin
     div := a / b
 end;
 
 begin
+    z := 10;
     x := add(3, 4);
-    y := 3;
-    z := y + 10;
-    printreal(x);
-    printReal(z);
-    printreal(3.5)
+    y := mul(x, z);
+    z := div(y, 2, 3);
+
+    a := 3;
+    b := a * 3;
+
+    if (not (b > 50)) then
+        begin
+            c := a + b - 2
+        end
+    else
+        begin
+            c := b * a - 7
+        end;
+
+    if (c > 5) then
+        begin
+            d := c + a - b
+        end
+    else
+        begin
+            d := c - a + b
+        end;
+
+    e := 7;
+    a := 3;
+    b := 5;
+    c := 7;
+    d := 100;
+
+    while (b > a) do
+    begin
+        b := b-1
+    end;
+
+    while (c > b) do
+    begin
+        c := c-1
+    end;
+
+    while (d > c) do
+    begin
+        d := d - 1
+    end;
+
+    printInt(a+b+c+d);
+    printInt(x+y+z)
 end.

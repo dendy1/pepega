@@ -2,9 +2,9 @@ program test(in, out, err);
 var x, y, z : integer;
 var a, b, c, d, e : integer;
 
-function add(a, b : integer) : integer;
+function add(h, j : integer) : integer;
 begin
-    add := a + b
+    add := h + j
 end;
 
 function mul(a, b : integer) : integer;

@@ -804,3 +804,23 @@ Program
 
 
 ======== PROGRAM RESULT ========
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 43, in run_tests
+    virtual_machine.run()
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 71, in run
+    self._handle_instruction(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 81, in _handle_instruction
+    handler(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 94, in _handle_push
+    pushed_value = self._context.current_scope.lookup(value)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
+    return self._enclosing_scope.lookup(name)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
+    return self._enclosing_scope.lookup(name)
+  [Previous line repeated 991 more times]
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 19, in lookup
+    value = self._values.get(name)
+RecursionError: maximum recursion depth exceeded while calling a Python object
+

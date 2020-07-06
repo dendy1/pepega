@@ -79,9 +79,21 @@ class StringValue(Value):
 
     def __lt__(self, other):
         if isinstance(other, StringValue):
-            return BooleanValue(self.value <= other.value)
+            return BooleanValue(self.value < other.value)
         else:
             super().__lt__(other)
+
+    def __gt__(self, other):
+        if isinstance(other, StringValue):
+            return BooleanValue(self.value > other.value)
+        else:
+            super().__gt__(other)
+
+    def __sub__(self, other):
+        if isinstance(other, StringValue):
+            return StringValue(self.value + other.value)
+        else:
+            super().__sub__(other)
 
     def concat(self, other):
         if isinstance(other, StringValue):
@@ -118,12 +130,6 @@ class BooleanValue(Value):
             return BooleanValue(self.value == other.value)
         else:
             super().__eq__(other)
-
-    def __lt__(self, other):
-        if isinstance(other, BooleanValue):
-            return BooleanValue(self.value <= other.value)
-        else:
-            super().__lt__(other)
 
     __repr__ = __str__
 
@@ -193,19 +199,19 @@ class NumberValue(Value):
         if isinstance(other, NumberValue):
             return BooleanValue(self.value <= other.value)
         else:
-            super().__lt__(other)
+            super().__le__(other)
 
     def __gt__(self, other):
         if isinstance(other, NumberValue):
             return BooleanValue(self.value > other.value)
         else:
-            super().__lt__(other)
+            super().__gt__(other)
 
     def __ge__(self, other):
         if isinstance(other, NumberValue):
             return BooleanValue(self.value >= other.value)
         else:
-            super().__lt__(other)
+            super().__ge__(other)
 
     def __neg__(self):
         return NumberValue(-self.value)
@@ -230,7 +236,7 @@ class IdentifierValue(Value):
     __repr__ = __str__
 
 
-class BuiltinFunctionValue(Value):
+class BuiltinSubprogramValue(Value):
     def __init__(self, name: str, function: Callable):
         super().__init__()
         self._name = name
@@ -248,11 +254,12 @@ class BuiltinFunctionValue(Value):
         return self._function(*args)
 
     def __str__(self):
-        return "BuiltinFunctionValue({})".format(self._function)
+        return "BuiltinSubprogramValue({})".format(self._function)
 
     __repr__ = __str__
 
-class CustomFunctionValue(Value):
+
+class CustomSubprogramValue(Value):
     def __init__(self, name: str, instruction_address: int, declaration_scope):
         super().__init__()
         self._name = name
@@ -272,6 +279,6 @@ class CustomFunctionValue(Value):
         return self._declaration_scope
 
     def __str__(self):
-        return "CustomFunctionValue(name=\"{}\", instruction_address={})".format(self._name, self._instruction_address)
+        return "CustomSubprogramValue(name=\"{}\", instruction_address={})".format(self._name, self._instruction_address)
 
     __repr__ = __str__

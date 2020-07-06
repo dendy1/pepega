@@ -273,7 +273,7 @@ class WhileStatement(CustomList):
 
     @property
     def while_stmt(self):
-        return self[2]
+        return self[3]
 
 class Arguments(CustomList):
     pass

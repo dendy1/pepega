@@ -115,6 +115,7 @@ class OPCodeType(Enum):
     # Example: concat
     CONCAT = auto()
 
+
 class OPCodeArgDefinition:
     def __init__(self, arg_type):
         self._type = arg_type
@@ -136,6 +137,7 @@ class OPCodeDefinition:
     @property
     def args(self):
         return self._args
+
 
 class OPCodesDefinitions:
     _opcodes_definitions = {

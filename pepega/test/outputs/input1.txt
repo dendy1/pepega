@@ -41,9 +41,9 @@ Program
   │ │ │ ├ ParametersList
   │ │ │ │ └ Parameters
   │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ a
+  │ │ │ │   │ └ h
   │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ b
+  │ │ │ │   │ └ j
   │ │ │ │   └ Type
   │ │ │ │     └ integer
   │ │ │ └ Type
@@ -57,11 +57,11 @@ Program
   │ │       └ AdditiveExpression
   │ │         ├ EntireVariable
   │ │         │ └ Identifier
-  │ │         │   └ a
+  │ │         │   └ h
   │ │         ├ +
   │ │         └ EntireVariable
   │ │           └ Identifier
-  │ │             └ b
+  │ │             └ j
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
@@ -478,9 +478,9 @@ Program
   │ │ │ ├ ParametersList
   │ │ │ │ └ Parameters
   │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ a
+  │ │ │ │   │ └ h
   │ │ │ │   ├ Identifier
-  │ │ │ │   │ └ b
+  │ │ │ │   │ └ j
   │ │ │ │   └ Type
   │ │ │ │     └ integer
   │ │ │ └ Type
@@ -494,11 +494,11 @@ Program
   │ │       └ AdditiveExpression (integer)
   │ │         ├ EntireVariable (integer)
   │ │         │ └ Identifier
-  │ │         │   └ a
+  │ │         │   └ h
   │ │         ├ +
   │ │         └ EntireVariable (integer)
   │ │           └ Identifier
-  │ │             └ b
+  │ │             └ j
   │ ├ SubprogramDeclaration
   │ │ ├ SubprogramHeader
   │ │ │ ├ Identifier
@@ -884,165 +884,172 @@ Program
 8:		 DECLARE_LOCAL e
 9:		 FUNCTION add
 10:		 BEGIN_SCOPE 
-11:		 ASSIGN b
-12:		 ASSIGN a
-13:		 PUSH a
-14:		 PUSH b
-15:		 SUM 
-16:		 ASSIGN add
-17:		 PUSH add
-18:		 RETURN 1
-19:		 END_SCOPE 
-20:		 FUNCTION mul
-21:		 BEGIN_SCOPE 
-22:		 ASSIGN b
-23:		 ASSIGN a
-24:		 PUSH a
-25:		 PUSH b
-26:		 MULTIPLY 
-27:		 ASSIGN mul
-28:		 PUSH mul
-29:		 RETURN 1
-30:		 END_SCOPE 
-31:		 FUNCTION div
-32:		 BEGIN_SCOPE 
-33:		 ASSIGN b
-34:		 ASSIGN a
-35:		 ASSIGN c
-36:		 PUSH a
-37:		 PUSH b
-38:		 DIVIDE 
-39:		 ASSIGN div
-40:		 PUSH div
-41:		 RETURN 1
-42:		 END_SCOPE 
-43:		 PUSH 10
-44:		 ASSIGN z
-45:		 PUSH 3
-46:		 PUSH 4
-47:		 PUSH add
-48:		 CALL 2
-49:		 ASSIGN x
-50:		 PUSH x
-51:		 PUSH z
-52:		 PUSH mul
-53:		 CALL 2
-54:		 ASSIGN y
-55:		 PUSH y
-56:		 PUSH 2
-57:		 PUSH 3
-58:		 PUSH div
-59:		 CALL 3
-60:		 ASSIGN z
-61:		 PUSH 3
-62:		 ASSIGN a
-63:		 PUSH a
+11:		 DECLARE_LOCAL j
+12:		 ASSIGN j
+13:		 DECLARE_LOCAL h
+14:		 ASSIGN h
+15:		 PUSH h
+16:		 PUSH j
+17:		 SUM 
+18:		 ASSIGN add
+19:		 PUSH add
+20:		 RETURN 1
+21:		 END_SCOPE 
+22:		 FUNCTION mul
+23:		 BEGIN_SCOPE 
+24:		 DECLARE_LOCAL b
+25:		 ASSIGN b
+26:		 DECLARE_LOCAL a
+27:		 ASSIGN a
+28:		 PUSH a
+29:		 PUSH b
+30:		 MULTIPLY 
+31:		 ASSIGN mul
+32:		 PUSH mul
+33:		 RETURN 1
+34:		 END_SCOPE 
+35:		 FUNCTION div
+36:		 BEGIN_SCOPE 
+37:		 DECLARE_LOCAL b
+38:		 ASSIGN b
+39:		 DECLARE_LOCAL a
+40:		 ASSIGN a
+41:		 DECLARE_LOCAL c
+42:		 ASSIGN c
+43:		 PUSH a
+44:		 PUSH b
+45:		 DIVIDE 
+46:		 ASSIGN div
+47:		 PUSH div
+48:		 RETURN 1
+49:		 END_SCOPE 
+50:		 PUSH 10
+51:		 ASSIGN z
+52:		 PUSH 3
+53:		 PUSH 4
+54:		 PUSH add
+55:		 CALL 2
+56:		 ASSIGN x
+57:		 PUSH x
+58:		 PUSH z
+59:		 PUSH mul
+60:		 CALL 2
+61:		 ASSIGN y
+62:		 PUSH y
+63:		 PUSH 2
 64:		 PUSH 3
-65:		 MULTIPLY 
-66:		 ASSIGN b
-67:		 BEGIN_SCOPE 
-68:		 PUSH b
-69:		 PUSH 50
-70:		 COMPARE_GT 
-71:		 BOOLEAN_NOT 
-72:		 JUMP_NEG 83
-73:		 PUSH a
-74:		 PUSH b
-75:		 SUM 
-76:		 PUSH b
-77:		 PUSH 2
-78:		 SUBTRACT 
-79:		 ASSIGN c
-80:		 JUMP 90
-81:		 END_SCOPE 
-82:		 BEGIN_SCOPE 
+65:		 PUSH div
+66:		 CALL 3
+67:		 ASSIGN z
+68:		 PUSH 3
+69:		 ASSIGN a
+70:		 PUSH a
+71:		 PUSH 3
+72:		 MULTIPLY 
+73:		 ASSIGN b
+74:		 BEGIN_SCOPE 
+75:		 PUSH b
+76:		 PUSH 50
+77:		 COMPARE_GT 
+78:		 BOOLEAN_NOT 
+79:		 JUMP_NEG 90
+80:		 PUSH a
+81:		 PUSH b
+82:		 SUM 
 83:		 PUSH b
-84:		 PUSH a
-85:		 MULTIPLY 
-86:		 PUSH 7
-87:		 SUBTRACT 
-88:		 ASSIGN c
-89:		 END_SCOPE 
-90:		 BEGIN_SCOPE 
-91:		 PUSH c
-92:		 PUSH 5
-93:		 COMPARE_GT 
-94:		 JUMP_NEG 105
-95:		 PUSH c
-96:		 PUSH a
-97:		 SUM 
-98:		 PUSH a
-99:		 PUSH b
-100:		 SUBTRACT 
-101:		 ASSIGN d
-102:		 JUMP 113
-103:		 END_SCOPE 
-104:		 BEGIN_SCOPE 
-105:		 PUSH c
-106:		 PUSH a
+84:		 PUSH 2
+85:		 SUBTRACT 
+86:		 ASSIGN c
+87:		 JUMP 97
+88:		 END_SCOPE 
+89:		 BEGIN_SCOPE 
+90:		 PUSH b
+91:		 PUSH a
+92:		 MULTIPLY 
+93:		 PUSH 7
+94:		 SUBTRACT 
+95:		 ASSIGN c
+96:		 END_SCOPE 
+97:		 BEGIN_SCOPE 
+98:		 PUSH c
+99:		 PUSH 5
+100:		 COMPARE_GT 
+101:		 JUMP_NEG 112
+102:		 PUSH c
+103:		 PUSH a
+104:		 SUM 
+105:		 PUSH a
+106:		 PUSH b
 107:		 SUBTRACT 
-108:		 PUSH a
-109:		 PUSH b
-110:		 SUM 
-111:		 ASSIGN d
-112:		 END_SCOPE 
-113:		 PUSH 7
-114:		 ASSIGN e
-115:		 PUSH 3
-116:		 ASSIGN a
-117:		 PUSH 5
-118:		 ASSIGN b
-119:		 PUSH 7
-120:		 ASSIGN c
-121:		 PUSH 100
-122:		 ASSIGN d
-123:		 BEGIN_SCOPE 
-124:		 PUSH b
-125:		 PUSH a
-126:		 COMPARE_GT 
-127:		 JUMP_NEG 131
-128:		 BEGIN_SCOPE 
-129:		 JUMP 123
-130:		 END_SCOPE 
-131:		 END_SCOPE 
-132:		 BEGIN_SCOPE 
-133:		 PUSH c
-134:		 PUSH b
-135:		 COMPARE_GT 
-136:		 JUMP_NEG 140
-137:		 BEGIN_SCOPE 
-138:		 JUMP 132
-139:		 END_SCOPE 
-140:		 END_SCOPE 
-141:		 BEGIN_SCOPE 
-142:		 PUSH d
-143:		 PUSH c
-144:		 COMPARE_GT 
-145:		 JUMP_NEG 149
-146:		 BEGIN_SCOPE 
-147:		 JUMP 141
-148:		 END_SCOPE 
-149:		 END_SCOPE 
-150:		 PUSH a
-151:		 PUSH b
-152:		 SUM 
-153:		 PUSH b
-154:		 PUSH c
-155:		 SUM 
-156:		 PUSH c
-157:		 PUSH d
-158:		 SUM 
-159:		 PUSH printint
-160:		 CALL 1
-161:		 PUSH x
-162:		 PUSH y
-163:		 SUM 
-164:		 PUSH y
-165:		 PUSH z
-166:		 SUM 
-167:		 PUSH printint
-168:		 CALL 1
-169:		 END_SCOPE 
+108:		 ASSIGN d
+109:		 JUMP 120
+110:		 END_SCOPE 
+111:		 BEGIN_SCOPE 
+112:		 PUSH c
+113:		 PUSH a
+114:		 SUBTRACT 
+115:		 PUSH a
+116:		 PUSH b
+117:		 SUM 
+118:		 ASSIGN d
+119:		 END_SCOPE 
+120:		 PUSH 7
+121:		 ASSIGN e
+122:		 PUSH 3
+123:		 ASSIGN a
+124:		 PUSH 5
+125:		 ASSIGN b
+126:		 PUSH 7
+127:		 ASSIGN c
+128:		 PUSH 100
+129:		 ASSIGN d
+130:		 BEGIN_SCOPE 
+131:		 PUSH b
+132:		 PUSH a
+133:		 COMPARE_GT 
+134:		 JUMP_NEG 138
+135:		 BEGIN_SCOPE 
+136:		 JUMP 130
+137:		 END_SCOPE 
+138:		 END_SCOPE 
+139:		 BEGIN_SCOPE 
+140:		 PUSH c
+141:		 PUSH b
+142:		 COMPARE_GT 
+143:		 JUMP_NEG 147
+144:		 BEGIN_SCOPE 
+145:		 JUMP 139
+146:		 END_SCOPE 
+147:		 END_SCOPE 
+148:		 BEGIN_SCOPE 
+149:		 PUSH d
+150:		 PUSH c
+151:		 COMPARE_GT 
+152:		 JUMP_NEG 156
+153:		 BEGIN_SCOPE 
+154:		 JUMP 148
+155:		 END_SCOPE 
+156:		 END_SCOPE 
+157:		 PUSH a
+158:		 PUSH b
+159:		 SUM 
+160:		 PUSH b
+161:		 PUSH c
+162:		 SUM 
+163:		 PUSH c
+164:		 PUSH d
+165:		 SUM 
+166:		 PUSH printint
+167:		 CALL 1
+168:		 PUSH x
+169:		 PUSH y
+170:		 SUM 
+171:		 PUSH y
+172:		 PUSH z
+173:		 SUM 
+174:		 PUSH printint
+175:		 CALL 1
+176:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========
@@ -1055,14 +1062,14 @@ Traceback (most recent call last):
     handler(instruction)
   File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 94, in _handle_push
     pushed_value = self._context.current_scope.lookup(value)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
   [Previous line repeated 991 more times]
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 24, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 19, in lookup
     value = self._values.get(name)
 RecursionError: maximum recursion depth exceeded while calling a Python object
 

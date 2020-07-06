@@ -148,23 +148,25 @@ Program
 4:		 DECLARE_LOCAL d
 5:		 FUNCTION addition
 6:		 BEGIN_SCOPE 
-7:		 ASSIGN b
-8:		 ASSIGN a
-9:		 DECLARE_LOCAL c
-10:		 PUSH 123
-11:		 ASSIGN addition
-12:		 PUSH addition
-13:		 RETURN 1
-14:		 END_SCOPE 
-15:		 PUSH 1
-16:		 PUSH 2
-17:		 PUSH addition
-18:		 CALL 2
-19:		 ASSIGN a
-20:		 PUSH a
-21:		 PUSH printint
-22:		 CALL 1
-23:		 END_SCOPE 
+7:		 DECLARE_LOCAL b
+8:		 ASSIGN b
+9:		 DECLARE_LOCAL a
+10:		 ASSIGN a
+11:		 DECLARE_LOCAL c
+12:		 PUSH 123
+13:		 ASSIGN addition
+14:		 PUSH addition
+15:		 RETURN 1
+16:		 END_SCOPE 
+17:		 PUSH 1
+18:		 PUSH 2
+19:		 PUSH addition
+20:		 CALL 2
+21:		 ASSIGN a
+22:		 PUSH a
+23:		 PUSH printint
+24:		 CALL 1
+25:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========

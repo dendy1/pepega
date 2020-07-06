@@ -6,7 +6,7 @@ import io, traceback
 import sys
 
 def run_tests():
-    files = get_list_of_files('test\inputs')
+    files = get_list_of_files('test\inputs\debug')
     for filename in files:
         f = open(filename, 'r')
         program_lines = f.read().lower()

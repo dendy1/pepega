@@ -4,10 +4,10 @@ from src.Exceptions import VirtualMachineRuntimeError, VirtualMachineInvalidInst
     VirtualMachineScopeOrderError
 from src.VirtualMachine.BuiltinFunctions import IOFunctions
 from src.VirtualMachine.VMContext import ExecutionContext
-from src.VirtualMachine.OPCodes import OPCodeType, OPCode
-from src.VirtualMachine.Values import BuiltinFunctionValue, Value, NilValue, BooleanValue, NumberValue, StringValue, \
-    IdentifierValue, CustomFunctionValue
-from src.VirtualMachine.utils import is_float_literal, is_int_literal
+from src.Translation.OPCodes import OPCodeType, OPCode
+from src.VirtualMachine.Values import BuiltinSubprogramValue, Value, NilValue, BooleanValue, NumberValue, StringValue, \
+    IdentifierValue, CustomSubprogramValue
+from src.VirtualMachine.utils import is_float_literal
 
 
 def binary_operation_handler(func):
@@ -41,7 +41,7 @@ class VirtualMachine:
             OPCodeType.BOOLEAN_AND: self._handle_boolean_and,
             OPCodeType.BOOLEAN_OR: self._handle_boolean_or,
             OPCodeType.BOOLEAN_NOT: self._handle_boolean_not,
-            OPCodeType.MINUS: self._handle_minus,
+            OPCodeType.BOOLEAN_MINUS: self._handle_minus,
             OPCodeType.COMPARE_GT: self._handle_compare_gt,
             OPCodeType.COMPARE_EQ: self._handle_compare_eq,
             OPCodeType.COMPARE_GE: self._handle_compare_ge,
@@ -58,7 +58,7 @@ class VirtualMachine:
         if self._context.global_scope.lookup(name):
             raise VirtualMachineRuntimeError("Failed to register builtin function {}: it already exists".format(name))
 
-        self._context.global_scope.define(name, BuiltinFunctionValue(name, function))
+        self._context.global_scope.define(name, BuiltinSubprogramValue(name, function))
 
     def load_standard_library(self):
         self.register_builtin_function("printint", IOFunctions.print)
@@ -221,21 +221,21 @@ class VirtualMachine:
     def _handle_declare_local(self, instruction: OPCode):
         # Handle variable declaration in local scope
         value_identifier = instruction.first_arg
-        self._context.current_scope.define_local(value_identifier, NilValue())
+        self._context.current_scope.define(value_identifier, NilValue())
 
     def _handle_assign(self, instruction: OPCode):
         # Popping last value from stack
         value = self._pop_operand_value()
         value_identifier = instruction.first_arg
 
-        # Handle variable declaration in closest available scope
-        self._context.current_scope.define_local(value_identifier, value)
+        # Handle variable declaration in local scope
+        self._context.current_scope.define(value_identifier, value)
 
     def _handle_call(self, instruction: OPCode):
         # Popping last callable value (BuiltinFunctionValue or CustomFunctionValue) from stack
         callable_value = self._context.pop_value()
 
-        if isinstance(callable_value, BuiltinFunctionValue):
+        if isinstance(callable_value, BuiltinSubprogramValue):
             # Calling predefined function
             args_count = instruction.first_arg
             args = []
@@ -250,7 +250,7 @@ class VirtualMachine:
             assert isinstance(call_result, Value)
 
             self._context.push_value(call_result)
-        elif isinstance(callable_value, CustomFunctionValue):
+        elif isinstance(callable_value, CustomSubprogramValue):
             # Calling user defined function
             self._context.enter_to_call_context(callable_value)
         else:
@@ -263,12 +263,12 @@ class VirtualMachine:
     def _handle_function(self, instruction: OPCode):
         # Handling function declaration
         # Creating new local scope for function
-        self._context.create_scope()
+        #self._context.create_scope()
 
         # Creating function value object
         function_name = instruction.first_arg
-        function_value = CustomFunctionValue(function_name, self._context.instruction_address,
-                                             self._context.current_scope)
+        function_value = CustomSubprogramValue(function_name, self._context.instruction_address,
+                                               self._context.current_scope)
 
         # Defining function in current scope
         self._context.current_scope.define(function_name, function_value)

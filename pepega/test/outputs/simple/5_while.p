@@ -360,14 +360,14 @@ Traceback (most recent call last):
     handler(instruction)
   File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 94, in _handle_push
     pushed_value = self._context.current_scope.lookup(value)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 33, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 28, in lookup
     return self._enclosing_scope.lookup(name)
   [Previous line repeated 991 more times]
-  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 24, in lookup
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Scope.py", line 19, in lookup
     value = self._values.get(name)
 RecursionError: maximum recursion depth exceeded while calling a Python object
 

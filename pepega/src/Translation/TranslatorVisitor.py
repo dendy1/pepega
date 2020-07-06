@@ -1,8 +1,6 @@
-from typing import Union
-
 from src.Exceptions import TranslatorError
 from src.Translation.OPCodesContext import OPCodesContext
-from src.VirtualMachine.OPCodes import OPCode, OPCodeType
+from src.Translation.OPCodes import OPCode, OPCodeType
 from src.Visitor import visitor
 from src.pyPEG.MiniPascalGrammars import *
 
@@ -75,6 +73,7 @@ class TranslatorVisitor(object):
     @visitor.when(Parameters)
     def visit(self, node: Parameters):
         for ident in reversed(node[:-1]):
+            self.context.add_opcode(OPCode(OPCodeType.DECLARE_LOCAL, [ident[0]]))
             self.context.add_opcode(OPCode(OPCodeType.ASSIGN, [ident[0]]))
 
     @visitor.when(StatementList)
@@ -281,7 +280,7 @@ class TranslatorVisitor(object):
         for child in node:
             self.visit(child)
 
-        self.context.add_opcode(OPCode(OPCodeType.MINUS))
+        self.context.add_opcode(OPCode(OPCodeType.BOOLEAN_MINUS))
 
     @visitor.when(Factor)
     def visit(self, node: Factor):

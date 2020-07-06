@@ -486,4 +486,20 @@ Program
 
 
 ======== PROGRAM RESULT ========
--6.416666666666667
+Traceback (most recent call last):
+  File "F:\Projects\pepega\pepega\tests.py", line 43, in run_tests
+    virtual_machine.run()
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 71, in run
+    self._handle_instruction(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 81, in _handle_instruction
+    handler(instruction)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 17, in binary_operation_handler_internal
+    value = func(self, left, right)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\VirtualMachine.py", line 122, in _handle_divide
+    return left / right
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Values.py", line 175, in __truediv__
+    super().__truediv__(other)
+  File "F:\Projects\pepega\pepega\src\VirtualMachine\Values.py", line 20, in __truediv__
+    raise VirtualMachineInvalidOperationError("Invalid operands for '/' operation: {} and {}".format(self, other))
+src.Exceptions.VirtualMachineInvalidOperationError: Invalid operands for '/' operation: NumberValue(7.0) and NilValue()
+

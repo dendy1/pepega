@@ -1,11 +1,11 @@
 from src.SemanticAnalysis.Symbols import *
 
 class SymbolTable:
-    def __init__(self, scope_name, scope_level, enclosing_scope):
+    def __init__(self, scope_name, scope_level, enclosing_scope: Optional['SymbolTable']):
         self._symbols = {}
         self.scope_name = scope_name
         self.scope_level = scope_level
-        self.enclosing_scope : SymbolTable = enclosing_scope
+        self.enclosing_scope: Optional['SymbolTable'] = enclosing_scope
 
         self.load_standard_library()
 

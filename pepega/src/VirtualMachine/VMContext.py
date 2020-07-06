@@ -1,36 +1,34 @@
 from typing import List
 
 from src.Exceptions import VirtualMachineScopeOrderError, VirtualMachineInvalidOperationError
-from src.VirtualMachine.OPCodes import OPCode
+from src.Translation.OPCodes import OPCode
 from src.VirtualMachine.Scope import Scope
-from src.VirtualMachine.Values import Value, CustomFunctionValue
+from src.VirtualMachine.Values import Value, CustomSubprogramValue
 
 
 class CallContext:
     def __init__(self, scope: Scope, return_address: int, override_local_scope: bool = False):
         self._return_address = return_address
-        self._scopes: List[Scope] = [scope] if override_local_scope else [Scope(scope)]
+        self._current_scope = scope if override_local_scope else Scope(scope)
 
     @property
     def current_scope(self):
-        return self._scopes[-1]
+        return self._current_scope
 
     @property
     def return_address(self):
         return self._return_address
 
     def create_scope(self):
-        self._scopes.append(Scope(self.current_scope))
+        new_scope = Scope(self.current_scope)
+        self._current_scope = new_scope
 
     def destroy_scope(self):
-        if len(self._scopes) <= 1:
+        if self._current_scope is None:
             raise VirtualMachineScopeOrderError("Failed to destroy the last scope")
 
-    def __str__(self):
-        for scope in self._scopes:
-            print(scope)
+        self._current_scope = self._current_scope.enclosing_scope
 
-    __repr__ = __str__
 
 class ExecutionContext:
     def __init__(self, code: List[OPCode]):
@@ -93,7 +91,7 @@ class ExecutionContext:
 
         self._instruction_address += 1
 
-    def enter_to_call_context(self, function: CustomFunctionValue):
+    def enter_to_call_context(self, function: CustomSubprogramValue):
         self._call_stack.append(CallContext(self.current_scope, self._instruction_address))
         self._instruction_address = function.instruction_address
 

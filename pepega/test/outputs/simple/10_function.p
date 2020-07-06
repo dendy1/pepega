@@ -229,37 +229,39 @@ Program
 3:		 DECLARE_LOCAL z
 4:		 FUNCTION div
 5:		 BEGIN_SCOPE 
-6:		 ASSIGN b
-7:		 ASSIGN a
-8:		 PUSH a
-9:		 PUSH b
-10:		 DIVIDE 
-11:		 ASSIGN div
-12:		 PUSH div
-13:		 RETURN 1
-14:		 END_SCOPE 
-15:		 PUSH 1
-16:		 PUSH 2
-17:		 PUSH div
-18:		 CALL 2
-19:		 ASSIGN x
-20:		 PUSH 4
-21:		 ASSIGN y
-22:		 PUSH x
-23:		 PUSH 10
-24:		 PUSH 5
-25:		 PUSH div
-26:		 CALL 2
-27:		 SUM 
-28:		 ASSIGN x
-29:		 PUSH x
-30:		 PUSH 3
-31:		 SUM 
-32:		 ASSIGN x
-33:		 PUSH x
-34:		 PUSH printint
-35:		 CALL 1
-36:		 END_SCOPE 
+6:		 DECLARE_LOCAL b
+7:		 ASSIGN b
+8:		 DECLARE_LOCAL a
+9:		 ASSIGN a
+10:		 PUSH a
+11:		 PUSH b
+12:		 DIVIDE 
+13:		 ASSIGN div
+14:		 PUSH div
+15:		 RETURN 1
+16:		 END_SCOPE 
+17:		 PUSH 1
+18:		 PUSH 2
+19:		 PUSH div
+20:		 CALL 2
+21:		 ASSIGN x
+22:		 PUSH 4
+23:		 ASSIGN y
+24:		 PUSH x
+25:		 PUSH 10
+26:		 PUSH 5
+27:		 PUSH div
+28:		 CALL 2
+29:		 SUM 
+30:		 ASSIGN x
+31:		 PUSH x
+32:		 PUSH 3
+33:		 SUM 
+34:		 ASSIGN x
+35:		 PUSH x
+36:		 PUSH printint
+37:		 CALL 1
+38:		 END_SCOPE 
 
 
 ======== PROGRAM RESULT ========
